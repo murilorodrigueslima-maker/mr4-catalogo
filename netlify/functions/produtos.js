@@ -32,10 +32,7 @@ exports.handler = async (event) => {
       const restante = await Promise.all(promises);
       restante.forEach(lista => { todosProdutos = todosProdutos.concat(lista); });
     }
-
-    // Filtra apenas produtos com estoque maior que zero
     todosProdutos = todosProdutos.filter(p => p.stock > 0);
-
     return { statusCode: 200, headers, body: JSON.stringify({ produtos: todosProdutos, total: todosProdutos.length, paginas: 1, pagina: 1 }) };
   } catch (err) {
     return { statusCode: 500, headers, body: JSON.stringify({ erro: 'Erro interno', detalhe: err.message }) };
@@ -51,16 +48,22 @@ function fetchGC(url) {
   return fetch(url, { method: 'GET', headers: { 'access-token': ACCESS_TOKEN, 'secret-access-token': SECRET_ACCESS_TOKEN, 'Content-Type': 'application/json' } });
 }
 function normalizaProdutos(lista) {
-  return lista.map(p => ({
-    id:       p.id || p.codigo_interno,
-    ref:      p.codigo_interno || p.codigo || '—',
-    name:     p.nome || '—',
-    category: p.categoria || p.grupo || 'Acessórios',
-    price:    formatPrice(p.preco_venda || p.valor || 0),
-    stock:    Number(p.estoque || p.quantidade_estoque || 0),
-    img:      p.foto || p.imagem || '',
-    desc:     p.descricao_completa || p.observacoes || '',
-  }));
+  return lista.map(p => {
+    const valores = p.valores || [];
+    const preco   = valores.length > 0 ? (valores[0].valor_venda || 0) : 0;
+    const fotos   = p.fotos || [];
+    const img     = fotos.length > 0 ? fotos[0] : '';
+    return {
+      id:       p.id || p.codigo_interno,
+      ref:      p.codigo_interno || p.codigo || '—',
+      name:     p.nome || '—',
+      category: p.nome_grupo || p.grupo || p.categoria || 'Geral',
+      price:    formatPrice(preco),
+      stock:    Number(p.estoque || 0),
+      img:      img,
+      desc:     p.descricao || p.observacoes || '',
+    };
+  });
 }
 function formatPrice(valor) {
   if (!valor || valor === 0) return 'Sob consulta';
