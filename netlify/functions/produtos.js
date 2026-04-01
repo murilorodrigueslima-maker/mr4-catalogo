@@ -32,6 +32,10 @@ exports.handler = async (event) => {
       const restante = await Promise.all(promises);
       restante.forEach(lista => { todosProdutos = todosProdutos.concat(lista); });
     }
+
+    // Filtra apenas produtos com estoque maior que zero
+    todosProdutos = todosProdutos.filter(p => p.stock > 0);
+
     return { statusCode: 200, headers, body: JSON.stringify({ produtos: todosProdutos, total: todosProdutos.length, paginas: 1, pagina: 1 }) };
   } catch (err) {
     return { statusCode: 500, headers, body: JSON.stringify({ erro: 'Erro interno', detalhe: err.message }) };
