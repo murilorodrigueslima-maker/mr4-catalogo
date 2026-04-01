@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MR4 Distribuidora — Catálogo B2B</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange:  #FF6B1A;
+    --orange2: #B33F00;
+    --orange3: #662400;
+    --black:   #000000;
+    --white:   #ffffff;
+    --gray:    #E2E3E7;
+    --gray2:   #f5f5f7;
+    --muted:   #777880;
+    --border:  #e4e4e8;
+    --surface: #ffffff;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--gray2);color:var(--black);font-family:'Barlow',sans-serif;min-height:100vh;overflow-x:hidden}
+
+  /* HEADER */
+  header{position:sticky;top:0;z-index:100;background:var(--black);border-bottom:3px solid var(--orange);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:68px;box-shadow:0 4px 24px rgba(0,0,0,0.4)}
+  .logo-svg{height:40px;width:auto}
+  .header-right{display:flex;align-items:center;gap:1.5rem}
+  .header-states{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase;border-right:1px solid rgba(255,255,255,.1);padding-right:1.5rem}
+  .btn-contact{background:var(--orange);color:#fff;border:none;padding:9px 22px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:1px;text-transform:uppercase;border-radius:3px;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 2px 12px rgba(255,107,26,.4)}
+  .btn-contact:hover{background:#e55a0a;transform:translateY(-1px)}
+
+  /* HERO */
+  .hero{background:var(--black);padding:4.5rem 2.5rem 4rem;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;right:-60px;top:0;bottom:0;width:420px;background:linear-gradient(135deg,var(--orange) 0%,var(--orange2) 60%,var(--orange3) 100%);clip-path:polygon(20% 0%,100% 0%,100% 100%,0% 100%);opacity:.1;pointer-events:none}
+  .hero::after{content:'MR4';position:absolute;right:1.5rem;bottom:-2rem;font-family:'Barlow Condensed',sans-serif;font-size:clamp(8rem,16vw,14rem);font-weight:800;letter-spacing:-4px;color:rgba(255,255,255,.035);line-height:1;pointer-events:none;user-select:none}
+  .hero-inner{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+  .hero-label{font-family:'JetBrains Mono',monospace;font-size:.63rem;color:var(--orange);letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem;font-weight:600;display:flex;align-items:center;gap:10px}
+  .hero-label::before{content:'';display:inline-block;width:24px;height:2px;background:var(--orange);border-radius:2px}
+  h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:800;line-height:.95;letter-spacing:-1px;color:#fff;text-transform:uppercase;margin-bottom:1.25rem}
+  h1 span{color:var(--orange)}
+  .hero-sub{color:rgba(255,255,255,.45);font-size:.95rem;font-weight:300;max-width:460px;line-height:1.7;margin-bottom:1.5rem}
+  .hero-pills{display:flex;gap:.5rem;flex-wrap:wrap}
+  .hero-pill{font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:600;letter-spacing:1.5px;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.12);padding:5px 12px;border-radius:2px;text-transform:uppercase;transition:border-color .2s,color .2s}
+  .hero-pill:hover{border-color:var(--orange);color:var(--orange)}
+  .hero-stats{display:flex;gap:3rem}
+  .stat{text-align:right}
+  .stat-num{font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:800;color:var(--orange);line-height:1;letter-spacing:-1px}
+  .stat-lbl{font-size:.62rem;color:rgba(255,255,255,.3);font-family:'JetBrains Mono',monospace;letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+
+  /* TOOLBAR */
+  .toolbar{display:flex;align-items:center;gap:.85rem;padding:1rem 2.5rem;background:#fff;border-bottom:1px solid var(--border);flex-wrap:wrap;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+  .search-wrap{position:relative;flex:1;min-width:200px;max-width:400px}
+  .search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1rem;pointer-events:none}
+  .search-input{width:100%;background:var(--gray2);border:1.5px solid var(--border);color:#111;font-family:'Barlow',sans-serif;font-size:.9rem;padding:9px 12px 9px 36px;border-radius:3px;outline:none;transition:border-color .2s,box-shadow .2s}
+  .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,107,26,.1)}
+  .search-input::placeholder{color:var(--muted)}
+  .filter-select{background:var(--gray2);border:1.5px solid var(--border);color:#111;font-family:'Barlow',sans-serif;font-size:.87rem;padding:9px 32px 9px 12px;border-radius:3px;outline:none;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23777880' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;transition:border-color .2s}
+  .filter-select:focus{border-color:var(--orange)}
+  .count-badge{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);background:var(--gray2);border:1px solid var(--border);padding:6px 14px;border-radius:20px;white-space:nowrap}
+  .count-badge span{color:var(--orange);font-weight:700}
+
+  /* GRID */
+  .catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:1px;background:var(--border)}
+  .product-card{background:#fff;display:flex;flex-direction:column;transition:background .15s;cursor:pointer;overflow:hidden;position:relative;animation:fadeUp .35s ease both}
+  .product-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange2));transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+  .product-card:hover{background:#fafafa}
+  .product-card:hover::after{transform:scaleX(1)}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  .img-placeholder{width:100%;aspect-ratio:4/3;background:var(--gray2);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border)}
+  .card-img{width:100%;aspect-ratio:4/3;border-bottom:1px solid var(--border);overflow:hidden}
+  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;display:block}
+  .product-card:hover .card-img img{transform:scale(1.05)}
+  .card-body{padding:1rem 1.15rem 1.15rem;display:flex;flex-direction:column;flex:1}
+  .card-top{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.5rem}
+  .card-ref{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+  .card-cat-pill{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:1px;color:var(--orange);background:rgba(255,107,26,.08);border:1px solid rgba(255,107,26,.2);padding:2px 8px;border-radius:2px;text-transform:uppercase;white-space:nowrap}
+  .card-name{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;line-height:1.25;color:#111;text-transform:uppercase;letter-spacing:.3px;margin-bottom:auto}
+  .card-stock{font-size:.68rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:5px}
+  .card-stock.ok{color:#2a9d5c}.card-stock.low{color:#e07a00}.card-stock.out{color:#cc2200}
+  .card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:.9rem;padding-top:.85rem;border-top:1px solid var(--border)}
+  .card-price-label{font-size:.58rem;color:var(--muted);font-family:'JetBrains Mono',monospace;display:block;text-transform:uppercase;letter-spacing:.5px}
+  .card-price{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;color:var(--orange);line-height:1;letter-spacing:-.5px}
+  .btn-ask{background:#111;color:#fff;border:none;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 14px;border-radius:2px;cursor:pointer;transition:background .2s}
+  .btn-ask:hover{background:var(--orange)}
+
+  /* SKELETON */
+  .skeleton-card{background:#fff;overflow:hidden;animation:fadeUp .3s ease both}
+  .skel{background:linear-gradient(90deg,var(--border) 25%,var(--gray) 50%,var(--border) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:2px}
+  @keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+  .skel-img{width:100%;aspect-ratio:4/3;border-radius:0;border-bottom:1px solid var(--border)}
+  .skel-body{padding:1rem 1.15rem 1.15rem;display:flex;flex-direction:column;gap:.6rem}
+  .skel-ref{height:9px;width:55px}.skel-name{height:16px;width:85%}.skel-name2{height:16px;width:60%}.skel-price{height:22px;width:90px;margin-top:.5rem}
+
+  /* PAGINAÇÃO */
+  .pagination{display:flex;align-items:center;justify-content:center;gap:.4rem;padding:2rem 2.5rem;background:var(--gray2)}
+  .btn-pag{background:#fff;border:1.5px solid var(--border);color:#111;font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.5px;padding:8px 16px;border-radius:2px;cursor:pointer;transition:border-color .2s,color .2s,background .2s}
+  .btn-pag:hover:not(:disabled){border-color:var(--orange);color:var(--orange)}
+  .btn-pag:disabled{opacity:.3;cursor:not-allowed}
+  .btn-pag.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+
+  /* MODAL */
+  .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:200;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px)}
+  .modal-bg.open{display:flex}
+  .modal{background:#fff;border-top:4px solid var(--orange);border-radius:0 0 6px 6px;max-width:580px;width:100%;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.35);animation:modalIn .25s ease}
+  @keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+  .modal-header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);background:var(--black)}
+  .modal-title{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.5px;line-height:1.2}
+  .modal-close{background:rgba(255,255,255,.1);border:none;color:rgba(255,255,255,.5);cursor:pointer;width:30px;height:30px;border-radius:2px;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}
+  .modal-close:hover{background:var(--orange);color:#fff}
+  .modal-body{display:flex;gap:1.5rem;padding:1.5rem}
+  .modal-img{width:160px;flex-shrink:0;aspect-ratio:1;background:var(--gray2);border-radius:3px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .modal-info{flex:1}
+  .modal-ref{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--orange);letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:.3rem}
+  .modal-name{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:.2rem;line-height:1.25}
+  .modal-cat{font-size:.78rem;color:var(--muted);margin-bottom:.75rem}
+  .modal-desc{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:1rem}
+  .modal-price-block{background:var(--black);border-radius:3px;padding:.85rem 1rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between}
+  .modal-price-lbl{font-size:.6rem;color:rgba(255,255,255,.4);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+  .modal-price-val{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:var(--orange);line-height:1;letter-spacing:-.5px}
+  .modal-stock-badge{font-size:.68rem;font-family:'JetBrains Mono',monospace;padding:4px 10px;border-radius:2px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+  .modal-stock-badge.ok{background:rgba(42,157,92,.12);color:#2a9d5c;border:1px solid rgba(42,157,92,.25)}
+  .modal-stock-badge.low{background:rgba(224,122,0,.1);color:#e07a00;border:1px solid rgba(224,122,0,.25)}
+  .modal-stock-badge.out{background:rgba(204,34,0,.08);color:#cc2200;border:1px solid rgba(204,34,0,.2)}
+  .btn-whats{width:100%;background:#25d366;color:#fff;border:none;padding:12px 16px;border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s,transform .15s;box-shadow:0 4px 14px rgba(37,211,102,.3)}
+  .btn-whats:hover{background:#1eba57;transform:translateY(-1px)}
+
+  /* ESTADO VAZIO/ERRO */
+  .state-box{grid-column:1/-1;text-align:center;padding:5rem 2rem;color:var(--muted)}
+  .state-box h3{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;text-transform:uppercase;color:#111;margin-bottom:.5rem}
+  .state-box p{font-size:.9rem;margin-bottom:1.5rem}
+  .btn-retry{background:var(--orange);color:#fff;border:none;padding:10px 24px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
+
+  /* FOOTER */
+  footer{background:var(--black);border-top:3px solid var(--orange);padding:1.75rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+  .footer-left{display:flex;align-items:center;gap:1rem}
+  .footer-divider{width:1px;height:20px;background:rgba(255,255,255,.12)}
+  .footer-states{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:rgba(255,255,255,.28);letter-spacing:2px;text-transform:uppercase}
+  .footer-text{font-size:.67rem;color:rgba(255,255,255,.22);font-family:'JetBrains Mono',monospace}
+
+  @media(max-width:640px){
+    header{padding:0 1.25rem}
+    .hero{padding:2.5rem 1.25rem 3rem}
+    .toolbar,.pagination{padding-left:1.25rem;padding-right:1.25rem}
+    footer{padding:1.5rem 1.25rem}
+    .hero-stats,.header-states{display:none}
+    .modal-body{flex-direction:column}
+    .modal-img{width:100%;aspect-ratio:16/9}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <svg class="logo-svg" viewBox="0 0 260 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#FF6B1A"/>
+        <stop offset="100%" stop-color="#662400"/>
+      </linearGradient>
+    </defs>
+    <!-- Ícone carro lateral -->
+    <path d="M6 24 C6 13 12 7 21 6 L35 6" stroke="url(#g1)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M6 24 L6 40" stroke="url(#g1)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M6 32 L35 32" stroke="url(#g1)" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="6" y1="17" x2="35" y2="17" stroke="url(#g1)" stroke-width="2" stroke-linecap="round"/>
+    <line x1="7" y1="24" x2="35" y2="24" stroke="url(#g1)" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="8" y1="28" x2="35" y2="28" stroke="url(#g1)" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- MR -->
+    <text x="44" y="42" font-family="Barlow Condensed,sans-serif" font-weight="800" font-size="36" fill="white" letter-spacing="-1">MR</text>
+    <!-- 4 laranja -->
+    <text x="120" y="42" font-family="Barlow Condensed,sans-serif" font-weight="800" font-size="36" fill="#FF6B1A">4</text>
+    <!-- traço vertical do 4 -->
+    <line x1="143" y1="10" x2="143" y2="46" stroke="#FF6B1A" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- DISTRIBUIDORA -->
+    <text x="46" y="51" font-family="Barlow Condensed,sans-serif" font-weight="400" font-size="9.5" fill="rgba(255,255,255,0.38)" letter-spacing="4.5">DISTRIBUIDORA</text>
+  </svg>
+  <div class="header-right">
+    <span class="header-states">CE · PI · RN</span>
+    <button class="btn-contact" onclick="openWhats()">Falar com vendedor</button>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">Catálogo Digital 2025</div>
+      <h1>Acessórios<br><span>Automotivos</span><br>para Revendedores</h1>
+      <p class="hero-sub">Distribuição atacadista B2B com atendimento personalizado. Qualidade, inovação e excelência no Ceará, Piauí e Rio Grande do Norte.</p>
+      <div class="hero-pills">
+        <span class="hero-pill">📍 Ceará</span>
+        <span class="hero-pill">📍 Piauí</span>
+        <span class="hero-pill">📍 Rio Grande do Norte</span>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num" id="totalProdutos">—</div><div class="stat-lbl">Produtos</div></div>
+      <div class="stat"><div class="stat-num">B2B</div><div class="stat-lbl">Exclusivo</div></div>
+      <div class="stat"><div class="stat-num">24h</div><div class="stat-lbl">Resposta</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input class="search-input" type="text" id="searchInput" placeholder="Buscar por nome ou código..." oninput="onSearch()">
+  </div>
+  <select class="filter-select" id="catFilter" onchange="onFilter()">
+    <option value="">Todas as categorias</option>
+  </select>
+  <div class="count-badge">Exibindo <span id="countDisplay">—</span> produtos</div>
+</div>
+
+<div class="catalog-grid" id="grid"></div>
+<div class="pagination" id="pagination"></div>
+
+<div class="modal-bg" id="modalBg" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title" id="mTitle">—</span>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-img" id="mImg"></div>
+      <div class="modal-info">
+        <div class="modal-ref" id="mRef">—</div>
+        <div class="modal-name" id="mName">—</div>
+        <div class="modal-cat" id="mCat">—</div>
+        <div class="modal-desc" id="mDesc"></div>
+        <div class="modal-price-block">
+          <div>
+            <div class="modal-price-lbl">Preço unitário (atacado)</div>
+            <div class="modal-price-val" id="mPrice">—</div>
+          </div>
+          <span class="modal-stock-badge" id="mStock"></span>
+        </div>
+        <button class="btn-whats" id="mWhats">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.884.518 3.646 1.42 5.163L2 22l4.913-1.397A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2zm0 18c-1.71 0-3.306-.465-4.675-1.271l-.335-.2-3.472.988.953-3.384-.217-.349A7.961 7.961 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+          Pedir orçamento pelo WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-left">
+    <svg viewBox="0 0 160 32" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 16 C4 9 8 5 14 4 L22 4" stroke="#FF6B1A" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      <path d="M4 16 L4 26" stroke="#FF6B1A" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M4 21 L22 21" stroke="#FF6B1A" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="4" y1="11" x2="22" y2="11" stroke="#FF6B1A" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="5" y1="16" x2="22" y2="16" stroke="#FF6B1A" stroke-width="1.1" stroke-linecap="round"/>
+      <text x="28" y="27" font-family="Barlow Condensed,sans-serif" font-weight="800" font-size="24" fill="rgba(255,255,255,0.35)" letter-spacing="-0.5">MR<tspan fill="#FF6B1A">4</tspan></text>
+    </svg>
+    <div class="footer-divider"></div>
+    <span class="footer-states">CE · PI · RN</span>
+  </div>
+  <div class="footer-text">© 2025 MR4 DISTRIBUIDORA · B2B EXCLUSIVO · SUJEITO A DISPONIBILIDADE</div>
+</footer>
+
+<script>
+  const WHATSAPP = '5585900000000';
+  const API_URL  = '/.netlify/functions/produtos';
+  let paginaAtual=1,totalPaginas=1,totalProd=0,categorias=new Set(),searchTimer=null;
+
+  carregarProdutos();
+  function onSearch(){clearTimeout(searchTimer);searchTimer=setTimeout(()=>{paginaAtual=1;carregarProdutos();},400)}
+  function onFilter(){paginaAtual=1;carregarProdutos()}
+
+  async function carregarProdutos(){
+    const busca=document.getElementById('searchInput').value.trim();
+    const categoria=document.getElementById('catFilter').value;
+    renderSkeleton();
+    try{
+      const p=new URLSearchParams({pagina:paginaAtual});
+      if(busca)p.set('busca',busca);if(categoria)p.set('categoria',categoria);
+      const res=await fetch(`${API_URL}?${p}`);
+      const data=await res.json();
+      if(!res.ok)throw new Error(data.erro||'Erro na API');
+      totalProd=data.total||data.produtos.length;
+      totalPaginas=data.paginas||1;
+      document.getElementById('totalProdutos').textContent=totalProd.toLocaleString('pt-BR')+'+';
+      document.getElementById('countDisplay').textContent=data.produtos.length;
+      data.produtos.forEach(p=>{if(p.category)categorias.add(p.category)});
+      atualizarCategorias();renderGrid(data.produtos);renderPaginacao();
+    }catch(err){renderErro(err.message)}
+  }
+
+  function renderGrid(produtos){
+    const grid=document.getElementById('grid');
+    if(!produtos.length){grid.innerHTML=`<div class="state-box"><h3>Nenhum produto encontrado</h3><p>Tente outro termo ou categoria.</p></div>`;return}
+    grid.innerHTML=produtos.map((p,i)=>{
+      const sc=p.stock>10?'ok':p.stock>0?'low':'out';
+      const sl=p.stock>10?`${p.stock} em estoque`:p.stock>0?`Últimas ${p.stock} unid.`:'Sem estoque';
+      const sp=JSON.stringify(p).replace(/"/g,'&quot;');
+      return`<div class="product-card" onclick="openModal(${sp})" style="animation-delay:${i*.025}s">
+        ${p.img?`<div class="card-img"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>`
+          :`<div class="img-placeholder"><svg width="72" height="72" viewBox="0 0 64 64" fill="none">
+              <path d="M10 30 C10 18 16 12 26 11 L44 11" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <path d="M10 30 L10 46" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/>
+              <path d="M10 38 L44 38" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/>
+              <line x1="10" y1="22" x2="44" y2="22" stroke="#D4D4DC" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="11" y1="30" x2="44" y2="30" stroke="#D4D4DC" stroke-width="1.2" stroke-linecap="round"/>
+            </svg></div>`}
+        <div class="card-body">
+          <div class="card-top"><div class="card-ref">${p.ref}</div><div class="card-cat-pill">${p.category}</div></div>
+          <div class="card-name">${p.name}</div>
+          <div class="card-stock ${sc}">${sl}</div>
+          <div class="card-footer">
+            <div><span class="card-price-label">Preço unit.</span><span class="card-price">${p.price}</span></div>
+            <button class="btn-ask" onclick="event.stopPropagation()">Ver mais</button>
+          </div>
+        </div>
+      </div>`}).join('');
+  }
+
+  function renderSkeleton(){
+    document.getElementById('grid').innerHTML=Array.from({length:12},(_,i)=>`<div class="skeleton-card" style="animation-delay:${i*.04}s"><div class="skel skel-img"></div><div class="skel-body"><div class="skel skel-ref"></div><div class="skel skel-name"></div><div class="skel skel-name2"></div><div class="skel skel-price"></div></div></div>`).join('');
+    document.getElementById('pagination').innerHTML='';
+  }
+
+  function renderErro(msg){document.getElementById('grid').innerHTML=`<div class="state-box"><h3>Erro ao carregar</h3><p>${msg}</p><button class="btn-retry" onclick="carregarProdutos()">Tentar novamente</button></div>`}
+
+  function renderPaginacao(){
+    const el=document.getElementById('pagination');
+    if(totalPaginas<=1){el.innerHTML='';return}
+    let html=`<button class="btn-pag" onclick="irPagina(${paginaAtual-1})" ${paginaAtual===1?'disabled':''}>← Anterior</button>`;
+    for(let p=1;p<=totalPaginas;p++){
+      if(p===1||p===totalPaginas||Math.abs(p-paginaAtual)<=2)html+=`<button class="btn-pag ${p===paginaAtual?'active':''}" onclick="irPagina(${p})">${p}</button>`;
+      else if(Math.abs(p-paginaAtual)===3)html+=`<span style="padding:0 4px;color:var(--muted)">…</span>`;
+    }
+    html+=`<button class="btn-pag" onclick="irPagina(${paginaAtual+1})" ${paginaAtual===totalPaginas?'disabled':''}>Próxima →</button>`;
+    el.innerHTML=html;
+  }
+
+  function irPagina(p){if(p<1||p>totalPaginas)return;paginaAtual=p;window.scrollTo({top:0,behavior:'smooth'});carregarProdutos()}
+
+  function atualizarCategorias(){
+    const sel=document.getElementById('catFilter'),val=sel.value;
+    sel.innerHTML='<option value="">Todas as categorias</option>';
+    [...categorias].sort().forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;if(c===val)o.selected=true;sel.appendChild(o)});
+  }
+
+  function openModal(p){
+    if(typeof p==='string')p=JSON.parse(p.replace(/&quot;/g,'"'));
+    document.getElementById('mTitle').textContent=p.name;
+    document.getElementById('mRef').textContent=p.ref;
+    document.getElementById('mName').textContent=p.name;
+    document.getElementById('mCat').textContent=p.category;
+    document.getElementById('mPrice').textContent=p.price;
+    const d=document.getElementById('mDesc');d.textContent=p.desc||'';d.style.display=p.desc?'block':'none';
+    const sb=document.getElementById('mStock');
+    if(p.stock>10){sb.className='modal-stock-badge ok';sb.textContent=`${p.stock} em estoque`}
+    else if(p.stock>0){sb.className='modal-stock-badge low';sb.textContent=`Últimas ${p.stock} unid.`}
+    else{sb.className='modal-stock-badge out';sb.textContent='Sem estoque'}
+    const img=document.getElementById('mImg');
+    img.innerHTML=p.img?`<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;">`
+      :`<svg width="56" height="56" viewBox="0 0 64 64" fill="none"><path d="M10 30 C10 18 16 12 26 11 L44 11" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M10 30 L10 46" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/><path d="M10 38 L44 38" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/></svg>`;
+    document.getElementById('mWhats').onclick=()=>{
+      const msg=encodeURIComponent(`Olá, MR4 Distribuidora!\nInteresse no produto:\n*${p.name}*\nRef: ${p.ref} | Preço: ${p.price}\n\nAguardo orçamento!`);
+      window.open(`https://wa.me/${WHATSAPP}?text=${msg}`,'_blank');
+    };
+    document.getElementById('modalBg').classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+
+  function closeModal(e){
+    if(e&&e.target!==document.getElementById('modalBg'))return;
+    document.getElementById('modalBg').classList.remove('open');
+    document.body.style.overflow='';
+  }
+
+  function openWhats(){
+    const msg=encodeURIComponent('Olá, MR4 Distribuidora! Gostaria de informações sobre o catálogo.');
+    window.open(`https://wa.me/${WHATSAPP}?text=${msg}`,'_blank');
+  }
+</script>
+</body>
+</html>
