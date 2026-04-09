@@ -54,8 +54,12 @@
   .search-input{width:100%;background:var(--gray2);border:1.5px solid var(--border);color:#111;font-family:'Barlow',sans-serif;font-size:.9rem;padding:9px 12px 9px 36px;border-radius:3px;outline:none;transition:border-color .2s,box-shadow .2s}
   .search-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,107,26,.1)}
   .search-input::placeholder{color:var(--muted)}
-  .filter-select{background:var(--gray2);border:1.5px solid var(--border);color:#111;font-family:'Barlow',sans-serif;font-size:.87rem;padding:9px 32px 9px 12px;border-radius:3px;outline:none;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23777880' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;transition:border-color .2s}
-  .filter-select:focus{border-color:var(--orange)}
+  /* CATEGORIA PILLS */
+  .cat-pills{display:flex;flex-wrap:wrap;gap:.4rem;padding:.75rem 2rem;background:#fff;border-bottom:1px solid var(--border)}
+  .cat-pill{font-family:'Barlow',sans-serif;font-size:.8rem;font-weight:600;padding:5px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--gray2);color:#555;cursor:pointer;transition:all .18s;white-space:nowrap;text-transform:uppercase;letter-spacing:.04em}
+  .cat-pill:hover{border-color:var(--orange);color:var(--orange)}
+  .cat-pill.active{background:var(--orange);border-color:var(--orange);color:#fff}
+  @media(max-width:640px){.cat-pills{padding:.6rem 1.25rem;gap:.3rem}.cat-pill{font-size:.72rem;padding:4px 11px}}
   .count-badge{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);background:var(--gray2);border:1px solid var(--border);padding:6px 14px;border-radius:20px;white-space:nowrap}
   .count-badge span{color:var(--orange);font-weight:700}
 
@@ -205,10 +209,10 @@
     <span class="search-icon">⌕</span>
     <input class="search-input" type="text" id="searchInput" placeholder="Buscar por nome ou código..." oninput="onSearch()">
   </div>
-  <select class="filter-select" id="catFilter" onchange="onFilter()">
-    <option value="">Todas as categorias</option>
-  </select>
   <div class="count-badge">Exibindo <span id="countDisplay">—</span> produtos</div>
+</div>
+<div class="cat-pills" id="catPills">
+  <button class="cat-pill active" data-cat="" onclick="onPillClick(this)">Todas</button>
 </div>
 
 <div class="catalog-grid" id="grid"></div>
@@ -262,15 +266,21 @@
 <script>
   const WHATSAPP = '5585900000000';
   const API_URL  = '/.netlify/functions/produtos';
-  let paginaAtual=1,totalPaginas=1,totalProd=0,categorias=new Set(),searchTimer=null;
+  let paginaAtual=1,totalPaginas=1,totalProd=0,categorias=new Set(),searchTimer=null,catAtiva='';
 
   carregarProdutos();
   function onSearch(){clearTimeout(searchTimer);searchTimer=setTimeout(()=>{paginaAtual=1;carregarProdutos();},400)}
   function onFilter(){paginaAtual=1;carregarProdutos()}
+  function onPillClick(el){
+    catAtiva=el.dataset.cat;
+    document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('active'));
+    el.classList.add('active');
+    paginaAtual=1;carregarProdutos();
+  }
 
   async function carregarProdutos(){
     const busca=document.getElementById('searchInput').value.trim();
-    const categoria=document.getElementById('catFilter').value;
+    const categoria=catAtiva;
     renderSkeleton();
     try{
       const p=new URLSearchParams({pagina:paginaAtual});
@@ -337,9 +347,14 @@
   function irPagina(p){if(p<1||p>totalPaginas)return;paginaAtual=p;window.scrollTo({top:0,behavior:'smooth'});carregarProdutos()}
 
   function atualizarCategorias(){
-    const sel=document.getElementById('catFilter'),val=sel.value;
-    sel.innerHTML='<option value="">Todas as categorias</option>';
-    [...categorias].sort().forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;if(c===val)o.selected=true;sel.appendChild(o)});
+    const container=document.getElementById('catPills');
+    const cats=[...categorias].sort();
+    // monta pills preservando a ativa
+    let html=`<button class="cat-pill${catAtiva===''?' active':''}" data-cat="" onclick="onPillClick(this)">Todas</button>`;
+    cats.forEach(c=>{
+      html+=`<button class="cat-pill${catAtiva===c?' active':''}" data-cat="${c}" onclick="onPillClick(this)">${c}</button>`;
+    });
+    container.innerHTML=html;
   }
 
   function openModal(p){
