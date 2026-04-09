@@ -333,7 +333,7 @@
       return ca<cb?-1:ca>cb?1:0;
     });
 
-    grid.innerHTML=`<div class="catalog-grid">${ordenados.map((p,i)=>cardHTML(p,i)).join('')}</div>`;
+    grid.innerHTML=ordenados.map((p,i)=>cardHTML(p,i)).join('');
   }
 
   function renderSkeleton(){
