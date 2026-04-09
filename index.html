@@ -271,7 +271,7 @@
   async function inicializar(){
     renderSkeleton();
     try{
-      const res=await fetch('/data/produtos.json?v='+Date.now());
+      const res=await fetch('./data/produtos.json?v='+Date.now());
       if(!res.ok)throw new Error('Erro ao carregar produtos');
       const data=await res.json();
       todosOsProdutos=data.produtos||[];
