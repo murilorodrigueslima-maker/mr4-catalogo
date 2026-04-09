@@ -28,6 +28,18 @@
   .header-states{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase;border-right:1px solid rgba(255,255,255,.1);padding-right:1.5rem}
   .btn-contact{background:var(--orange);color:#fff;border:none;padding:9px 22px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:1px;text-transform:uppercase;border-radius:3px;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 2px 12px rgba(255,107,26,.4)}
   .btn-contact:hover{background:#e55a0a;transform:translateY(-1px)}
+  .vendedor-modal{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.7);align-items:center;justify-content:center}
+  .vendedor-modal.open{display:flex}
+  .vendedor-box{background:#111;border:1px solid #333;border-radius:10px;padding:2rem;min-width:280px;text-align:center}
+  .vendedor-box h3{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:1px;margin-bottom:1.2rem}
+  .vendedor-btn{display:flex;align-items:center;gap:12px;width:100%;background:#1a1a1a;border:1px solid #333;border-radius:7px;padding:12px 16px;cursor:pointer;margin-bottom:.7rem;transition:border-color .2s,background .2s;text-decoration:none}
+  .vendedor-btn:hover{border-color:var(--orange);background:#222}
+  .vendedor-avatar{width:40px;height:40px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;color:#fff;flex-shrink:0}
+  .vendedor-info{text-align:left}
+  .vendedor-nome{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;color:#fff;text-transform:uppercase;letter-spacing:.5px}
+  .vendedor-num{font-size:.75rem;color:rgba(255,255,255,.45);font-family:'JetBrains Mono',monospace}
+  .vendedor-fechar{margin-top:.5rem;background:none;border:none;color:rgba(255,255,255,.3);font-size:.8rem;cursor:pointer;font-family:'Barlow',sans-serif}
+  .vendedor-fechar:hover{color:#fff}
 
   /* HERO */
   .hero{background:var(--black);padding:4.5rem 2.5rem 4rem;position:relative;overflow:hidden}
@@ -260,11 +272,39 @@
     <div class="footer-divider"></div>
     <span class="footer-states">CE · PI · RN</span>
   </div>
-  <div class="footer-text">© 2026 MR4 DISTRIBUIDORA · B2B EXCLUSIVO · SUJEITO A DISPONIBILIDADE</div>
+  <div style="text-align:right">
+    <div class="footer-text">© 2026 MR4 DISTRIBUIDORA · CNPJ 38.440.066/0001-75</div>
+    <div class="footer-text" style="margin-top:3px">Rua Ceará, 634 · Fortaleza, CE · B2B EXCLUSIVO</div>
+  </div>
 </footer>
 
+<!-- Modal escolha de vendedor -->
+<div class="vendedor-modal" id="vendedorModal" onclick="if(event.target===this)closeVendedorModal()">
+  <div class="vendedor-box">
+    <h3>Falar com vendedor</h3>
+    <a class="vendedor-btn" id="linkAdemir" href="#" target="_blank">
+      <div class="vendedor-avatar">AD</div>
+      <div class="vendedor-info">
+        <div class="vendedor-nome">Ademir</div>
+        <div class="vendedor-num">(85) 96098-520</div>
+      </div>
+    </a>
+    <a class="vendedor-btn" id="linkFabiana" href="#" target="_blank">
+      <div class="vendedor-avatar">FA</div>
+      <div class="vendedor-info">
+        <div class="vendedor-nome">Fabiana</div>
+        <div class="vendedor-num">(85) 91194-961</div>
+      </div>
+    </a>
+    <button class="vendedor-fechar" onclick="closeVendedorModal()">Fechar</button>
+  </div>
+</div>
+
 <script>
-  const WHATSAPP = '5585900000000';
+  const VENDEDORES = [
+    {id:'linkAdemir', nome:'Ademir', num:'5585960985200'},
+    {id:'linkFabiana', nome:'Fabiana', num:'5585911949610'}
+  ];
   let todosOsProdutos=[],categorias=new Set(),searchTimer=null,catAtiva='';
 
   // Carrega o JSON estático uma única vez
@@ -392,7 +432,7 @@
       :`<svg width="56" height="56" viewBox="0 0 64 64" fill="none"><path d="M10 30 C10 18 16 12 26 11 L44 11" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M10 30 L10 46" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/><path d="M10 38 L44 38" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/></svg>`;
     document.getElementById('mWhats').onclick=()=>{
       const msg=encodeURIComponent(`Olá, MR4 Distribuidora!\nInteresse no produto:\n*${p.name}*\nRef: ${p.ref} | Preço: ${p.price}\n\nAguardo orçamento!`);
-      window.open(`https://wa.me/${WHATSAPP}?text=${msg}`,'_blank');
+      openWhats(msg);
     };
     document.getElementById('modalBg').classList.add('open');
     document.body.style.overflow='hidden';
@@ -404,9 +444,17 @@
     document.body.style.overflow='';
   }
 
-  function openWhats(){
-    const msg=encodeURIComponent('Olá, MR4 Distribuidora! Gostaria de informações sobre o catálogo.');
-    window.open(`https://wa.me/${WHATSAPP}?text=${msg}`,'_blank');
+  function openWhats(prodMsg){
+    const msg=prodMsg||encodeURIComponent('Olá, MR4 Distribuidora! Gostaria de informações sobre o catálogo.');
+    VENDEDORES.forEach(v=>{
+      document.getElementById(v.id).href=`https://wa.me/${v.num}?text=${msg}`;
+    });
+    document.getElementById('vendedorModal').classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeVendedorModal(){
+    document.getElementById('vendedorModal').classList.remove('open');
+    document.body.style.overflow='';
   }
 </script>
 </body>
