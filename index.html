@@ -265,36 +265,43 @@
 
 <script>
   const WHATSAPP = '5585900000000';
-  const API_URL  = '/.netlify/functions/produtos';
-  let paginaAtual=1,totalPaginas=1,totalProd=0,categorias=new Set(),searchTimer=null,catAtiva='';
+  let todosOsProdutos=[],categorias=new Set(),searchTimer=null,catAtiva='';
 
-  carregarProdutos();
-  function onSearch(){clearTimeout(searchTimer);searchTimer=setTimeout(()=>{paginaAtual=1;carregarProdutos();},400)}
-  function onFilter(){paginaAtual=1;carregarProdutos()}
+  // Carrega o JSON estático uma única vez
+  async function inicializar(){
+    renderSkeleton();
+    try{
+      const res=await fetch('/data/produtos.json?v='+Date.now());
+      if(!res.ok)throw new Error('Erro ao carregar produtos');
+      const data=await res.json();
+      todosOsProdutos=data.produtos||[];
+      todosOsProdutos.forEach(p=>{if(p.category)categorias.add(p.category)});
+      atualizarCategorias();
+      filtrarERenderizar();
+    }catch(err){renderErro(err.message)}
+  }
+
+  function filtrarERenderizar(){
+    const busca=document.getElementById('searchInput').value.trim().toLowerCase();
+    let lista=todosOsProdutos;
+    if(catAtiva) lista=lista.filter(p=>p.category===catAtiva);
+    if(busca) lista=lista.filter(p=>
+      p.name.toLowerCase().includes(busca)||
+      (p.ref||'').toLowerCase().includes(busca)
+    );
+    document.getElementById('totalProdutos').textContent=todosOsProdutos.length.toLocaleString('pt-BR')+'+';
+    document.getElementById('countDisplay').textContent=lista.length;
+    renderGrid(lista);
+  }
+
+  inicializar();
+  function onSearch(){clearTimeout(searchTimer);searchTimer=setTimeout(()=>filtrarERenderizar(),300)}
+  function onFilter(){filtrarERenderizar()}
   function onPillClick(el){
     catAtiva=el.dataset.cat;
     document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('active'));
     el.classList.add('active');
-    paginaAtual=1;carregarProdutos();
-  }
-
-  async function carregarProdutos(){
-    const busca=document.getElementById('searchInput').value.trim();
-    const categoria=catAtiva;
-    renderSkeleton();
-    try{
-      const p=new URLSearchParams({pagina:paginaAtual});
-      if(busca)p.set('busca',busca);if(categoria)p.set('categoria',categoria);
-      const res=await fetch(`${API_URL}?${p}`);
-      const data=await res.json();
-      if(!res.ok)throw new Error(data.erro||'Erro na API');
-      totalProd=data.total||data.produtos.length;
-      totalPaginas=data.paginas||1;
-      document.getElementById('totalProdutos').textContent=totalProd.toLocaleString('pt-BR')+'+';
-      document.getElementById('countDisplay').textContent=data.produtos.length;
-      data.produtos.forEach(p=>{if(p.category)categorias.add(p.category)});
-      atualizarCategorias();renderGrid(data.produtos);renderPaginacao();
-    }catch(err){renderErro(err.message)}
+    filtrarERenderizar();
   }
 
   function cardHTML(p, i){
