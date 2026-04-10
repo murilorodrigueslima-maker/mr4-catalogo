@@ -584,13 +584,12 @@
 
   function openWhats(prodMsg){
     const msg=prodMsg||encodeURIComponent('Olá, MR4 Distribuidora! Gostaria de informações sobre o catálogo.');
-    const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     VENDEDORES.forEach(v=>{
-      const base=isMobile?'https://api.whatsapp.com/send':'https://wa.me';
-      const url=isMobile?`${base}?phone=${v.num}&text=${msg}`:`${base}/${v.num}?text=${msg}`;
+      const url=`https://wa.me/${v.num}?text=${msg}`;
       const el=document.getElementById(v.id);
       el.href=url;
-      el.onclick=e=>{e.preventDefault();if(isMobile)window.location.href=url;else window.open(url,'_blank');closeVendedorModal();};
+      el.target='_blank';
+      el.rel='noopener noreferrer';
     });
     document.getElementById('vendedorModal').classList.add('open');
     document.body.style.overflow='hidden';
