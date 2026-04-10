@@ -466,7 +466,11 @@
     let msg=`Olá, MR4 Distribuidora! 👋\n\n*${nome}* gostaria de fazer um pedido:\n\n`;
     items.forEach(i=>{msg+=`• *${i.produto.name}*\n  Ref: ${i.produto.ref} | Qtd: ${i.qty}\n\n`;});
     msg+=`Aguardo contato! 😊`;
-    openWhats(encodeURIComponent(msg));
+    // Fecha o carrinho primeiro para evitar conflito de toque no celular
+    document.getElementById('cartSidebar').classList.remove('open');
+    document.getElementById('cartOverlay').classList.remove('open');
+    document.body.style.overflow='';
+    setTimeout(()=>openWhats(encodeURIComponent(msg)), 300);
   }
 
   atualizarCarrinho();
