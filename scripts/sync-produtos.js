@@ -26,20 +26,11 @@ async function fetchGC(url) {
 }
 
 function extraiMarca(p) {
-  // Tenta campo direto
-  if (p.marca && String(p.marca).trim()) return String(p.marca).trim();
-  if (p.fabricante && String(p.fabricante).trim()) return String(p.fabricante).trim();
-  // Busca em atributos (array de {nome, valor})
+  // Atributos do GestãoClick: [{atributo: {descricao, conteudo}}]
   const atribs = p.atributos || [];
-  if (Array.isArray(atribs) && atribs.length > 0) {
-    const m = atribs.find(a => /^marca$/i.test((a.nome || a.campo || a.name || '').trim()));
-    if (m) return (m.valor || m.value || '').trim();
-  }
-  // Busca em campos_extras
-  const extras = p.campos_extras || p.camposExtras || [];
-  if (Array.isArray(extras) && extras.length > 0) {
-    const m = extras.find(e => /^marca$/i.test((e.campo || e.nome || '').trim()));
-    if (m) return (m.valor || m.value || '').trim();
+  if (Array.isArray(atribs)) {
+    const m = atribs.find(a => a.atributo && /^marca$/i.test((a.atributo.descricao || '').trim()));
+    if (m) return (m.atributo.conteudo || '').trim();
   }
   return '';
 }
@@ -75,13 +66,6 @@ async function sync() {
   // Primeira página
   const primeira = await fetchGC(`${API_BASE}/produtos?pagina=1&limite=${LIMITE}`);
 
-  // DEBUG: mostra campo atributos do primeiro produto com atributos
-  const comAtributos = (primeira.data || []).find(p => p.atributos && p.atributos.length > 0);
-  if (comAtributos) {
-    console.log('🔍 DEBUG atributos:', JSON.stringify(comAtributos.atributos, null, 2));
-  } else {
-    console.log('🔍 DEBUG: nenhum produto com atributos na página 1');
-  }
   const meta      = primeira.meta || {};
   const totalPags = Number(meta.total_paginas) || 1;
   let todos       = normalizaProdutos(primeira.data || []);
