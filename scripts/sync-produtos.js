@@ -25,6 +25,18 @@ async function fetchGC(url) {
   return res.json();
 }
 
+function extraiMarca(p) {
+  // Tenta campo direto primeiro
+  if (p.marca && p.marca.trim()) return p.marca.trim();
+  // Busca em campos_extras (array de {campo, valor})
+  const extras = p.campos_extras || p.camposExtras || [];
+  if (Array.isArray(extras)) {
+    const m = extras.find(e => /^marca$/i.test((e.campo || e.nome || '').trim()));
+    if (m) return (m.valor || m.value || '').trim();
+  }
+  return '';
+}
+
 function normalizaProdutos(lista) {
   return lista.map(p => {
     const valores = p.valores || [];
@@ -36,6 +48,7 @@ function normalizaProdutos(lista) {
       ref:      p.codigo_interno || p.codigo || '—',
       name:     p.nome || '—',
       category: p.nome_grupo || p.grupo || p.categoria || 'Geral',
+      brand:    extraiMarca(p),
       price:    formatPrice(preco),
       stock:    Number(p.estoque || 0),
       img:      img,
