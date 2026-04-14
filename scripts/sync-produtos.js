@@ -68,15 +68,11 @@ async function sync() {
   // Primeira página
   const primeira = await fetchGC(`${API_BASE}/produtos?pagina=1&limite=${LIMITE}`);
 
-  // DEBUG: mostra campos do primeiro produto para identificar estrutura da marca
+  // DEBUG: mostra todas as chaves do primeiro produto
   if (primeira.data && primeira.data[0]) {
     const raw = primeira.data[0];
-    console.log('🔍 DEBUG campos do produto:', JSON.stringify({
-      marca: raw.marca,
-      fabricante: raw.fabricante,
-      campos_extras: raw.campos_extras,
-      camposExtras: raw.camposExtras,
-    }, null, 2));
+    console.log('🔍 DEBUG todas as chaves:', Object.keys(raw).join(', '));
+    console.log('🔍 DEBUG produto completo:', JSON.stringify(raw, null, 2));
   }
   const meta      = primeira.meta || {};
   const totalPags = Number(meta.total_paginas) || 1;
