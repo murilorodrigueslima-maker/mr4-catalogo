@@ -24,6 +24,7 @@
   /* HEADER */
   header{position:sticky;top:0;z-index:100;background:var(--black);border-bottom:3px solid var(--orange);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:68px;box-shadow:0 4px 24px rgba(0,0,0,0.4)}
   .logo-svg{height:40px;width:auto}
+  .logo-img{height:44px;width:auto;cursor:pointer}
   .header-right{display:flex;align-items:center;gap:1.5rem}
   .header-states{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase;border-right:1px solid rgba(255,255,255,.1);padding-right:1.5rem}
   .btn-contact{background:var(--orange);color:#fff;border:none;padding:9px 22px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:1px;text-transform:uppercase;border-radius:3px;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 2px 12px rgba(255,107,26,.4)}
@@ -208,29 +209,9 @@
 <body>
 
 <header>
-  <svg class="logo-svg" viewBox="0 0 260 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#FF6B1A"/>
-        <stop offset="100%" stop-color="#662400"/>
-      </linearGradient>
-    </defs>
-    <!-- Ícone carro lateral -->
-    <path d="M6 24 C6 13 12 7 21 6 L35 6" stroke="url(#g1)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-    <path d="M6 24 L6 40" stroke="url(#g1)" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M6 32 L35 32" stroke="url(#g1)" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="6" y1="17" x2="35" y2="17" stroke="url(#g1)" stroke-width="2" stroke-linecap="round"/>
-    <line x1="7" y1="24" x2="35" y2="24" stroke="url(#g1)" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="8" y1="28" x2="35" y2="28" stroke="url(#g1)" stroke-width="1.2" stroke-linecap="round"/>
-    <!-- MR -->
-    <text x="44" y="42" font-family="Barlow Condensed,sans-serif" font-weight="800" font-size="36" fill="white" letter-spacing="-1">MR</text>
-    <!-- 4 laranja -->
-    <text x="120" y="42" font-family="Barlow Condensed,sans-serif" font-weight="800" font-size="36" fill="#FF6B1A">4</text>
-    <!-- traço vertical do 4 -->
-    <line x1="143" y1="10" x2="143" y2="46" stroke="#FF6B1A" stroke-width="2.5" stroke-linecap="round"/>
-    <!-- DISTRIBUIDORA -->
-    <text x="46" y="51" font-family="Barlow Condensed,sans-serif" font-weight="400" font-size="9.5" fill="rgba(255,255,255,0.38)" letter-spacing="4.5">DISTRIBUIDORA</text>
-  </svg>
+  <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+    <img class="logo-img" src="./assets/logo.png" alt="MR4 Distribuidora">
+  </a>
   <div class="header-right">
     <span class="header-states">CE · PI · RN</span>
     <button class="btn-contact" onclick="openWhats()">Falar com vendedor</button>
