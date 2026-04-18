@@ -89,11 +89,12 @@ async function sync() {
   // Só produtos com estoque
   const comEstoque = todos.filter(p => p.stock > 0);
 
-  // Ordena por categoria
+  // Ordena por categoria A-Z e dentro de cada categoria por estoque (maior primeiro)
   comEstoque.sort((a, b) => {
     const ca = (a.category || '').toLowerCase();
     const cb = (b.category || '').toLowerCase();
-    return ca < cb ? -1 : ca > cb ? 1 : 0;
+    if (ca !== cb) return ca < cb ? -1 : 1;
+    return b.stock - a.stock; // mais estoque = produto mais importante
   });
 
   const output = {

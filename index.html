@@ -76,6 +76,11 @@
   @media(max-width:640px){.cat-pills{padding:.6rem 1.25rem;gap:.3rem}.cat-pill{font-size:.72rem;padding:4px 11px}}
   .count-badge{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);background:var(--gray2);border:1px solid var(--border);padding:6px 14px;border-radius:20px;white-space:nowrap}
   .count-badge span{color:var(--orange);font-weight:700}
+  .sort-select{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#111;background:var(--gray2);border:1.5px solid var(--border);padding:6px 12px;border-radius:20px;cursor:pointer;outline:none;transition:border-color .2s}
+  .sort-select:focus{border-color:var(--orange)}
+  /* DESTAQUE badge */
+  .destaque-badge{position:absolute;top:8px;left:8px;z-index:2;background:var(--orange);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:2px;box-shadow:0 2px 8px rgba(255,107,26,.4)}
+  .destaque-card{border:2px solid var(--orange) !important}
 
   /* GRID */
   .catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:1px;background:var(--border)}
@@ -245,6 +250,15 @@
     <span class="search-icon">⌕</span>
     <input class="search-input" type="text" id="searchInput" placeholder="Buscar por nome ou código..." oninput="onSearch()">
   </div>
+  <select class="sort-select" id="sortSelect" onchange="filtrarERenderizar()">
+    <option value="padrao">📦 Categoria + Estoque</option>
+    <option value="destaque">🔥 Destaques primeiro</option>
+    <option value="az">A → Z</option>
+    <option value="za">Z → A</option>
+    <option value="menor-preco">💰 Menor preço</option>
+    <option value="maior-preco">💰 Maior preço</option>
+    <option value="maior-estoque">📊 Maior estoque</option>
+  </select>
   <div class="count-badge">Exibindo <span id="countDisplay">—</span> produtos</div>
 </div>
 <div class="cat-pills" id="catPills">
@@ -353,17 +367,24 @@
     {id:'linkAdemir', nome:'Ademir', num:'558596098520'},
     {id:'linkFabiana', nome:'Fabiana', num:'558591194961'}
   ];
-  let todosOsProdutos=[],categorias=new Set(),searchTimer=null,catAtiva='';
+  let todosOsProdutos=[],categorias=new Set(),searchTimer=null,catAtiva='',destaqueIds=new Set();
 
-  // Carrega o JSON estático uma única vez
+  // Carrega produtos + destaques
   async function inicializar(){
     renderSkeleton();
     try{
-      const res=await fetch('./data/produtos.json?v='+Date.now());
-      if(!res.ok)throw new Error('Erro ao carregar produtos');
-      const data=await res.json();
-      todosOsProdutos=data.produtos||[];
-      todosOsProdutos.forEach(p=>{if(p.category)categorias.add(p.category)});
+      const [resProd, resDest] = await Promise.all([
+        fetch('./data/produtos.json?v='+Date.now()),
+        fetch('./data/destaques.json?v='+Date.now()).catch(()=>null)
+      ]);
+      if(!resProd.ok) throw new Error('Erro ao carregar produtos');
+      const data = await resProd.json();
+      todosOsProdutos = data.produtos||[];
+      todosOsProdutos.forEach(p=>{ if(p.category) categorias.add(p.category); });
+      if(resDest && resDest.ok){
+        const dest = await resDest.json();
+        (dest.ids||[]).forEach(id => destaqueIds.add(String(id)));
+      }
       atualizarCategorias();
       filtrarERenderizar();
     }catch(err){renderErro(err.message)}
@@ -473,7 +494,9 @@
     const sc=p.stock>10?'ok':p.stock>0?'low':'out';
     const sl=p.stock>10?`${p.stock} em estoque`:p.stock>0?`Últimas ${p.stock} unid.`:'Sem estoque';
     const sp=JSON.stringify(p).replace(/"/g,'&quot;');
-    return`<div class="product-card" onclick="openModal(${sp})" style="animation-delay:${i*.025}s">
+    const isDestaque=destaqueIds.has(String(p.id));
+    return`<div class="product-card${isDestaque?' destaque-card':''}" onclick="openModal(${sp})" style="animation-delay:${i*.025}s">
+      ${isDestaque?`<div class="destaque-badge">🔥 Destaque</div>`:''}
       ${p.img?`<div class="card-img"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>`
         :`<div class="img-placeholder"><svg width="72" height="72" viewBox="0 0 64 64" fill="none">
             <path d="M10 30 C10 18 16 12 26 11 L44 11" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round" fill="none"/>
@@ -494,17 +517,39 @@
     </div>`;
   }
 
+  function precoNumerico(p){
+    const s=(p.price||'').replace(/[^\d,]/g,'').replace(',','.');
+    return parseFloat(s)||0;
+  }
+
+  function aplicarOrdenacao(lista){
+    const sort=document.getElementById('sortSelect')?.value||'padrao';
+    const arr=[...lista];
+    if(sort==='az') return arr.sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
+    if(sort==='za') return arr.sort((a,b)=>b.name.localeCompare(a.name,'pt-BR'));
+    if(sort==='menor-preco') return arr.sort((a,b)=>precoNumerico(a)-precoNumerico(b));
+    if(sort==='maior-preco') return arr.sort((a,b)=>precoNumerico(b)-precoNumerico(a));
+    if(sort==='maior-estoque') return arr.sort((a,b)=>b.stock-a.stock);
+    // padrao e destaque: categoria A-Z + estoque desc, destaques sempre primeiro no modo destaque
+    arr.sort((a,b)=>{
+      if(sort==='destaque'){
+        const da=destaqueIds.has(String(a.id));
+        const db=destaqueIds.has(String(b.id));
+        if(da&&!db) return -1;
+        if(!da&&db) return 1;
+      }
+      const ca=(a.category||'Geral').toLowerCase();
+      const cb=(b.category||'Geral').toLowerCase();
+      if(ca!==cb) return ca<cb?-1:1;
+      return b.stock-a.stock;
+    });
+    return arr;
+  }
+
   function renderGrid(produtos){
     const grid=document.getElementById('grid');
     if(!produtos.length){grid.innerHTML=`<div class="state-box"><h3>Nenhum produto encontrado</h3><p>Tente outro termo ou categoria.</p></div>`;return}
-
-    // ordena por categoria (mantendo ordem alfabética de categoria, produtos dentro da mesma categoria ficam juntos)
-    const ordenados=[...produtos].sort((a,b)=>{
-      const ca=(a.category||'Geral').toLowerCase();
-      const cb=(b.category||'Geral').toLowerCase();
-      return ca<cb?-1:ca>cb?1:0;
-    });
-
+    const ordenados=aplicarOrdenacao(produtos);
     grid.innerHTML=ordenados.map((p,i)=>cardHTML(p,i)).join('');
   }
 
