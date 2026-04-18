@@ -367,6 +367,38 @@
     {id:'linkAdemir', nome:'Ademir', num:'558596098520'},
     {id:'linkFabiana', nome:'Fabiana', num:'558591194961'}
   ];
+  // Ordem de exibição das categorias (definida pela MR4)
+  const ORDEM_CATEGORIAS = [
+    "Led's interno/externo",
+    "Lâmpada de led",
+    "Lâmpada de led ",
+    "Lâmpadas Halógenas",
+    "Câmera",
+    "Multimídia",
+    "Rádio",
+    "Sensor estacionamento",
+    "Alto-Falantes",
+    "Chave",
+    "Farol de milha",
+    "Fusíveis",
+    "Terminais",
+    "Chicotes",
+    "Soquetes",
+    "Antenas",
+    "Palheta",
+    "Bateria",
+    "Travas",
+    "Diversos",
+    "PRODUTOS SEM GRUPO",
+    "Moldura",
+    "Geral",
+  ];
+
+  function prioridadeCategoria(cat){
+    const idx = ORDEM_CATEGORIAS.findIndex(c => c.trim().toLowerCase() === (cat||'').trim().toLowerCase());
+    return idx >= 0 ? idx : ORDEM_CATEGORIAS.length - 3; // desconhecidas antes de Moldura/Geral
+  }
+
   let todosOsProdutos=[],categorias=new Set(),searchTimer=null,catAtiva='',destaqueIds=new Set();
 
   // Carrega produtos + destaques
@@ -530,7 +562,7 @@
     if(sort==='menor-preco') return arr.sort((a,b)=>precoNumerico(a)-precoNumerico(b));
     if(sort==='maior-preco') return arr.sort((a,b)=>precoNumerico(b)-precoNumerico(a));
     if(sort==='maior-estoque') return arr.sort((a,b)=>b.stock-a.stock);
-    // padrao e destaque: categoria A-Z + estoque desc, destaques sempre primeiro no modo destaque
+    // padrao e destaque: ordem MR4 + estoque desc dentro de cada categoria
     arr.sort((a,b)=>{
       if(sort==='destaque'){
         const da=destaqueIds.has(String(a.id));
@@ -538,9 +570,9 @@
         if(da&&!db) return -1;
         if(!da&&db) return 1;
       }
-      const ca=(a.category||'Geral').toLowerCase();
-      const cb=(b.category||'Geral').toLowerCase();
-      if(ca!==cb) return ca<cb?-1:1;
+      const pa=prioridadeCategoria(a.category);
+      const pb=prioridadeCategoria(b.category);
+      if(pa!==pb) return pa-pb;
       return b.stock-a.stock;
     });
     return arr;
@@ -576,8 +608,10 @@
 
   function atualizarCategorias(){
     const container=document.getElementById('catPills');
-    const cats=[...categorias].sort();
-    // monta pills preservando a ativa
+    // ordena categorias pela prioridade MR4
+    const cats=[...categorias]
+      .filter(c=>c&&c.trim()&&c.trim()!=="Lâmpada de led ") // remove duplicata com espaço
+      .sort((a,b)=>prioridadeCategoria(a)-prioridadeCategoria(b));
     let html=`<button class="cat-pill${catAtiva===''?' active':''}" data-cat="" onclick="onPillClick(this)">Todas</button>`;
     cats.forEach(c=>{
       html+=`<button class="cat-pill${catAtiva===c?' active':''}" data-cat="${c}" onclick="onPillClick(this)">${c}</button>`;

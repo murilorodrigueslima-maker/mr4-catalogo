@@ -89,12 +89,24 @@ async function sync() {
   // Só produtos com estoque
   const comEstoque = todos.filter(p => p.stock > 0);
 
-  // Ordena por categoria A-Z e dentro de cada categoria por estoque (maior primeiro)
+  // Ordem de categorias definida pela MR4 (mais vendidas primeiro)
+  const ORDEM_CATEGORIAS = [
+    "Led's interno/externo", "Lâmpada de led", "Lâmpada de led ",
+    "Lâmpadas Halógenas", "Câmera", "Multimídia", "Rádio",
+    "Sensor estacionamento", "Alto-Falantes", "Chave", "Farol de milha",
+    "Fusíveis", "Terminais", "Chicotes", "Soquetes", "Antenas",
+    "Palheta", "Bateria", "Travas", "Diversos", "PRODUTOS SEM GRUPO", "Moldura", "Geral",
+  ];
+  const prioridade = cat => {
+    const idx = ORDEM_CATEGORIAS.findIndex(c => c.trim().toLowerCase() === (cat||'').trim().toLowerCase());
+    return idx >= 0 ? idx : ORDEM_CATEGORIAS.length - 3;
+  };
+
+  // Ordena por prioridade MR4, depois por estoque dentro de cada categoria
   comEstoque.sort((a, b) => {
-    const ca = (a.category || '').toLowerCase();
-    const cb = (b.category || '').toLowerCase();
-    if (ca !== cb) return ca < cb ? -1 : 1;
-    return b.stock - a.stock; // mais estoque = produto mais importante
+    const pa = prioridade(a.category), pb = prioridade(b.category);
+    if (pa !== pb) return pa - pb;
+    return b.stock - a.stock;
   });
 
   const output = {
