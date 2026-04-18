@@ -102,11 +102,23 @@ async function sync() {
     return idx >= 0 ? idx : ORDEM_CATEGORIAS.length - 3;
   };
 
-  // Ordena por prioridade MR4, depois por estoque dentro de cada categoria
+  // Ordena: categoria MR4 → marca → encaixe → nome
+  const ENCAIXE_ORDER = ['H1','H3','H4','H7','H8','H11','H16','H27','HB3','HB4','D1','D2','D3','D4','D5','T10','T15','T20','T5'];
+  const encaixePrio = nome => {
+    const n = (nome||'').toUpperCase();
+    for (let i = 0; i < ENCAIXE_ORDER.length; i++) {
+      if (n.includes(' '+ENCAIXE_ORDER[i]+' ') || n.includes(' '+ENCAIXE_ORDER[i]+'/') || n.endsWith(' '+ENCAIXE_ORDER[i])) return i;
+    }
+    return 999;
+  };
   comEstoque.sort((a, b) => {
     const pa = prioridade(a.category), pb = prioridade(b.category);
     if (pa !== pb) return pa - pb;
-    return b.stock - a.stock;
+    const ba = (a.brand||'').toLowerCase(), bb = (b.brand||'').toLowerCase();
+    if (ba !== bb) return ba < bb ? -1 : 1;
+    const ea = encaixePrio(a.name), eb = encaixePrio(b.name);
+    if (ea !== eb) return ea - eb;
+    return (a.name||'').localeCompare(b.name||'', 'pt-BR');
   });
 
   const output = {

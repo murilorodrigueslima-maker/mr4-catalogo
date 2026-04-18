@@ -562,7 +562,15 @@
     if(sort==='menor-preco') return arr.sort((a,b)=>precoNumerico(a)-precoNumerico(b));
     if(sort==='maior-preco') return arr.sort((a,b)=>precoNumerico(b)-precoNumerico(a));
     if(sort==='maior-estoque') return arr.sort((a,b)=>b.stock-a.stock);
-    // padrao e destaque: ordem MR4 + estoque desc dentro de cada categoria
+    // padrao e destaque: ordem MR4 → marca → encaixe/ref → estoque
+    const ENCAIXE_ORDER = ['H1','H3','H4','H7','H8','H11','H16','H27','HB3','HB4','D1','D2','D3','D4','D5','T10','T15','T20','T5'];
+    function encaixePrio(nome){
+      const n=(nome||'').toUpperCase();
+      for(let i=0;i<ENCAIXE_ORDER.length;i++){
+        if(n.includes(' '+ENCAIXE_ORDER[i]+' ')||n.includes(' '+ENCAIXE_ORDER[i]+'/')||n.endsWith(' '+ENCAIXE_ORDER[i])) return i;
+      }
+      return 999;
+    }
     arr.sort((a,b)=>{
       if(sort==='destaque'){
         const da=destaqueIds.has(String(a.id));
@@ -570,10 +578,19 @@
         if(da&&!db) return -1;
         if(!da&&db) return 1;
       }
+      // 1. categoria
       const pa=prioridadeCategoria(a.category);
       const pb=prioridadeCategoria(b.category);
       if(pa!==pb) return pa-pb;
-      return b.stock-a.stock;
+      // 2. marca (agrupa produtos da mesma marca)
+      const ba=(a.brand||'').toLowerCase();
+      const bb=(b.brand||'').toLowerCase();
+      if(ba!==bb) return ba<bb?-1:1;
+      // 3. encaixe/conector (H1, H3, H4...)
+      const ea=encaixePrio(a.name), eb=encaixePrio(b.name);
+      if(ea!==eb) return ea-eb;
+      // 4. nome alfabético
+      return (a.name||'').localeCompare(b.name||'','pt-BR');
     });
     return arr;
   }
