@@ -403,7 +403,41 @@
     return idx >= 0 ? idx : ORDEM_CATEGORIAS.length - 3;
   }
 
-  const CATS_LED = ["lâmpada de led","led\u2019s interno/externo","led's interno/externo"];
+  const CAT_LED_KIT    = "lâmpada de led";
+  const CAT_LED_INT    = "led's interno/externo";
+
+  // Extrai a linha de produto do nome (V10, Y3, NANO, SKY, etc.)
+  function linhaLed(nome){
+    const n=(nome||'').toUpperCase();
+    if(n.includes('V10'))  return 'V10';
+    if(n.includes('Y3'))   return 'Y3';
+    if(n.includes('NANO')) return 'NANO';
+    if(n.includes('SKY'))  return 'SKY';
+    if(n.includes('ULTRA'))return 'ULTRA';
+    if(n.includes('FENIX')||n.includes('FÊNIX')) return 'FENIX';
+    if(n.includes('P17'))  return 'P17';
+    return n.split(' ')[0]||'ZZZ'; // fallback: primeira palavra
+  }
+
+  // Tipo de lâmpada interna (T5, T10, T15, T20, etc.)
+  const INTERNO_TIPOS = ['T5','T10','T15','T20','1 POLO','2 POLO','2 POLOS','TORPEDO','PLACA'];
+  function internoPrio(nome){
+    const n=(nome||'').toUpperCase();
+    for(let i=0;i<INTERNO_TIPOS.length;i++){
+      if(n.includes(INTERNO_TIPOS[i])) return i;
+    }
+    return 999;
+  }
+
+  // Mapa de menor preço por linha (calculado após carregar produtos)
+  let linhaMinPreco = {};
+  function calcLinhaMinPreco(){
+    linhaMinPreco = {};
+    todosOsProdutos.filter(p=>normCat(p.category)===CAT_LED_KIT).forEach(p=>{
+      const l=linhaLed(p.name), pr=precoNumerico(p);
+      if(pr>0 && (!linhaMinPreco[l]||pr<linhaMinPreco[l])) linhaMinPreco[l]=pr;
+    });
+  }
 
   let todosOsProdutos=[],categorias=new Set(),searchTimer=null,catAtiva='',destaqueIds=new Set();
 
@@ -419,6 +453,7 @@
       const data = await resProd.json();
       todosOsProdutos = data.produtos||[];
       todosOsProdutos.forEach(p=>{ if(p.category) categorias.add(p.category); });
+      calcLinhaMinPreco();
       if(resDest && resDest.ok){
         const dest = await resDest.json();
         (dest.ids||[]).forEach(id => destaqueIds.add(String(id)));
@@ -588,15 +623,25 @@
       const pa=prioridadeCategoria(a.category);
       const pb=prioridadeCategoria(b.category);
       if(pa!==pb) return pa-pb;
-      // 2. lógica especial para LEDs: encaixe → preço crescente
-      const isLedA=CATS_LED.includes(normCat(a.category));
-      const isLedB=CATS_LED.includes(normCat(b.category));
-      if(isLedA && isLedB){
+      const catA=normCat(a.category), catB=normCat(b.category);
+
+      // 2. Lâmpada de led: linha (V10,Y3,Nano...) por menor preço → encaixe → preço
+      if(catA===CAT_LED_KIT && catB===CAT_LED_KIT){
+        const la=linhaLed(a.name), lb=linhaLed(b.name);
+        if(la!==lb) return (linhaMinPreco[la]||9999)-(linhaMinPreco[lb]||9999);
         const ea=encaixePrio(a.name), eb=encaixePrio(b.name);
         if(ea!==eb) return ea-eb;
-        return precoNumerico(a)-precoNumerico(b); // mais barato primeiro
+        return precoNumerico(a)-precoNumerico(b);
       }
-      // 3. outras categorias: marca → nome A-Z
+
+      // 3. Led's interno/externo: tipo (T5,T10,T20...) → preço crescente
+      if(catA===CAT_LED_INT && catB===CAT_LED_INT){
+        const ia=internoPrio(a.name), ib=internoPrio(b.name);
+        if(ia!==ib) return ia-ib;
+        return precoNumerico(a)-precoNumerico(b);
+      }
+
+      // 4. Outras categorias: marca → encaixe → nome A-Z
       const ba=(a.brand||'').toLowerCase(), bb=(b.brand||'').toLowerCase();
       if(ba!==bb) return ba<bb?-1:1;
       const ea=encaixePrio(a.name), eb=encaixePrio(b.name);

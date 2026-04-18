@@ -98,11 +98,16 @@ async function sync() {
     "Palheta", "Bateria", "Travas", "Diversos", "PRODUTOS SEM GRUPO", "Moldura", "Geral",
   ];
   const normCat = s => (s||'').trim().toLowerCase().replace(/[\u2018\u2019\u02bc']/g, "'");
-  const CATS_LED = ["lâmpada de led", "led's interno/externo"];
+  const CAT_LED_KIT = "lâmpada de led";
+  const CAT_LED_INT = "led's interno/externo";
   const prioridade = cat => {
     const nc = normCat(cat);
     const idx = ORDEM_CATEGORIAS.findIndex(c => normCat(c) === nc);
     return idx >= 0 ? idx : ORDEM_CATEGORIAS.length - 3;
+  };
+  const precoNum = p => {
+    const s = (p.price||'').replace(/[^\d,]/g,'').replace(',','.');
+    return parseFloat(s)||0;
   };
   const ENCAIXE_ORDER = ['H1','H3','H4','H7','H8','H11','H16','H27','HB3','HB4','D1','D2','D3','D4','D5','T10','T15','T20','T5'];
   const encaixePrio = nome => {
@@ -112,18 +117,47 @@ async function sync() {
     }
     return 999;
   };
-  const precoNum = p => {
-    const s = (p.price||'').replace(/[^\d,]/g,'').replace(',','.');
-    return parseFloat(s)||0;
+  const linhaLed = nome => {
+    const n = (nome||'').toUpperCase();
+    if(n.includes('V10'))  return 'V10';
+    if(n.includes('Y3'))   return 'Y3';
+    if(n.includes('NANO')) return 'NANO';
+    if(n.includes('SKY'))  return 'SKY';
+    if(n.includes('ULTRA'))return 'ULTRA';
+    if(n.includes('FENIX')||n.includes('FÊNIX')) return 'FENIX';
+    if(n.includes('P17'))  return 'P17';
+    return n.split(' ')[0]||'ZZZ';
   };
+  const INTERNO_TIPOS = ['T5','T10','T15','T20','1 POLO','2 POLO','2 POLOS','TORPEDO','PLACA'];
+  const internoPrio = nome => {
+    const n = (nome||'').toUpperCase();
+    for(let i=0;i<INTERNO_TIPOS.length;i++) if(n.includes(INTERNO_TIPOS[i])) return i;
+    return 999;
+  };
+  // Menor preço por linha de LED kit
+  const linhaMinPreco = {};
+  comEstoque.filter(p=>normCat(p.category)===CAT_LED_KIT).forEach(p=>{
+    const l=linhaLed(p.name), pr=precoNum(p);
+    if(pr>0 && (!linhaMinPreco[l]||pr<linhaMinPreco[l])) linhaMinPreco[l]=pr;
+  });
+
   comEstoque.sort((a, b) => {
     const pa = prioridade(a.category), pb = prioridade(b.category);
     if (pa !== pb) return pa - pb;
-    // LEDs: encaixe → preço crescente
-    if (CATS_LED.includes(normCat(a.category))) {
-      const ea = encaixePrio(a.name), eb = encaixePrio(b.name);
-      if (ea !== eb) return ea - eb;
-      return precoNum(a) - precoNum(b);
+    const catA = normCat(a.category), catB = normCat(b.category);
+    // Lâmpada de led: linha → encaixe → preço
+    if (catA === CAT_LED_KIT) {
+      const la=linhaLed(a.name), lb=linhaLed(b.name);
+      if(la!==lb) return (linhaMinPreco[la]||9999)-(linhaMinPreco[lb]||9999);
+      const ea=encaixePrio(a.name), eb=encaixePrio(b.name);
+      if(ea!==eb) return ea-eb;
+      return precoNum(a)-precoNum(b);
+    }
+    // Led's interno/externo: tipo (T10,T20...) → preço
+    if (catA === CAT_LED_INT) {
+      const ia=internoPrio(a.name), ib=internoPrio(b.name);
+      if(ia!==ib) return ia-ib;
+      return precoNum(a)-precoNum(b);
     }
     // Outros: marca → encaixe → nome
     const ba = (a.brand||'').toLowerCase(), bb = (b.brand||'').toLowerCase();
