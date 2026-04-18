@@ -89,20 +89,21 @@ async function sync() {
   // Só produtos com estoque
   const comEstoque = todos.filter(p => p.stock > 0);
 
-  // Ordem de categorias definida pela MR4 (mais vendidas primeiro)
+  // Ordem de categorias definida pela MR4 (apóstrofo curvo exato do GestãoClick)
   const ORDEM_CATEGORIAS = [
-    "Led's interno/externo", "Lâmpada de led", "Lâmpada de led ",
+    "Led\u2019s interno/externo", "Lâmpada de led", "Lâmpada de led ",
     "Lâmpadas Halógenas", "Câmera", "Multimídia", "Rádio",
     "Sensor estacionamento", "Alto-Falantes", "Chave", "Farol de milha",
     "Fusíveis", "Terminais", "Chicotes", "Soquetes", "Antenas",
     "Palheta", "Bateria", "Travas", "Diversos", "PRODUTOS SEM GRUPO", "Moldura", "Geral",
   ];
+  const normCat = s => (s||'').trim().toLowerCase().replace(/[\u2018\u2019\u02bc']/g, "'");
+  const CATS_LED = ["lâmpada de led", "led's interno/externo"];
   const prioridade = cat => {
-    const idx = ORDEM_CATEGORIAS.findIndex(c => c.trim().toLowerCase() === (cat||'').trim().toLowerCase());
+    const nc = normCat(cat);
+    const idx = ORDEM_CATEGORIAS.findIndex(c => normCat(c) === nc);
     return idx >= 0 ? idx : ORDEM_CATEGORIAS.length - 3;
   };
-
-  // Ordena: categoria MR4 → marca → encaixe → nome
   const ENCAIXE_ORDER = ['H1','H3','H4','H7','H8','H11','H16','H27','HB3','HB4','D1','D2','D3','D4','D5','T10','T15','T20','T5'];
   const encaixePrio = nome => {
     const n = (nome||'').toUpperCase();
@@ -111,9 +112,20 @@ async function sync() {
     }
     return 999;
   };
+  const precoNum = p => {
+    const s = (p.price||'').replace(/[^\d,]/g,'').replace(',','.');
+    return parseFloat(s)||0;
+  };
   comEstoque.sort((a, b) => {
     const pa = prioridade(a.category), pb = prioridade(b.category);
     if (pa !== pb) return pa - pb;
+    // LEDs: encaixe → preço crescente
+    if (CATS_LED.includes(normCat(a.category))) {
+      const ea = encaixePrio(a.name), eb = encaixePrio(b.name);
+      if (ea !== eb) return ea - eb;
+      return precoNum(a) - precoNum(b);
+    }
+    // Outros: marca → encaixe → nome
     const ba = (a.brand||'').toLowerCase(), bb = (b.brand||'').toLowerCase();
     if (ba !== bb) return ba < bb ? -1 : 1;
     const ea = encaixePrio(a.name), eb = encaixePrio(b.name);

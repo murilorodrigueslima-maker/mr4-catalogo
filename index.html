@@ -368,10 +368,10 @@
     {id:'linkFabiana', nome:'Fabiana', num:'558591194961'}
   ];
   // Ordem de exibição das categorias (definida pela MR4)
+  // Usa apóstrofo curvo exato do GestãoClick: Led\u2019s
   const ORDEM_CATEGORIAS = [
-    "Led's interno/externo",
+    "Led\u2019s interno/externo",
     "Lâmpada de led",
-    "Lâmpada de led ",
     "Lâmpadas Halógenas",
     "Câmera",
     "Multimídia",
@@ -394,10 +394,16 @@
     "Geral",
   ];
 
+  // Normaliza apostrofes e espaços para comparação robusta
+  function normCat(s){ return (s||'').trim().toLowerCase().replace(/[\u2018\u2019\u02bc']/g,"'"); }
+
   function prioridadeCategoria(cat){
-    const idx = ORDEM_CATEGORIAS.findIndex(c => c.trim().toLowerCase() === (cat||'').trim().toLowerCase());
-    return idx >= 0 ? idx : ORDEM_CATEGORIAS.length - 3; // desconhecidas antes de Moldura/Geral
+    const nc = normCat(cat);
+    const idx = ORDEM_CATEGORIAS.findIndex(c => normCat(c) === nc);
+    return idx >= 0 ? idx : ORDEM_CATEGORIAS.length - 3;
   }
+
+  const CATS_LED = ["lâmpada de led","led\u2019s interno/externo","led's interno/externo"];
 
   let todosOsProdutos=[],categorias=new Set(),searchTimer=null,catAtiva='',destaqueIds=new Set();
 
@@ -562,7 +568,7 @@
     if(sort==='menor-preco') return arr.sort((a,b)=>precoNumerico(a)-precoNumerico(b));
     if(sort==='maior-preco') return arr.sort((a,b)=>precoNumerico(b)-precoNumerico(a));
     if(sort==='maior-estoque') return arr.sort((a,b)=>b.stock-a.stock);
-    // padrao e destaque: ordem MR4 → marca → encaixe/ref → estoque
+    // padrao e destaque: ordem MR4 → (LED: encaixe+preço crescente | outros: marca+nome)
     const ENCAIXE_ORDER = ['H1','H3','H4','H7','H8','H11','H16','H27','HB3','HB4','D1','D2','D3','D4','D5','T10','T15','T20','T5'];
     function encaixePrio(nome){
       const n=(nome||'').toUpperCase();
@@ -578,18 +584,23 @@
         if(da&&!db) return -1;
         if(!da&&db) return 1;
       }
-      // 1. categoria
+      // 1. categoria (ordem MR4)
       const pa=prioridadeCategoria(a.category);
       const pb=prioridadeCategoria(b.category);
       if(pa!==pb) return pa-pb;
-      // 2. marca (agrupa produtos da mesma marca)
-      const ba=(a.brand||'').toLowerCase();
-      const bb=(b.brand||'').toLowerCase();
+      // 2. lógica especial para LEDs: encaixe → preço crescente
+      const isLedA=CATS_LED.includes(normCat(a.category));
+      const isLedB=CATS_LED.includes(normCat(b.category));
+      if(isLedA && isLedB){
+        const ea=encaixePrio(a.name), eb=encaixePrio(b.name);
+        if(ea!==eb) return ea-eb;
+        return precoNumerico(a)-precoNumerico(b); // mais barato primeiro
+      }
+      // 3. outras categorias: marca → nome A-Z
+      const ba=(a.brand||'').toLowerCase(), bb=(b.brand||'').toLowerCase();
       if(ba!==bb) return ba<bb?-1:1;
-      // 3. encaixe/conector (H1, H3, H4...)
       const ea=encaixePrio(a.name), eb=encaixePrio(b.name);
       if(ea!==eb) return ea-eb;
-      // 4. nome alfabético
       return (a.name||'').localeCompare(b.name||'','pt-BR');
     });
     return arr;
