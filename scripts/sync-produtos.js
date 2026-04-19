@@ -109,7 +109,7 @@ async function sync() {
     const s = (p.price||'').replace(/[^\d,]/g,'').replace(',','.');
     return parseFloat(s)||0;
   };
-  const ENCAIXE_ORDER = ['H1','H3','H4','H7','H8','H11','H16','H27','HB3','HB4','D1','D2','D3','D4','D5','T10','T15','T20','T5'];
+  const ENCAIXE_ORDER = ['H1','H3','H4','H7','H8','H11','H16','H27','HB3','HB4','D1','D2','D3','D4','D5','T5','T10','T15','T20'];
   const encaixePrio = nome => {
     const n = (nome||'').toUpperCase();
     for (let i = 0; i < ENCAIXE_ORDER.length; i++) {
