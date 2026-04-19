@@ -45,7 +45,7 @@ function normalizaProdutos(lista) {
       id:       p.id || p.codigo_interno,
       ref:      p.codigo_interno || p.codigo || '—',
       name:     p.nome || '—',
-      category: p.nome_grupo || p.grupo || p.categoria || 'Geral',
+      category: (p.nome_grupo || p.grupo || p.categoria || 'Geral').trim(),
       brand:    extraiMarca(p),
       price:    formatPrice(preco),
       stock:    Number(p.estoque || 0),
@@ -117,6 +117,7 @@ async function sync() {
     }
     return 999;
   };
+  const LINHAS_CONHECIDAS = ['V10','Y3','NANO','SKY','ULTRA','FENIX','FÊNIX','P17'];
   const linhaLed = nome => {
     const n = (nome||'').toUpperCase();
     if(n.includes('V10'))  return 'V10';
@@ -128,15 +129,16 @@ async function sync() {
     if(n.includes('P17'))  return 'P17';
     return n.split(' ')[0]||'ZZZ';
   };
+  const isLinhaConhecida = nome => LINHAS_CONHECIDAS.some(l => (nome||'').toUpperCase().includes(l));
   const INTERNO_TIPOS = ['T5','T10','T15','T20','1 POLO','2 POLO','2 POLOS','TORPEDO','PLACA'];
   const internoPrio = nome => {
     const n = (nome||'').toUpperCase();
     for(let i=0;i<INTERNO_TIPOS.length;i++) if(n.includes(INTERNO_TIPOS[i])) return i;
     return 999;
   };
-  // Menor preço por linha de LED kit
+  // Menor preço por linha de LED kit (só linhas conhecidas)
   const linhaMinPreco = {};
-  comEstoque.filter(p=>normCat(p.category)===CAT_LED_KIT).forEach(p=>{
+  comEstoque.filter(p=>normCat(p.category)===CAT_LED_KIT && isLinhaConhecida(p.name)).forEach(p=>{
     const l=linhaLed(p.name), pr=precoNum(p);
     if(pr>0 && (!linhaMinPreco[l]||pr<linhaMinPreco[l])) linhaMinPreco[l]=pr;
   });
@@ -145,8 +147,10 @@ async function sync() {
     const pa = prioridade(a.category), pb = prioridade(b.category);
     if (pa !== pb) return pa - pb;
     const catA = normCat(a.category), catB = normCat(b.category);
-    // Lâmpada de led: linha → encaixe → preço
+    // Lâmpada de led: linhas conhecidas primeiro (V10,Y3,NANO...) → por menor preço → encaixe → preço
     if (catA === CAT_LED_KIT) {
+      const ka=isLinhaConhecida(a.name), kb=isLinhaConhecida(b.name);
+      if(ka!==kb) return ka?-1:1; // linhas conhecidas antes de produtos genéricos
       const la=linhaLed(a.name), lb=linhaLed(b.name);
       if(la!==lb) return (linhaMinPreco[la]||9999)-(linhaMinPreco[lb]||9999);
       const ea=encaixePrio(a.name), eb=encaixePrio(b.name);
