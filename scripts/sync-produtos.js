@@ -159,12 +159,61 @@ async function sync() {
       if(ia!==ib) return ia-ib;
       return precoNum(a)-precoNum(b);
     }
-    // Outros: marca → encaixe → nome
-    const ba = (a.brand||'').toLowerCase(), bb = (b.brand||'').toLowerCase();
-    if (ba !== bb) return ba < bb ? -1 : 1;
-    const ea = encaixePrio(a.name), eb = encaixePrio(b.name);
-    if (ea !== eb) return ea - eb;
-    return (a.name||'').localeCompare(b.name||'', 'pt-BR');
+      // Lâmpadas Halógenas: marca → encaixe → preço
+    if(normCat(a.category)==='lâmpadas halógenas'){
+      const ba=(a.brand||'').toLowerCase(),bb=(b.brand||'').toLowerCase();
+      if(ba!==bb) return ba<bb?-1:1;
+      const ea=encaixePrio(a.name),eb=encaixePrio(b.name);
+      if(ea!==eb) return ea-eb;
+      return precoNum(a)-precoNum(b);
+    }
+    // Alto-Falantes: marca → tamanho → preço
+    if(normCat(a.category)==='alto-falantes'){
+      const FSIZES=['4','5','6X9','6','8','10','12'];
+      const tsz=n=>{const nu=(n||'').toUpperCase();if(nu.includes('6X9'))return 2;for(let i=0;i<FSIZES.length;i++){const s=FSIZES[i];if(s==='6X9')continue;if(nu.match(new RegExp('\\b'+s+'["\\'´]?\\s*(POLEG|PULG|")?\\b')))return i;}return 999;};
+      const ba=(a.brand||'').toLowerCase(),bb=(b.brand||'').toLowerCase();
+      if(ba!==bb) return ba<bb?-1:1;
+      const ta=tsz(a.name),tb=tsz(b.name);
+      if(ta!==tb) return ta-tb;
+      return precoNum(a)-precoNum(b);
+    }
+    // Fusíveis: tipo → amperagem → preço
+    if(normCat(a.category)==='fusíveis'){
+      const FTIPOS=['LAMINA','NORMAL','PADRÃO','MAX','MINI'];
+      const tFus=n=>{const nu=(n||'').toUpperCase();for(let i=0;i<FTIPOS.length;i++)if(nu.includes(FTIPOS[i]))return i;return 999;};
+      const aAmp=n=>{const m=(n||'').match(/\b(\d+)\s*A\b/i);return m?parseInt(m[1]):999;};
+      const ta=tFus(a.name),tb=tFus(b.name);
+      if(ta!==tb) return ta-tb;
+      const aa=aAmp(a.name),ab=aAmp(b.name);
+      if(aa!==ab) return aa-ab;
+      return precoNum(a)-precoNum(b);
+    }
+    // Multimídia e Rádio: marca → tipo → tela → preço
+    if(['multimídia','rádio'].includes(normCat(a.category))){
+      const ba=(a.brand||'').toLowerCase(),bb=(b.brand||'').toLowerCase();
+      if(ba!==bb) return ba<bb?-1:1;
+      const tMid=n=>{const nu=(n||'').toUpperCase();if(nu.includes('MP3'))return 0;if(nu.includes('MP5'))return 1;if(nu.includes('ANDROID'))return 2;return 3;};
+      const tTela=n=>{const m=(n||'').match(/\b(\d+)["'\s]*POL|\b(\d+)["]/i);return m?parseInt(m[1]||m[2]):999;};
+      const ta=tMid(a.name),tb=tMid(b.name);
+      if(ta!==tb) return ta-tb;
+      const sa=tTela(a.name),sb=tTela(b.name);
+      if(sa!==sb) return sa-sb;
+      return precoNum(a)-precoNum(b);
+    }
+    // Chave e Farol: marca do carro → preço
+    if(['chave','farol de milha'].includes(normCat(a.category))){
+      const CARROS=['VOLKSWAGEN','VW','GM','CHEVROLET','FIAT','FORD','TOYOTA','HYUNDAI','HONDA','RENAULT'];
+      const mCar=n=>{const nu=(n||'').toUpperCase();for(let i=0;i<CARROS.length;i++)if(nu.includes(CARROS[i]))return i;return 999;};
+      const ba=(a.brand||'').toLowerCase(),bb=(b.brand||'').toLowerCase();
+      if(ba!==bb) return ba<bb?-1:1;
+      const ma=mCar(a.name),mb=mCar(b.name);
+      if(ma!==mb) return ma-mb;
+      return precoNum(a)-precoNum(b);
+    }
+    // Demais: marca → preço crescente
+    const ba=(a.brand||'').toLowerCase(),bb=(b.brand||'').toLowerCase();
+    if(ba!==bb) return ba<bb?-1:1;
+    return precoNum(a)-precoNum(b);
   });
 
   const output = {

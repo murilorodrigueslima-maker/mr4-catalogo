@@ -403,8 +403,67 @@
     return idx >= 0 ? idx : ORDEM_CATEGORIAS.length - 3;
   }
 
-  const CAT_LED_KIT    = "lâmpada de led";
-  const CAT_LED_INT    = "led's interno/externo";
+  const CAT_LED_KIT  = "lâmpada de led";
+  const CAT_LED_INT  = "led's interno/externo";
+  const CAT_HALOGENA = "lâmpadas halógenas";
+  const CAT_FALANTE  = "alto-falantes";
+  const CAT_FUSIVEL  = "fusíveis";
+  const CAT_TERMINAL = "terminais";
+  const CAT_MULTIMIDIA = "multimídia";
+  const CAT_RADIO    = "rádio";
+  const CAT_CHAVE    = "chave";
+  const CAT_FAROL    = "farol de milha";
+  const CAT_SENSOR   = "sensor estacionamento";
+
+  // Tamanho de alto-falante (4" < 5" < 6" < 6x9 < 8" < 10" < 12")
+  const FALANTE_SIZES = ['4','5','6X9','6','8','10','12'];
+  function tamanhoFalante(nome){
+    const n=(nome||'').toUpperCase();
+    if(n.includes('6X9')||n.includes('6 X 9')) return 2; // índice em FALANTE_SIZES
+    for(let i=0;i<FALANTE_SIZES.length;i++){
+      const s=FALANTE_SIZES[i];
+      if(s==='6X9') continue;
+      if(n.match(new RegExp('\\b'+s+'["\\'´]?\\s*(POLEG|PULG|")?\\b'))) return i;
+    }
+    return 999;
+  }
+
+  // Amperagem de fusível (5A, 10A, 20A...)
+  function amperagemFusivel(nome){
+    const m=(nome||'').match(/\b(\d+)\s*A\b/i);
+    return m ? parseInt(m[1]) : 999;
+  }
+
+  // Tipo de fusível (Lâmina Normal → MAX → Mini → outros)
+  const FUSIVEL_TIPOS = ['LAMINA','NORMAL','PADRÃO','MAX','MINI'];
+  function tipoFusivel(nome){
+    const n=(nome||'').toUpperCase();
+    for(let i=0;i<FUSIVEL_TIPOS.length;i++) if(n.includes(FUSIVEL_TIPOS[i])) return i;
+    return 999;
+  }
+
+  // Tipo de multimídia (MP3 < MP5 < Android)
+  function tipoMultimidia(nome){
+    const n=(nome||'').toUpperCase();
+    if(n.includes('MP3')) return 0;
+    if(n.includes('MP5')) return 1;
+    if(n.includes('ANDROID')) return 2;
+    return 3;
+  }
+
+  // Tamanho de tela de multimídia em polegadas
+  function telaMultimidia(nome){
+    const m=(nome||'').match(/\b(\d+)["'\s]*POL|\b(\d+)["]/i);
+    return m ? parseInt(m[1]||m[2]) : 999;
+  }
+
+  // Marca do carro para chaves e faróis
+  const CARRO_MARCAS = ['VOLKSWAGEN','VW','GM','CHEVROLET','FIAT','FORD','TOYOTA','HYUNDAI','HONDA','RENAULT'];
+  function marcaCarro(nome){
+    const n=(nome||'').toUpperCase();
+    for(let i=0;i<CARRO_MARCAS.length;i++) if(n.includes(CARRO_MARCAS[i])) return i;
+    return 999;
+  }
 
   // Extrai a linha de produto do nome (V10, Y3, NANO, SKY, etc.)
   function linhaLed(nome){
@@ -641,12 +700,75 @@
         return precoNumerico(a)-precoNumerico(b);
       }
 
-      // 4. Outras categorias: marca → encaixe → nome A-Z
+      // 4. Lâmpadas Halógenas: marca → encaixe (H1,H3,H4...) → preço
+      if(catA===CAT_HALOGENA){
+        const ba=(a.brand||'').toLowerCase(), bb=(b.brand||'').toLowerCase();
+        if(ba!==bb) return ba<bb?-1:1;
+        const ea=encaixePrio(a.name), eb=encaixePrio(b.name);
+        if(ea!==eb) return ea-eb;
+        return precoNumerico(a)-precoNumerico(b);
+      }
+
+      // 5. Alto-Falantes: marca → tamanho (4",5",6",6x9,8",10",12") → preço
+      if(catA===CAT_FALANTE){
+        const ba=(a.brand||'').toLowerCase(), bb=(b.brand||'').toLowerCase();
+        if(ba!==bb) return ba<bb?-1:1;
+        const ta=tamanhoFalante(a.name), tb=tamanhoFalante(b.name);
+        if(ta!==tb) return ta-tb;
+        return precoNumerico(a)-precoNumerico(b);
+      }
+
+      // 6. Fusíveis: tipo (Normal→MAX→Mini) → amperagem → preço
+      if(catA===CAT_FUSIVEL){
+        const ta=tipoFusivel(a.name), tb=tipoFusivel(b.name);
+        if(ta!==tb) return ta-tb;
+        const aa=amperagemFusivel(a.name), ab=amperagemFusivel(b.name);
+        if(aa!==ab) return aa-ab;
+        return precoNumerico(a)-precoNumerico(b);
+      }
+
+      // 7. Terminais: marca → nome A-Z → preço
+      if(catA===CAT_TERMINAL){
+        const ba=(a.brand||'').toLowerCase(), bb=(b.brand||'').toLowerCase();
+        if(ba!==bb) return ba<bb?-1:1;
+        const nc=a.name.localeCompare(b.name,'pt-BR');
+        if(nc!==0) return nc;
+        return precoNumerico(a)-precoNumerico(b);
+      }
+
+      // 8. Multimídia e Rádio: marca → tipo (MP3/MP5/Android) → tela → preço
+      if(catA===CAT_MULTIMIDIA||catA===CAT_RADIO){
+        const ba=(a.brand||'').toLowerCase(), bb=(b.brand||'').toLowerCase();
+        if(ba!==bb) return ba<bb?-1:1;
+        const ta=tipoMultimidia(a.name), tb=tipoMultimidia(b.name);
+        if(ta!==tb) return ta-tb;
+        const sa=telaMultimidia(a.name), sb=telaMultimidia(b.name);
+        if(sa!==sb) return sa-sb;
+        return precoNumerico(a)-precoNumerico(b);
+      }
+
+      // 9. Chave: marca do carro → nome → preço
+      if(catA===CAT_CHAVE){
+        const ba=(a.brand||'').toLowerCase(), bb=(b.brand||'').toLowerCase();
+        if(ba!==bb) return ba<bb?-1:1;
+        const ma=marcaCarro(a.name), mb=marcaCarro(b.name);
+        if(ma!==mb) return ma-mb;
+        return precoNumerico(a)-precoNumerico(b);
+      }
+
+      // 10. Farol de milha: marca carro → preço
+      if(catA===CAT_FAROL){
+        const ba=(a.brand||'').toLowerCase(), bb=(b.brand||'').toLowerCase();
+        if(ba!==bb) return ba<bb?-1:1;
+        const ma=marcaCarro(a.name), mb=marcaCarro(b.name);
+        if(ma!==mb) return ma-mb;
+        return precoNumerico(a)-precoNumerico(b);
+      }
+
+      // 11. Demais categorias: marca → preço crescente
       const ba=(a.brand||'').toLowerCase(), bb=(b.brand||'').toLowerCase();
       if(ba!==bb) return ba<bb?-1:1;
-      const ea=encaixePrio(a.name), eb=encaixePrio(b.name);
-      if(ea!==eb) return ea-eb;
-      return (a.name||'').localeCompare(b.name||'','pt-BR');
+      return precoNumerico(a)-precoNumerico(b);
     });
     return arr;
   }
