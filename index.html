@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>MR4 Distribuidora — Catálogo B2B</title>
 <link rel="icon" type="image/png" href="./assets/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -76,6 +79,8 @@
   @media(max-width:640px){.cat-pills{padding:.6rem 1.25rem;gap:.3rem}.cat-pill{font-size:.72rem;padding:4px 11px}}
   .count-badge{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);background:var(--gray2);border:1px solid var(--border);padding:6px 14px;border-radius:20px;white-space:nowrap}
   .count-badge span{color:var(--orange);font-weight:700}
+  .sync-badge{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--muted);white-space:nowrap;display:none}
+  .sync-badge.visible{display:block}
   .sort-select{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#111;background:var(--gray2);border:1.5px solid var(--border);padding:6px 12px;border-radius:20px;cursor:pointer;outline:none;transition:border-color .2s}
   .sort-select:focus{border-color:var(--orange)}
   /* DESTAQUE badge */
@@ -260,6 +265,7 @@
     <option value="maior-estoque">📊 Maior estoque</option>
   </select>
   <div class="count-badge">Exibindo <span id="countDisplay">—</span> produtos</div>
+  <div class="sync-badge" id="syncBadge" title="Última sincronização com estoque"></div>
 </div>
 <div class="cat-pills" id="catPills">
   <button class="cat-pill active" data-cat="" onclick="onPillClick(this)">Todas</button>
@@ -513,6 +519,12 @@
       todosOsProdutos = data.produtos||[];
       todosOsProdutos.forEach(p=>{ if(p.category) categorias.add(p.category); });
       calcLinhaMinPreco();
+      if(data.atualizado){
+        const d=new Date(data.atualizado);
+        const fmt=d.toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit',timeZone:'America/Fortaleza'});
+        const el=document.getElementById('syncBadge');
+        if(el){el.textContent='🔄 '+fmt;el.classList.add('visible');}
+      }
       if(resDest && resDest.ok){
         const dest = await resDest.json();
         (dest.ids||[]).forEach(id => destaqueIds.add(String(id)));
