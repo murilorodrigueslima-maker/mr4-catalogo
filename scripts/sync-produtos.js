@@ -169,8 +169,7 @@ async function sync() {
     }
     // Alto-Falantes: marca → tamanho → preço
     if(normCat(a.category)==='alto-falantes'){
-      const FSIZES=['4','5','6X9','6','8','10','12'];
-      const tsz=n=>{const nu=(n||'').toUpperCase();if(nu.includes('6X9'))return 2;for(let i=0;i<FSIZES.length;i++){const s=FSIZES[i];if(s==='6X9')continue;if(nu.match(new RegExp('\\b'+s+'["\\'´]?\\s*(POLEG|PULG|")?\\b')))return i;}return 999;};
+      const tsz=n=>{const nu=(n||'').toUpperCase();if(/\b6\s*[Xx]\s*9\b/.test(nu))return 0;if(/\b4["´]|\b4\s+POL/.test(nu))return 1;if(/\b5["´]|\b5\s+POL/.test(nu))return 2;if(/\b6["´]|\b6\s+POL/.test(nu))return 3;if(/\b8["´]|\b8\s+POL/.test(nu))return 4;if(/\b10["´]|\b10\s+POL/.test(nu))return 5;if(/\b12["´]|\b12\s+POL/.test(nu))return 6;return 999;};
       const ba=(a.brand||'').toLowerCase(),bb=(b.brand||'').toLowerCase();
       if(ba!==bb) return ba<bb?-1:1;
       const ta=tsz(a.name),tb=tsz(b.name);
