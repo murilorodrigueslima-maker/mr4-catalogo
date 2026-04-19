@@ -657,6 +657,8 @@
   function aplicarOrdenacao(lista){
     const sort=document.getElementById('sortSelect')?.value||'padrao';
     const arr=[...lista];
+    // Padrão: usa a ordem do JSON (sync-produtos.js já deixa ordenado corretamente)
+    if(sort==='padrao') return arr;
     if(sort==='az') return arr.sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
     if(sort==='za') return arr.sort((a,b)=>b.name.localeCompare(a.name,'pt-BR'));
     if(sort==='menor-preco') return arr.sort((a,b)=>precoNumerico(a)-precoNumerico(b));
