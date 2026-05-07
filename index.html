@@ -921,10 +921,6 @@
     return _recomendacoes;
   }
 
-  function normCat(cat){
-    return (cat||’’).trim().toLowerCase().replace(/[‘’ʼ‘’]/g,"’");
-  }
-
   async function renderSugestoesNoCarrinho(){
     const el = document.getElementById(‘sugestCartSection’);
     if(!el) return;
