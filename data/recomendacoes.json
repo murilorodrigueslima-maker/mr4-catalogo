@@ -1,0 +1,40 @@
+{
+  "_info": "Protótipo — dados simulados por categoria. Será substituído por dados reais do histórico de vendas.",
+  "por_categoria": {
+    "Rádio": [
+      { "categoria": "Moldura",               "frequencia": 72, "label": "Moldura" },
+      { "categoria": "Alto-Falantes",          "frequencia": 58, "label": "Alto-Falantes" },
+      { "categoria": "Antenas",               "frequencia": 41, "label": "Antenas" }
+    ],
+    "Multimídia": [
+      { "categoria": "Câmera",                "frequencia": 68, "label": "Câmera de ré" },
+      { "categoria": "Moldura",               "frequencia": 61, "label": "Moldura" },
+      { "categoria": "Sensor estacionamento", "frequencia": 44, "label": "Sensor de estacionamento" }
+    ],
+    "Alto-Falantes": [
+      { "categoria": "Rádio",                 "frequencia": 55, "label": "Rádio" },
+      { "categoria": "Multimídia",            "frequencia": 38, "label": "Multimídia" }
+    ],
+    "Câmera": [
+      { "categoria": "Sensor estacionamento", "frequencia": 62, "label": "Sensor de estacionamento" },
+      { "categoria": "Multimídia",            "frequencia": 54, "label": "Multimídia" },
+      { "categoria": "Moldura",               "frequencia": 33, "label": "Moldura" }
+    ],
+    "Moldura": [
+      { "categoria": "Rádio",                 "frequencia": 70, "label": "Rádio" },
+      { "categoria": "Multimídia",            "frequencia": 48, "label": "Multimídia" }
+    ],
+    "Sensor estacionamento": [
+      { "categoria": "Câmera",                "frequencia": 65, "label": "Câmera de ré" },
+      { "categoria": "Multimídia",            "frequencia": 40, "label": "Multimídia" }
+    ],
+    "Led's interno/externo": [
+      { "categoria": "Lâmpada de led",        "frequencia": 55, "label": "Kit LED" },
+      { "categoria": "Soquetes",              "frequencia": 42, "label": "Soquetes" }
+    ],
+    "Lâmpada de led": [
+      { "categoria": "Led's interno/externo", "frequencia": 60, "label": "LED Interno" },
+      { "categoria": "Soquetes",              "frequencia": 38, "label": "Soquetes" }
+    ]
+  }
+}
