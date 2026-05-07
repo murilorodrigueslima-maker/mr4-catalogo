@@ -629,7 +629,9 @@
       </div>`).join('') + `<div id="sugestCartSection"></div>`;
     foot.style.display='block';
     // Carrega sugestões dentro do carrinho (sem bloquear render)
-    if(typeof renderSugestoesNoCarrinho === 'function') renderSugestoesNoCarrinho();
+    if(typeof renderSugestoesNoCarrinho === 'function'){
+      Promise.resolve().then(()=>renderSugestoesNoCarrinho()).catch(()=>{});
+    }
   }
 
   function enviarPedidoWhats(){
@@ -922,6 +924,7 @@
   }
 
   async function renderSugestoesNoCarrinho(){
+    try{
     const el = document.getElementById(‘sugestCartSection’);
     if(!el) return;
 
@@ -978,6 +981,7 @@
             </button>
           </div>`).join(‘’)}
       </div>`;
+    }catch(e){}
   }
 
   window.scAdd = function(p, btn){
