@@ -203,40 +203,21 @@
   .btn-add-cart{background:var(--orange);color:#fff;border:none;border-radius:2px;padding:5px 10px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;transition:background .15s;white-space:nowrap}
   .btn-add-cart:hover{background:#e55a0a}
 
-  /* ── MODAL SUGESTÕES "Quem comprou também levou" ── */
-  .sugest-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
-  .sugest-overlay.open{opacity:1;pointer-events:all}
-  .sugest-box{background:#fff;border-radius:16px;width:92%;max-width:480px;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.25);transform:translateY(20px);transition:transform .25s;display:flex;flex-direction:column}
-  .sugest-overlay.open .sugest-box{transform:translateY(0)}
-  .sugest-top{background:#1a1a2e;padding:1rem 1.25rem;border-radius:16px 16px 0 0;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-  .sugest-top-left{display:flex;flex-direction:column;gap:2px}
-  .sugest-added{font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.5)}
-  .sugest-prod-nome{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:#fff;letter-spacing:.5px}
-  .sugest-close{background:none;border:none;color:rgba(255,255,255,.4);font-size:1.4rem;cursor:pointer;line-height:1;padding:2px 6px;flex-shrink:0}
-  .sugest-close:hover{color:#fff}
-  .sugest-titulo{display:flex;align-items:center;gap:.5rem;padding:.85rem 1.25rem .5rem;border-bottom:1px solid #f0f0f0}
-  .sugest-titulo-icon{font-size:1.1rem}
-  .sugest-titulo-txt{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#1a1a2e}
-  .sugest-titulo-badge{background:#fff8f4;border:1px solid rgba(255,107,26,.25);border-radius:20px;padding:2px 8px;font-size:.65rem;font-weight:700;color:var(--orange);margin-left:auto}
-  .sugest-lista{padding:.75rem 1rem;display:flex;flex-direction:column;gap:.6rem}
-  .sugest-item{display:flex;align-items:center;gap:.75rem;padding:.6rem .75rem;border:1.5px solid #f0f0f0;border-radius:10px;cursor:pointer;transition:border-color .15s,background .15s}
-  .sugest-item:hover{border-color:var(--orange);background:#fff8f4}
-  .sugest-item-img{width:48px;height:48px;border-radius:8px;object-fit:cover;background:#f5f5f5;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
-  .sugest-item-info{flex:1;min-width:0}
-  .sugest-item-nome{font-size:.82rem;font-weight:600;color:#1a1a2e;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .sugest-item-ref{font-size:.7rem;color:#9ca3af;margin-top:1px;font-family:'Barlow Condensed',sans-serif;letter-spacing:.3px}
-  .sugest-item-freq{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0}
-  .sugest-item-pct{font-size:.72rem;font-weight:700;color:var(--orange)}
-  .sugest-item-bar{width:40px;height:4px;background:#f0f0f0;border-radius:99px;overflow:hidden}
-  .sugest-item-bar-fill{height:100%;background:var(--orange);border-radius:99px}
-  .sugest-btn-add{background:var(--orange);color:#fff;border:none;border-radius:6px;padding:5px 10px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .15s;flex-shrink:0}
-  .sugest-btn-add:hover{background:#e55a0a}
-  .sugest-btn-add.added{background:#2a9d5c}
-  .sugest-footer{padding:.75rem 1.25rem 1rem;display:flex;gap:.6rem;flex-shrink:0;border-top:1px solid #f0f0f0}
-  .sugest-btn-continuar{flex:1;background:#f3f4f6;color:#374151;border:none;border-radius:8px;padding:11px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;transition:background .15s}
-  .sugest-btn-continuar:hover{background:#e5e7eb}
-  .sugest-btn-carrinho{flex:1;background:#1a1a2e;color:#fff;border:none;border-radius:8px;padding:11px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;transition:background .15s;display:flex;align-items:center;justify-content:center;gap:6px}
-  .sugest-btn-carrinho:hover{background:#2d2d4e}
+  /* ── SUGESTÕES dentro do carrinho ── */
+  .sc-wrap{margin:1rem 0 .5rem;border-top:2px dashed #f0f0f0;padding-top:.85rem}
+  .sc-titulo{display:flex;align-items:center;gap:.4rem;margin-bottom:.6rem}
+  .sc-titulo-txt{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#1a1a2e}
+  .sc-titulo-badge{background:#fff8f4;border:1px solid rgba(255,107,26,.3);border-radius:20px;padding:1px 7px;font-size:.6rem;font-weight:700;color:var(--orange)}
+  .sc-item{display:flex;align-items:center;gap:.6rem;padding:.5rem 0;border-bottom:1px solid #f5f5f5}
+  .sc-item:last-child{border-bottom:none}
+  .sc-img{width:42px;height:42px;border-radius:7px;object-fit:cover;background:#f5f5f5;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+  .sc-info{flex:1;min-width:0}
+  .sc-nome{font-size:.77rem;font-weight:600;color:#1a1a2e;line-height:1.25;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .sc-ref{font-size:.65rem;color:#9ca3af;font-family:'Barlow Condensed',sans-serif;margin-top:1px}
+  .sc-pct{font-size:.65rem;font-weight:700;color:var(--orange);flex-shrink:0}
+  .sc-btn{background:var(--orange);color:#fff;border:none;border-radius:5px;padding:5px 9px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;transition:background .15s;flex-shrink:0;white-space:nowrap}
+  .sc-btn:hover{background:#e55a0a}
+  .sc-btn.added{background:#2a9d5c;pointer-events:none}
   .btn-add-cart.added{background:#2a9d5c}
 
   /* FOOTER */
@@ -593,13 +574,10 @@
   let carrinho = {};
 
   function addCarrinho(p){
-    const isNovo = !carrinho[p.id];
     if(!carrinho[p.id]) carrinho[p.id]={produto:p,qty:1};
     else carrinho[p.id].qty++;
     atualizarCarrinho();
     filtrarERenderizar();
-    // Mostra sugestões apenas na primeira vez que o produto é adicionado
-    if(isNovo && typeof mostrarSugestoes === 'function') mostrarSugestoes(p);
   }
 
   function changeQty(id,delta){
@@ -648,8 +626,10 @@
             <button class="c-item-rm" onclick="removeCarrinho('${i.produto.id}')">✕ Remover</button>
           </div>
         </div>
-      </div>`).join('');
+      </div>`).join('') + `<div id="sugestCartSection"></div>`;
     foot.style.display='block';
+    // Carrega sugestões dentro do carrinho (sem bloquear render)
+    if(typeof renderSugestoesNoCarrinho === 'function') renderSugestoesNoCarrinho();
   }
 
   function enviarPedidoWhats(){
@@ -929,120 +909,88 @@
     document.body.style.overflow='';
   }
 
-  // ====== SUGESTÕES "Quem comprou também levou" ======
+  // ====== SUGESTÕES dentro do carrinho ======
   let _recomendacoes = null;
 
   async function carregarRecomendacoes(){
     if(_recomendacoes) return _recomendacoes;
     try {
-      const r = await fetch('data/recomendacoes.json');
+      const r = await fetch(‘data/recomendacoes.json’);
       _recomendacoes = await r.json();
     } catch(e){ _recomendacoes = { por_categoria:{} }; }
     return _recomendacoes;
   }
 
-  function normalizarCategoria(cat){
-    return (cat||'').trim().toLowerCase().replace(/[‘’ʼ']/g,"'");
+  function normCat(cat){
+    return (cat||’’).trim().toLowerCase().replace(/[‘’ʼ‘’]/g,"’");
   }
 
-  async function mostrarSugestoes(produtoAdicionado){
+  async function renderSugestoesNoCarrinho(){
+    const el = document.getElementById(‘sugestCartSection’);
+    if(!el) return;
+
     const rec = await carregarRecomendacoes();
-    const catProd = normalizarCategoria(produtoAdicionado.category);
+    const itensNoCarrinho = Object.values(carrinho);
+    if(!itensNoCarrinho.length){ el.innerHTML=’’; return; }
 
-    // Acha sugestões pela categoria (case-insensitive)
-    let sugestoesCat = [];
-    for(const [cat, lista] of Object.entries(rec.por_categoria||{})){
-      if(normalizarCategoria(cat) === catProd){ sugestoesCat = lista; break; }
+    // Coleta sugestões de todas as categorias que estão no carrinho
+    const sugestMap = {}; // id produto → { produto, freq }
+    for(const item of itensNoCarrinho){
+      const catNorm = normCat(item.produto.category);
+      let recsCategoria = [];
+      for(const [cat, lista] of Object.entries(rec.por_categoria||{})){
+        if(normCat(cat) === catNorm){ recsCategoria = lista; break; }
+      }
+      for(const sug of recsCategoria){
+        const catSugNorm = normCat(sug.categoria);
+        const candidatos = todosOsProdutos.filter(p =>
+          normCat(p.category) === catSugNorm && !carrinho[p.id]
+        );
+        if(!candidatos.length) continue;
+        const escolhido = candidatos[Math.floor(Math.random() * Math.min(candidatos.length, 5))];
+        if(!sugestMap[escolhido.id]){
+          sugestMap[escolhido.id] = { produto: escolhido, freq: sug.frequencia };
+        }
+      }
     }
-    if(!sugestoesCat.length) return; // sem sugestões para essa categoria
 
-    // Monta lista de produtos sugeridos (3 produtos por categoria recomendada)
-    const produtosSugeridos = [];
-    for(const sug of sugestoesCat){
-      const catNorm = normalizarCategoria(sug.categoria);
-      const disponiveis = todosOsProdutos.filter(p =>
-        normalizarCategoria(p.category) === catNorm &&
-        p.id !== produtoAdicionado.id &&
-        !carrinho[p.id]
-      );
-      if(!disponiveis.length) continue;
-      // Pega 1 produto aleatório da categoria sugerida
-      const escolhido = disponiveis[Math.floor(Math.random() * Math.min(disponiveis.length, 5))];
-      produtosSugeridos.push({ produto: escolhido, freq: sug.frequencia, label: sug.label });
-      if(produtosSugeridos.length >= 4) break;
-    }
-    if(!produtosSugeridos.length) return;
+    const sugestoes = Object.values(sugestMap)
+      .sort((a,b) => b.freq - a.freq)
+      .slice(0, 4);
 
-    // Renderiza modal
-    const lista = produtosSugeridos.map(({produto:p, freq}) => `
-      <div class="sugest-item" onclick="sugestAddCarrinho(${JSON.stringify(p).replace(/"/g,'&quot;')}, this)">
-        ${p.img
-          ? `<img class="sugest-item-img" src="${p.img}" alt="${p.name}">`
-          : `<div class="sugest-item-img">📦</div>`}
-        <div class="sugest-item-info">
-          <div class="sugest-item-nome">${p.name}</div>
-          <div class="sugest-item-ref">${p.ref}</div>
+    if(!sugestoes.length){ el.innerHTML=’’; return; }
+
+    el.innerHTML = `
+      <div class="sc-wrap">
+        <div class="sc-titulo">
+          <span class="sc-titulo-txt">🛒 Quem comprou também levou</span>
+          <span class="sc-titulo-badge">+vendas</span>
         </div>
-        <div class="sugest-item-freq">
-          <span class="sugest-item-pct">${freq}%</span>
-          <div class="sugest-item-bar"><div class="sugest-item-bar-fill" style="width:${freq}%"></div></div>
-        </div>
-        <button class="sugest-btn-add ${carrinho[p.id]?'added':''}"
-          onclick="event.stopPropagation();sugestAddCarrinho(${JSON.stringify(p).replace(/"/g,'&quot;')}, this.closest('.sugest-item'))">
-          ${carrinho[p.id]?'✓':'+ Add'}
-        </button>
-      </div>`).join('');
-
-    document.getElementById('sugestProdNome').textContent = produtoAdicionado.name;
-    document.getElementById('sugestLista').innerHTML = lista;
-    document.getElementById('sugestOverlay').classList.add('open');
-    document.body.style.overflow='hidden';
+        ${sugestoes.map(({produto:p, freq}) => `
+          <div class="sc-item">
+            ${p.img
+              ? `<img class="sc-img" src="${p.img}" alt="${p.name}">`
+              : `<div class="sc-img">📦</div>`}
+            <div class="sc-info">
+              <div class="sc-nome">${p.name}</div>
+              <div class="sc-ref">${p.ref}</div>
+            </div>
+            <span class="sc-pct">${freq}%</span>
+            <button class="sc-btn ${carrinho[p.id]?’added’:’’}"
+              onclick="scAdd(${JSON.stringify(p).replace(/"/g,’&quot;’)}, this)">
+              ${carrinho[p.id]?’✓ Add’:’+ Add’}
+            </button>
+          </div>`).join(‘’)}
+      </div>`;
   }
 
-  window.sugestAddCarrinho = function(p, itemEl){
+  window.scAdd = function(p, btn){
     addCarrinho(p);
-    if(itemEl){
-      const btn = itemEl.querySelector('.sugest-btn-add');
-      if(btn){ btn.textContent='✓ Adicionado'; btn.classList.add('added'); }
-      itemEl.style.opacity='.6';
-      itemEl.style.pointerEvents='none';
-    }
+    btn.textContent = ‘✓ Add’;
+    btn.classList.add(‘added’);
   };
-
-  window.fecharSugestoes = function(){
-    document.getElementById('sugestOverlay').classList.remove('open');
-    document.body.style.overflow='';
-  };
-
-  window.sugestVerCarrinho = function(){
-    fecharSugestoes();
-    setTimeout(()=>{ toggleCart(); },200);
-  };
-
   // ====== FIM SUGESTÕES ======
 </script>
 
-<!-- Modal "Quem comprou também levou" -->
-<div class="sugest-overlay" id="sugestOverlay" onclick="if(event.target===this)fecharSugestoes()">
-  <div class="sugest-box">
-    <div class="sugest-top">
-      <div class="sugest-top-left">
-        <span class="sugest-added">✅ Adicionado ao pedido</span>
-        <span class="sugest-prod-nome" id="sugestProdNome"></span>
-      </div>
-      <button class="sugest-close" onclick="fecharSugestoes()">✕</button>
-    </div>
-    <div class="sugest-titulo">
-      <span class="sugest-titulo-icon">🛒</span>
-      <span class="sugest-titulo-txt">Quem comprou também levou</span>
-      <span class="sugest-titulo-badge">Baseado em vendas reais</span>
-    </div>
-    <div class="sugest-lista" id="sugestLista"></div>
-    <div class="sugest-footer">
-      <button class="sugest-btn-continuar" onclick="fecharSugestoes()">Continuar comprando</button>
-      <button class="sugest-btn-carrinho" onclick="sugestVerCarrinho()">🛒 Ver pedido</button>
-    </div>
-  </div>
-</div>
 </body>
 </html>
