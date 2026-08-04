@@ -428,10 +428,10 @@
   // Tamanho de alto-falante (4" < 5" < 6" < 6x9 < 8" < 10" < 12")
   function tamanhoFalante(nome){
     const n=(nome||'').toUpperCase();
-    if(/\b6\s*[Xx]\s*9\b/.test(n)) return 0;
-    if(/\b4["´']|\b4\s+POL/.test(n)) return 1;
-    if(/\b5["´']|\b5\s+POL/.test(n)) return 2;
-    if(/\b6["´']|\b6\s+POL/.test(n)) return 3;
+    if(/\b4["´']|\b4\s+POL/.test(n)) return 0;
+    if(/\b5["´']|\b5\s+POL/.test(n)) return 1;
+    if(/\b6["´']|\b6\s+POL/.test(n)) return 2;
+    if(/\b6\s*[Xx]\s*9\b/.test(n)) return 3;
     if(/\b8["´']|\b8\s+POL/.test(n)) return 4;
     if(/\b10["´']|\b10\s+POL/.test(n)) return 5;
     if(/\b12["´']|\b12\s+POL/.test(n)) return 6;
@@ -808,7 +808,7 @@
     document.getElementById('pagination').innerHTML='';
   }
 
-  function renderErro(msg){document.getElementById('grid').innerHTML=`<div class="state-box"><h3>Erro ao carregar</h3><p>${msg}</p><button class="btn-retry" onclick="carregarProdutos()">Tentar novamente</button></div>`}
+  function renderErro(msg){document.getElementById('grid').innerHTML=`<div class="state-box"><h3>Erro ao carregar</h3><p>${msg}</p><button class="btn-retry" onclick="inicializar()">Tentar novamente</button></div>`}
 
   function renderPaginacao(){
     const el=document.getElementById('pagination');
