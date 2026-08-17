@@ -618,9 +618,17 @@
     const items=Object.values(carrinho);
     if(!items.length) return;
     const nome=document.getElementById('clienteNome').value.trim()||'Cliente';
-    let msg=`Olá, MR4 Distribuidora! 👋\n\n*${nome}* gostaria de fazer um pedido:\n\n`;
-    items.forEach(i=>{msg+=`• *${i.produto.name}*\n  Ref: ${i.produto.ref} | Qtd: ${i.qty}\n\n`;});
-    msg+=`Aguardo contato! 😊`;
+    const totalItens=items.reduce((s,i)=>s+i.qty,0);
+    const linhas=[
+      `Ola, MR4 Distribuidora!`,
+      ``,
+      `*${nome}* - Pedido:`,
+      ``,
+      ...items.map(i=>`• ${i.qty}x ${i.produto.name} (Ref: ${i.produto.ref})`),
+      ``,
+      `*Total: ${totalItens} ${totalItens===1?'item':'itens'}*`,
+    ];
+    const msg=linhas.join('\n');
     // Fecha o carrinho primeiro para evitar conflito de toque no celular
     document.getElementById('cartSidebar').classList.remove('open');
     document.getElementById('cartOverlay').classList.remove('open');
