@@ -189,7 +189,8 @@
   .qty-ctrl{display:flex;align-items:center;gap:7px}
   .qty-btn{width:26px;height:26px;border-radius:5px;border:1px solid var(--border);background:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;color:#444;transition:all .15s;line-height:1}
   .qty-btn:hover{background:var(--orange);color:#fff;border-color:var(--orange)}
-  .qty-val{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:700;min-width:22px;text-align:center}
+  .qty-val{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:700;width:44px;text-align:center;border:1px solid var(--border);border-radius:5px;padding:2px 4px;background:#fff;color:#222}
+  .qty-val::-webkit-inner-spin-button,.qty-val::-webkit-outer-spin-button{opacity:1}
   .c-item-rm{background:none;border:none;color:#ccc;cursor:pointer;font-size:.72rem;font-family:'Barlow',sans-serif;transition:color .15s}
   .c-item-rm:hover{color:#d00}
   .cart-foot{padding:1.25rem;border-top:2px solid var(--border);background:#fafafa;flex-shrink:0}
@@ -557,9 +558,20 @@
   // ====== CARRINHO ======
   let carrinho = {};
 
+  function _salvarCarrinho(){
+    try{ localStorage.setItem('mr4_carrinho', JSON.stringify(carrinho)); }catch(e){}
+  }
+  function _carregarCarrinho(){
+    try{
+      const s=localStorage.getItem('mr4_carrinho');
+      if(s){ const c=JSON.parse(s); if(c&&typeof c==='object') carrinho=c; }
+    }catch(e){}
+  }
+
   function addCarrinho(p){
     if(!carrinho[p.id]) carrinho[p.id]={produto:p,qty:1};
     else carrinho[p.id].qty++;
+    _salvarCarrinho();
     atualizarCarrinho();
     filtrarERenderizar();
   }
@@ -568,12 +580,24 @@
     if(!carrinho[id]) return;
     carrinho[id].qty+=delta;
     if(carrinho[id].qty<=0) delete carrinho[id];
+    _salvarCarrinho();
+    atualizarCarrinho();
+    filtrarERenderizar();
+  }
+
+  function setQty(id,val){
+    const n=parseInt(val,10);
+    if(!carrinho[id]) return;
+    if(isNaN(n)||n<=0){ delete carrinho[id]; }
+    else { carrinho[id].qty=n; }
+    _salvarCarrinho();
     atualizarCarrinho();
     filtrarERenderizar();
   }
 
   function removeCarrinho(id){
     delete carrinho[id];
+    _salvarCarrinho();
     atualizarCarrinho();
     filtrarERenderizar();
   }
@@ -604,7 +628,7 @@
           <div class="c-item-row">
             <div class="qty-ctrl">
               <button class="qty-btn" onclick="changeQty('${i.produto.id}',-1)">−</button>
-              <span class="qty-val">${i.qty}</span>
+              <input class="qty-val" type="number" min="1" value="${i.qty}" onchange="setQty('${i.produto.id}',this.value)" onclick="this.select()">
               <button class="qty-btn" onclick="changeQty('${i.produto.id}',1)">+</button>
             </div>
             <button class="c-item-rm" onclick="removeCarrinho('${i.produto.id}')">✕ Remover</button>
@@ -629,13 +653,24 @@
       `*Total: ${totalItens} ${totalItens===1?'item':'itens'}*`,
     ];
     const msg=linhas.join('\n');
-    // Fecha o carrinho primeiro para evitar conflito de toque no celular
+    const encoded=encodeURIComponent(msg);
+    // Fecha o carrinho
     document.getElementById('cartSidebar').classList.remove('open');
     document.getElementById('cartOverlay').classList.remove('open');
     document.body.style.overflow='';
-    setTimeout(()=>openWhats(encodeURIComponent(msg)), 300);
+    // Pedidos muito grandes (URL > 3000 chars) → copia e abre WhatsApp sem texto
+    if(encoded.length>3000){
+      try{ navigator.clipboard.writeText(msg); }catch(e){}
+      setTimeout(()=>{
+        alert('Pedido muito grande para envio automático.\n\nO texto foi copiado! Cole no WhatsApp após abrir a conversa.');
+        openWhats('');
+      },300);
+    } else {
+      setTimeout(()=>openWhats(encoded), 300);
+    }
   }
 
+  _carregarCarrinho();
   atualizarCarrinho();
   // ====== FIM CARRINHO ======
 
