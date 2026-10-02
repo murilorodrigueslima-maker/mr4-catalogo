@@ -460,7 +460,7 @@
       <p class="produto-codigo"><span class="produto-ref">Cód. <b id="pRef">${esc(p.ref)}</b></span>${dinamico ? `<button type="button" class="copiar-cod" id="pCopiarCod" aria-label="Copiar código ${esc(p.ref)}">Copiar código</button>` : ''}${item.marca ? `<span class="modal-brand">${item.marcaUrl ? `<a class="marca-link" href="${esc(item.marcaUrl)}">${esc(item.marca)}</a>` : esc(item.marca)}</span>` : ''}${!item.semGrupo ? `<span class="produto-cat">${esc(item.catRotulo)}</span>` : ''}</p>
       <div class="produto-compra" id="pCompra" data-estado="carregando"><p class="produto-carregando">Carregando preço e estoque…</p><noscript><p>Ative o JavaScript para ver preço e estoque.</p></noscript></div>
     </div>
-    ${p.desc ? `<section class="produto-desc"><h2>Descrição</h2><p>${esc(p.desc)}</p></section>` : ''}`;
+    ${descricaoSubstantiva(item) ? `<section class="produto-desc"><h2>Descrição</h2><p>${esc(p.desc)}</p></section>` : ''}`;
   }
   function descricaoCurta(texto, max) {
     const t = String(texto || '').replace(/\s+/g, ' ').trim();
@@ -468,15 +468,85 @@
     const c = t.slice(0, max - 1); const i = c.lastIndexOf(' ');
     return (i > max * 0.6 ? c.slice(0, i) : c).replace(/[ ,;:.-]+$/, '') + '…';
   }
-  /** metadados mínimos para compartilhamento (Open Graph) — sem preço e sem estoque (mudam a cada sync) */
-  function metaProduto(item, origem, logo) {
+  /* ───────── SEO on-page (Fase 2): title e meta description DETERMINÍSTICOS, só com dado cadastral ─────────
+   * Nada é inferido (aplicação, compatibilidade, potência, voltagem, cor…). Insumos: nome, código, marca, categoria
+   * e, quando existe e é substantiva, a descrição real do ERP.
+   * TITLE  (alvo ≈ 60 caracteres; o NOME nunca é cortado nem alterado):
+   *   prioridade nome > marca (só se o nome ainda não a contém) > código > "MR4 Distribuidora" (→ "MR4" se não couber).
+   *   Primeira opção que cabe em 60, da mais rica à mais simples: nome · marca · código | MR4 Distribuidora → … | MR4 → nome · marca → nome (cada uma com os dois sufixos).
+   *   Nome que sozinho passa de 60 fica inteiro (clareza > limite). Títulos iguais ⇒ o CÓDIGO desambigua (sempre).
+   */
+  const SEO_TITLE_ALVO = 60, SUFIXO_LONGO = ' | MR4 Distribuidora', SUFIXO_CURTO = ' | MR4';
+  const contemTermo = (texto, termo) => { const t = norm(termo); return !!t && (' ' + norm(texto) + ' ').indexOf(' ' + t + ' ') >= 0; };
+  /** corta SEMPRE em limite de palavra (nunca no meio de código/unidade/modelo) */
+  function cortarPalavra(texto, max) {
+    const t = String(texto || '').replace(/\s+/g, ' ').trim();
+    if (t.length <= max) return t;
+    const c = t.slice(0, max - 1); const i = c.lastIndexOf(' ');
+    const fimDePalavra = /\s/.test(t.charAt(max - 1));                      // a palavra termina exatamente no limite
+    return (fimDePalavra || i <= 0 ? c : c.slice(0, i)).replace(/[ ,;:.\-–(]+$/, '') + '…';
+  }
+  function candidatosTitle(item, comCodigo) {
+    const nome = item.p.name, cod = String(item.p.ref || '').trim();
+    const marca = item.marca && !contemTermo(nome, item.marca) ? item.marca : '';
+    const mont = (m, c, suf) => [nome, m, c].filter(Boolean).join(' · ') + suf;
+    const l = [];
+    const add = t => { if (l.indexOf(t) < 0) l.push(t); };
+    const combos = comCodigo ? [[marca, cod], ['', cod]] : [[marca, cod], [marca, ''], ['', '']];
+    combos.forEach(([m, c]) => { if (comCodigo && !c) return; add(mont(m, c, SUFIXO_LONGO)); add(mont(m, c, SUFIXO_CURTO)); });
+    if (!l.length) { add(mont('', '', SUFIXO_LONGO)); add(mont('', '', SUFIXO_CURTO)); }
+    return l;
+  }
+  const escolherTitle = (item, comCodigo) => { const c = candidatosTitle(item, comCodigo); return c.find(t => t.length <= SEO_TITLE_ALVO) || c[c.length - 1]; };
+  /** títulos de TODOS os itens, alinhados ao array; duplicados são desambiguados pelo código */
+  function titulosProdutos(itens) {
+    let t = itens.map(e => escolherTitle(e, false));
+    const cont = {}; t.forEach(x => { cont[x] = (cont[x] || 0) + 1; });
+    t = t.map((x, i) => (cont[x] > 1 ? escolherTitle(itens[i], true) : x));
+    const c2 = {}; t.forEach(x => { c2[x] = (c2[x] || 0) + 1; });
+    return t.map((x, i) => (c2[x] > 1 ? x.replace(/( \| MR4(?: Distribuidora)?)$/, ' · ' + itens[i].slugCodigo + '$1') : x));
+  }
+  const _cacheTitulos = typeof WeakMap !== 'undefined' ? new WeakMap() : null;
+  function tituloProduto(item, itens) {
+    if (!itens) return escolherTitle(item, false);
+    let m = _cacheTitulos && _cacheTitulos.get(itens);
+    if (!m) { const ts = titulosProdutos(itens); m = new Map(itens.map((e, i) => [e, ts[i]])); if (_cacheTitulos) _cacheTitulos.set(itens, m); }
+    return m.get(item) || escolherTitle(item, false);
+  }
+  /** texto limpo da descrição real: sem rótulos soltos ("Especificação:"), marcadores e quebras; vira uma linha com "; " */
+  function excertoDescricao(desc) {
+    return String(desc || '').split(/\r?\n/).map(l => l.replace(/^[\s\-–.•*]+/, '').replace(/^\d+[.)]\s*/, '').replace(/\s+/g, ' ').trim())
+      .map(l => l.replace(/[.;,\s]+$/, '')).filter(l => l && !/:$/.test(l)).join('; ').replace(/;\s*;/g, ';').replace(/[;,\s]+$/, '');
+  }
+  /** descrição real = existe, não é o próprio nome (nem está contida nele) e tem conteúdo */
+  function descricaoSubstantiva(item) {
+    const d = norm(excertoDescricao(item.p.desc)), n = norm(item.p.name);
+    return d.length >= 3 && d !== n && (' ' + n + ' ').indexOf(' ' + d + ' ') < 0;
+  }
+  const listaPt = a => (a.length <= 1 ? a.join('') : a.slice(0, -1).join(', ') + ' e ' + a[a.length - 1]);
+  /** META: 120–160 quando os dados permitem; sem inventar; nunca promete disponibilidade (preço/estoque mudam) */
+  function metaDescricaoProduto(item) {
+    const p = item.p, cod = String(p.ref || '').trim(), MAX = 160;
+    const marca = item.marca, cat = item.semGrupo ? '' : item.catRotulo;
+    if (descricaoSubstantiva(item)) {
+      const cab = cortarPalavra(p.name, 80) + (marca && !contemTermo(p.name, marca) ? ' ' + marca : '') + (cod ? ` (cód. ${cod})` : '') + ': ';
+      const cauda = ' Catálogo B2B MR4 Distribuidora.';
+      const sobra = MAX - cab.length - cauda.length;
+      if (sobra >= 30) {
+        const ex = cortarPalavra(excertoDescricao(p.desc), sobra);
+        return cab + ex + (/[.…!?]$/.test(ex) ? '' : '.') + cauda;
+      }
+    }
+    const fato = (nome) => `${nome}${cod ? `, código ${cod}` : ''}${marca ? `, da marca ${marca}` : ''}${cat ? `, na categoria ${cat}` : ''}.`;
+    const caudas = [' Consulte preço e estoque atuais no catálogo B2B da MR4 Distribuidora.', ' Catálogo B2B da MR4 Distribuidora.', ' MR4 Distribuidora.'];
+    for (const c of caudas) { const t = fato(p.name) + c; if (t.length <= MAX) return t; }
+    const resto = fato('').length + caudas[2].length;
+    return fato(cortarPalavra(p.name, Math.max(30, MAX - resto))) + caudas[2];
+  }
+  /** metadados de compartilhamento — sem preço e sem estoque (mudam a cada sync) */
+  function metaProduto(item, origem, logo, titulo) {
     const p = item.p;
-    const partes = [`Código ${p.ref}`];
-    if (item.marca) partes.push(item.marca);
-    if (!item.semGrupo) partes.push(item.catRotulo);
-    let desc = p.name + ' — ' + partes.join(' · ') + '. Catálogo B2B MR4 Distribuidora (CE · PI · RN).';
-    if (p.desc) desc = descricaoCurta(p.name + ' — ' + partes.join(' · ') + '. ' + p.desc, 200);
-    return { title: p.name + ' — MR4 Distribuidora', description: descricaoCurta(desc, 200), url: origem + item.url, image: p.img || (origem + logo), imagemDoProduto: !!p.img };
+    return { title: titulo || tituloProduto(item), description: metaDescricaoProduto(item), url: origem + item.url, image: p.img || (origem + logo), imagemDoProduto: !!p.img };
   }
 
   /* ───────── compartilhar / copiar link (ambiente injetado → testável) ───────── */
@@ -640,7 +710,7 @@
     MAPA_MARCAS, MARCAS_INVALIDAS, marcaNormalizada, relatorioMarcas, marcasNaoUnificadas,
     ORDEM_CATEGORIAS, prioridadeCategoria, ehSemGrupo, rotuloCategoria, ROTULO_SEM_GRUPO, ordenarCategorias,
     precoNumerico, prepararCatalogo, buscar, ordenar, consultar, opcoesMarca, mensagemWhatsProduto, osa,
-    slugify, slugNome, hash4, resolverProduto, atribuirTaxonomia, taxonomia, urlLimpa, BASE_CATEGORIA, BASE_MARCA, htmlRelacionadosEstatico, htmlListaProdutosSeo, relacionados, esc, htmlBreadcrumb, htmlProdutoInfo, descricaoCurta, metaProduto,
+    slugify, slugNome, hash4, resolverProduto, atribuirTaxonomia, taxonomia, urlLimpa, BASE_CATEGORIA, BASE_MARCA, htmlRelacionadosEstatico, htmlListaProdutosSeo, titulosProdutos, tituloProduto, metaDescricaoProduto, descricaoSubstantiva, excertoDescricao, cortarPalavra, contemTermo, listaPt, SEO_TITLE_ALVO, relacionados, esc, htmlBreadcrumb, htmlProdutoInfo, descricaoCurta, metaProduto,
     copiarLink, compartilhar, BASE_PRODUTO, PLACEHOLDER_SVG, htmlCard, htmlAcao, MODOS, normalizarModo, htmlLinha, htmlCabecalhoLista, rapidoBuscar, rapidoMover, rapidoAcimaDoEstoque, rapidoFeedback,
     MAX_QTD, normalizarQtd, precoCentavos, formatarCentavos, resolverPedido
   };

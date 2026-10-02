@@ -55,12 +55,48 @@ function linksTaxonomia(tax, raizTexto) {
   return { cats, marcas };
 }
 function contextoSeo(tax, intro) {
-  return `<section class="seo-contexto" aria-labelledby="ctxTit"><h2 id="ctxTit">${esc(intro.titulo)}</h2><p>${esc(intro.texto)}</p>
+  return `<section class="seo-contexto" aria-labelledby="ctxTit"><h2 id="ctxTit">${esc(intro.titulo)}</h2>${[].concat(intro.texto).map(t => `<p>${esc(t)}</p>`).join('')}
 <nav aria-label="Categorias do catálogo"><strong>Categorias:</strong> ${tax.categorias.map(c => `<a href="${esc(c.url)}">${esc(c.rotulo)}</a>`).join(' · ')}</nav>
 <nav aria-label="Marcas do catálogo"><strong>Marcas:</strong> ${tax.marcas.map(m => `<a href="${esc(m.url)}">${esc(m.rotulo)}</a>`).join(' · ')}</nav></section>`;
 }
-const TEXTO_HOME = 'A MR4 Distribuidora é distribuidora de acessórios e peças automotivas no atacado, com sede em Fortaleza (CE). Este catálogo B2B atende lojistas e instaladores de CE, PI e RN: iluminação LED, molduras, alarmes, multimídia, som, sensores, chicotes e mais. Preço e estoque são atualizados a cada sincronização.';
+const textoHome = tax => [
+  'A MR4 Distribuidora é distribuidora de acessórios e peças automotivas no atacado, com sede em Fortaleza (CE). Este é o catálogo B2B para lojistas e instaladores de CE, PI e RN.',
+  `Navegue por categorias como ${Core.listaPt(tax.categorias.filter(c => !GENERICAS.has(Core.norm(c.chave))).slice(0, 6).map(c => c.rotulo))} ou por marca, consulte código, preço e estoque atualizados a cada sincronização e monte seu pedido para enviar ao atendimento pelo WhatsApp.`
+];
 const LOGO_LINK = alt => `<a class="logo" href="/" id="logoTopo" aria-label="MR4 Distribuidora — catálogo"><img class="logo-img" src="/assets/logo-header.png" width="103" height="36" alt="${alt}"></a>`;
+
+const GENERICAS = new Set(['diversos', 'geral', 'produtos sem grupo']);       // categorias genéricas: texto neutro, sem fingir especialização
+const topPor = (itens, f, n) => {
+  const c = {}; itens.forEach(e => { const k = f(e); if (k) c[k] = (c[k] || 0) + 1; });
+  return Object.keys(c).sort((a, b) => c[b] - c[a] || a.localeCompare(b, 'pt-BR')).slice(0, n);
+};
+const plural = (n, um, varios) => `${n.toLocaleString('pt-BR')} ${n === 1 ? um : varios}`;
+/** textos de categoria/marca: só nome, contagem do feed e marcas/categorias reais predominantes — nada de finalidade técnica */
+function textosTaxonomia(tipo, t) {
+  const cat = tipo === 'categoria', n = t.itens.length, rotulo = t.rotulo;
+  const gen = cat && GENERICAS.has(Core.norm(t.chave));
+  const rel = cat ? topPor(t.itens, e => e.marca, 3) : topPor(t.itens, e => (GENERICAS.has(Core.norm(e.catChave)) ? '' : e.catRotulo), 3);
+  const relTxt = !rel.length ? '' : cat ? `, de marcas como ${Core.listaPt(rel)}` : `, em categorias como ${Core.listaPt(rel)}`;
+  if (!n) {
+    return { title: cat ? `${rotulo} no catálogo B2B | MR4 Distribuidora` : `Produtos ${rotulo} no catálogo B2B | MR4 Distribuidora`,
+      description: `Nenhum produto ${cat ? 'da categoria' : 'da marca'} ${rotulo} listado no momento no catálogo B2B da MR4 Distribuidora.`, intro: `Nenhum produto ${cat ? 'da categoria' : 'da marca'} ${rotulo} está listado no momento.` };
+  }
+  const MAX = 160, fim = ' Consulte códigos, preço e estoque atuais.';
+  const mk = relT => cat
+    ? `${rotulo}: ${plural(n, 'produto listado', 'produtos listados')} no catálogo B2B da MR4 Distribuidora${relT}.${fim}`
+    : `Produtos ${rotulo}: ${plural(n, 'item listado', 'itens listados')} no catálogo B2B da MR4 Distribuidora${relT}.${fim}`;
+  let description = mk(relTxt);
+  for (let k = rel.length - 1; description.length > MAX && k >= 1; k--) description = mk(`${cat ? ', de marcas como ' : ', em categorias como '}${Core.listaPt(rel.slice(0, k))}`);
+  if (description.length > MAX) description = mk('');
+  const abre = cat
+    ? (gen ? `Esta página reúne ${plural(n, 'produto listado', 'produtos listados')} na categoria “${rotulo}” do catálogo B2B da MR4 Distribuidora${/sem categoria/i.test(rotulo) ? ', cadastrados sem uma categoria definida' : ''}${relTxt}.`
+           : `Esta página reúne ${plural(n, 'produto listado', 'produtos listados')} da categoria ${rotulo} no catálogo B2B da MR4 Distribuidora${relTxt}.`)
+    : `Esta página reúne ${plural(n, 'produto', 'produtos')} da marca ${rotulo} listados no catálogo B2B da MR4 Distribuidora${relTxt}.`;
+  return {
+    title: cat ? (/sem categoria/i.test(rotulo) ? 'Produtos sem categoria no catálogo B2B | MR4 Distribuidora' : `${rotulo} no catálogo B2B | MR4 Distribuidora`) : `Produtos ${rotulo} no catálogo B2B | MR4 Distribuidora`,
+    description, intro: abre + ' Veja códigos, preço e estoque atuais e monte seu pedido para enviar pelo WhatsApp.'
+  };
+}
 function renderizarShell(shell, tax, pg) {
   const l = linksTaxonomia(tax);
   return shell
@@ -75,23 +111,20 @@ function renderizarShell(shell, tax, pg) {
 }
 function paginaTaxonomia(shell, tax, tipo, t, vazia) {
   const cat = tipo === 'categoria', url = ORIGEM + t.url;
-  const rotulo = t.rotulo;
+  const rotulo = t.rotulo, tx = textosTaxonomia(tipo, t);
   return renderizarShell(shell, tax, {
-    title: cat ? `${rotulo} | Catálogo B2B MR4 Distribuidora` : `${rotulo} — produtos no catálogo B2B | MR4 Distribuidora`,
-    description: cat
-      ? `Categoria ${rotulo} no catálogo B2B da MR4 Distribuidora (atacado, Fortaleza-CE): veja os produtos, códigos, preço e estoque atuais.`
-      : `Produtos da marca ${rotulo} no catálogo B2B da MR4 Distribuidora (atacado, Fortaleza-CE): códigos, preço e estoque atuais.`,
+    title: tx.title, description: tx.description,
     canonical: url, noindex: !!vazia,
     bodyAttrs: ` data-pagina="${tipo}" data-${cat ? 'cat' : 'marca'}="${esc(t.chave)}"`,
     h1: rotulo,
     lista: vazia ? `<p class="seo-vazio">Nenhum produto disponível nesta ${cat ? 'categoria' : 'marca'} no momento. <a href="/">Ver todo o catálogo</a>.</p>` : Core.htmlListaProdutosSeo(t.itens, cat ? `Produtos da categoria ${rotulo}` : `Produtos da marca ${rotulo}`),
-    contexto: { titulo: cat ? `Sobre a categoria ${rotulo}` : `Sobre a marca ${rotulo}`, texto: (cat ? `Produtos da categoria ${rotulo} ` : `Produtos da marca ${rotulo} `) + 'no catálogo B2B da MR4 Distribuidora, distribuidora de acessórios e peças automotivas no atacado para lojistas e instaladores (CE · PI · RN). Preço e estoque são atualizados a cada sincronização.' }
+    contexto: { titulo: cat ? `Sobre a categoria ${rotulo}` : `Sobre a marca ${rotulo}`, texto: tx.intro }
   });
 }
 function paginaHome(shell, tax) {
   return renderizarShell(shell, tax, {
     title: TITLE_HOME, description: DESC_HOME, canonical: ORIGEM + '/', bodyAttrs: ' data-pagina="home"', h1: '', h1Logo: H1_HOME, lista: '',
-    contexto: { titulo: 'Sobre o catálogo', texto: TEXTO_HOME }
+    contexto: { titulo: 'Sobre o catálogo', texto: textoHome(tax) }
   });
 }
 /** página histórica de produto que saiu do feed: aviso estático (sem preço/estoque), sem relacionados; noindex após a carência */
@@ -107,13 +140,15 @@ const diasEntre = (a, b) => { const x = new Date(a), y = new Date(b); return isN
 const urlXml = (loc, lastmod) => `<url><loc>${esc(loc)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}</url>`;
 const ROBOTS = `User-agent: *\nAllow: /\n\nSitemap: ${ORIGEM}/sitemap.xml\n`;
 
-function renderizarPagina(item, tpl, rel) {
-  const m = Core.metaProduto(item, ORIGEM, LOGO);
+function renderizarPagina(item, tpl, rel, titulo) {
+  const m = Core.metaProduto(item, ORIGEM, LOGO, titulo);
+  const og = ['<meta property="product:retailer_item_id" content="' + Core.esc(item.p.ref) + '">'].concat(item.marca ? ['<meta property="product:brand" content="' + Core.esc(item.marca) + '">'] : []).join('\n');
   return tpl
     .replace(/\{\{TITLE\}\}/g, Core.esc(m.title))
     .replace(/\{\{DESC\}\}/g, Core.esc(m.description))
     .replace(/\{\{CANONICAL\}\}/g, Core.esc(m.url))
     .replace(/\{\{OG_IMAGE\}\}/g, Core.esc(m.image))
+    .replace('{{OG_PRODUCT}}', () => og)
     .replace('{{BREADCRUMB}}', () => Core.htmlBreadcrumb(item).replace('<nav ', '<nav id="bc" '))
     .replace('{{INFO}}', () => Core.htmlProdutoInfo(item))
     .replace('{{RELACIONADOS}}', () => Core.htmlRelacionadosEstatico(rel || []));
@@ -145,9 +180,10 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
   const arquivos = {};
   const produtos = Object.assign({}, anterior);
   const rel = opts ? (it => Core.relacionados(itens, it, 4)) : (() => []);
-  itens.forEach(it => {
+  const titulos = Core.titulosProdutos(itens);                              // title único: o código desambigua nomes iguais
+  itens.forEach((it, i) => {
     const dir = dirDe(it.url);
-    arquivos['produto/' + dir + '/index.html'] = renderizarPagina(it, tpl, rel(it));
+    arquivos['produto/' + dir + '/index.html'] = renderizarPagina(it, tpl, rel(it), titulos[i]);
     const antigo = anterior[it.slugCodigo];
     if (antigo && antigo !== dir) arquivos['produto/' + antigo + '/index.html'] = renderizarRedirecionamento(it.url);
     produtos[it.slugCodigo] = dir;
@@ -234,5 +270,5 @@ function executar(raiz) {
   return { produtos: r.itens.length, escritos, iguais, saudavel: true };
 }
 
-module.exports = { planejar, renderizarPagina, renderizarRedirecionamento, marcarIndisponivel, paginaHome, paginaTaxonomia, dirDe, ORIGEM, LOGO, CARENCIA_DIAS, LIMITE_SAUDE, TITLE_HOME, DESC_HOME, ROBOTS };
+module.exports = { planejar, textosTaxonomia, textoHome, GENERICAS, renderizarPagina, renderizarRedirecionamento, marcarIndisponivel, paginaHome, paginaTaxonomia, dirDe, ORIGEM, LOGO, CARENCIA_DIAS, LIMITE_SAUDE, TITLE_HOME, DESC_HOME, ROBOTS };
 if (require.main === module) executar(path.join(__dirname, '..'));

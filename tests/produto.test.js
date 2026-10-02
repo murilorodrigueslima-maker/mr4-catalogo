@@ -175,7 +175,7 @@ test('Open Graph e canonical individuais', () => {
   const og = n => (html.match(new RegExp('<meta property="og:' + n + '" content="([^"]*)"')) || [])[1];
   assert.equal(og('url'), G.ORIGEM + e.url);
   assert.equal(og('image'), e.p.img);
-  assert.equal(og('type'), 'website');
+  assert.equal(og('type'), 'product');
   assert.ok(og('title').includes(e.p.name.replace(/&/g, '&amp;').slice(0, 10)));
   assert.ok(og('description').length > 20 && og('description').length <= 201);
   assert.match(html, new RegExp('<link rel="canonical" href="' + (G.ORIGEM + e.url).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '">'));

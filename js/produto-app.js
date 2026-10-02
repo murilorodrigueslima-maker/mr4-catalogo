@@ -145,7 +145,7 @@
     if (ehPagina404) { location.replace(it.url + location.search + location.hash); return; }
     if (!r.canonico) history.replaceState(null, '', it.url + location.search + location.hash);
 
-    document.title = it.p.name + ' — MR4 Distribuidora';
+    document.title = C.tituloProduto(it, itens);
     const bc = $('bc'); if (bc) bc.outerHTML = C.htmlBreadcrumb(it).replace('<nav ', '<nav id="bc" ');
     $('produtoArtigo').innerHTML = C.htmlProdutoInfo(it, true);
     $('pCompra').outerHTML = `<div class="produto-compra" id="pCompra" data-estado="pronto">${htmlCompra(it)}</div>`;
