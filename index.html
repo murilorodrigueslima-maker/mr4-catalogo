@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/catalogo.css?v=faseC-6">
+<link rel="stylesheet" href="/css/catalogo.css?v=faseD-1">
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Ir para os produtos</a>
@@ -47,6 +47,7 @@
     </div>
     <div class="barra">
       <div class="result-info" id="resultInfo" role="status" aria-live="polite"></div>
+      <button type="button" class="btn-rapido" id="btnRapido" aria-expanded="false" aria-controls="rapido" aria-label="Abrir pedido rápido (atalho Alt+Q)" title="Pedido rápido (Alt+Q)"><span aria-hidden="true">⚡</span> <span class="rp-longo">Pedido rápido</span><span class="rp-curto">Rápido</span></button>
       <div class="modo" role="group" aria-label="Modo de exibição">
         <button type="button" class="modo-btn" data-modo="visual" aria-pressed="true"><span aria-hidden="true">▦</span> Visual</button>
         <button type="button" class="modo-btn" data-modo="compacto" aria-pressed="false"><span aria-hidden="true">☰</span> Compacto</button>
@@ -86,8 +87,9 @@
   <div class="rodape-dir"><span class="sync-badge" id="syncBadge"></span> <button class="rodape-atend" type="button" id="rodapeAtend">Falar com atendimento</button></div>
 </footer>
 
-<script src="/js/catalogo-core.js?v=faseC-6"></script>
-<script src="/js/catalogo-cesta.js?v=faseC-6"></script>
-<script src="/js/catalogo-app.js?v=faseC-6"></script>
+<script src="/js/catalogo-core.js?v=faseD-1"></script>
+<script src="/js/catalogo-cesta.js?v=faseD-1"></script>
+<script src="/js/catalogo-rapido.js?v=faseD-1"></script>
+<script src="/js/catalogo-app.js?v=faseD-1"></script>
 </body>
 </html>

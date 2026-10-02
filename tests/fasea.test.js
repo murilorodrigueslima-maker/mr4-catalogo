@@ -130,8 +130,8 @@ test('fontes: só os pesos usados (Barlow 400/600 + Barlow Condensed 700), sem J
 });
 test('catálogo e páginas de produto usam as mesmas versões de css/js; versões novas (cache)', () => {
   const v = s => (s.match(/catalogo\.css\?v=([\w-]+)/) || [])[1];
-  assert.equal(v(IDX), v(TPL)); assert.equal(v(IDX), v(NF)); assert.match(v(IDX), /^fase[ABC]-/);
-  assert.match(IDX, /catalogo-app\.js\?v=fase[ABC]-/); assert.match(TPL, /produto-app\.js\?v=fase[ABC]-/);
+  assert.equal(v(IDX), v(TPL)); assert.equal(v(IDX), v(NF)); assert.match(v(IDX), /^fase[ABCD]-/);
+  assert.match(IDX, /catalogo-app\.js\?v=fase[ABCD]-/); assert.match(TPL, /produto-app\.js\?v=fase[ABCD]-/);
 });
 test('lógica comercial preservada: busca usa o núcleo; carrinho no mesmo formato; vendedores/telefones intactos', () => {
   assert.match(APP, /C\.consultar\(itens, estado, destaqueIds\)/);

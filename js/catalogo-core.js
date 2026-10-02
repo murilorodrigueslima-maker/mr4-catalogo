@@ -355,6 +355,16 @@
     </div>`;
   }
 
+  /* ───────── Pedido Rápido: ajudantes puros (a busca e o ranking são os da consulta normal) ───────── */
+  /** até n resultados (padrão 8) na MESMA ordem de relevância da busca principal; consulta vazia → nada */
+  function rapidoBuscar(itens, q, n) {
+    if (!norm(q)) return [];
+    return consultar(itens, { q }).lista.slice(0, n || 8);
+  }
+  const rapidoMover = (atual, delta, n) => (n > 0 ? (atual + delta + n) % n : -1);          // setas ↑/↓ com volta
+  const rapidoAcimaDoEstoque = (stock, noPedido, qtd) => (Number(noPedido) || 0) + (Number(qtd) || 0) > Number(stock);
+  const rapidoFeedback = (nome, adicionado, agora) => `✓ ${nome} · +${adicionado} · agora ${agora} no pedido`;
+
   /** card do catálogo (fonte única: catálogo e relacionados). Preço/estoque exibidos como no JSON; sem JSON/onclick no DOM. */
   function htmlCard(e, o) {
     o = o || {};
@@ -570,7 +580,7 @@
     ORDEM_CATEGORIAS, prioridadeCategoria, ehSemGrupo, rotuloCategoria, ROTULO_SEM_GRUPO, ordenarCategorias,
     precoNumerico, prepararCatalogo, buscar, ordenar, consultar, opcoesMarca, mensagemWhatsProduto, osa,
     slugify, slugNome, hash4, resolverProduto, relacionados, esc, htmlBreadcrumb, htmlProdutoInfo, descricaoCurta, metaProduto,
-    copiarLink, compartilhar, BASE_PRODUTO, PLACEHOLDER_SVG, htmlCard, htmlAcao, MODOS, normalizarModo, htmlLinha, htmlCabecalhoLista,
+    copiarLink, compartilhar, BASE_PRODUTO, PLACEHOLDER_SVG, htmlCard, htmlAcao, MODOS, normalizarModo, htmlLinha, htmlCabecalhoLista, rapidoBuscar, rapidoMover, rapidoAcimaDoEstoque, rapidoFeedback,
     MAX_QTD, normalizarQtd, precoCentavos, formatarCentavos, resolverPedido
   };
 });

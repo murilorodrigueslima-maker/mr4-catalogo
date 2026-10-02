@@ -44,6 +44,7 @@
       itens = C.prepararCatalogo(data.produtos || []);
       porId = new Map(itens.map(e => [String(e.p.id), e]));
       Cesta.definirCatalogo(itens);                                  // preço/estoque do pedido vêm deste JSON
+      if (window.Rapido) window.Rapido.definirCatalogo(itens);       // o Pedido Rápido busca neste mesmo catálogo
       if (data.atualizado) {
         const d = new Date(data.atualizado);
         const fmt = d.toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'America/Fortaleza' });
@@ -284,6 +285,7 @@
     });
     $('sortSelect').addEventListener('change', e => { estado.sort = e.target.value; atualizar(); });
     document.querySelectorAll('.modo-btn').forEach(b => b.addEventListener('click', () => trocarModo(b.dataset.modo)));
+    $('btnRapido').addEventListener('click', () => { if (window.Rapido) window.Rapido.alternar(); });
     $('lateral').addEventListener('click', e => {
       const a = e.target.closest('a.cat-link'); if (!a || !semModificador(e)) return;
       e.preventDefault();

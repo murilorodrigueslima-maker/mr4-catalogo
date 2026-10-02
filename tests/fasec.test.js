@@ -112,7 +112,7 @@ test('compacto sem download de fotos: o modo escolhe o template ANTES de gerar H
   assert.equal((C.htmlLinha.toString().match(/<img/g) || []).length, 0);
   assert.equal(/display:\s*none[^}]*img|img[^}]*display:\s*none/.test(CSS.slice(CSS.indexOf('MODO COMPACTO'))), false);
 });
-test('Fase C não introduz: pedido rápido, autocomplete, favoritos, histórico, "compre novamente", filtros novos', () => {
+test('Fase C (e seguintes) não introduzem: favoritos, histórico de compras, "compre novamente", filtros novos', () => {
   const tudo = APP + CSS + IDX + CESTA;
-  assert.doesNotMatch(tudo, /pedido-rapido|pedido rápido|autocomplete-lista|favorit|compre novamente|historico-compras|faixa-preco|filtro-preco/i);
+  assert.doesNotMatch(tudo, /favorit|compre novamente|historico-compras|faixa-preco|filtro-preco/i);
 });
