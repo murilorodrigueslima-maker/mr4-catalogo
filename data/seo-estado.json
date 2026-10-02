@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 605,
+ "ativos": 606,
  "lastmod": {
   "/": {
    "h": "7f5c3c13083d",
@@ -79,7 +79,7 @@
    "d": "2026-10-02"
   },
   "/categoria/moldura/": {
-   "h": "3c36a9d4ced8",
+   "h": "012bfc2372aa",
    "d": "2026-10-02"
   },
   "/categoria/multimidia/": {
@@ -195,7 +195,7 @@
    "d": "2026-10-02"
   },
   "/marca/permak/": {
-   "h": "907135e0f2af",
+   "h": "95eece741272",
    "d": "2026-10-02"
   },
   "/marca/rayx/": {
@@ -1670,8 +1670,12 @@
    "h": "edfa29fbf55d",
    "d": "2026-10-02"
   },
+  "/produto/mold-7-palio-attractive-12-17-blk-piano--89-j3b/": {
+   "h": "22f3c4437b01",
+   "d": "2026-10-02"
+  },
   "/produto/mold-adaptadora-1din-p-9-universal--89-g18/": {
-   "h": "e2846663ac4c",
+   "h": "d705ba318b62",
    "d": "2026-10-02"
   },
   "/produto/mold-fiat-palio-siena-strada-2-ger-czb--89-j28c/": {
@@ -1687,15 +1691,15 @@
    "d": "2026-10-02"
   },
   "/produto/mold-gol-parati-saveiro-g4-2-din-preta--89-a6/": {
-   "h": "a09f06855d14",
+   "h": "83a576460aca",
    "d": "2026-10-02"
   },
   "/produto/mold-gol-voyage-saveiro-g6-2-din-preta--89-a8/": {
-   "h": "e655a428122f",
+   "h": "e7354588989b",
    "d": "2026-10-02"
   },
   "/produto/mold-palio-siena-2-din-preta--89-j1/": {
-   "h": "9745139ac8c9",
+   "h": "171e2399a41c",
    "d": "2026-10-02"
   },
   "/produto/mold-toyota-hilux-sw4-2-din--89-z3/": {
