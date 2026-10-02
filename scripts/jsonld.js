@@ -2,7 +2,7 @@
 /**
  * SEO Fase 3 — dados estruturados (JSON-LD), gerados no build, nativamente (sem biblioteca).
  * Regra: só dado confiável e presente na página. Omitido por falta de dado confiável (NÃO inventar):
- *   gtin/mpn/ean, rating/review, fabricante, modelo, preço/disponibilidade (Offer — ver relatório da Fase 3),
+ *   gtin/mpn/ean, rating/review, fabricante, modelo, priceValidUntil, itemCondition, frete/devolução (Merchant Listing),
  *   endereço (divergente de diretórios externos: pendência do proprietário), telefone (só há WhatsApp de vendedores),
  *   sameAs (nenhum perfil oficial confirmado no projeto), SearchAction (Google descontinuou o recurso em nov/2024).
  * IDs: <origem>/#organization · <origem>/#website · <URL canônica>#product · #breadcrumb · #collection
@@ -42,6 +42,28 @@ function breadcrumbProduto(item) {
 function descricaoSchema(item) {
   return Core.descricaoSubstantiva(item) ? Core.cortarPalavra(Core.excertoDescricao(item.p.desc), 500) : Core.metaDescricaoProduto(item);
 }
+/**
+ * OFFER (SEO Fase 3B, estratégia C). Fonte ÚNICA do preço = o mesmo p.price do produtos.json que o card, a página, o Pedido Rápido
+ * e o pedido mostram; o valor numérico vem de Core.precoCentavos (a MESMA função do subtotal do pedido). Nunca o preço histórico guardado no pedido salvo.
+ * Preço ausente/"Sob consulta"/zero/inválido ⇒ sem Offer (Product permanece). Centavos inteiros ⇒ sem erro de ponto flutuante.
+ * Disponibilidade: o feed só traz estoque > 0 (scripts/sync-produtos.js) e a página mostra "N em estoque" ⇒ InStock;
+ * estoque numérico ≤ 0 (não ocorre no feed) ⇒ OutOfStock; desconhecido ⇒ omitida. O NÚMERO do estoque nunca entra no HTML:
+ * 10 → 9 não reescreve a página; só preço ou InStock↔OutOfStock reescrevem.
+ */
+const precoCentavosValido = p => { const c = Core.precoCentavos(p && p.price); return c != null && c > 0 ? c : null; };
+const precoDecimal = c => Math.floor(c / 100) + '.' + String(c % 100).padStart(2, '0');
+function disponibilidade(stock) {
+  if (stock === null || stock === undefined || stock === '' || !isFinite(Number(stock))) return null;
+  return Number(stock) > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock';
+}
+function oferta(item) {
+  const c = precoCentavosValido(item.p);
+  if (c == null) return null;
+  const o = { '@type': 'Offer', url: ORIGEM + item.url, priceCurrency: 'BRL', price: precoDecimal(c) };
+  const a = disponibilidade(item.p.stock); if (a) o.availability = a;
+  o.seller = { '@type': 'Organization', '@id': ID_ORG, name: NOME_ORG };            // a MR4 é quem oferece o item neste catálogo; mesmo @id da Organization da home (sem duplicar o resto)
+  return o;
+}
 function produto(item) {
   const url = ORIGEM + item.url, p = item.p;
   const o = { '@type': 'Product', '@id': url + '#product', name: p.name, url };
@@ -50,6 +72,7 @@ function produto(item) {
   if (/^https:\/\//.test(p.img || '')) o.image = p.img;                    // só foto real do produto (o logo do og:image NÃO é imagem do produto)
   o.description = descricaoSchema(item);
   if (!item.semGrupo && item.catRotulo) o.category = item.catRotulo;
+  const of = oferta(item); if (of) o.offers = of;
   return o;
 }
 const grafoHome = () => [organizacao(), site()];
@@ -69,4 +92,4 @@ function somenteBreadcrumb(html) {
     return bc.length ? tag(bc) : '';
   });
 }
-module.exports = { serializar, tag, organizacao, site, breadcrumb, breadcrumbProduto, produto, grafoHome, grafoProduto, grafoTaxonomia, somenteBreadcrumb, descricaoSchema, ORIGEM, LOGO, ID_ORG, ID_SITE };
+module.exports = { precoCentavosValido, precoDecimal, disponibilidade, oferta, serializar, tag, organizacao, site, breadcrumb, breadcrumbProduto, produto, grafoHome, grafoProduto, grafoTaxonomia, somenteBreadcrumb, descricaoSchema, ORIGEM, LOGO, ID_ORG, ID_SITE };

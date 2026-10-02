@@ -147,12 +147,16 @@ test('geração determinística: mesma entrada → mesmos bytes; idempotente em 
   assert.equal(Number(out2.stdout.trim()), 0);
   fs.rmSync(tmp, { recursive: true, force: true });
 });
-test('sync: mudar preço/estoque não altera nenhuma página; mudar nome altera só aquela', () => {
+test('sync: mudar só o NÚMERO do estoque não altera página; preço altera só a página do produto (Offer, SEO 3B); mudar nome altera só aquela', () => {
   const base = G.planejar(BRUTOS, TPL, null).arquivos;
   const alt = JSON.parse(JSON.stringify(BRUTOS));
-  alt.forEach(p => { p.price = 'R$ 999,00'; p.stock = p.stock + 7; });
+  alt.forEach(p => { p.stock = p.stock + 7; });                              // continua InStock: o número não entra no HTML
   const a1 = G.planejar(alt, TPL, null).arquivos;
   assert.deepEqual(Object.keys(base).filter(k => base[k] !== a1[k]), []);
+  const altP = JSON.parse(JSON.stringify(BRUTOS)); altP.forEach(p => { p.price = 'R$ 999,00'; });
+  const aP = G.planejar(altP, TPL, null).arquivos;
+  const mP = Object.keys(base).filter(k => base[k] !== aP[k]);
+  assert.ok(mP.length > 0 && mP.every(k => /^produto\/.+\/index\.html$/.test(k)));      // só páginas de produto (a do Offer); manifest e demais intactos
   const alt2 = JSON.parse(JSON.stringify(BRUTOS)); alt2[10].name = 'NOME MUDOU XYZ';
   const man = JSON.parse(base['produto/manifest.json']);
   const a2 = G.planejar(alt2, TPL, man).arquivos;

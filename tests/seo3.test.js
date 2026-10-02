@@ -54,14 +54,14 @@ test('telefone institucional não existe: os números do projeto são de vendedo
   assert.doesNotMatch(A['index.html'], /telephone|"tel/);
 });
 test('produto: Product + BreadcrumbList; só propriedades permitidas; nada inventado', () => {
-  const PERMITIDAS = new Set(['@type', '@id', 'name', 'url', 'sku', 'brand', 'image', 'description', 'category']);
+  const PERMITIDAS = new Set(['@type', '@id', 'name', 'url', 'sku', 'brand', 'image', 'description', 'category', 'offers']);   // offers: SEO Fase 3B
   ITENS.forEach(e => {
     const g = grafo(pagP(e));
     assert.deepEqual(g.map(n => n['@type']), ['Product', 'BreadcrumbList']);
     Object.keys(g[0]).forEach(k => assert.ok(PERMITIDAS.has(k), e.p.ref + ' ' + k));
   });
   const txt = ITENS.map(e => scripts(pagP(e))[0]).join('');
-  assert.doesNotMatch(txt, /"gtin|"mpn|"ean|"offers|"aggregateRating|"review|"manufacturer|"model"|"itemCondition|"priceValidUntil|"hasMerchantReturnPolicy|"shippingDetails|"warranty|"isAccessoryOrSparePartFor|"isCompatible/);
+  assert.doesNotMatch(txt, /"gtin|"mpn|"ean|"aggregateRating|"review|"manufacturer|"model"|"itemCondition|"priceValidUntil|"hasMerchantReturnPolicy|"shippingDetails|"warranty|"isAccessoryOrSparePartFor|"isCompatible/);
 });
 test('Product: name = nome cadastrado (não o title), sku = código, url/@id canônicos', () => {
   ITENS.forEach(e => {
@@ -151,12 +151,12 @@ test('produto removido (fora do feed): sem Product, sem dado "ativo"; breadcrumb
   const r1 = G.planejar(todos, TPL, null, { shell: SHELL, estado: null, atualizado: '2026-10-01T10:00:00Z', existente: () => null });
   const it = C.prepararCatalogo(todos), rel = e => 'produto/' + e.url.replace('/produto/', '') + 'index.html';
   assert.ok(tipo(grafo(r1.arquivos[rel(it[4])]), 'Product'));                   // estoque 0 no feed: continua Product
-  assert.equal(scripts(r1.arquivos[rel(it[4])])[0].includes('offers'), false);
+  assert.match(scripts(r1.arquivos[rel(it[4])])[0], /"availability":"https:\/\/schema\.org\/OutOfStock"/);   // estoque 0 no feed: Offer com OutOfStock (não é "removido")
   const r2 = G.planejar(todos.filter(p => p.id !== '3'), TPL, JSON.parse(r1.arquivos['produto/manifest.json']), { shell: SHELL, estado: r1.estado, atualizado: '2026-10-02T10:00:00Z', existente: f => r1.arquivos[f] || null });
   const h = r2.arquivos[rel(it[2])];
   assert.match(h, /data-estado="indisponivel"/);
   const g = grafo(h); assert.deepEqual(g.map(n => n['@type']), ['BreadcrumbList']);
-  assert.doesNotMatch(scripts(h)[0], /Product|sku|brand|image/);
+  assert.doesNotMatch(scripts(h)[0], /Product|sku|brand|image|offers|price|availability/);   // nenhum Offer/preço/estoque antigo
 });
 test('segurança: nome/descrição com </script>, aspas, &, <, >, /, acentos não quebram nem injetam', () => {
   const perigo = 'A "B" \'C\' & <D> /E\\ </script><script>alert(1)</script> ção ü   fim';
@@ -191,17 +191,17 @@ test('JSON-LD: 100 % das páginas indexáveis parseiam, um script no <head>, URL
     const todas = []; (function walk(o) { if (o && typeof o === 'object') Object.keys(o).forEach(k => { if ((k === 'url' || k === 'item') && typeof o[k] === 'string') todas.push(o[k]); walk(o[k]); }); })(g);
     todas.forEach(u => { assert.match(u, /^https:\/\//); if (!/assets\/logo-header\.png$/.test(u)) assert.ok(urls.has(u), f + ' → ' + u); assert.doesNotMatch(u, /\?|index\.html/); });
   });
-  assert.deepEqual(cont, { org: 1, site: 1, bc: 659, prod: 605, col: 54 });
+  assert.deepEqual(cont, { org: 1, site: 1, bc: ITENS.length + R.tax.categorias.length + R.tax.marcas.length, prod: ITENS.length, col: R.tax.categorias.length + R.tax.marcas.length });
 });
-test('Offer NÃO implementado (decisão: medir antes); sem rating/review/gtin em nenhuma página', () => {
+test('Offer (3B): sem rating/review/gtin/validade/condição/frete/devolução em nenhuma página', () => {
   const todo = paginas().map(k => scripts(A[k])[0]).join('');
-  assert.doesNotMatch(todo, /"Offer"|"offers"|"price"|"priceCurrency"|"availability"|"aggregateRating"|"review"|"gtin|"mpn/);
+  assert.doesNotMatch(todo, /"aggregateRating"|"review"|"gtin|"mpn|"priceValidUntil"|"itemCondition"|"hasMerchantReturnPolicy"|"shippingDetails"|"PreOrder|"BackOrder|"LimitedAvailability/);
 });
 test('orçamento de bytes: JSON-LD leve (home, produto, categoria, marca)', () => {
   const b = f => Buffer.byteLength(scripts(A[f])[0]);
   assert.ok(b('index.html') < 900);
   const prod = ITENS.map(e => Buffer.byteLength(scripts(pagP(e))[0])).sort((x, y) => x - y);
-  assert.ok(prod[prod.length >> 1] < 1600);
+  assert.ok(prod[prod.length >> 1] < 1900);
   assert.ok(b('categoria/moldura/index.html') < 1500 && b('marca/tiger/index.html') < 1500);
 });
 test('Schema não altera a UX: nenhum JS/CSS referencia ld+json; sem biblioteca; tudo gerado no build', () => {
@@ -209,8 +209,8 @@ test('Schema não altera a UX: nenhum JS/CSS referencia ld+json; sem biblioteca;
   assert.deepEqual([...ler('scripts/jsonld.js').matchAll(/require\('([^']+)'\)/g)].map(m => m[1]), ['../js/catalogo-core.js']);
   assert.doesNotMatch(A['index.html'], /<script src="https?:/);
 });
-test('Fases anteriores intactas: sitemap 660, robots, canonical e links estáticos', () => {
-  assert.equal((A['sitemap.xml'].match(/<url>/g) || []).length, 660);
+test('Fases anteriores intactas: sitemap completo, robots, canonical e links estáticos', () => {
+  assert.equal((A['sitemap.xml'].match(/<url>/g) || []).length, R.urls.length);
   assert.match(A['robots.txt'], /^User-agent: \*\nAllow: \//);
   ITENS.forEach(e => assert.ok(pagP(e).includes(`rel="canonical" href="${ORI}${e.url}"`)));
 });
