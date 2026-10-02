@@ -331,6 +331,30 @@
     </div>`;
   }
 
+  /* ───────── modo de exibição: Visual (cards com foto) × Compacto (lista densa, sem fotos) ─────────
+   * É só outra representação dos MESMOS produtos: mesma busca, filtros, ordenação, pedido e componente de quantidade.
+   * O modo compacto NUNCA emite <img>: quem abre direto em Compacto não solicita nenhuma foto. */
+  const MODOS = ['visual', 'compacto'];
+  const normalizarModo = v => (MODOS.indexOf(v) >= 0 ? v : 'visual');          // chave ausente/inválida → Visual
+  function htmlCabecalhoLista() {
+    return `<div class="lista-cab" aria-hidden="true"><span>Produto</span><span>Código</span><span class="c-marca">Marca</span><span>Estoque</span><span>Preço</span><span>Qtd</span></div>`;
+  }
+  function htmlLinha(e, o) {
+    o = o || {};
+    const p = e.p, id = esc(p.id);
+    const sc = p.stock > 10 ? 'ok' : p.stock > 0 ? 'low' : 'out';
+    const sl = p.stock > 0 ? `${p.stock} em estoque` : 'Sem estoque';          // sem urgência artificial ("últimas unidades" etc.)
+    const marca = e.marca ? esc(e.marca) : '';
+    return `<div class="linha${o.destaque ? ' destaque-linha' : ''}" role="listitem" data-id="${id}">
+      <h3 class="l-nome"><a class="l-link" href="${esc(e.url)}" title="${esc(p.name)}" data-produto="${id}">${esc(p.name)}</a></h3>
+      <span class="l-cod"><span class="l-cod-lbl">Cód. </span><b>${esc(p.ref)}</b>${marca ? `<span class="l-marca-inline"> · ${marca}</span>` : ''}</span>
+      <span class="l-marca">${marca}</span>
+      <span class="l-est ${sc}">${sl}</span>
+      <span class="l-preco">${esc(p.price)}</span>
+      ${htmlAcao(p, o.qtd || 0, 'acao--compacta')}
+    </div>`;
+  }
+
   /** card do catálogo (fonte única: catálogo e relacionados). Preço/estoque exibidos como no JSON; sem JSON/onclick no DOM. */
   function htmlCard(e, o) {
     o = o || {};
@@ -546,7 +570,7 @@
     ORDEM_CATEGORIAS, prioridadeCategoria, ehSemGrupo, rotuloCategoria, ROTULO_SEM_GRUPO, ordenarCategorias,
     precoNumerico, prepararCatalogo, buscar, ordenar, consultar, opcoesMarca, mensagemWhatsProduto, osa,
     slugify, slugNome, hash4, resolverProduto, relacionados, esc, htmlBreadcrumb, htmlProdutoInfo, descricaoCurta, metaProduto,
-    copiarLink, compartilhar, BASE_PRODUTO, PLACEHOLDER_SVG, htmlCard, htmlAcao,
+    copiarLink, compartilhar, BASE_PRODUTO, PLACEHOLDER_SVG, htmlCard, htmlAcao, MODOS, normalizarModo, htmlLinha, htmlCabecalhoLista,
     MAX_QTD, normalizarQtd, precoCentavos, formatarCentavos, resolverPedido
   };
 });

@@ -295,4 +295,62 @@ footer .rodape-atend:hover{border-color:#fff}
 @media(min-width:1800px){body.pedido-docado .grade{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(min-width:2200px){body.pedido-docado .grade{grid-template-columns:repeat(5,minmax(0,1fr))}}
 @media(max-width:640px){.cart-form{grid-template-columns:1fr}}
+
+/* ── MODO: seletor Visual/Compacto ── */
+.modo{display:inline-flex;flex:none;border:1.5px solid #c9cbd2;border-radius:6px;overflow:hidden;background:#fff}
+.modo-btn{min-height:44px;padding:0 14px;border:none;background:#fff;color:var(--ink);font-weight:600;font-size:.95rem;cursor:pointer;display:flex;align-items:center;gap:6px}
+.modo-btn+.modo-btn{border-left:1.5px solid #c9cbd2}
+.modo-btn:hover{background:#f1f1f4}
+.modo-btn[aria-pressed="true"]{background:var(--ink);color:#fff}
+.modo-btn:focus-visible{outline-offset:-3px}
+
+/* ── MODO COMPACTO: lista densa, sem fotos (nenhum <img> é emitido) ── */
+.lista-compacta{display:block;container-type:inline-size;container-name:lista;background:#fff;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.lista-cab{display:none}
+.linha{display:flex;flex-wrap:wrap;align-items:center;gap:2px 10px;padding:8px 10px;border-bottom:1px solid var(--border)}
+.linha:hover{background:#fff7f1}
+.l-nome{flex:0 0 100%;margin:0;font-family:var(--f-cond);font-weight:700;font-size:1rem;line-height:1.2;text-transform:uppercase;letter-spacing:.2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
+.l-link{color:var(--ink);text-decoration:none}
+.l-link:hover{text-decoration:underline;text-underline-offset:3px}
+.l-link:focus-visible{outline:3px solid var(--orange-ink);outline-offset:2px;border-radius:2px}
+.l-cod{flex:1 1 55%;min-width:0;font-size:.88rem;color:var(--muted);overflow-wrap:anywhere}
+.l-cod b{color:var(--ink);font-weight:600}
+.l-marca{display:none;font-size:.9rem;color:#333;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.l-est{flex:1 1 40%;text-align:right;font-size:.85rem;font-weight:600;color:var(--muted);white-space:nowrap}
+.l-est.ok{color:var(--green)}.l-est.low{color:var(--amber)}.l-est.out{color:var(--red)}
+.l-preco{flex:1 1 auto;font-family:var(--f-cond);font-weight:700;font-size:1.3rem;line-height:1.1;color:var(--ink);white-space:nowrap}
+.linha .acao{flex:0 0 auto;margin-left:auto;flex-wrap:nowrap;gap:6px}
+.linha .btn-add-cart{flex:0 0 auto;min-width:84px}
+.skeleton-card+.skeleton-card{margin-top:0}
+.lista-compacta .skeleton-card{height:56px;border:0;border-radius:0;border-bottom:1px solid var(--border)}
+/* tablet largo / desktop: colunas Produto | Código | (Marca) | Estoque | Preço | Qtd — linha de ~56 px */
+@container lista (min-width:760px){
+  .lista-cab,.linha{display:grid;grid-template-columns:minmax(0,1fr) 124px 98px 86px 212px;grid-template-areas:none;gap:0 10px;align-items:center}
+  .lista-cab{padding:0 12px;min-height:34px;background:#f1f1f4;border-bottom:1px solid var(--border);font-size:.78rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+  .lista-cab .c-marca{display:none}
+  .linha{min-height:56px;padding:6px 12px}
+  .linha>*{flex:none}
+  .linha .acao{margin-left:0}
+  .l-nome{font-size:1.02rem}
+  .l-cod-lbl{display:none}
+  .l-cod{font-size:.92rem}
+  .l-est{font-size:.85rem;justify-self:start;text-align:left}
+  .l-preco{justify-self:start;font-size:1.25rem}
+  .linha .acao{justify-self:end}
+  .linha:nth-of-type(even){background:#fafafb}
+  .linha:nth-of-type(even):hover{background:#fff7f1}
+}
+@container lista (min-width:1000px){
+  .lista-cab,.linha{grid-template-columns:minmax(0,1fr) 150px 110px 112px 96px 212px;gap:0 12px}
+  .lista-cab .c-marca{display:block}
+  .l-marca{display:block}
+  .l-marca-inline{display:none}
+}
+/* celular: sem fotos; nome ocupa a largura toda; no pedido o botão vira "✓" para caber ao lado do stepper */
+@container lista (max-width:759px){
+  .linha .acao.no-pedido .btn-add-cart{font-size:0;min-width:56px;padding:0}
+  .linha .acao.no-pedido .btn-add-cart::after{content:"✓";font-size:1.3rem}
+}
+body[data-modo="compacto"] .conteudo{padding-top:10px}
+@media(max-width:640px){.barra{gap:6px 10px}.modo-btn{padding:0 11px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

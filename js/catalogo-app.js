@@ -8,18 +8,22 @@
   const $ = id => document.getElementById(id);
   const esc = C.esc;
   const mobile = () => window.matchMedia('(max-width:640px)').matches;
-  // lote da renderização incremental: ~5 linhas de cards (mantém o DOM enxuto; o resto entra ao rolar)
+  // lote da renderização incremental (mantém o DOM enxuto; o resto entra ao rolar)
   const tamanhoPagina = () => {
+    if (estado.modo === 'compacto') return mobile() ? 24 : 30;           // linhas são leves, mas têm controles: lote próprio
     if (mobile()) return 20;
     const cols = (getComputedStyle($('grid')).gridTemplateColumns || '').split(' ').filter(Boolean).length || 4;
     return Math.max(20, cols * 5);
   };
+  // preferência do modo: localStorage `mr4_modo_catalogo` = "visual" | "compacto" (ausente/inválido → visual)
+  const CHAVE_MODO = 'mr4_modo_catalogo';
+  const lerModo = () => { try { return C.normalizarModo(localStorage.getItem(CHAVE_MODO)); } catch (e) { return 'visual'; } };
 
   /* ───────── estado ───────── */
   let itens = [];
   let porId = new Map();
   let destaqueIds = new Set();
-  const estado = { q: '', cat: '', marca: '', sort: 'padrao' };
+  const estado = { q: '', cat: '', marca: '', sort: 'padrao', modo: lerModo() };
   let resultado = { lista: [], total: 0 };
   let visiveis = 0;
   let buscaTimer = null;
@@ -102,6 +106,7 @@
   function atualizar() {
     resultado = C.consultar(itens, estado, destaqueIds);
     visiveis = 0;
+    aplicarModo();
     sincronizarControles();
     renderInfo();
     renderGrid(true);
@@ -131,6 +136,15 @@
   }
 
   const cardHTML = e => C.htmlCard(e, { qtd: Cesta.qtdDe(e.p.id), destaque: destaqueIds.has(String(e.p.id)) });
+  const linhaHTML = e => C.htmlLinha(e, { qtd: Cesta.qtdDe(e.p.id), destaque: destaqueIds.has(String(e.p.id)) });
+  /** aplica o modo ao contêiner e ao seletor (mesmos dados, outra representação) */
+  function aplicarModo() {
+    const g = $('grid'), compacto = estado.modo === 'compacto';
+    g.className = compacto ? 'lista-compacta' : 'grade';
+    if (compacto) g.setAttribute('role', 'list'); else g.removeAttribute('role');
+    document.body.dataset.modo = estado.modo;
+    document.querySelectorAll('.modo-btn').forEach(b => b.setAttribute('aria-pressed', b.dataset.modo === estado.modo ? 'true' : 'false'));
+  }
 
   function renderGrid(reiniciar) {
     const grid = $('grid');
@@ -143,8 +157,9 @@
     const passo = tamanhoPagina();
     const ate = Math.min(resultado.total, reiniciar ? Math.max(passo, minVisiveis) : visiveis + passo);
     minVisiveis = 0;
-    const html = resultado.lista.slice(reiniciar ? 0 : visiveis, ate).map(cardHTML).join('');
-    if (reiniciar) grid.innerHTML = html; else grid.insertAdjacentHTML('beforeend', html);
+    const compacto = estado.modo === 'compacto';
+    const html = resultado.lista.slice(reiniciar ? 0 : visiveis, ate).map(compacto ? linhaHTML : cardHTML).join('');
+    if (reiniciar) grid.innerHTML = (compacto ? C.htmlCabecalhoLista() : '') + html; else grid.insertAdjacentHTML('beforeend', html);
     visiveis = ate;
     const resta = resultado.total - visiveis;
     $('loadMore').hidden = resta <= 0;
@@ -154,12 +169,30 @@
   function mostrarMais() { if (visiveis < resultado.total) renderGrid(false); }
 
   function renderSkeleton() {
+    aplicarModo();
     $('grid').innerHTML = Array.from({ length: 6 }, () => `<div class="skeleton-card skel"></div>`).join('');
     $('loadMore').hidden = true;
   }
   function renderErro(msg) {
     $('grid').setAttribute('aria-busy', 'false');
     $('grid').innerHTML = `<div class="state-box"><h3>Erro ao carregar</h3><p>${esc(msg)}</p><button type="button" class="btn-retry" data-retry>Tentar novamente</button></div>`;
+  }
+
+  /** Visual ⇄ Compacto: mesma consulta/estado; só redesenha, mantendo o mesmo trecho da lista e a quantidade já carregada */
+  function trocarModo(novo) {
+    novo = C.normalizarModo(novo);
+    if (novo === estado.modo) return;
+    try { localStorage.setItem(CHAVE_MODO, novo); } catch (e) {}
+    const alvo = [...document.querySelectorAll('[data-id]')].find(el => !el.closest('header') && el.getBoundingClientRect().bottom > 72);   // 1º item visível
+    const idTopo = alvo ? alvo.dataset.id : null;
+    estado.modo = novo;
+    aplicarModo();
+    minVisiveis = Math.max(visiveis, minVisiveis);
+    renderGrid(true);
+    if (idTopo) {
+      const el = $('grid').querySelector(`[data-id="${idTopo.replace(/"/g, '')}"]`);
+      if (el) window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top + window.scrollY - 76));
+    }
   }
 
   /* ───────── estado da navegação (voltar da página do produto sem perder busca/filtros) ───────── */
@@ -250,6 +283,7 @@
       e.preventDefault(); campo.focus(); campo.select();
     });
     $('sortSelect').addEventListener('change', e => { estado.sort = e.target.value; atualizar(); });
+    document.querySelectorAll('.modo-btn').forEach(b => b.addEventListener('click', () => trocarModo(b.dataset.modo)));
     $('lateral').addEventListener('click', e => {
       const a = e.target.closest('a.cat-link'); if (!a || !semModificador(e)) return;
       e.preventDefault();
@@ -289,7 +323,7 @@
     $('grid').addEventListener('click', e => {
       if (e.target.closest('[data-limpar-tudo]')) { limparTudo(); return; }
       if (e.target.closest('[data-retry]')) { inicializar(); return; }
-      if (e.target.closest('.card-open')) salvarEstado();      // vai para a página do produto: guarda busca/filtros/posição
+      if (e.target.closest('.card-open, .l-link')) salvarEstado();      // vai para a página do produto: guarda busca/filtros/posição
     });
     window.addEventListener('pagehide', salvarEstado);
     $('btnMore').addEventListener('click', mostrarMais);
