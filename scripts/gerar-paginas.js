@@ -23,6 +23,7 @@
 const fs = require('fs');
 const path = require('path');
 const Core = require('../js/catalogo-core.js');
+const LD = require('./jsonld.js');
 
 const ORIGEM = 'https://catalogo.mr4distribuidora.com.br';
 const LOGO = '/assets/logo-header.png';
@@ -45,6 +46,7 @@ function headSeo(o) {
   l.push('<meta property="og:type" content="website">', '<meta property="og:site_name" content="MR4 Distribuidora">', '<meta property="og:locale" content="pt_BR">',
     `<meta property="og:title" content="${esc(o.title)}">`, `<meta property="og:description" content="${esc(o.description)}">`,
     `<meta property="og:url" content="${esc(o.canonical)}">`, `<meta property="og:image" content="${esc(ORIGEM + LOGO)}">`);
+  if (o.jsonld) l.push(o.jsonld);
   return l.join('\n');
 }
 function linksTaxonomia(tax, raizTexto) {
@@ -114,7 +116,7 @@ function paginaTaxonomia(shell, tax, tipo, t, vazia) {
   const rotulo = t.rotulo, tx = textosTaxonomia(tipo, t);
   return renderizarShell(shell, tax, {
     title: tx.title, description: tx.description,
-    canonical: url, noindex: !!vazia,
+    canonical: url, noindex: !!vazia, jsonld: LD.tag(LD.grafoTaxonomia(tipo, t, tx.description, !!vazia)),
     bodyAttrs: ` data-pagina="${tipo}" data-${cat ? 'cat' : 'marca'}="${esc(t.chave)}"`,
     h1: rotulo,
     lista: vazia ? `<p class="seo-vazio">Nenhum produto disponível nesta ${cat ? 'categoria' : 'marca'} no momento. <a href="/">Ver todo o catálogo</a>.</p>` : Core.htmlListaProdutosSeo(t.itens, cat ? `Produtos da categoria ${rotulo}` : `Produtos da marca ${rotulo}`),
@@ -123,7 +125,7 @@ function paginaTaxonomia(shell, tax, tipo, t, vazia) {
 }
 function paginaHome(shell, tax) {
   return renderizarShell(shell, tax, {
-    title: TITLE_HOME, description: DESC_HOME, canonical: ORIGEM + '/', bodyAttrs: ' data-pagina="home"', h1: '', h1Logo: H1_HOME, lista: '',
+    title: TITLE_HOME, description: DESC_HOME, canonical: ORIGEM + '/', jsonld: LD.tag(LD.grafoHome()), bodyAttrs: ' data-pagina="home"', h1: '', h1Logo: H1_HOME, lista: '',
     contexto: { titulo: 'Sobre o catálogo', texto: textoHome(tax) }
   });
 }
@@ -133,7 +135,7 @@ function marcarIndisponivel(html, noindex) {
   if (noindex) h = h.replace(/(<link rel="canonical" href="[^"]*">)/, '$1\n<meta name="robots" content="noindex,follow">');
   h = h.replace(/<div class="produto-compra"[^>]*>[\s\S]*?<\/div>/, '<div class="produto-compra" id="pCompra" data-estado="indisponivel"><p class="produto-indisp">Produto não disponível no catálogo no momento. <a href="/">Ver o catálogo</a>.</p></div>');
   h = h.replace(/<section class="relacionados"[\s\S]*?<\/section>/, '');
-  return h;
+  return LD.somenteBreadcrumb(h);                                            // sem Product (nem preço/estoque antigos) em página de produto fora do feed
 }
 const dataFeed = atualizado => { const d = new Date(atualizado); return isNaN(d) ? null : d.toISOString().slice(0, 10); };
 const diasEntre = (a, b) => { const x = new Date(a), y = new Date(b); return isNaN(x) || isNaN(y) ? 0 : Math.floor((y - x) / 86400000); };
@@ -149,6 +151,7 @@ function renderizarPagina(item, tpl, rel, titulo) {
     .replace(/\{\{CANONICAL\}\}/g, Core.esc(m.url))
     .replace(/\{\{OG_IMAGE\}\}/g, Core.esc(m.image))
     .replace('{{OG_PRODUCT}}', () => og)
+    .replace('{{JSONLD}}', () => LD.tag(LD.grafoProduto(item)))
     .replace('{{BREADCRUMB}}', () => Core.htmlBreadcrumb(item).replace('<nav ', '<nav id="bc" '))
     .replace('{{INFO}}', () => Core.htmlProdutoInfo(item))
     .replace('{{RELACIONADOS}}', () => Core.htmlRelacionadosEstatico(rel || []));
@@ -270,5 +273,5 @@ function executar(raiz) {
   return { produtos: r.itens.length, escritos, iguais, saudavel: true };
 }
 
-module.exports = { planejar, textosTaxonomia, textoHome, GENERICAS, renderizarPagina, renderizarRedirecionamento, marcarIndisponivel, paginaHome, paginaTaxonomia, dirDe, ORIGEM, LOGO, CARENCIA_DIAS, LIMITE_SAUDE, TITLE_HOME, DESC_HOME, ROBOTS };
+module.exports = { LD, planejar, textosTaxonomia, textoHome, GENERICAS, renderizarPagina, renderizarRedirecionamento, marcarIndisponivel, paginaHome, paginaTaxonomia, dirDe, ORIGEM, LOGO, CARENCIA_DIAS, LIMITE_SAUDE, TITLE_HOME, DESC_HOME, ROBOTS };
 if (require.main === module) executar(path.join(__dirname, '..'));

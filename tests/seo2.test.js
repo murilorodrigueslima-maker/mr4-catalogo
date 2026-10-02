@@ -223,6 +223,6 @@ test('Fase 1 preservada: links, sitemap, canonical, relacionados e UX intactos',
 function locs(x) { return [...x.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]); }
 test('sem Schema/JSON-LD/analytics/IndexNow nesta fase; sem bibliotecas novas', () => {
   const todo = [A['index.html'], pag(ITENS[0]), ler('js/catalogo-core.js'), ler('scripts/gerar-paginas.js')].join('\n');
-  assert.doesNotMatch(todo, /ld\+json|gtag\(|googletagmanager|GTM-|indexnow|google-site-verification|msvalidate/i);
+  assert.doesNotMatch(todo, /gtag\(|googletagmanager|GTM-|indexnow|google-site-verification|msvalidate/i);
   assert.doesNotMatch(A['index.html'], /<script src="https?:/);
 });

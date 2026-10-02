@@ -211,8 +211,9 @@ test('segurança: HTML/script nos dados não executa (escape em página, OG, bre
   const stub = G.renderizarRedirecionamento('/produto/a"</script><script>alert(9)--b/');
   assert.doesNotMatch(stub, /<script>alert\(9\)/);
   assert.equal((stub.match(/<script>/g) || []).length, 1);
-  // o gerador só aceita o JS legítimo do template (3 scripts do site)
-  assert.equal((html.match(/<script/g) || []).length, 3);
+  // o gerador só aceita o JS legítimo do template (3 scripts do site) + 1 JSON-LD escapado (SEO Fase 3)
+  assert.equal((html.match(/<script/g) || []).length, 4);
+  assert.equal((html.match(/<script type="application\/ld\+json">/g) || []).length, 1);
   assert.equal(C.esc('<>"\'&'), '&lt;&gt;&quot;&#39;&amp;');
 });
 

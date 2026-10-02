@@ -249,7 +249,7 @@ test('lastmod: só muda quando o conteúdo da URL muda; sem fonte confiável é 
 test('bump de versão de assets não altera lastmod (hash normalizado)', () => {
   const todos = Array.from({ length: 12 }, (_, i) => mk(i + 1));
   const r1 = gerar(todos, null, '2026-10-01T08:00:00Z');
-  const shell2 = SHELL.replace(/\?v=seo2-1/g, '?v=seo9-9'), tpl2 = TPL.replace(/\?v=seo2-1/g, '?v=seo9-9');
+  const shell2 = SHELL.replace(/\?v=seo3-1/g, '?v=seo9-9'), tpl2 = TPL.replace(/\?v=seo3-1/g, '?v=seo9-9');
   const r2 = G.planejar(todos, tpl2, JSON.parse(r1.arquivos['produto/manifest.json']), { shell: shell2, estado: r1.estado, atualizado: '2026-10-09T08:00:00Z', existente: () => null });
   assert.equal(r2.arquivos['data/seo-estado.json'], r1.arquivos['data/seo-estado.json']);
 });
@@ -268,7 +268,7 @@ test('workflow de sync versiona os novos artefatos; scripts e tests ficam dentro
 });
 test('sem schema/analytics/IndexNow/Search Console nesta fase', () => {
   const todo = [A['index.html'], APP, ler('templates/produto.html')].join('\n');
-  assert.doesNotMatch(todo, /ld\+json|gtag\(|googletagmanager|GTM-|indexnow|google-site-verification|msvalidate/i);
+  assert.doesNotMatch(todo, /gtag\(|googletagmanager|GTM-|indexnow|google-site-verification|msvalidate/i);
 });
 test('acessibilidade dos links estáticos: visíveis, sem display:none/offscreen', () => {
   const css = ler('css/catalogo.css');
