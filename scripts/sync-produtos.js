@@ -6,6 +6,7 @@
 
 const fs   = require('fs');
 const path = require('path');
+const Core = require('../js/catalogo-core.js');   // higiene de exibição (resíduo fiscal) — mesma lógica do navegador
 
 const ACCESS_TOKEN  = process.env.GC_ACCESS_TOKEN;
 const SECRET_TOKEN  = process.env.GC_SECRET_ACCESS_TOKEN;
@@ -44,13 +45,13 @@ function normalizaProdutos(lista) {
     return {
       id:       p.id || p.codigo_interno,
       ref:      p.codigo_interno || p.codigo || '—',
-      name:     p.nome || '—',
+      name:     Core.limparNome(p.nome || '—'),
       category: (p.nome_grupo || p.grupo || p.categoria || 'Geral').trim(),
       brand:    extraiMarca(p),
       price:    formatPrice(preco),
       stock:    Number(p.estoque || 0),
       img:      img,
-      desc:     p.descricao || p.observacoes || '',
+      desc:     Core.limparDescricao(p.descricao || p.observacoes || ''),   // só a versão publicada; o ERP não é alterado
     };
   });
 }
