@@ -20,6 +20,10 @@
   const lerModo = () => { try { return C.normalizarModo(localStorage.getItem(CHAVE_MODO)); } catch (e) { return 'visual'; } };
 
   /* ───────── estado ───────── */
+  // páginas /categoria/<slug>/ e /marca/<slug>/ são o mesmo shell com o filtro já aplicado (data-cat / data-marca)
+  const FIXA = { cat: document.body.dataset.cat || '', marca: document.body.dataset.marca || '' };
+  let canonBase = '';
+  const PARAMS0 = new URLSearchParams(location.search);          // ?sort / ?r da URL de entrada (a URL é normalizada depois)
   let itens = [];
   let porId = new Map();
   let destaqueIds = new Set();
@@ -34,6 +38,7 @@
   /* ───────── carregamento + cache do JSON (revalidação por ETag; sem ?v=Date.now()) ───────── */
   async function inicializar() {
     renderSkeleton();
+    const sl = $('seoLista'); if (sl) sl.remove();                   // links estáticos (SEO/sem JS) saem quando o catálogo interativo assume
     try {
       const [resProd, resDest] = await Promise.all([
         fetch('/data/produtos.json', { cache: 'no-cache' }),
@@ -57,8 +62,8 @@
       }
       montarNavegacao();
       const ini = estadoInicial();
-      if (ini.cat && !itens.some(e => e.catChave === ini.cat)) ini.cat = '';
-      if (ini.marca && !itens.some(e => e.marca === ini.marca)) ini.marca = '';
+      if (ini.cat && ini.cat !== FIXA.cat && !itens.some(e => e.catChave === ini.cat)) ini.cat = '';
+      if (ini.marca && ini.marca !== FIXA.marca && !itens.some(e => e.marca === ini.marca)) ini.marca = '';
       Object.assign(estado, { q: ini.q, cat: ini.cat, marca: ini.marca, sort: ini.sort });
       $('searchInput').value = estado.q;
       minVisiveis = ini.visiveis;
@@ -71,6 +76,8 @@
 
   /* ───────── navegação: categorias e marcas ───────── */
   function hrefPara(cat, marca) {
+    const limpa = C.urlLimpa(itens, cat, marca);
+    if (limpa) return limpa;                                          // /categoria/x/ ou /marca/y/ (links estáticos equivalentes)
     const u = new URLSearchParams();
     if (cat) u.set('cat', cat);
     if (marca) u.set('marca', marca);
@@ -113,6 +120,7 @@
     renderGrid(true);
     salvarEstado();
     atualizarUrl();
+    atualizarSeoEstado();
   }
 
   function renderInfo() {
@@ -206,21 +214,46 @@
   function estadoInicial() {
     const u = new URLSearchParams(location.search);
     const salvo = lerEstadoSalvo();
-    if (salvo && (u.get('r') === '1' || tipoNavegacao() === 'back_forward')) {
+    const salvoCombina = salvo && (!FIXA.cat || salvo.cat === FIXA.cat) && (!FIXA.marca || salvo.marca === FIXA.marca);
+    if (salvoCombina && (u.get('r') === '1' || tipoNavegacao() === 'back_forward')) {
       return { q: salvo.q || '', cat: salvo.cat || '', marca: salvo.marca || '', sort: salvo.sort || 'padrao', visiveis: salvo.visiveis || 0, scroll: salvo.scroll || 0 };
     }
-    return { q: u.get('q') || '', cat: u.get('cat') || '', marca: u.get('marca') || '', sort: 'padrao', visiveis: 0, scroll: 0 };
+    return { q: u.get('q') || '', cat: u.get('cat') || FIXA.cat, marca: u.get('marca') || FIXA.marca, sort: 'padrao', visiveis: 0, scroll: 0 };
   }
-  /** mantém ?q= ?cat= ?marca= na barra de endereço (link copiável), sem criar entradas no histórico */
+  /** mantém a URL copiável: só categoria → /categoria/x/, só marca → /marca/y/; busca/combinações → ?q= ?cat= ?marca= (sem criar histórico) */
   function atualizarUrl() {
     try {
-      const u = new URLSearchParams();
-      if (estado.q.trim()) u.set('q', estado.q.trim());
-      if (estado.cat) u.set('cat', estado.cat);
-      if (estado.marca) u.set('marca', estado.marca);
-      const s = u.toString();
-      const alvo = location.pathname + (s ? '?' + s : '');
+      const q = estado.q.trim();
+      const limpa = q ? null : C.urlLimpa(itens, estado.cat, estado.marca);
+      let alvo;
+      if (limpa) alvo = limpa;
+      else {
+        const u = new URLSearchParams();
+        if (q) u.set('q', q);
+        if (estado.cat) u.set('cat', estado.cat);
+        if (estado.marca) u.set('marca', estado.marca);
+        const s = u.toString();
+        alvo = (location.pathname.indexOf('/produto/') === 0 ? location.pathname : '/') + (s ? '?' + s : '');
+      }
       if (alvo !== location.pathname + location.search) history.replaceState(null, '', alvo);
+    } catch (e) {}
+  }
+  /** SEO por estado (o HTML estático é um só): canonical aponta para a página limpa; busca/combinações/?sort/?r = noindex,follow */
+  function atualizarSeoEstado() {
+    try {
+      const can = document.querySelector('link[rel="canonical"]');
+      if (!can) return;
+      if (!canonBase) canonBase = can.href;
+      const origem = new URL(canonBase).origin;
+      const q = estado.q.trim();
+      const unico = C.urlLimpa(itens, estado.cat, estado.marca);
+      const alvoCat = estado.cat ? C.urlLimpa(itens, estado.cat, '') : '';
+      const alvo = unico || (q ? alvoCat || C.urlLimpa(itens, '', estado.marca) : alvoCat) || '/';
+      const noindex = !!q || !!(estado.cat && estado.marca) || PARAMS0.has('sort') || PARAMS0.has('r');
+      can.href = origem + alvo;
+      let m = document.querySelector('meta[name="robots"][data-seo]');
+      if (noindex && !m && !document.querySelector('meta[name="robots"]')) { m = document.createElement('meta'); m.name = 'robots'; m.content = 'noindex,follow'; m.setAttribute('data-seo', '1'); document.head.appendChild(m); }
+      else if (!noindex && m) m.remove();
     } catch (e) {}
   }
 

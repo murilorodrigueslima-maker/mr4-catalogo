@@ -190,12 +190,12 @@ test('variantes: com/sem imagem, descrição, marca, categoria comercial', () =>
     { name: 'Marca válida sem grupo', category: 'PRODUTOS SEM GRUPO', brand: 'Tiger' }
   ]);
   const h = e => G.renderizarPagina(e, TPL);
-  assert.match(h(a), /<img src="https:\/\/x\/y.png"/); assert.match(h(a), /produto-desc/); assert.match(h(a), /modal-brand">Tiger/);
+  assert.match(h(a), /<img src="https:\/\/x\/y.png"/); assert.match(h(a), /produto-desc/); assert.match(h(a), /modal-brand">(<a[^>]*>)?Tiger/);
   assert.doesNotMatch(h(b), /<img src=/); assert.match(h(b), /Sem foto/); assert.doesNotMatch(h(b), /produto-desc/); assert.doesNotMatch(h(b), /modal-brand/);
   assert.doesNotMatch(h(c), /Sem categoria|PRODUTOS SEM GRUPO|modal-brand/);        // "Soquete" é tipo de produto → sem marca; sem categoria comercial
   assert.doesNotMatch(h(c), /\?cat=/);                                             // breadcrumb sem categoria
-  assert.match(h(d), /modal-brand">Tiger/); assert.doesNotMatch(h(d), /Sem categoria/);
-  assert.match(h(a), /\?cat=Moldura/);
+  assert.match(h(d), /modal-brand">(<a[^>]*>)?Tiger/); assert.doesNotMatch(h(d), /Sem categoria/);
+  assert.match(h(a), /href="\/categoria\/moldura\/"/);
 });
 test('segurança: HTML/script nos dados não executa (escape em página, OG, breadcrumb, redirecionamento)', () => {
   const ataque = '<script>alert(1)</script>"><img src=x onerror=alert(2)>\'';

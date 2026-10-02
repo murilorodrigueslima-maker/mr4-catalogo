@@ -186,7 +186,9 @@
         words: nome.split(' ').filter(Boolean)
       };
     });
-    return atribuirUrls(itens);
+    atribuirUrls(itens);
+    atribuirTaxonomia(itens);
+    return itens;
   }
 
 
@@ -225,6 +227,54 @@
     return itens;
   }
   /** caminho (pathname) → { item, canonico:boolean } | null. Resolve pelo CÓDIGO; o slug do nome é ignorado. */
+
+  /* ───────── taxonomia: páginas estáticas de categoria e marca (SEO Fase 1) ─────────
+   * /categoria/<slug>/ e /marca/<slug>/ — slug determinístico (sem acento/pontuação/caixa).
+   * Colisão (dois valores distintos com o mesmo slug): TODOS do grupo recebem sufixo hash4 do valor bruto.
+   * Marca NÃO é fundida por suposição: só a normalização já aprovada (MAPA_MARCAS) vale; o resto fica separado.
+   * Produto sem marca não tem página de marca. "PRODUTOS SEM GRUPO" vira a página "Sem categoria".
+   */
+  const BASE_CATEGORIA = '/categoria/', BASE_MARCA = '/marca/';
+  function atribuirSlugs(valores, rotuloDe, fallback) {
+    const grupos = {};
+    valores.forEach(v => { const b = slugify(rotuloDe(v)) || fallback; (grupos[b] = grupos[b] || []).push(v); });
+    const out = {};
+    Object.keys(grupos).forEach(b => grupos[b].forEach(v => { out[v] = grupos[b].length > 1 ? b + '-' + hash4(v) : b; }));
+    return out;
+  }
+  function atribuirTaxonomia(itens) {
+    const cats = [...new Set(itens.map(e => e.catChave).filter(Boolean))];
+    const marcas = [...new Set(itens.map(e => e.marca).filter(Boolean))];
+    const sc = atribuirSlugs(cats, rotuloCategoria, 'categoria');
+    const sm = atribuirSlugs(marcas, m => m, 'marca');
+    itens.forEach(e => {
+      e.catSlug = e.catChave ? sc[e.catChave] : '';
+      e.catUrl = e.catSlug ? BASE_CATEGORIA + e.catSlug + '/' : '';
+      e.marcaSlug = e.marca ? sm[e.marca] : '';
+      e.marcaUrl = e.marcaSlug ? BASE_MARCA + e.marcaSlug + '/' : '';
+    });
+    return itens;
+  }
+  /** listas de categorias (ordem da MR4) e marcas (A→Z) com seus produtos — fonte única do gerador e do app */
+  function taxonomia(itens) {
+    const { comerciais, semGrupo } = ordenarCategorias(itens.map(e => e.catChave));
+    const categorias = comerciais.concat(semGrupo).map(chave => {
+      const lista = itens.filter(e => e.catChave === chave);
+      return { chave, rotulo: rotuloCategoria(chave), slug: lista[0].catSlug, url: lista[0].catUrl, itens: lista };
+    });
+    const marcas = opcoesMarca(itens).map(o => {
+      const lista = itens.filter(e => e.marca === o.marca);
+      return { chave: o.marca, rotulo: o.marca, slug: lista[0].marcaSlug, url: lista[0].marcaUrl, itens: lista };
+    });
+    return { categorias, marcas };
+  }
+  /** URL "limpa" de um estado de filtros: só categoria → /categoria/x/; só marca → /marca/y/; senão null (usa ?query) */
+  function urlLimpa(itens, cat, marca) {
+    if (cat && !marca) { const e = itens.find(x => x.catChave === cat); return e && e.catUrl ? e.catUrl : null; }
+    if (marca && !cat) { const e = itens.find(x => x.marca === marca); return e && e.marcaUrl ? e.marcaUrl : null; }
+    return null;
+  }
+
   function resolverProduto(itens, caminho) {
     let p = String(caminho || '').split('#')[0].split('?')[0];
     const m = p.match(/\/produto\/([^/]+)/i);
@@ -385,10 +435,21 @@
     </article>`;
   }
   function htmlBreadcrumb(item) {
-    const li = [`<li><a href="/?r=1">Catálogo</a></li>`];
-    if (!item.semGrupo && item.catChave) li.push(`<li><a href="/?cat=${encodeURIComponent(item.catChave)}">${esc(item.catRotulo)}</a></li>`);
+    const li = [`<li><a href="/">Catálogo</a></li>`];
+    if (!item.semGrupo && item.catChave) li.push(`<li><a href="${esc(item.catUrl || '/?cat=' + encodeURIComponent(item.catChave))}">${esc(item.catRotulo)}</a></li>`);
     li.push(`<li aria-current="page">${esc(item.p.name)}</li>`);
     return `<nav class="breadcrumb" aria-label="Você está em"><ol>${li.join('')}</ol></nav>`;
+  }
+  /** relacionados no HTML estático: nome + link reais (JS troca por cards com preço/estoque/pedido) */
+  function htmlRelacionadosEstatico(lista) {
+    if (!lista || !lista.length) return '';
+    return `<section class="relacionados" aria-labelledby="relTit"><h2 id="relTit">Produtos relacionados</h2><ul class="rel-links">` +
+      lista.map(e => `<li><a href="${esc(e.url)}">${esc(e.p.name)}</a> <span class="rel-cod">Cód. ${esc(e.p.ref)}</span></li>`).join('') + `</ul></section>`;
+  }
+  /** lista leve de links (sem imagem) para páginas de categoria/marca: TODOS os produtos, no HTML inicial */
+  function htmlListaProdutosSeo(itens, rotulo) {
+    return `<nav class="seo-lista" id="seoLista" aria-label="${esc(rotulo)}"><ul>` +
+      itens.map(e => `<li><a href="${esc(e.url)}">${esc(e.p.name)}</a> <span class="rel-cod">Cód. ${esc(e.p.ref)}${e.marca ? ' · ' + esc(e.marca) : ''}</span></li>`).join('') + `</ul></nav>`;
   }
   /** conteúdo estático do produto (sem preço/estoque: esses vêm do JSON atual, no navegador) */
   function htmlProdutoInfo(item, dinamico) {
@@ -396,7 +457,7 @@
     return `<div class="produto-img">${p.img ? `<img src="${esc(p.img)}" alt="${esc(p.name)}" decoding="async">` : `<div class="img-placeholder" role="img" aria-label="Produto sem foto">${PLACEHOLDER_SVG}<span>Sem foto</span></div>`}</div>
     <div class="produto-info">
       <h1 class="produto-nome" id="pNome">${esc(p.name)}</h1>
-      <p class="produto-codigo"><span class="produto-ref">Cód. <b id="pRef">${esc(p.ref)}</b></span>${dinamico ? `<button type="button" class="copiar-cod" id="pCopiarCod" aria-label="Copiar código ${esc(p.ref)}">Copiar código</button>` : ''}${item.marca ? `<span class="modal-brand">${esc(item.marca)}</span>` : ''}${!item.semGrupo ? `<span class="produto-cat">${esc(item.catRotulo)}</span>` : ''}</p>
+      <p class="produto-codigo"><span class="produto-ref">Cód. <b id="pRef">${esc(p.ref)}</b></span>${dinamico ? `<button type="button" class="copiar-cod" id="pCopiarCod" aria-label="Copiar código ${esc(p.ref)}">Copiar código</button>` : ''}${item.marca ? `<span class="modal-brand">${item.marcaUrl ? `<a class="marca-link" href="${esc(item.marcaUrl)}">${esc(item.marca)}</a>` : esc(item.marca)}</span>` : ''}${!item.semGrupo ? `<span class="produto-cat">${esc(item.catRotulo)}</span>` : ''}</p>
       <div class="produto-compra" id="pCompra" data-estado="carregando"><p class="produto-carregando">Carregando preço e estoque…</p><noscript><p>Ative o JavaScript para ver preço e estoque.</p></noscript></div>
     </div>
     ${p.desc ? `<section class="produto-desc"><h2>Descrição</h2><p>${esc(p.desc)}</p></section>` : ''}`;
@@ -579,7 +640,7 @@
     MAPA_MARCAS, MARCAS_INVALIDAS, marcaNormalizada, relatorioMarcas, marcasNaoUnificadas,
     ORDEM_CATEGORIAS, prioridadeCategoria, ehSemGrupo, rotuloCategoria, ROTULO_SEM_GRUPO, ordenarCategorias,
     precoNumerico, prepararCatalogo, buscar, ordenar, consultar, opcoesMarca, mensagemWhatsProduto, osa,
-    slugify, slugNome, hash4, resolverProduto, relacionados, esc, htmlBreadcrumb, htmlProdutoInfo, descricaoCurta, metaProduto,
+    slugify, slugNome, hash4, resolverProduto, atribuirTaxonomia, taxonomia, urlLimpa, BASE_CATEGORIA, BASE_MARCA, htmlRelacionadosEstatico, htmlListaProdutosSeo, relacionados, esc, htmlBreadcrumb, htmlProdutoInfo, descricaoCurta, metaProduto,
     copiarLink, compartilhar, BASE_PRODUTO, PLACEHOLDER_SVG, htmlCard, htmlAcao, MODOS, normalizarModo, htmlLinha, htmlCabecalhoLista, rapidoBuscar, rapidoMover, rapidoAcimaDoEstoque, rapidoFeedback,
     MAX_QTD, normalizarQtd, precoCentavos, formatarCentavos, resolverPedido
   };
