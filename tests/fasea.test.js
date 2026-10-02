@@ -78,9 +78,9 @@ test('card B2B: hierarquia imagem → nome → código·marca → preço → est
   assert.match(h, /Cód\. <b>AB-1<\/b> · Tiger/);
   assert.match(h, /<span class="card-preco">R\$ 12,50<\/span>/);
   assert.match(h, /card-estoque ok">42 em estoque/);
-  assert.match(h, /data-add="9"[^>]*>\+ Pedido<\/button>/);
+  assert.match(h, /data-add="9"[^>]*>Adicionar<\/button>/);                 // Fase B: stepper + Adicionar
   assert.doesNotMatch(h, /onclick|JSON/);
-  assert.match(C.htmlCard(e, { naCesta: true }), /btn-add-cart added"[^>]*>✓ Adicionado/);
+  assert.match(C.htmlCard(e, { qtd: 4 }), /btn-add-cart added"[^>]*>✓ No pedido/);
   assert.doesNotMatch(C.htmlCard(e, { acao: false }), /btn-add-cart/);
   assert.match(C.htmlCard(mk({ stock: 3 })), /card-estoque low">Últimas 3 unid\./);
   assert.match(C.htmlCard(mk({ stock: 0 })), /card-estoque out">Sem estoque/);
@@ -130,8 +130,8 @@ test('fontes: só os pesos usados (Barlow 400/600 + Barlow Condensed 700), sem J
 });
 test('catálogo e páginas de produto usam as mesmas versões de css/js; versões novas (cache)', () => {
   const v = s => (s.match(/catalogo\.css\?v=([\w-]+)/) || [])[1];
-  assert.equal(v(IDX), v(TPL)); assert.equal(v(IDX), v(NF)); assert.match(v(IDX), /^faseA-/);
-  assert.match(IDX, /catalogo-app\.js\?v=faseA-/); assert.match(TPL, /produto-app\.js\?v=faseA-/);
+  assert.equal(v(IDX), v(TPL)); assert.equal(v(IDX), v(NF)); assert.match(v(IDX), /^fase[AB]-/);
+  assert.match(IDX, /catalogo-app\.js\?v=fase[AB]-/); assert.match(TPL, /produto-app\.js\?v=fase[AB]-/);
 });
 test('lógica comercial preservada: busca usa o núcleo; carrinho no mesmo formato; vendedores/telefones intactos', () => {
   assert.match(APP, /C\.consultar\(itens, estado, destaqueIds\)/);
@@ -141,7 +141,7 @@ test('lógica comercial preservada: busca usa o núcleo; carrinho no mesmo forma
   assert.match(APP, /\?r=1|'r'\) === '1'/);                              // retorno com estado
   assert.match(IDX, /sync-badge/);                                       // atualização movida para o rodapé
 });
-test('não implementado nesta fase: stepper, subtotal, pedido docado, modo compacto, pedido rápido, filtro de preço', () => {
+test('fora do escopo até a Fase B: modo compacto, pedido rápido, filtro de preço, login', () => {
   const tudo = IDX + APP + CESTA + CSS;
-  assert.doesNotMatch(tudo, /stepper|subtotal|modo-compacto|pedido-rapido|faixa-preco|filtro-preco/i);
+  assert.doesNotMatch(tudo, /modo-compacto|pedido-rapido|faixa-preco|filtro-preco|login|checkout|pagamento/i);
 });

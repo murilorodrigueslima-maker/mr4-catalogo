@@ -268,20 +268,21 @@ test('compartilhar: Web Share quando disponível; fallback copia; cancelamento n
 });
 
 /* ── pedido (módulo Cesta com DOM simulado) ── */
+const memStorage = () => { const m = {}; return { getItem: k => (k in m ? m[k] : null), setItem: (k, v) => { m[k] = String(v); }, removeItem: k => { delete m[k]; }, raw: m }; };
 function carregarCesta(storage) {
   const els = {};
   const el = id => els[id] || (els[id] = {
-    id, dataset: {}, style: {}, classList: { add() {}, remove() {}, contains: () => false, toggle() {} }, innerHTML: '', textContent: '', value: '',
-    addEventListener() {}, setAttribute() {}, getAttribute: () => null, focus() {}, querySelectorAll: () => [], contains: () => false
+    id, dataset: {}, style: {}, hidden: false, classList: { add() {}, remove() {}, contains: () => false, toggle() {} }, innerHTML: '', textContent: '', value: '',
+    addEventListener() {}, setAttribute() {}, removeAttribute() {}, getAttribute: () => null, focus() {}, select() {}, querySelector: () => null, querySelectorAll: () => [], contains: () => false
   });
-  const document = { getElementById: el, body: { insertAdjacentHTML() {}, style: {} }, addEventListener() {}, activeElement: null, contains: () => true };
-  const ctx = { window: {}, document, localStorage: storage, setTimeout, encodeURIComponent, navigator: {}, alert() {} };
+  const document = { getElementById: el, body: { insertAdjacentHTML() {}, style: {}, classList: { add() {}, remove() {}, contains: () => false, toggle() {} } }, addEventListener() {}, activeElement: null, contains: () => true, querySelectorAll: () => [] };
+  const ctx = { window: {}, document, localStorage: storage, sessionStorage: memStorage(), setTimeout, encodeURIComponent, navigator: {}, alert() {}, addEventListener() {} };
   ctx.window = ctx; vm.createContext(ctx);
+  vm.runInContext(fs.readFileSync(path.join(RAIZ, 'js/catalogo-core.js'), 'utf8'), ctx);      // a Cesta depende do núcleo (dinheiro/quantidade)
   vm.runInContext(fs.readFileSync(path.join(RAIZ, 'js/catalogo-cesta.js'), 'utf8'), ctx);
   ctx.Cesta.iniciar();
   return { Cesta: ctx.Cesta, els };
 }
-const memStorage = () => { const m = {}; return { getItem: k => (k in m ? m[k] : null), setItem: (k, v) => { m[k] = String(v); }, removeItem: k => { delete m[k]; }, raw: m }; };
 test('pedido: adicionar pela página (qtd), somar, alterar, remover; formato mr4_carrinho preservado; persiste entre páginas', () => {
   const st = memStorage();
   const e = ITENS.find(x => x.p.ref === 'LD0002');

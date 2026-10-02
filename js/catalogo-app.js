@@ -8,7 +8,12 @@
   const $ = id => document.getElementById(id);
   const esc = C.esc;
   const mobile = () => window.matchMedia('(max-width:640px)').matches;
-  const tamanhoPagina = () => (mobile() ? 24 : 36);
+  // lote da renderização incremental: ~5 linhas de cards (mantém o DOM enxuto; o resto entra ao rolar)
+  const tamanhoPagina = () => {
+    if (mobile()) return 20;
+    const cols = (getComputedStyle($('grid')).gridTemplateColumns || '').split(' ').filter(Boolean).length || 4;
+    return Math.max(20, cols * 5);
+  };
 
   /* ───────── estado ───────── */
   let itens = [];
@@ -34,6 +39,7 @@
       const data = await resProd.json();
       itens = C.prepararCatalogo(data.produtos || []);
       porId = new Map(itens.map(e => [String(e.p.id), e]));
+      Cesta.definirCatalogo(itens);                                  // preço/estoque do pedido vêm deste JSON
       if (data.atualizado) {
         const d = new Date(data.atualizado);
         const fmt = d.toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'America/Fortaleza' });
@@ -124,19 +130,7 @@
       (algum ? `<button type="button" class="link-btn" data-limpar-tudo>${resultado.comBusca && !chips.length ? 'Limpar busca' : (chips.length && !resultado.comBusca ? 'Limpar filtros' : 'Limpar tudo')}</button>` : '');
   }
 
-  const cardHTML = e => C.htmlCard(e, { naCesta: Cesta.qtdDe(e.p.id) > 0, destaque: destaqueIds.has(String(e.p.id)) });
-
-  /* botões dos cards acompanham o pedido (em qualquer lugar que ele mude) */
-  function marcarBotoes(id) {
-    const naCesta = Cesta.qtdDe(id) > 0;
-    document.querySelectorAll('[data-add]').forEach(b => {
-      if (b.dataset.add !== String(id)) return;
-      const nome = (porId.get(String(id)) || { p: { name: '' } }).p.name;
-      b.classList.toggle('added', naCesta);
-      b.textContent = naCesta ? '✓ Adicionado' : '+ Pedido';
-      b.setAttribute('aria-label', (naCesta ? 'Adicionado ao pedido: ' : 'Adicionar ao pedido: ') + nome);
-    });
-  }
+  const cardHTML = e => C.htmlCard(e, { qtd: Cesta.qtdDe(e.p.id), destaque: destaqueIds.has(String(e.p.id)) });
 
   function renderGrid(reiniciar) {
     const grid = $('grid');
@@ -295,8 +289,6 @@
     $('grid').addEventListener('click', e => {
       if (e.target.closest('[data-limpar-tudo]')) { limparTudo(); return; }
       if (e.target.closest('[data-retry]')) { inicializar(); return; }
-      const add = e.target.closest('[data-add]');
-      if (add) { const it = porId.get(add.dataset.add); if (it) Cesta.add(it.p, 1); return; }
       if (e.target.closest('.card-open')) salvarEstado();      // vai para a página do produto: guarda busca/filtros/posição
     });
     window.addEventListener('pagehide', salvarEstado);
@@ -307,7 +299,8 @@
     $('logoTopo').addEventListener('click', e => { if (location.pathname === '/' && !location.search) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); } });
     $('btnContato').addEventListener('click', () => Cesta.abrirVendedores());
     $('rodapeAtend').addEventListener('click', () => Cesta.abrirVendedores());
-    Cesta.aoMudar(marcarBotoes);
+    Cesta.delegarAcao($('grid'), id => (porId.get(String(id)) || {}).p);   // stepper/Adicionar dos cards (não abre a página)
+    Cesta.aoMudar(id => Cesta.pintar(id));
   }
 
   Cesta.iniciar();

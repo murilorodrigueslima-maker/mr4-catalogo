@@ -1,6 +1,7 @@
 /* MR4 Catálogo — página individual do produto (e fallback do 404.html).
  * O HTML estático já traz nome, código, marca, categoria, foto e descrição (para crawlers e sem JS);
- * aqui entram os dados que mudam a cada sync (preço e estoque, do JSON atual), pedido, WhatsApp, compartilhar e relacionados. */
+ * aqui entram preço e estoque (do JSON atual), quantidade/Adicionar (estado compartilhado com o pedido), WhatsApp,
+ * compartilhar, copiar código/link e relacionados. */
 (function () {
   'use strict';
   const C = window.CatalogoCore, Cesta = window.Cesta;
@@ -12,10 +13,10 @@
   function aviso(texto) {
     const el = $('aviso'); if (!el) return;
     el.textContent = texto; el.hidden = false;
-    clearTimeout(toastTimer); toastTimer = setTimeout(() => { el.hidden = true; }, 3200);
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => { el.hidden = true; }, 2600);
   }
 
-  /* ───────── ambiente de compartilhamento (injetado no núcleo testável) ───────── */
+  /* ───────── ambiente de compartilhamento/cópia (injetado no núcleo, testável) ───────── */
   function ambienteCompartilhar() {
     return {
       share: typeof navigator.share === 'function' ? d => navigator.share(d) : null,
@@ -30,56 +31,37 @@
     };
   }
 
-  /* ───────── bloco de compra (preço, estoque, quantidade, ações) ───────── */
+  /* ───────── bloco de compra ───────── */
   function htmlCompra(it) {
     const p = it.p;
     const sc = p.stock > 10 ? 'ok' : p.stock > 0 ? 'low' : 'out';
     const sl = p.stock > 10 ? `${p.stock} em estoque` : p.stock > 0 ? `Últimas ${p.stock} unid.` : 'Sem estoque';
-    return `<div class="preco-bloco">
-        <div><div class="modal-price-lbl">Preço unitário (atacado)</div><div class="modal-price-val">${esc(p.price)}</div></div>
-        <span class="modal-stock-badge ${sc}">${sl}</span>
+    return `<div class="preco-linha">
+        <div><div class="preco-lbl">Preço unitário (atacado)</div><div class="preco-grande">${esc(p.price)}</div></div>
+        <span class="estoque-chip ${sc}">${sl}</span>
       </div>
-      <div class="produto-acoes">
-        <div class="linha-add">
-          <div class="compra-qtd">
-            <label for="pQtd">Quantidade</label>
-            <button type="button" class="qty-btn" id="pMenos" aria-label="Diminuir quantidade">−</button>
-            <input class="qty-val" id="pQtd" type="number" min="1" value="1" inputmode="numeric">
-            <button type="button" class="qty-btn" id="pMais" aria-label="Aumentar quantidade">+</button>
-          </div>
-          <button type="button" class="btn-modal-cart" id="pAdd"></button>
-        </div>
+      ${C.htmlAcao(p, Cesta.qtdDe(p.id), 'acao--grande')}
+      <p class="resumo-pedido" id="pResumo" aria-live="polite"></p>
+      <div class="acoes-sec3">
         <button type="button" class="btn-interesse" id="pInteresse">${Cesta.ZAP} Tenho interesse neste produto</button>
-        <div class="acoes-sec">
-          <button type="button" class="btn-sec" id="pShare">Compartilhar produto</button>
-          <button type="button" class="btn-sec" id="pCopy">Copiar link</button>
-        </div>
-        <div class="copia-manual" id="pManual"><input id="pManualUrl" readonly aria-label="Link do produto" value=""></div>
-        <button type="button" class="ver-pedido" id="pVerPedido" hidden></button>
-      </div>`;
+        <button type="button" class="btn-sec" id="pShare">Compartilhar produto</button>
+        <button type="button" class="btn-sec" id="pCopy">Copiar link</button>
+      </div>
+      <div class="copia-manual" id="pManual"><input id="pManualUrl" readonly aria-label="Link do produto" value=""></div>`;
   }
-  const qtdEscolhida = () => Math.max(1, parseInt(($('pQtd') || {}).value, 10) || 1);
-
-  function pintarAdd(it) {
-    const btn = $('pAdd'); if (!btn) return;
+  function pintarResumo(it) {
+    const el = $('pResumo'); if (!el) return;
     const n = Cesta.qtdDe(it.p.id);
-    btn.className = 'btn-modal-cart' + (n ? ' added' : '');
-    btn.innerHTML = n
-      ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> No pedido (${n})<span class="t-mais"> · adicionar mais</span>`
-      : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Adicionar<span class="t-mais"> ao pedido</span>`;
-    const ver = $('pVerPedido');
-    if (ver) { ver.hidden = !n; ver.textContent = `Ver meu pedido (${n} un. deste produto)`; }
+    if (!n) { el.innerHTML = ''; return; }
+    const cent = C.precoCentavos(it.p.price);
+    el.innerHTML = `No pedido: <strong>${n} un.</strong>${cent == null ? '' : ' · ' + C.formatarCentavos(cent * n)} <button type="button" class="ver-pedido" id="pVerPedido">Ver pedido</button>`;
+    $('pVerPedido').addEventListener('click', () => Cesta.abrirPedido());
   }
+  const qtdEscolhida = () => C.normalizarQtd((($('pCompra') || document).querySelector('.qi') || {}).value);
 
   function ligarCompra(it, origem) {
     const url = origem + it.url;
-    pintarAdd(it);
-    Cesta.aoMudar(id => { if (String(id) === String(it.p.id)) pintarAdd(it); });
-    $('pMenos').addEventListener('click', () => { $('pQtd').value = Math.max(1, qtdEscolhida() - 1); });
-    $('pMais').addEventListener('click', () => { $('pQtd').value = qtdEscolhida() + 1; });
-    $('pQtd').addEventListener('change', () => { $('pQtd').value = qtdEscolhida(); });
-    $('pAdd').addEventListener('click', () => { const q = qtdEscolhida(); Cesta.add(it.p, q); aviso(`Adicionado ao pedido: ${q} un.`); });
-    $('pVerPedido').addEventListener('click', () => Cesta.abrirCarrinho());
+    pintarResumo(it);
     $('pInteresse').addEventListener('click', () => {
       Cesta.abrirVendedores(encodeURIComponent(C.mensagemWhatsProduto(it.p, qtdEscolhida(), url)));
     });
@@ -93,13 +75,21 @@
       const r = await C.copiarLink(ambienteCompartilhar(), url);
       if (r.ok) aviso('Link copiado'); else { aviso('Copie o link abaixo'); manual(); }
     });
+    const cod = $('pCopiarCod');
+    if (cod) cod.addEventListener('click', async () => {
+      const r = await C.copiarLink(ambienteCompartilhar(), String(it.p.ref));
+      const antes = 'Copiar código';
+      cod.textContent = r.ok ? 'Código copiado ✓' : 'Copie manualmente';
+      aviso(r.ok ? 'Código copiado' : 'Não foi possível copiar: selecione o código');
+      setTimeout(() => { cod.textContent = antes; }, 1800);
+    });
   }
 
-  /* ───────── relacionados ───────── */
+  /* ───────── relacionados (mesma regra; mesmo componente de compra) ───────── */
   function htmlRelacionados(lista) {
     if (!lista.length) return '';
     return `<section class="relacionados" aria-labelledby="relTit"><h2 id="relTit">Produtos relacionados</h2><div class="rel-grid">` +
-      lista.map(e => C.htmlCard(e, { acao: false })).join('') + `</div></section>`;
+      lista.map(e => C.htmlCard(e, { qtd: Cesta.qtdDe(e.p.id) })).join('') + `</div></section>`;
   }
 
   /* ───────── estados ───────── */
@@ -129,6 +119,7 @@
 
   /* ───────── principal ───────── */
   async function principal() {
+    document.body.classList.add('pagina-produto');
     Cesta.iniciar();
     const ph = $('searchInput'); if (ph && window.matchMedia('(max-width:640px)').matches) ph.placeholder = 'Buscar produto…';
     const bt = $('btnContato'); if (bt) bt.addEventListener('click', () => Cesta.abrirVendedores());
@@ -136,7 +127,7 @@
     const codigoUrl = (location.pathname.match(/\/produto\/([^/]+)/i) || [])[1];
     const codigo = codigoUrl ? decodeURIComponent(codigoUrl).split('--').pop() : '';
     const nomeEstatico = ($('pNome') || {}).textContent || '';
-    const refEstatica = (((document.querySelector('.produto-ref') || {}).textContent) || '').replace(/^Código\s+/, '');
+    const refEstatica = ($('pRef') || {}).textContent || '';
     let itens;
     try {
       const res = await fetch('/data/produtos.json', { cache: 'no-cache' });
@@ -146,6 +137,7 @@
       const sb = $('syncBadge');
       if (sb && dados.atualizado) sb.textContent = 'Preços e estoque atualizados em ' + new Date(dados.atualizado).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'America/Fortaleza' });
     } catch (e) { falhaDados(); return; }
+    Cesta.definirCatalogo(itens);                                   // preço/estoque do pedido vêm deste JSON
 
     const r = C.resolverProduto(itens, location.pathname);
     if (!r) { indisponivel(ehPagina404 ? '' : nomeEstatico, refEstatica || codigo, !!codigoUrl); return; }
@@ -155,11 +147,17 @@
 
     document.title = it.p.name + ' — MR4 Distribuidora';
     const bc = $('bc'); if (bc) bc.outerHTML = C.htmlBreadcrumb(it).replace('<nav ', '<nav id="bc" ');
-    $('produtoArtigo').innerHTML = C.htmlProdutoInfo(it);
+    $('produtoArtigo').innerHTML = C.htmlProdutoInfo(it, true);
     $('pCompra').outerHTML = `<div class="produto-compra" id="pCompra" data-estado="pronto">${htmlCompra(it)}</div>`;
     ligarCompra(it, location.origin);
+    Cesta.delegarAcao($('pCompra'), () => it.p);
     const rel = $('relacionados');
-    if (rel) rel.innerHTML = htmlRelacionados(C.relacionados(itens, it, 4));
+    if (rel) {
+      rel.innerHTML = htmlRelacionados(C.relacionados(itens, it, 4));
+      const porId = new Map(itens.map(e => [String(e.p.id), e.p]));
+      Cesta.delegarAcao(rel, id => porId.get(String(id)));
+    }
+    Cesta.aoMudar(id => { Cesta.pintar(id); pintarResumo(it); });   // card ↔ pedido ↔ página: um só estado
   }
   principal();
 })();

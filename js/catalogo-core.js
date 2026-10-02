@@ -259,13 +259,84 @@
   /* ───────── HTML do produto (fonte única: gerador estático e navegador) ───────── */
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
   const PLACEHOLDER_SVG = '<svg width="72" height="72" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M10 30 C10 18 16 12 26 11 L44 11" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M10 30 L10 46" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/><path d="M10 38 L44 38" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="22" x2="44" y2="22" stroke="#D4D4DC" stroke-width="1.5" stroke-linecap="round"/><line x1="11" y1="30" x2="44" y2="30" stroke="#D4D4DC" stroke-width="1.2" stroke-linecap="round"/></svg>';
+
+  /* ───────── dinheiro em centavos inteiros e resolução do pedido contra o catálogo ATUAL ─────────
+   * Regra: o preço de um item do pedido vem SEMPRE do produtos.json atual (resolvido pelo código);
+   * o preço guardado no carrinho é só referência para detectar "Preço atualizado".            */
+  const MAX_QTD = 9999;
+  function normalizarQtd(v) {
+    if (/^\s*-/.test(String(v == null ? '' : v))) return 1;           // negativo nunca vale
+    const n = parseInt(String(v == null ? '' : v).replace(/\D/g, ''), 10);
+    if (!isFinite(n) || n < 1) return 1;
+    return n > MAX_QTD ? MAX_QTD : n;
+  }
+  /** "R$ 1.234,56" → 123456 (inteiro); sem número ("Sob consulta", vazio) → null. Sem ponto flutuante. */
+  function precoCentavos(txt) {
+    const t = String(txt == null ? '' : txt).replace(/R\$/gi, '').replace(/\s/g, '');
+    const m = t.match(/^(\d{1,3}(?:\.\d{3})*|\d+)(?:,(\d{1,2}))?$/);
+    if (!m) return null;
+    const reais = parseInt(m[1].replace(/\./g, ''), 10);
+    const cent = m[2] ? parseInt((m[2] + '0').slice(0, 2), 10) : 0;
+    return reais * 100 + cent;
+  }
+  function formatarCentavos(c) {
+    if (c == null || !isFinite(c)) return '—';
+    const neg = c < 0; c = Math.abs(Math.round(c));
+    const reais = Math.floor(c / 100), cent = c % 100;
+    return (neg ? '-' : '') + 'R$ ' + String(reais).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ',' + (cent < 10 ? '0' : '') + cent;
+  }
+  /**
+   * carrinho: { [id]: { produto:{...}, qty } } (formato `mr4_carrinho`, inalterado)
+   * itens: catálogo atual preparado (ou null se ainda não carregou)
+   * → { linhas, totalItens, totalCent, indisponiveis, semPreco, carregado }
+   */
+  function resolverPedido(carrinho, itens) {
+    const porRef = new Map(), porId = new Map();
+    (itens || []).forEach(e => { porRef.set(String(e.p.ref), e); porId.set(String(e.p.id), e); });
+    const linhas = [];
+    let totalCent = 0, totalItens = 0, indisponiveis = 0, semPreco = 0;
+    Object.keys(carrinho || {}).forEach(id => {
+      const l = carrinho[id];
+      if (!l || typeof l !== 'object') return;
+      const prod = l.produto || {};
+      const qtd = normalizarQtd(l.qty);
+      totalItens += qtd;
+      const base = { id: String(id), ref: prod.ref == null ? '' : String(prod.ref), nome: prod.name || '(produto)', img: prod.img || '', qtd };
+      if (!itens) { linhas.push(Object.assign(base, { estado: 'carregando' })); return; }
+      // resolve pelo CÓDIGO; só se o carrinho antigo não tiver código, tenta pelo id
+      const atual = (base.ref && porRef.get(base.ref)) || (!base.ref ? porId.get(String(id)) : null) || null;
+      if (!atual) { indisponiveis++; linhas.push(Object.assign(base, { estado: 'indisponivel' })); return; }
+      const precoCent = precoCentavos(atual.p.price);
+      const antigo = precoCentavos(prod.price);
+      const sub = precoCent == null ? null : precoCent * qtd;
+      if (sub == null) semPreco++; else totalCent += sub;
+      linhas.push(Object.assign(base, {
+        estado: 'ok', nome: atual.p.name, ref: String(atual.p.ref), img: atual.p.img || base.img, url: atual.url,
+        precoCent, subtotalCent: sub, estoque: atual.p.stock, acimaEstoque: qtd > atual.p.stock,
+        precoAtualizado: precoCent != null && antigo != null && antigo !== precoCent
+      }));
+    });
+    return { linhas, totalItens, totalCent, indisponiveis, semPreco, carregado: !!itens };
+  }
+  /** controle de compra (stepper + Adicionar), usado nos cards, relacionados e na página do produto */
+  function htmlAcao(p, qtd, extraClasse) {
+    const id = esc(p.id), nome = esc(p.name), n = qtd > 0 ? qtd : 0;
+    return `<div class="acao${n ? ' no-pedido' : ''}${extraClasse ? ' ' + extraClasse : ''}" data-id="${id}" data-nome="${nome}">
+      <div class="qtd" role="group" aria-label="Quantidade de ${nome}">
+        <button type="button" class="qb" data-q="-1" aria-label="Diminuir quantidade de ${nome}">−</button>
+        <input class="qi" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" value="${n || 1}" aria-label="Quantidade de ${nome}">
+        <button type="button" class="qb" data-q="1" aria-label="Aumentar quantidade de ${nome}">+</button>
+      </div>
+      <button type="button" class="btn-add-cart${n ? ' added' : ''}" data-add="${id}"${n ? ' aria-disabled="true"' : ''} aria-label="${n ? 'No pedido: ' + n + ' un. de ' : 'Adicionar ao pedido: '}${nome}">${n ? '✓ No pedido' : 'Adicionar'}</button>
+    </div>`;
+  }
+
   /** card do catálogo (fonte única: catálogo e relacionados). Preço/estoque exibidos como no JSON; sem JSON/onclick no DOM. */
   function htmlCard(e, o) {
     o = o || {};
     const p = e.p, id = esc(p.id);
     const sc = p.stock > 10 ? 'ok' : p.stock > 0 ? 'low' : 'out';
     const sl = p.stock > 10 ? `${p.stock} em estoque` : p.stock > 0 ? `Últimas ${p.stock} unid.` : 'Sem estoque';
-    const naCesta = !!o.naCesta;
     return `<article class="card${o.destaque ? ' destaque-card' : ''}" data-id="${id}">
       ${o.destaque ? `<div class="destaque-badge">🔥 Destaque</div>` : ''}
       <div class="card-img">${p.img ? `<img src="${esc(p.img)}" alt="" loading="lazy" decoding="async">` : PLACEHOLDER_SVG}</div>
@@ -274,7 +345,7 @@
         <div class="card-cod">Cód. <b>${esc(p.ref)}</b>${e.marca ? ` · ${esc(e.marca)}` : ''}</div>
         <div class="card-compra">
           <div class="card-precos"><span class="card-preco">${esc(p.price)}</span><span class="card-estoque ${sc}">${sl}</span></div>
-          ${o.acao === false ? '' : `<button type="button" class="btn-add-cart${naCesta ? ' added' : ''}" data-add="${id}" aria-label="${naCesta ? 'Adicionado ao pedido: ' : 'Adicionar ao pedido: '}${esc(p.name)}">${naCesta ? '✓ Adicionado' : '+ Pedido'}</button>`}
+          ${o.acao === false ? '' : htmlAcao(p, o.qtd || 0)}
         </div>
       </div>
     </article>`;
@@ -286,16 +357,15 @@
     return `<nav class="breadcrumb" aria-label="Você está em"><ol>${li.join('')}</ol></nav>`;
   }
   /** conteúdo estático do produto (sem preço/estoque: esses vêm do JSON atual, no navegador) */
-  function htmlProdutoInfo(item) {
+  function htmlProdutoInfo(item, dinamico) {
     const p = item.p;
     return `<div class="produto-img">${p.img ? `<img src="${esc(p.img)}" alt="${esc(p.name)}" decoding="async">` : `<div class="img-placeholder" role="img" aria-label="Produto sem foto">${PLACEHOLDER_SVG}<span>Sem foto</span></div>`}</div>
     <div class="produto-info">
-      <p class="produto-ref">Código ${esc(p.ref)}</p>
       <h1 class="produto-nome" id="pNome">${esc(p.name)}</h1>
-      ${(item.marca || !item.semGrupo) ? `<p class="produto-meta">${item.marca ? `<span class="modal-brand">${esc(item.marca)}</span>` : ''}${!item.semGrupo ? `<span>${esc(item.catRotulo)}</span>` : ''}</p>` : ''}
-      ${p.desc ? `<div class="produto-desc"><h2>Descrição</h2><p>${esc(p.desc)}</p></div>` : ''}
+      <p class="produto-codigo"><span class="produto-ref">Cód. <b id="pRef">${esc(p.ref)}</b></span>${dinamico ? `<button type="button" class="copiar-cod" id="pCopiarCod" aria-label="Copiar código ${esc(p.ref)}">Copiar código</button>` : ''}${item.marca ? `<span class="modal-brand">${esc(item.marca)}</span>` : ''}${!item.semGrupo ? `<span class="produto-cat">${esc(item.catRotulo)}</span>` : ''}</p>
       <div class="produto-compra" id="pCompra" data-estado="carregando"><p class="produto-carregando">Carregando preço e estoque…</p><noscript><p>Ative o JavaScript para ver preço e estoque.</p></noscript></div>
-    </div>`;
+    </div>
+    ${p.desc ? `<section class="produto-desc"><h2>Descrição</h2><p>${esc(p.desc)}</p></section>` : ''}`;
   }
   function descricaoCurta(texto, max) {
     const t = String(texto || '').replace(/\s+/g, ' ').trim();
@@ -476,6 +546,7 @@
     ORDEM_CATEGORIAS, prioridadeCategoria, ehSemGrupo, rotuloCategoria, ROTULO_SEM_GRUPO, ordenarCategorias,
     precoNumerico, prepararCatalogo, buscar, ordenar, consultar, opcoesMarca, mensagemWhatsProduto, osa,
     slugify, slugNome, hash4, resolverProduto, relacionados, esc, htmlBreadcrumb, htmlProdutoInfo, descricaoCurta, metaProduto,
-    copiarLink, compartilhar, BASE_PRODUTO, PLACEHOLDER_SVG, htmlCard
+    copiarLink, compartilhar, BASE_PRODUTO, PLACEHOLDER_SVG, htmlCard, htmlAcao,
+    MAX_QTD, normalizarQtd, precoCentavos, formatarCentavos, resolverPedido
   };
 });
