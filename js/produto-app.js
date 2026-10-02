@@ -98,16 +98,8 @@
   /* ───────── relacionados ───────── */
   function htmlRelacionados(lista) {
     if (!lista.length) return '';
-    return `<section class="relacionados" aria-labelledby="relTit"><h2 id="relTit">Produtos relacionados</h2><div class="rel-grid">` + lista.map(e => {
-      const p = e.p;
-      return `<article class="product-card">
-        ${p.img ? `<div class="card-img"><img src="${esc(p.img)}" alt="" loading="lazy" decoding="async"></div>` : `<div class="img-placeholder" aria-hidden="true">${C.PLACEHOLDER_SVG}</div>`}
-        <div class="card-body">
-          <div class="card-top"><div class="card-ref">${esc(p.ref)}</div>${e.marca ? `<div class="card-brand-pill">${esc(e.marca)}</div>` : ''}</div>
-          <h3 class="card-name"><a class="card-open" href="${esc(e.url)}">${esc(p.name)}</a></h3>
-          <div class="card-footer"><div><span class="card-price-label">Preço unit.</span><span class="card-price">${esc(p.price)}</span></div></div>
-        </div></article>`;
-    }).join('') + `</div></section>`;
+    return `<section class="relacionados" aria-labelledby="relTit"><h2 id="relTit">Produtos relacionados</h2><div class="rel-grid">` +
+      lista.map(e => C.htmlCard(e, { acao: false })).join('') + `</div></section>`;
   }
 
   /* ───────── estados ───────── */
@@ -138,9 +130,9 @@
   /* ───────── principal ───────── */
   async function principal() {
     Cesta.iniciar();
-    const fab = $('cartFab'), hr = document.querySelector('.header-right');
-    if (fab && hr) { hr.insertBefore(fab, hr.firstChild); fab.classList.add('cart-fab-inline'); }
+    const ph = $('searchInput'); if (ph && window.matchMedia('(max-width:640px)').matches) ph.placeholder = 'Buscar produto…';
     const bt = $('btnContato'); if (bt) bt.addEventListener('click', () => Cesta.abrirVendedores());
+    const ra = $('rodapeAtend'); if (ra) ra.addEventListener('click', () => Cesta.abrirVendedores());
     const codigoUrl = (location.pathname.match(/\/produto\/([^/]+)/i) || [])[1];
     const codigo = codigoUrl ? decodeURIComponent(codigoUrl).split('--').pop() : '';
     const nomeEstatico = ($('pNome') || {}).textContent || '';
@@ -149,7 +141,10 @@
     try {
       const res = await fetch('/data/produtos.json', { cache: 'no-cache' });
       if (!res.ok) throw new Error('http ' + res.status);
-      itens = C.prepararCatalogo((await res.json()).produtos || []);
+      const dados = await res.json();
+      itens = C.prepararCatalogo(dados.produtos || []);
+      const sb = $('syncBadge');
+      if (sb && dados.atualizado) sb.textContent = 'Preços e estoque atualizados em ' + new Date(dados.atualizado).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'America/Fortaleza' });
     } catch (e) { falhaDados(); return; }
 
     const r = C.resolverProduto(itens, location.pathname);

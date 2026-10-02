@@ -1,36 +1,34 @@
-/* MR4 Catálogo — interface (usa window.CatalogoCore). Sem dependências. */
+/* MR4 Catálogo — interface (usa window.CatalogoCore e window.Cesta). Sem dependências.
+ * UX B2B Fase A: busca no header, sidebar de categorias/marcas (desktop), bottom sheets (mobile), card B2B.
+ * A lógica de busca/filtros/ordenação é a do núcleo (CatalogoCore.consultar) — inalterada. */
 (function () {
   'use strict';
   const C = window.CatalogoCore;
   const Cesta = window.Cesta;
   const $ = id => document.getElementById(id);
-
-  /* ───────── utilidades ───────── */
-  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+  const esc = C.esc;
   const mobile = () => window.matchMedia('(max-width:640px)').matches;
   const tamanhoPagina = () => (mobile() ? 24 : 36);
 
   /* ───────── estado ───────── */
-  let itens = [];                       // catálogo preparado (CatalogoCore.prepararCatalogo)
-  let porId = new Map();                // id → item (lookup; nada de JSON embutido no DOM)
+  let itens = [];
+  let porId = new Map();
   let destaqueIds = new Set();
   const estado = { q: '', cat: '', marca: '', sort: 'padrao' };
   let resultado = { lista: [], total: 0 };
   let visiveis = 0;
   let buscaTimer = null;
   let minVisiveis = 0;
+  let categorias = { comerciais: [], semGrupo: [] };
+  const contagem = {};
 
-  /* ───────── carregamento + cache do JSON ─────────
-   * fetch com cache:'no-cache' = revalida a cada abertura com o ETag do GitHub Pages:
-   * se o sync (≈30 min) não mudou o arquivo, a resposta é 304 (sem corpo); se mudou, baixa só o novo.
-   * Sem ?v=Date.now() (que forçava download completo em toda visita) e sem ficar defasado.
-   */
+  /* ───────── carregamento + cache do JSON (revalidação por ETag; sem ?v=Date.now()) ───────── */
   async function inicializar() {
     renderSkeleton();
     try {
       const [resProd, resDest] = await Promise.all([
-        fetch('./data/produtos.json', { cache: 'no-cache' }),
-        fetch('./data/destaques.json', { cache: 'no-cache' }).catch(() => null)
+        fetch('/data/produtos.json', { cache: 'no-cache' }),
+        fetch('/data/destaques.json', { cache: 'no-cache' }).catch(() => null)
       ]);
       if (!resProd.ok) throw new Error('Erro ao carregar produtos');
       const data = await resProd.json();
@@ -40,14 +38,13 @@
         const d = new Date(data.atualizado);
         const fmt = d.toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'America/Fortaleza' });
         const el = $('syncBadge');
-        if (el) { el.textContent = '🔄 ' + fmt; el.classList.add('visible'); }
+        if (el) el.textContent = 'Preços e estoque atualizados em ' + fmt;
       }
       if (resDest && resDest.ok) {
         const dest = await resDest.json();
         (dest.ids || []).forEach(id => destaqueIds.add(String(id)));
       }
-      $('totalProdutos').textContent = itens.length.toLocaleString('pt-BR') + '+';
-      montarFiltros();
+      montarNavegacao();
       const ini = estadoInicial();
       if (ini.cat && !itens.some(e => e.catChave === ini.cat)) ini.cat = '';
       if (ini.marca && !itens.some(e => e.marca === ini.marca)) ini.marca = '';
@@ -55,43 +52,43 @@
       $('searchInput').value = estado.q;
       minVisiveis = ini.visiveis;
       atualizar();
-      if (ini.scroll) requestAnimationFrame(() => window.scrollTo(0, ini.scroll));
+      if (ini.scroll) setTimeout(() => window.scrollTo(0, ini.scroll), 60);
     } catch (err) {
       renderErro(err.message);
     }
   }
 
-  /* ───────── filtros (categoria / marca) ───────── */
-  function montarFiltros() {
-    const cats = C.ordenarCategorias(itens.map(e => e.catChave));
-    const contagem = {};
+  /* ───────── navegação: categorias e marcas ───────── */
+  function hrefPara(cat, marca) {
+    const u = new URLSearchParams();
+    if (cat) u.set('cat', cat);
+    if (marca) u.set('marca', marca);
+    const s = u.toString();
+    return s ? '/?' + s : '/';
+  }
+  function montarNavegacao() {
+    categorias = C.ordenarCategorias(itens.map(e => e.catChave));
     itens.forEach(e => { contagem[e.catChave] = (contagem[e.catChave] || 0) + 1; });
-    // pills (desktop)
-    let html = `<button type="button" class="cat-pill" data-cat="" aria-pressed="true">Todas</button>`;
-    cats.comerciais.forEach(c => { html += `<button type="button" class="cat-pill" data-cat="${esc(c)}" aria-pressed="false">${esc(c)}</button>`; });
-    cats.semGrupo.forEach(c => { html += `<button type="button" class="cat-pill sem-cat" data-cat="${esc(c)}" aria-pressed="false" title="Produtos ainda sem categoria no cadastro">${esc(C.rotuloCategoria(c))} (${contagem[c]})</button>`; });
-    $('catPills').innerHTML = html;
-    // select (mobile)
-    let opt = `<option value="">Categoria: todas</option>`;
-    cats.comerciais.forEach(c => { opt += `<option value="${esc(c)}">${esc(c)} (${contagem[c]})</option>`; });
-    if (cats.semGrupo.length) {
-      opt += `<optgroup label="Outros">` + cats.semGrupo.map(c => `<option value="${esc(c)}">${esc(C.rotuloCategoria(c))} (${contagem[c]})</option>`).join('') + `</optgroup>`;
-    }
-    $('catSelect').innerHTML = opt;
-    // marcas
-    $('brandSelect').innerHTML = `<option value="">Marca: todas</option>` +
-      C.opcoesMarca(itens).map(o => `<option value="${esc(o.marca)}">${esc(o.marca)} (${o.n})</option>`).join('');
+    let h = `<a class="cat-link" href="/" data-cat="">Todas <span class="n">${itens.length}</span></a>`;
+    categorias.comerciais.forEach(c => { h += `<a class="cat-link" href="${esc(hrefPara(c, ''))}" data-cat="${esc(c)}">${esc(c)} <span class="n">${contagem[c]}</span></a>`; });
+    categorias.semGrupo.forEach(c => { h += `<a class="cat-link sem-cat" href="${esc(hrefPara(c, ''))}" data-cat="${esc(c)}">${esc(C.rotuloCategoria(c))} <span class="n">${contagem[c]}</span></a>`; });
+    $('catLista').innerHTML = h;
+    const marcas = C.opcoesMarca(itens);
+    $('marcaLista').innerHTML = `<a class="cat-link" href="/" data-marca="">Todas as marcas</a>` +
+      marcas.map(o => `<a class="cat-link" href="${esc(hrefPara('', o.marca))}" data-marca="${esc(o.marca)}">${esc(o.marca)} <span class="n">${o.n}</span></a>`).join('');
   }
 
   function sincronizarControles() {
-    $('catSelect').value = estado.cat;
-    $('brandSelect').value = estado.marca;
+    document.querySelectorAll('#catLista .cat-link').forEach(a => a.setAttribute('aria-current', a.dataset.cat === estado.cat ? 'true' : 'false'));
+    document.querySelectorAll('#marcaLista .cat-link').forEach(a => a.setAttribute('aria-current', a.dataset.marca === estado.marca ? 'true' : 'false'));
+    $('marcaAtual').textContent = estado.marca ? '· ' + estado.marca : '';
+    if (estado.marca) $('marcaDet').open = true;
     $('sortSelect').value = estado.sort;
-    document.querySelectorAll('.cat-pill').forEach(p => {
-      const ativo = p.dataset.cat === estado.cat;
-      p.classList.toggle('active', ativo);
-      p.setAttribute('aria-pressed', ativo ? 'true' : 'false');
-    });
+    const rotOrd = ($('sortSelect').selectedOptions[0] || {}).textContent || 'Ordenar';
+    const set = (id, ativo, texto) => { const b = $(id); b.classList.toggle('ativo', ativo); b.firstElementChild.textContent = texto; };
+    set('btnCat', !!estado.cat, estado.cat ? C.rotuloCategoria(estado.cat) : 'Categorias');
+    set('btnMarca', !!estado.marca, estado.marca || 'Marca');
+    set('btnOrdem', estado.sort !== 'padrao', estado.sort !== 'padrao' ? rotOrd : 'Ordenar');
     $('searchClear').hidden = !estado.q;
   }
 
@@ -101,57 +98,33 @@
     visiveis = 0;
     sincronizarControles();
     renderInfo();
-    $('countDisplay').textContent = resultado.total.toLocaleString('pt-BR');
     renderGrid(true);
     salvarEstado();
+    atualizarUrl();
   }
 
   function renderInfo() {
     const el = $('resultInfo');
-    const partes = [];
-    const chips = [];
-    if (estado.cat) chips.push(['cat', 'Categoria: ' + C.rotuloCategoria(estado.cat)]);
-    if (estado.marca) chips.push(['marca', 'Marca: ' + estado.marca]);
     const n = resultado.total;
     const plural = n === 1 ? 'produto' : 'produtos';
+    const chips = [];
+    if (estado.cat) chips.push(['cat', C.rotuloCategoria(estado.cat)]);
+    if (estado.marca) chips.push(['marca', estado.marca]);
+    let texto;
     if (resultado.comBusca) {
-      if (resultado.corrigido) {
-        partes.push(`Nenhum resultado exato para “${esc(estado.q.trim())}”. Mostrando ${n} ${plural} para “${esc(resultado.corrigido)}”.`);
-      } else {
-        partes.push(`<strong>${n}</strong> ${n === 1 ? 'produto encontrado' : 'produtos encontrados'} para “${esc(estado.q.trim())}”`);
-      }
-    } else if (chips.length) {
-      partes.push(`<strong>${n}</strong> ${plural}`);
+      texto = resultado.corrigido
+        ? `Nenhum resultado exato para “${esc(estado.q.trim())}”. Mostrando <strong>${n}</strong> ${plural} para “${esc(resultado.corrigido)}”.`
+        : `<strong>${n}</strong> ${n === 1 ? 'produto encontrado' : 'produtos encontrados'} para “${esc(estado.q.trim())}”`;
+    } else {
+      texto = `<strong>${n.toLocaleString('pt-BR')}</strong> ${plural}`;
     }
-    if (!partes.length) { el.hidden = true; el.innerHTML = ''; return; }
-    el.hidden = false;
-    el.innerHTML = partes.join(' ') +
+    const algum = resultado.comBusca || chips.length;
+    el.innerHTML = `<span>${texto}</span>` +
       chips.map(c => `<span class="chip">${esc(c[1])}<button type="button" data-rm="${c[0]}" aria-label="Remover filtro ${esc(c[1])}">✕</button></span>`).join('') +
-      `<button type="button" class="link-btn" data-limpar-tudo>Limpar ${resultado.comBusca && chips.length ? 'tudo' : (resultado.comBusca ? 'busca' : 'filtros')}</button>`;
+      (algum ? `<button type="button" class="link-btn" data-limpar-tudo>${resultado.comBusca && !chips.length ? 'Limpar busca' : (chips.length && !resultado.comBusca ? 'Limpar filtros' : 'Limpar tudo')}</button>` : '');
   }
 
-  function cardHTML(e) {
-    const p = e.p;
-    const sc = p.stock > 10 ? 'ok' : p.stock > 0 ? 'low' : 'out';
-    const sl = p.stock > 10 ? `${p.stock} em estoque` : p.stock > 0 ? `Últimas ${p.stock} unid.` : 'Sem estoque';
-    const isDestaque = destaqueIds.has(String(p.id));
-    const id = esc(p.id);
-    const naCesta = Cesta.qtdDe(p.id) > 0;
-    return `<article class="product-card${isDestaque ? ' destaque-card' : ''}" data-id="${id}">
-      ${isDestaque ? `<div class="destaque-badge">🔥 Destaque</div>` : ''}
-      ${p.img ? `<div class="card-img"><img src="${esc(p.img)}" alt="" loading="lazy" decoding="async"></div>`
-        : `<div class="img-placeholder" aria-hidden="true">${C.PLACEHOLDER_SVG}</div>`}
-      <div class="card-body">
-        <div class="card-top"><div class="card-ref">${esc(p.ref)}</div>${e.marca ? `<div class="card-brand-pill">${esc(e.marca)}</div>` : ''}</div>
-        <h3 class="card-name"><a class="card-open" href="${esc(e.url)}" data-produto="${id}">${esc(p.name)}</a></h3>
-        <div class="card-stock ${sc}">${sl}</div>
-        <div class="card-footer">
-          <div><span class="card-price-label">Preço unit.</span><span class="card-price">${esc(p.price)}</span></div>
-          <button type="button" class="btn-add-cart${naCesta ? ' added' : ''}" data-add="${id}" aria-label="${naCesta ? 'Adicionado ao pedido: ' : 'Adicionar ao pedido: '}${esc(p.name)}">${naCesta ? '✓ Adicionado' : '+ Pedido'}</button>
-        </div>
-      </div>
-    </article>`;
-  }
+  const cardHTML = e => C.htmlCard(e, { naCesta: Cesta.qtdDe(e.p.id) > 0, destaque: destaqueIds.has(String(e.p.id)) });
 
   /* botões dos cards acompanham o pedido (em qualquer lugar que ele mude) */
   function marcarBotoes(id) {
@@ -163,23 +136,6 @@
       b.textContent = naCesta ? '✓ Adicionado' : '+ Pedido';
       b.setAttribute('aria-label', (naCesta ? 'Adicionado ao pedido: ' : 'Adicionar ao pedido: ') + nome);
     });
-  }
-
-  /* ───────── estado da navegação (voltar da página do produto sem perder busca/filtros) ───────── */
-  const CHAVE_ESTADO = 'mr4_estado_catalogo';
-  function salvarEstado() {
-    try { sessionStorage.setItem(CHAVE_ESTADO, JSON.stringify({ q: estado.q, cat: estado.cat, marca: estado.marca, sort: estado.sort, visiveis, scroll: Math.round(window.scrollY) })); } catch (e) {}
-  }
-  function lerEstadoSalvo() { try { return JSON.parse(sessionStorage.getItem(CHAVE_ESTADO) || 'null'); } catch (e) { return null; } }
-  function tipoNavegacao() { try { return (performance.getEntriesByType('navigation')[0] || {}).type; } catch (e) { return ''; } }
-  /** parâmetros da URL (?q= ?cat= ?marca=) e restauração (?r=1 ou botão voltar do navegador) */
-  function estadoInicial() {
-    const u = new URLSearchParams(location.search);
-    const salvo = lerEstadoSalvo();
-    if (salvo && (u.get('r') === '1' || tipoNavegacao() === 'back_forward')) {
-      return { q: salvo.q || '', cat: salvo.cat || '', marca: salvo.marca || '', sort: salvo.sort || 'padrao', visiveis: salvo.visiveis || 0, scroll: salvo.scroll || 0 };
-    }
-    return { q: u.get('q') || '', cat: u.get('cat') || '', marca: u.get('marca') || '', sort: 'padrao', visiveis: 0, scroll: 0 };
   }
 
   function renderGrid(reiniciar) {
@@ -204,12 +160,74 @@
   function mostrarMais() { if (visiveis < resultado.total) renderGrid(false); }
 
   function renderSkeleton() {
-    $('grid').innerHTML = Array.from({ length: 8 }, () => `<div class="skeleton-card"><div class="skel skel-img"></div><div class="skel-body"><div class="skel skel-ref"></div><div class="skel skel-name"></div><div class="skel skel-name2"></div><div class="skel skel-price"></div></div></div>`).join('');
+    $('grid').innerHTML = Array.from({ length: 6 }, () => `<div class="skeleton-card skel"></div>`).join('');
     $('loadMore').hidden = true;
   }
   function renderErro(msg) {
     $('grid').setAttribute('aria-busy', 'false');
     $('grid').innerHTML = `<div class="state-box"><h3>Erro ao carregar</h3><p>${esc(msg)}</p><button type="button" class="btn-retry" data-retry>Tentar novamente</button></div>`;
+  }
+
+  /* ───────── estado da navegação (voltar da página do produto sem perder busca/filtros) ───────── */
+  const CHAVE_ESTADO = 'mr4_estado_catalogo';
+  function salvarEstado() {
+    try { sessionStorage.setItem(CHAVE_ESTADO, JSON.stringify({ q: estado.q, cat: estado.cat, marca: estado.marca, sort: estado.sort, visiveis, scroll: Math.round(window.scrollY) })); } catch (e) {}
+  }
+  function lerEstadoSalvo() { try { return JSON.parse(sessionStorage.getItem(CHAVE_ESTADO) || 'null'); } catch (e) { return null; } }
+  function tipoNavegacao() { try { return (performance.getEntriesByType('navigation')[0] || {}).type; } catch (e) { return ''; } }
+  function estadoInicial() {
+    const u = new URLSearchParams(location.search);
+    const salvo = lerEstadoSalvo();
+    if (salvo && (u.get('r') === '1' || tipoNavegacao() === 'back_forward')) {
+      return { q: salvo.q || '', cat: salvo.cat || '', marca: salvo.marca || '', sort: salvo.sort || 'padrao', visiveis: salvo.visiveis || 0, scroll: salvo.scroll || 0 };
+    }
+    return { q: u.get('q') || '', cat: u.get('cat') || '', marca: u.get('marca') || '', sort: 'padrao', visiveis: 0, scroll: 0 };
+  }
+  /** mantém ?q= ?cat= ?marca= na barra de endereço (link copiável), sem criar entradas no histórico */
+  function atualizarUrl() {
+    try {
+      const u = new URLSearchParams();
+      if (estado.q.trim()) u.set('q', estado.q.trim());
+      if (estado.cat) u.set('cat', estado.cat);
+      if (estado.marca) u.set('marca', estado.marca);
+      const s = u.toString();
+      const alvo = location.pathname + (s ? '?' + s : '');
+      if (alvo !== location.pathname + location.search) history.replaceState(null, '', alvo);
+    } catch (e) {}
+  }
+
+  /* ───────── bottom sheet (mobile/tablet): categorias, marca, ordenar ───────── */
+  const FOCAVEIS = 'button:not([disabled]),input:not([disabled])';
+  let sheetOpener = null, sheetAoEscolher = null;
+  function abrirSheet(opener, titulo, grupos, atual, aoEscolher) {
+    sheetOpener = opener; sheetAoEscolher = aoEscolher;
+    $('sheetTit').textContent = titulo;
+    $('sheetLista').innerHTML = grupos.map(g =>
+      (g.rotulo ? `<div class="sheet-grupo">${esc(g.rotulo)}</div>` : '') +
+      g.opcoes.map(o => `<label class="opt"><input type="radio" name="sheetOpt" value="${esc(o.v)}"${o.v === atual ? ' checked' : ''}><span>${esc(o.r)}</span>${o.n != null ? `<em>${o.n}</em>` : ''}</label>`).join('')
+    ).join('');
+    $('sheetBg').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => { const f = $('sheetLista').querySelector('input:checked') || $('sheetLista').querySelector('input'); if (f) f.focus(); }, 30);
+  }
+  function fecharSheet() {
+    $('sheetBg').classList.remove('open');
+    document.body.style.overflow = '';
+    if (sheetOpener && document.contains(sheetOpener)) { try { sheetOpener.focus(); } catch (e) {} }
+    sheetOpener = null; sheetAoEscolher = null;
+  }
+  const sheetAberto = () => $('sheetBg').classList.contains('open');
+  function entradaGrupo() { return $('sheetLista').querySelector('input:checked') || $('sheetLista').querySelector('input'); }
+  function sheetCategorias(opener) {
+    const grupos = [{ opcoes: [{ v: '', r: 'Todas as categorias', n: itens.length }].concat(categorias.comerciais.map(c => ({ v: c, r: c, n: contagem[c] }))) }];
+    if (categorias.semGrupo.length) grupos.push({ rotulo: 'Outros', opcoes: categorias.semGrupo.map(c => ({ v: c, r: C.rotuloCategoria(c), n: contagem[c] })) });
+    abrirSheet(opener, 'Categorias', grupos, estado.cat, v => { estado.cat = v; atualizar(); });
+  }
+  function sheetMarcas(opener) {
+    abrirSheet(opener, 'Marca', [{ opcoes: [{ v: '', r: 'Todas as marcas', n: null }].concat(C.opcoesMarca(itens).map(o => ({ v: o.marca, r: o.marca, n: o.n }))) }], estado.marca, v => { estado.marca = v; atualizar(); });
+  }
+  function sheetOrdem(opener) {
+    abrirSheet(opener, 'Ordenar', [{ opcoes: [...$('sortSelect').options].map(o => ({ v: o.value, r: o.textContent, n: null })) }], estado.sort, v => { estado.sort = v; atualizar(); });
   }
 
   /* ───────── eventos (delegação — sem onclick inline) ───────── */
@@ -218,26 +236,59 @@
     $('searchInput').value = '';
     atualizar();
   }
+  const semModificador = e => !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0);
   function ligarEventos() {
-    $('searchInput').addEventListener('input', e => {
+    const campo = $('searchInput');
+    const ajustaPlaceholder = () => { campo.placeholder = mobile() ? 'Buscar produto…' : 'Busque produto, código, marca ou categoria'; };
+    ajustaPlaceholder(); window.addEventListener('resize', ajustaPlaceholder);
+    campo.addEventListener('input', e => {
       clearTimeout(buscaTimer);
       buscaTimer = setTimeout(() => { estado.q = e.target.value; atualizar(); }, 150);
       $('searchClear').hidden = !e.target.value;
     });
-    $('searchInput').addEventListener('keydown', e => { if (e.key === 'Escape' && e.target.value) { e.target.value = ''; estado.q = ''; atualizar(); } });
-    $('searchClear').addEventListener('click', () => { $('searchInput').value = ''; estado.q = ''; atualizar(); $('searchInput').focus(); });
-    $('catSelect').addEventListener('change', e => { estado.cat = e.target.value; atualizar(); });
-    $('brandSelect').addEventListener('change', e => { estado.marca = e.target.value; atualizar(); });
+    campo.addEventListener('keydown', e => { if (e.key === 'Escape' && e.target.value) { e.target.value = ''; estado.q = ''; atualizar(); } });
+    $('buscaForm').addEventListener('submit', e => { e.preventDefault(); clearTimeout(buscaTimer); estado.q = campo.value; atualizar(); campo.blur(); });
+    $('searchClear').addEventListener('click', () => { campo.value = ''; estado.q = ''; atualizar(); campo.focus(); });
+    document.addEventListener('keydown', e => {                // "/" foca a busca (desktop), sem atrapalhar campos nem diálogos
+      if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) return;
+      const t = e.target, tag = (t && t.tagName) || '';
+      if (/INPUT|TEXTAREA|SELECT/.test(tag) || (t && t.isContentEditable) || sheetAberto() || document.querySelector('.cart-sidebar.open,.vendedor-modal.open')) return;
+      e.preventDefault(); campo.focus(); campo.select();
+    });
     $('sortSelect').addEventListener('change', e => { estado.sort = e.target.value; atualizar(); });
-    $('catPills').addEventListener('click', e => {
-      const b = e.target.closest('.cat-pill'); if (!b) return;
-      estado.cat = b.dataset.cat; atualizar();
+    $('lateral').addEventListener('click', e => {
+      const a = e.target.closest('a.cat-link'); if (!a || !semModificador(e)) return;
+      e.preventDefault();
+      if ('cat' in a.dataset) estado.cat = a.dataset.cat; else estado.marca = a.dataset.marca;
+      atualizar();
+    });
+    $('btnCat').addEventListener('click', e => sheetCategorias(e.currentTarget));
+    $('btnMarca').addEventListener('click', e => sheetMarcas(e.currentTarget));
+    $('btnOrdem').addEventListener('click', e => sheetOrdem(e.currentTarget));
+    $('sheetClose').addEventListener('click', fecharSheet);
+    $('sheetBg').addEventListener('click', e => { if (e.target === $('sheetBg')) fecharSheet(); });
+    $('sheetLista').addEventListener('change', e => {
+      if (e.target.name !== 'sheetOpt') return;
+      const cb = sheetAoEscolher; const v = e.target.value;
+      fecharSheet(); if (cb) cb(v);
+    });
+    document.addEventListener('keydown', e => {
+      if (!sheetAberto()) return;
+      if (e.key === 'Escape') { e.preventDefault(); fecharSheet(); return; }
+      if (e.key === 'Tab') {                                   // ordem: Fechar → grupo de opções (radios) → Fechar
+        const fechar = $('sheetClose'), ativo = document.activeElement, noGrupo = $('sheetLista').contains(ativo);
+        if (e.shiftKey && ativo === fechar) { e.preventDefault(); const g = entradaGrupo(); if (g) g.focus(); }
+        else if (!e.shiftKey && noGrupo) { e.preventDefault(); fechar.focus(); }
+        else if (e.shiftKey && noGrupo) { e.preventDefault(); fechar.focus(); }
+        else if (!e.shiftKey && ativo === fechar) { e.preventDefault(); const g = entradaGrupo(); if (g) g.focus(); }
+      }
     });
     $('resultInfo').addEventListener('click', e => {
       const rm = e.target.closest('[data-rm]');
       if (rm) { estado[rm.dataset.rm === 'cat' ? 'cat' : 'marca'] = ''; atualizar(); return; }
       if (e.target.closest('[data-limpar-tudo]')) {
-        if (resultado.comBusca && !estado.cat && !estado.marca) { estado.q = ''; $('searchInput').value = ''; atualizar(); }
+        if (resultado.comBusca && !estado.cat && !estado.marca) { estado.q = ''; campo.value = ''; atualizar(); }
+        else if (!resultado.comBusca) { estado.cat = ''; estado.marca = ''; atualizar(); }
         else limparTudo();
       }
     });
@@ -245,16 +296,17 @@
       if (e.target.closest('[data-limpar-tudo]')) { limparTudo(); return; }
       if (e.target.closest('[data-retry]')) { inicializar(); return; }
       const add = e.target.closest('[data-add]');
-      if (add) { const it = porId.get(add.dataset.add); if (it) { Cesta.add(it.p, 1); } return; }
-      if (e.target.closest('.card-open')) salvarEstado();          // vai para a página do produto: guarda busca/filtros/posição
+      if (add) { const it = porId.get(add.dataset.add); if (it) Cesta.add(it.p, 1); return; }
+      if (e.target.closest('.card-open')) salvarEstado();      // vai para a página do produto: guarda busca/filtros/posição
     });
     window.addEventListener('pagehide', salvarEstado);
     $('btnMore').addEventListener('click', mostrarMais);
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(es => { if (es.some(x => x.isIntersecting)) mostrarMais(); }, { rootMargin: '600px 0px' }).observe($('loadMore'));
     }
-    $('logoTopo').addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    $('logoTopo').addEventListener('click', e => { if (location.pathname === '/' && !location.search) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); } });
     $('btnContato').addEventListener('click', () => Cesta.abrirVendedores());
+    $('rodapeAtend').addEventListener('click', () => Cesta.abrirVendedores());
     Cesta.aoMudar(marcarBotoes);
   }
 

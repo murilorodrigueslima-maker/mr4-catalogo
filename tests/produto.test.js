@@ -320,7 +320,8 @@ test('404.html: noindex, mesmo JS de produto; páginas geradas referenciam as me
   assert.match(idx, /catalogo-cesta\.js/);
 });
 test('catálogo: cards são links reais para a página do produto, sem JSON/onclick no DOM', () => {
-  const app = fs.readFileSync(path.join(RAIZ, 'js/catalogo-app.js'), 'utf8');
-  assert.match(app, /<a class="card-open" href="\$\{esc\(e\.url\)\}"/);
-  assert.doesNotMatch(app, /onclick=/); assert.doesNotMatch(app, /JSON\.stringify\(p\)/);
+  // o template do card vive no núcleo (htmlCard), compartilhado por catálogo e relacionados
+  const fonte = fs.readFileSync(path.join(RAIZ, 'js/catalogo-core.js'), 'utf8') + fs.readFileSync(path.join(RAIZ, 'js/catalogo-app.js'), 'utf8');
+  assert.match(fonte, /<a class="card-open" href="\$\{esc\(e\.url\)\}"/);
+  assert.doesNotMatch(fonte, /onclick=/); assert.doesNotMatch(fonte, /JSON\.stringify\(p\)/);
 });

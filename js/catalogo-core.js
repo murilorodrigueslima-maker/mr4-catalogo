@@ -259,6 +259,26 @@
   /* ───────── HTML do produto (fonte única: gerador estático e navegador) ───────── */
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
   const PLACEHOLDER_SVG = '<svg width="72" height="72" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M10 30 C10 18 16 12 26 11 L44 11" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M10 30 L10 46" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/><path d="M10 38 L44 38" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="22" x2="44" y2="22" stroke="#D4D4DC" stroke-width="1.5" stroke-linecap="round"/><line x1="11" y1="30" x2="44" y2="30" stroke="#D4D4DC" stroke-width="1.2" stroke-linecap="round"/></svg>';
+  /** card do catálogo (fonte única: catálogo e relacionados). Preço/estoque exibidos como no JSON; sem JSON/onclick no DOM. */
+  function htmlCard(e, o) {
+    o = o || {};
+    const p = e.p, id = esc(p.id);
+    const sc = p.stock > 10 ? 'ok' : p.stock > 0 ? 'low' : 'out';
+    const sl = p.stock > 10 ? `${p.stock} em estoque` : p.stock > 0 ? `Últimas ${p.stock} unid.` : 'Sem estoque';
+    const naCesta = !!o.naCesta;
+    return `<article class="card${o.destaque ? ' destaque-card' : ''}" data-id="${id}">
+      ${o.destaque ? `<div class="destaque-badge">🔥 Destaque</div>` : ''}
+      <div class="card-img">${p.img ? `<img src="${esc(p.img)}" alt="" loading="lazy" decoding="async">` : PLACEHOLDER_SVG}</div>
+      <div class="card-body">
+        <h3 class="card-name"><a class="card-open" href="${esc(e.url)}" title="${esc(p.name)}" data-produto="${id}">${esc(p.name)}</a></h3>
+        <div class="card-cod">Cód. <b>${esc(p.ref)}</b>${e.marca ? ` · ${esc(e.marca)}` : ''}</div>
+        <div class="card-compra">
+          <div class="card-precos"><span class="card-preco">${esc(p.price)}</span><span class="card-estoque ${sc}">${sl}</span></div>
+          ${o.acao === false ? '' : `<button type="button" class="btn-add-cart${naCesta ? ' added' : ''}" data-add="${id}" aria-label="${naCesta ? 'Adicionado ao pedido: ' : 'Adicionar ao pedido: '}${esc(p.name)}">${naCesta ? '✓ Adicionado' : '+ Pedido'}</button>`}
+        </div>
+      </div>
+    </article>`;
+  }
   function htmlBreadcrumb(item) {
     const li = [`<li><a href="/?r=1">Catálogo</a></li>`];
     if (!item.semGrupo && item.catChave) li.push(`<li><a href="/?cat=${encodeURIComponent(item.catChave)}">${esc(item.catRotulo)}</a></li>`);
@@ -456,6 +476,6 @@
     ORDEM_CATEGORIAS, prioridadeCategoria, ehSemGrupo, rotuloCategoria, ROTULO_SEM_GRUPO, ordenarCategorias,
     precoNumerico, prepararCatalogo, buscar, ordenar, consultar, opcoesMarca, mensagemWhatsProduto, osa,
     slugify, slugNome, hash4, resolverProduto, relacionados, esc, htmlBreadcrumb, htmlProdutoInfo, descricaoCurta, metaProduto,
-    copiarLink, compartilhar, BASE_PRODUTO, PLACEHOLDER_SVG
+    copiarLink, compartilhar, BASE_PRODUTO, PLACEHOLDER_SVG, htmlCard
   };
 });
