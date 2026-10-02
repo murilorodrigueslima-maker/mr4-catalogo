@@ -36,7 +36,8 @@ test('header B2B: sticky, 56–64 px, busca protagonista, atendimento e pedido; 
   assert.match(CSS, /\.search-input\{[^}]*height:44px/);
 });
 test('header idêntico no catálogo, nas páginas de produto e no 404 (busca envia ?q= ao catálogo)', () => {
-  const h = s => s.match(/<header class="topo">[\s\S]*?<\/header>/)[0];
+  // única diferença permitida (SEO Fase 1): na home a marca do topo é o H1 (logo com alt estendido)
+  const h = s => s.match(/<header class="topo">[\s\S]*?<\/header>/)[0].replace(/<h1 class="h1-logo">([\s\S]*?)<\/h1>/, '$1').replace('alt="MR4 Distribuidora — Catálogo B2B"', 'alt="MR4 Distribuidora"');
   assert.equal(h(IDX), h(TPL)); assert.equal(h(IDX), h(NF));
   assert.match(h(TPL), /<form class="busca"[^>]*action="\/"[^>]*method="get"/);
   assert.match(h(TPL), /name="q"/);

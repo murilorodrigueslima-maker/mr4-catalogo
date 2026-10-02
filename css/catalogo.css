@@ -419,6 +419,7 @@ body[data-modo="compacto"] .conteudo{padding-top:10px}
 /* SEO Fase 1: H1 compacto na barra, lista estática de links (some quando o JS assume), contexto discreto, relacionados estáticos */
 .titulo-pg{flex:none;margin:0;font-family:var(--f-cond);font-weight:700;font-size:.95rem;letter-spacing:.02em;text-transform:uppercase;color:var(--ink);line-height:1.2}
 .titulo-pg::after{content:"·";margin-left:8px;color:var(--muted)}
+.h1-logo{margin:0;font:inherit;display:flex;align-items:center;flex:none}
 .seo-lista ul{list-style:none;margin:8px 0 0;padding:0;columns:3 260px;column-gap:24px;font-size:.9rem}
 .seo-lista li{break-inside:avoid;padding:3px 0}
 .seo-lista a,.rel-links a{color:var(--ink)}

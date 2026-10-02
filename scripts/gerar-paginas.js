@@ -32,7 +32,7 @@ const crypto = require('crypto');
 const CARENCIA_DIAS = 7;            // ausência contínua no feed antes de noindex (tempo do feed, não do relógio)
 const LIMITE_SAUDE = 0.85;          // feed com menos de 85 % dos itens da última rodada saudável = suspeito
 const NOME_HOME = 'Catálogo B2B de acessórios automotivos';
-const H1_HOME = 'Catálogo B2B';             // compacto na barra de resultados (o title e a descrição carregam o segmento)
+const H1_HOME = 'MR4 Distribuidora — Catálogo B2B';   // H1 da home = logo do topo (alt); a barra de resultados não ganha largura
 const TITLE_HOME = NOME_HOME + ' | MR4 Distribuidora';
 const DESC_HOME = 'Catálogo B2B da MR4 Distribuidora (Fortaleza, CE): acessórios automotivos no atacado para lojistas e instaladores — iluminação LED, molduras, alarmes, multimídia e mais. Atendemos CE, PI e RN.';
 const hash12 = t => crypto.createHash('sha1').update(String(t)).digest('hex').slice(0, 12);
@@ -60,13 +60,16 @@ function contextoSeo(tax, intro) {
 <nav aria-label="Marcas do catálogo"><strong>Marcas:</strong> ${tax.marcas.map(m => `<a href="${esc(m.url)}">${esc(m.rotulo)}</a>`).join(' · ')}</nav></section>`;
 }
 const TEXTO_HOME = 'A MR4 Distribuidora é distribuidora de acessórios e peças automotivas no atacado, com sede em Fortaleza (CE). Este catálogo B2B atende lojistas e instaladores de CE, PI e RN: iluminação LED, molduras, alarmes, multimídia, som, sensores, chicotes e mais. Preço e estoque são atualizados a cada sincronização.';
+const LOGO_LINK = alt => `<a class="logo" href="/" id="logoTopo" aria-label="MR4 Distribuidora — catálogo"><img class="logo-img" src="/assets/logo-header.png" width="103" height="36" alt="${alt}"></a>`;
 function renderizarShell(shell, tax, pg) {
   const l = linksTaxonomia(tax);
   return shell
     .replace('{{HEAD}}', () => headSeo(pg))
     .replace('{{BODYATTRS}}', () => pg.bodyAttrs || '')
     .replace('{{CATS}}', () => l.cats).replace('{{MARCAS}}', () => l.marcas)
-    .replace('{{H1}}', () => `<h1 class="titulo-pg">${esc(pg.h1)}</h1>`)
+    // home: o H1 é a marca no topo (logo com alt), sem ocupar a barra de resultados; categoria/marca: H1 compacto na barra
+    .replace('{{LOGO}}', () => (pg.h1Logo ? `<h1 class="h1-logo">${LOGO_LINK(esc(pg.h1Logo))}</h1>` : LOGO_LINK('MR4 Distribuidora')))
+    .replace('{{H1}}', () => (pg.h1 ? `<h1 class="titulo-pg">${esc(pg.h1)}</h1>` : ''))
     .replace('{{LISTA}}', () => pg.lista || '')
     .replace('{{CONTEXTO}}', () => contextoSeo(tax, pg.contexto));
 }
@@ -87,7 +90,7 @@ function paginaTaxonomia(shell, tax, tipo, t, vazia) {
 }
 function paginaHome(shell, tax) {
   return renderizarShell(shell, tax, {
-    title: TITLE_HOME, description: DESC_HOME, canonical: ORIGEM + '/', bodyAttrs: ' data-pagina="home"', h1: H1_HOME, lista: '',
+    title: TITLE_HOME, description: DESC_HOME, canonical: ORIGEM + '/', bodyAttrs: ' data-pagina="home"', h1: '', h1Logo: H1_HOME, lista: '',
     contexto: { titulo: 'Sobre o catálogo', texto: TEXTO_HOME }
   });
 }
