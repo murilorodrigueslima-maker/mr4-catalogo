@@ -2,12 +2,8 @@
 (function () {
   'use strict';
   const C = window.CatalogoCore;
+  const Cesta = window.Cesta;
   const $ = id => document.getElementById(id);
-
-  const VENDEDORES = [
-    { id: 'linkAdemir', nome: 'Ademir', num: '558596098520' },
-    { id: 'linkFabiana', nome: 'Fabiana', num: '558591194961' }
-  ];
 
   /* ───────── utilidades ───────── */
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
@@ -21,9 +17,8 @@
   const estado = { q: '', cat: '', marca: '', sort: 'padrao' };
   let resultado = { lista: [], total: 0 };
   let visiveis = 0;
-  let carrinho = {};
   let buscaTimer = null;
-  let ultimoFoco = null;
+  let minVisiveis = 0;
 
   /* ───────── carregamento + cache do JSON ─────────
    * fetch com cache:'no-cache' = revalida a cada abertura com o ETag do GitHub Pages:
@@ -53,7 +48,14 @@
       }
       $('totalProdutos').textContent = itens.length.toLocaleString('pt-BR') + '+';
       montarFiltros();
+      const ini = estadoInicial();
+      if (ini.cat && !itens.some(e => e.catChave === ini.cat)) ini.cat = '';
+      if (ini.marca && !itens.some(e => e.marca === ini.marca)) ini.marca = '';
+      Object.assign(estado, { q: ini.q, cat: ini.cat, marca: ini.marca, sort: ini.sort });
+      $('searchInput').value = estado.q;
+      minVisiveis = ini.visiveis;
       atualizar();
+      if (ini.scroll) requestAnimationFrame(() => window.scrollTo(0, ini.scroll));
     } catch (err) {
       renderErro(err.message);
     }
@@ -101,6 +103,7 @@
     renderInfo();
     $('countDisplay').textContent = resultado.total.toLocaleString('pt-BR');
     renderGrid(true);
+    salvarEstado();
   }
 
   function renderInfo() {
@@ -133,14 +136,14 @@
     const sl = p.stock > 10 ? `${p.stock} em estoque` : p.stock > 0 ? `Últimas ${p.stock} unid.` : 'Sem estoque';
     const isDestaque = destaqueIds.has(String(p.id));
     const id = esc(p.id);
-    const naCesta = !!carrinho[p.id];
+    const naCesta = Cesta.qtdDe(p.id) > 0;
     return `<article class="product-card${isDestaque ? ' destaque-card' : ''}" data-id="${id}">
       ${isDestaque ? `<div class="destaque-badge">🔥 Destaque</div>` : ''}
       ${p.img ? `<div class="card-img"><img src="${esc(p.img)}" alt="" loading="lazy" decoding="async"></div>`
-        : `<div class="img-placeholder" aria-hidden="true"><svg width="72" height="72" viewBox="0 0 64 64" fill="none"><path d="M10 30 C10 18 16 12 26 11 L44 11" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M10 30 L10 46" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/><path d="M10 38 L44 38" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="22" x2="44" y2="22" stroke="#D4D4DC" stroke-width="1.5" stroke-linecap="round"/><line x1="11" y1="30" x2="44" y2="30" stroke="#D4D4DC" stroke-width="1.2" stroke-linecap="round"/></svg></div>`}
+        : `<div class="img-placeholder" aria-hidden="true">${C.PLACEHOLDER_SVG}</div>`}
       <div class="card-body">
         <div class="card-top"><div class="card-ref">${esc(p.ref)}</div>${e.marca ? `<div class="card-brand-pill">${esc(e.marca)}</div>` : ''}</div>
-        <h3 class="card-name"><button type="button" class="card-open" data-open="${id}">${esc(p.name)}</button></h3>
+        <h3 class="card-name"><a class="card-open" href="${esc(e.url)}" data-produto="${id}">${esc(p.name)}</a></h3>
         <div class="card-stock ${sc}">${sl}</div>
         <div class="card-footer">
           <div><span class="card-price-label">Preço unit.</span><span class="card-price">${esc(p.price)}</span></div>
@@ -148,6 +151,35 @@
         </div>
       </div>
     </article>`;
+  }
+
+  /* botões dos cards acompanham o pedido (em qualquer lugar que ele mude) */
+  function marcarBotoes(id) {
+    const naCesta = Cesta.qtdDe(id) > 0;
+    document.querySelectorAll('[data-add]').forEach(b => {
+      if (b.dataset.add !== String(id)) return;
+      const nome = (porId.get(String(id)) || { p: { name: '' } }).p.name;
+      b.classList.toggle('added', naCesta);
+      b.textContent = naCesta ? '✓ Adicionado' : '+ Pedido';
+      b.setAttribute('aria-label', (naCesta ? 'Adicionado ao pedido: ' : 'Adicionar ao pedido: ') + nome);
+    });
+  }
+
+  /* ───────── estado da navegação (voltar da página do produto sem perder busca/filtros) ───────── */
+  const CHAVE_ESTADO = 'mr4_estado_catalogo';
+  function salvarEstado() {
+    try { sessionStorage.setItem(CHAVE_ESTADO, JSON.stringify({ q: estado.q, cat: estado.cat, marca: estado.marca, sort: estado.sort, visiveis, scroll: Math.round(window.scrollY) })); } catch (e) {}
+  }
+  function lerEstadoSalvo() { try { return JSON.parse(sessionStorage.getItem(CHAVE_ESTADO) || 'null'); } catch (e) { return null; } }
+  function tipoNavegacao() { try { return (performance.getEntriesByType('navigation')[0] || {}).type; } catch (e) { return ''; } }
+  /** parâmetros da URL (?q= ?cat= ?marca=) e restauração (?r=1 ou botão voltar do navegador) */
+  function estadoInicial() {
+    const u = new URLSearchParams(location.search);
+    const salvo = lerEstadoSalvo();
+    if (salvo && (u.get('r') === '1' || tipoNavegacao() === 'back_forward')) {
+      return { q: salvo.q || '', cat: salvo.cat || '', marca: salvo.marca || '', sort: salvo.sort || 'padrao', visiveis: salvo.visiveis || 0, scroll: salvo.scroll || 0 };
+    }
+    return { q: u.get('q') || '', cat: u.get('cat') || '', marca: u.get('marca') || '', sort: 'padrao', visiveis: 0, scroll: 0 };
   }
 
   function renderGrid(reiniciar) {
@@ -159,7 +191,8 @@
       return;
     }
     const passo = tamanhoPagina();
-    const ate = Math.min(resultado.total, (reiniciar ? 0 : visiveis) + passo);
+    const ate = Math.min(resultado.total, reiniciar ? Math.max(passo, minVisiveis) : visiveis + passo);
+    minVisiveis = 0;
     const html = resultado.lista.slice(reiniciar ? 0 : visiveis, ate).map(cardHTML).join('');
     if (reiniciar) grid.innerHTML = html; else grid.insertAdjacentHTML('beforeend', html);
     visiveis = ate;
@@ -177,187 +210,6 @@
   function renderErro(msg) {
     $('grid').setAttribute('aria-busy', 'false');
     $('grid').innerHTML = `<div class="state-box"><h3>Erro ao carregar</h3><p>${esc(msg)}</p><button type="button" class="btn-retry" data-retry>Tentar novamente</button></div>`;
-  }
-
-  /* ───────── carrinho (formato do localStorage preservado: mr4_carrinho) ───────── */
-  function salvarCarrinho() { try { localStorage.setItem('mr4_carrinho', JSON.stringify(carrinho)); } catch (e) {} }
-  function carregarCarrinho() {
-    try {
-      const s = localStorage.getItem('mr4_carrinho');
-      if (s) { const c = JSON.parse(s); if (c && typeof c === 'object') carrinho = c; }
-    } catch (e) {}
-  }
-  function marcarBotoes(id) {
-    const naCesta = !!carrinho[id];
-    document.querySelectorAll('[data-add]').forEach(b => {
-      if (b.dataset.add !== String(id)) return;
-      const nome = (porId.get(String(id)) || { p: { name: '' } }).p.name;
-      b.classList.toggle('added', naCesta);
-      b.textContent = naCesta ? '✓ Adicionado' : '+ Pedido';
-      b.setAttribute('aria-label', (naCesta ? 'Adicionado ao pedido: ' : 'Adicionar ao pedido: ') + nome);
-    });
-    if (modalAtual && String(modalAtual.p.id) === String(id)) pintarBotaoModal();
-  }
-  function addCarrinho(p) {
-    if (!carrinho[p.id]) carrinho[p.id] = { produto: p, qty: 1 }; else carrinho[p.id].qty++;
-    salvarCarrinho(); atualizarCarrinho(); marcarBotoes(p.id);
-  }
-  function changeQty(id, delta) {
-    if (!carrinho[id]) return;
-    carrinho[id].qty += delta;
-    if (carrinho[id].qty <= 0) delete carrinho[id];
-    salvarCarrinho(); atualizarCarrinho(); marcarBotoes(id);
-  }
-  function setQty(id, val) {
-    const n = parseInt(val, 10);
-    if (!carrinho[id]) return;
-    if (isNaN(n) || n <= 0) delete carrinho[id]; else carrinho[id].qty = n;
-    salvarCarrinho(); atualizarCarrinho(); marcarBotoes(id);
-  }
-  function removeCarrinho(id) { delete carrinho[id]; salvarCarrinho(); atualizarCarrinho(); marcarBotoes(id); }
-
-  function atualizarCarrinho() {
-    const items = Object.values(carrinho);
-    const total = items.reduce((s, i) => s + i.qty, 0);
-    $('cartBadge').textContent = total;
-    $('cartFab').setAttribute('aria-label', `Abrir meu pedido (${total} ${total === 1 ? 'item' : 'itens'})`);
-    const body = $('cartBody'), foot = $('cartFoot');
-    if (!items.length) {
-      body.innerHTML = `<div class="cart-empty-state"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><p>Seu pedido está vazio.<br>Adicione produtos pelo catálogo.</p></div>`;
-      foot.style.display = 'none';
-      return;
-    }
-    body.innerHTML = items.map(i => {
-      const id = esc(i.produto.id), nome = esc(i.produto.name);
-      return `<div class="c-item" data-cid="${id}">
-        ${i.produto.img ? `<img class="c-item-img" src="${esc(i.produto.img)}" alt="" loading="lazy">` : `<div class="c-item-img" style="display:flex;align-items:center;justify-content:center;font-size:1.5rem" aria-hidden="true">📦</div>`}
-        <div class="c-item-info">
-          <div class="c-item-name">${nome}</div>
-          <div class="c-item-ref">REF: ${esc(i.produto.ref)}</div>
-          <div class="c-item-row">
-            <div class="qty-ctrl">
-              <button type="button" class="qty-btn" data-qty="-1" data-id="${id}" aria-label="Diminuir quantidade de ${nome}">−</button>
-              <input class="qty-val" type="number" min="1" inputmode="numeric" value="${i.qty}" data-setqty="${id}" aria-label="Quantidade de ${nome}">
-              <button type="button" class="qty-btn" data-qty="1" data-id="${id}" aria-label="Aumentar quantidade de ${nome}">+</button>
-            </div>
-            <button type="button" class="c-item-rm" data-rm-item="${id}" aria-label="Remover ${nome} do pedido">✕ Remover</button>
-          </div>
-        </div>
-      </div>`;
-    }).join('');
-    foot.style.display = 'block';
-  }
-
-  function enviarPedidoWhats() {
-    const items = Object.values(carrinho);
-    if (!items.length) return;
-    const nome = $('clienteNome').value.trim() || 'Cliente';
-    const totalItens = items.reduce((s, i) => s + i.qty, 0);
-    const linhas = [
-      `Ola, MR4 Distribuidora!`, ``, `*${nome}* - Pedido:`, ``,
-      ...items.map(i => `• ${i.qty}x ${i.produto.name} (Ref: ${i.produto.ref})`),
-      ``, `*Total: ${totalItens} ${totalItens === 1 ? 'item' : 'itens'}*`
-    ];
-    const msg = linhas.join('\n');
-    const encoded = encodeURIComponent(msg);
-    fecharCarrinho(true);
-    if (encoded.length > 3000) {
-      try { navigator.clipboard.writeText(msg); } catch (e) {}
-      setTimeout(() => {
-        alert('Pedido muito grande para envio automático.\n\nO texto foi copiado! Cole no WhatsApp após abrir a conversa.');
-        openWhats('');
-      }, 300);
-    } else {
-      setTimeout(() => openWhats(encoded), 300);
-    }
-  }
-
-  /* ───────── diálogos: foco, Esc, trap ───────── */
-  const FOCAVEIS = 'a[href],button:not([disabled]),input:not([disabled]),select,textarea,[tabindex]:not([tabindex="-1"])';
-  function abrirDialogo(raiz, foco) {
-    ultimoFoco = document.activeElement;
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => { (foco || raiz.querySelector(FOCAVEIS) || raiz).focus(); }, 30);
-  }
-  function fecharDialogo(devolverFoco) {
-    document.body.style.overflow = '';
-    if (devolverFoco !== false && ultimoFoco && document.contains(ultimoFoco)) { try { ultimoFoco.focus(); } catch (e) {} }
-  }
-  function dialogoAberto() {
-    if ($('vendedorModal').classList.contains('open')) return $('vendedorModal');
-    if ($('modalBg').classList.contains('open')) return $('modalBg');
-    if ($('cartSidebar').classList.contains('open')) return $('cartSidebar');
-    return null;
-  }
-
-  /* carrinho (painel) */
-  function abrirCarrinho() {
-    $('cartSidebar').classList.add('open'); $('cartOverlay').classList.add('open');
-    $('cartSidebar').setAttribute('aria-hidden', 'false');
-    abrirDialogo($('cartSidebar'), $('cartClose'));
-  }
-  function fecharCarrinho(semFoco) {
-    $('cartSidebar').classList.remove('open'); $('cartOverlay').classList.remove('open');
-    $('cartSidebar').setAttribute('aria-hidden', 'true');
-    fecharDialogo(!semFoco);
-  }
-  function toggleCart() { $('cartSidebar').classList.contains('open') ? fecharCarrinho() : abrirCarrinho(); }
-
-  /* modal do produto */
-  let modalAtual = null;
-  function pintarBotaoModal() {
-    const btn = $('mCartBtn');
-    const jaAdicionado = !!(modalAtual && carrinho[modalAtual.p.id]);
-    btn.className = 'btn-modal-cart' + (jaAdicionado ? ' added' : '');
-    btn.innerHTML = jaAdicionado
-      ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Adicionado ao Pedido`
-      : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Adicionar ao Pedido`;
-  }
-  function openModal(item) {
-    modalAtual = item;
-    const p = item.p;
-    $('mTitle').textContent = p.name;
-    $('mRef').textContent = 'Código ' + p.ref;
-    const b = $('mBrand'); b.textContent = item.marca; b.hidden = !item.marca;
-    $('mCat').textContent = item.semGrupo ? '' : p.category;      // sem categoria comercial: não mostra
-    const d = $('mDesc'); d.textContent = p.desc || ''; d.style.display = p.desc ? 'block' : 'none';
-    $('mPrice').textContent = p.price;
-    const sb = $('mStock');
-    if (p.stock > 10) { sb.className = 'modal-stock-badge ok'; sb.textContent = `${p.stock} em estoque`; }
-    else if (p.stock > 0) { sb.className = 'modal-stock-badge low'; sb.textContent = `Últimas ${p.stock} unid.`; }
-    else { sb.className = 'modal-stock-badge out'; sb.textContent = 'Sem estoque'; }
-    $('mImg').innerHTML = p.img
-      ? `<img src="${esc(p.img)}" alt="${esc(p.name)}" style="width:100%;height:100%;object-fit:contain;">`
-      : `<svg width="56" height="56" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M10 30 C10 18 16 12 26 11 L44 11" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M10 30 L10 46" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/><path d="M10 38 L44 38" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/></svg>`;
-    pintarBotaoModal();
-    $('modalBg').classList.add('open');
-    abrirDialogo($('modalBg'), $('mClose'));
-  }
-  function closeModal() {
-    $('modalBg').classList.remove('open');
-    modalAtual = null;
-    fecharDialogo();
-  }
-
-  /* WhatsApp: escolha de vendedor (mantida) + ação por produto */
-  function openWhats(prodMsg) {
-    const msg = prodMsg || encodeURIComponent('Olá, MR4 Distribuidora! Gostaria de informações sobre o catálogo.');
-    VENDEDORES.forEach(v => {
-      const el = $(v.id);
-      el.href = `https://wa.me/${v.num}?text=${msg}`;
-      el.target = '_blank'; el.rel = 'noopener noreferrer';
-    });
-    $('vendedorModal').classList.add('open');
-    abrirDialogo($('vendedorModal'), $('linkAdemir'));
-  }
-  function closeVendedorModal() { $('vendedorModal').classList.remove('open'); fecharDialogo(); }
-  function interesseProduto() {
-    if (!modalAtual) return;
-    const p = modalAtual.p;
-    const qtd = carrinho[p.id] ? carrinho[p.id].qty : 0;
-    const msg = C.mensagemWhatsProduto(p, qtd);
-    $('modalBg').classList.remove('open'); modalAtual = null; document.body.style.overflow = '';
-    openWhats(encodeURIComponent(msg));
   }
 
   /* ───────── eventos (delegação — sem onclick inline) ───────── */
@@ -393,58 +245,20 @@
       if (e.target.closest('[data-limpar-tudo]')) { limparTudo(); return; }
       if (e.target.closest('[data-retry]')) { inicializar(); return; }
       const add = e.target.closest('[data-add]');
-      if (add) { const it = porId.get(add.dataset.add); if (it) addCarrinho(it.p); return; }
-      const card = e.target.closest('.product-card');
-      if (card) { const it = porId.get(card.dataset.id); if (it) openModal(it); }
+      if (add) { const it = porId.get(add.dataset.add); if (it) { Cesta.add(it.p, 1); } return; }
+      if (e.target.closest('.card-open')) salvarEstado();          // vai para a página do produto: guarda busca/filtros/posição
     });
+    window.addEventListener('pagehide', salvarEstado);
     $('btnMore').addEventListener('click', mostrarMais);
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(es => { if (es.some(x => x.isIntersecting)) mostrarMais(); }, { rootMargin: '600px 0px' }).observe($('loadMore'));
     }
     $('logoTopo').addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-    $('btnContato').addEventListener('click', () => openWhats());
-    $('cartFab').addEventListener('click', toggleCart);
-    $('cartClose').addEventListener('click', () => fecharCarrinho());
-    $('cartOverlay').addEventListener('click', () => fecharCarrinho());
-    $('btnEnviarPedido').addEventListener('click', enviarPedidoWhats);
-    $('cartBody').addEventListener('click', e => {
-      const q = e.target.closest('[data-qty]'); if (q) { changeQty(q.dataset.id, parseInt(q.dataset.qty, 10)); return; }
-      const r = e.target.closest('[data-rm-item]'); if (r) removeCarrinho(r.dataset.rmItem);
-    });
-    $('cartBody').addEventListener('change', e => { if (e.target.dataset.setqty) setQty(e.target.dataset.setqty, e.target.value); });
-    $('mClose').addEventListener('click', closeModal);
-    $('modalBg').addEventListener('click', e => { if (e.target === $('modalBg')) closeModal(); });
-    $('mCartBtn').addEventListener('click', () => {
-      if (!modalAtual) return;
-      addCarrinho(modalAtual.p);
-      closeModal();
-    });
-    $('mInteresse').addEventListener('click', interesseProduto);
-    $('vendedorFechar').addEventListener('click', closeVendedorModal);
-    $('vendedorModal').addEventListener('click', e => { if (e.target === $('vendedorModal')) closeVendedorModal(); });
-    document.addEventListener('keydown', e => {
-      const d = dialogoAberto();
-      if (!d) return;
-      if (e.key === 'Escape') {
-        e.preventDefault();
-        if (d === $('vendedorModal')) closeVendedorModal(); else if (d === $('modalBg')) closeModal(); else fecharCarrinho();
-        return;
-      }
-      if (e.key === 'Tab') {                                   // mantém o foco dentro do diálogo
-        const f = [...d.querySelectorAll(FOCAVEIS)].filter(x => x.offsetParent !== null);
-        if (!f.length) return;
-        const primeiro = f[0], ultimo = f[f.length - 1];
-        if (e.shiftKey && document.activeElement === primeiro) { e.preventDefault(); ultimo.focus(); }
-        else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primeiro.focus(); }
-      }
-    });
+    $('btnContato').addEventListener('click', () => Cesta.abrirVendedores());
+    Cesta.aoMudar(marcarBotoes);
   }
 
-  carregarCarrinho();
+  Cesta.iniciar();
   ligarEventos();
-  atualizarCarrinho();
   inicializar();
-
-  // compatibilidade com possíveis chamadas externas antigas
-  window.openWhats = openWhats;
 })();

@@ -169,7 +169,7 @@
     return parseFloat(s) || 0;
   }
   function prepararCatalogo(bruto) {
-    return (bruto || []).map((r, ordem) => {
+    const itens = (bruto || []).map((r, ordem) => {
       const p = Object.assign({}, r, {
         name: limparNome(r.name),
         desc: limparDescricao(r.desc),
@@ -186,6 +186,126 @@
         words: nome.split(' ').filter(Boolean)
       };
     });
+    return atribuirUrls(itens);
+  }
+
+
+  /* ───────── identidade e URL do produto ─────────
+   * URL: /produto/<slug-do-nome>--<slug-do-código>/
+   *  - o CÓDIGO (campo `ref`, já público no catálogo) é o identificador estável; o `id` interno do ERP não aparece;
+   *  - o slug do nome é só cosmético: se o nome mudar, o link antigo continua resolvendo pelo código;
+   *  - se dois códigos gerarem o mesmo slug, TODOS do grupo recebem um sufixo de hash do código bruto.
+   */
+  const BASE_PRODUTO = '/produto/';
+  const slugify = s => norm(s).replace(/ /g, '-');
+  function hash4(str) {                                   // FNV-1a 32 bits → 4 hex (determinístico)
+    let h = 0x811c9dc5;
+    const t = String(str);
+    for (let i = 0; i < t.length; i++) { h ^= t.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+    return ('0000' + (h >>> 0).toString(16)).slice(-4);
+  }
+  function slugNome(nome, max) {
+    max = max || 60;
+    let s = slugify(nome);
+    if (s.length > max) { s = s.slice(0, max); const i = s.lastIndexOf('-'); if (i > 20) s = s.slice(0, i); }
+    return s.replace(/^-+|-+$/g, '') || 'produto';
+  }
+  function atribuirUrls(itens) {
+    const grupos = {};
+    itens.forEach(e => {
+      e.slugNome = slugNome(e.p.name);
+      e.slugBase = slugify(e.p.ref) || ('p' + hash4(e.p.id));
+      (grupos[e.slugBase] = grupos[e.slugBase] || []).push(e);
+    });
+    itens.forEach(e => {
+      const g = grupos[e.slugBase];
+      e.slugCodigo = g.length > 1 ? e.slugBase + '-' + hash4(String(e.p.ref) + '|' + (g.filter(x => x.p.ref === e.p.ref).length > 1 ? e.p.id : '')) : e.slugBase;
+      e.url = BASE_PRODUTO + e.slugNome + '--' + e.slugCodigo + '/';
+    });
+    return itens;
+  }
+  /** caminho (pathname) → { item, canonico:boolean } | null. Resolve pelo CÓDIGO; o slug do nome é ignorado. */
+  function resolverProduto(itens, caminho) {
+    let p = String(caminho || '').split('#')[0].split('?')[0];
+    const m = p.match(/\/produto\/([^/]+)/i);
+    if (!m) return null;
+    let seg;
+    try { seg = decodeURIComponent(m[1]); } catch (e) { seg = m[1]; }
+    seg = seg.toLowerCase();
+    const i = seg.lastIndexOf('--');
+    const codigo = i >= 0 ? seg.slice(i + 2) : seg;
+    if (!codigo) return null;
+    const item = itens.find(e => e.slugCodigo === codigo) || null;
+    if (!item) return null;
+    const atual = '/produto/' + m[1].replace(/\/+$/, '') + '/';
+    return { item, canonico: atual.toLowerCase() === item.url.toLowerCase() };
+  }
+  /**
+   * Relacionados (determinístico, sem IA, sem comportamento, preço não é critério):
+   *   1º mesma categoria comercial E mesma marca; 2º mesma categoria comercial; 3º mesma marca.
+   *   Dentro de cada grupo vale a ordem do catálogo. Nunca inclui o próprio produto. Máx. n (padrão 4).
+   */
+  function relacionados(itens, item, n) {
+    n = n || 4;
+    const mesmaCat = e => !item.semGrupo && !e.semGrupo && e.catChave === item.catChave;
+    const mesmaMarca = e => !!item.marca && e.marca === item.marca;
+    const out = [], usados = new Set([item]);
+    [e => mesmaCat(e) && mesmaMarca(e), e => mesmaCat(e), e => mesmaMarca(e)].forEach(regra => {
+      itens.forEach(e => { if (out.length < n && !usados.has(e) && regra(e)) { usados.add(e); out.push(e); } });
+    });
+    return out;
+  }
+
+  /* ───────── HTML do produto (fonte única: gerador estático e navegador) ───────── */
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+  const PLACEHOLDER_SVG = '<svg width="72" height="72" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M10 30 C10 18 16 12 26 11 L44 11" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M10 30 L10 46" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/><path d="M10 38 L44 38" stroke="#D4D4DC" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="22" x2="44" y2="22" stroke="#D4D4DC" stroke-width="1.5" stroke-linecap="round"/><line x1="11" y1="30" x2="44" y2="30" stroke="#D4D4DC" stroke-width="1.2" stroke-linecap="round"/></svg>';
+  function htmlBreadcrumb(item) {
+    const li = [`<li><a href="/?r=1">Catálogo</a></li>`];
+    if (!item.semGrupo && item.catChave) li.push(`<li><a href="/?cat=${encodeURIComponent(item.catChave)}">${esc(item.catRotulo)}</a></li>`);
+    li.push(`<li aria-current="page">${esc(item.p.name)}</li>`);
+    return `<nav class="breadcrumb" aria-label="Você está em"><ol>${li.join('')}</ol></nav>`;
+  }
+  /** conteúdo estático do produto (sem preço/estoque: esses vêm do JSON atual, no navegador) */
+  function htmlProdutoInfo(item) {
+    const p = item.p;
+    return `<div class="produto-img">${p.img ? `<img src="${esc(p.img)}" alt="${esc(p.name)}" decoding="async">` : `<div class="img-placeholder" role="img" aria-label="Produto sem foto">${PLACEHOLDER_SVG}<span>Sem foto</span></div>`}</div>
+    <div class="produto-info">
+      <p class="produto-ref">Código ${esc(p.ref)}</p>
+      <h1 class="produto-nome" id="pNome">${esc(p.name)}</h1>
+      ${(item.marca || !item.semGrupo) ? `<p class="produto-meta">${item.marca ? `<span class="modal-brand">${esc(item.marca)}</span>` : ''}${!item.semGrupo ? `<span>${esc(item.catRotulo)}</span>` : ''}</p>` : ''}
+      ${p.desc ? `<div class="produto-desc"><h2>Descrição</h2><p>${esc(p.desc)}</p></div>` : ''}
+      <div class="produto-compra" id="pCompra" data-estado="carregando"><p class="produto-carregando">Carregando preço e estoque…</p><noscript><p>Ative o JavaScript para ver preço e estoque.</p></noscript></div>
+    </div>`;
+  }
+  function descricaoCurta(texto, max) {
+    const t = String(texto || '').replace(/\s+/g, ' ').trim();
+    if (t.length <= max) return t;
+    const c = t.slice(0, max - 1); const i = c.lastIndexOf(' ');
+    return (i > max * 0.6 ? c.slice(0, i) : c).replace(/[ ,;:.-]+$/, '') + '…';
+  }
+  /** metadados mínimos para compartilhamento (Open Graph) — sem preço e sem estoque (mudam a cada sync) */
+  function metaProduto(item, origem, logo) {
+    const p = item.p;
+    const partes = [`Código ${p.ref}`];
+    if (item.marca) partes.push(item.marca);
+    if (!item.semGrupo) partes.push(item.catRotulo);
+    let desc = p.name + ' — ' + partes.join(' · ') + '. Catálogo B2B MR4 Distribuidora (CE · PI · RN).';
+    if (p.desc) desc = descricaoCurta(p.name + ' — ' + partes.join(' · ') + '. ' + p.desc, 200);
+    return { title: p.name + ' — MR4 Distribuidora', description: descricaoCurta(desc, 200), url: origem + item.url, image: p.img || (origem + logo), imagemDoProduto: !!p.img };
+  }
+
+  /* ───────── compartilhar / copiar link (ambiente injetado → testável) ───────── */
+  async function copiarLink(env, url) {
+    if (env && env.clipboard) { try { await env.clipboard(url); return { ok: true, via: 'clipboard' }; } catch (e) {} }
+    if (env && env.exec) { try { if (env.exec(url)) return { ok: true, via: 'exec' }; } catch (e) {} }
+    return { ok: false, via: 'manual' };
+  }
+  async function compartilhar(env, dados) {
+    if (env && env.share) {
+      try { await env.share(dados); return { ok: true, via: 'share' }; }
+      catch (e) { if (e && e.name === 'AbortError') return { ok: false, via: 'cancelado' }; }
+    }
+    return copiarLink(env, dados.url);
   }
 
   /* ───────── tolerância leve a erro de digitação (distância de Damerau/OSA ≤ 1) ───────── */
@@ -322,9 +442,10 @@
     return Object.keys(c).sort((a, b) => a.localeCompare(b, 'pt-BR')).map(m => ({ marca: m, n: c[m] }));
   }
 
-  function mensagemWhatsProduto(p, qtd) {
+  function mensagemWhatsProduto(p, qtd, url) {
     const linhas = ['Olá, MR4 Distribuidora! Vi este produto no catálogo e tenho interesse:', '', '*' + p.name + '*', 'Ref: ' + p.ref];
     if (qtd && qtd > 0) linhas.push('Quantidade desejada: ' + qtd);
+    if (url) linhas.push('Link: ' + url);
     linhas.push('', '(Mensagem enviada pelo catálogo digital)');
     return linhas.join('\n');
   }
@@ -333,6 +454,8 @@
     norm, compacto, tokens, removerFiscal, limparDescricao, limparNome,
     MAPA_MARCAS, MARCAS_INVALIDAS, marcaNormalizada, relatorioMarcas, marcasNaoUnificadas,
     ORDEM_CATEGORIAS, prioridadeCategoria, ehSemGrupo, rotuloCategoria, ROTULO_SEM_GRUPO, ordenarCategorias,
-    precoNumerico, prepararCatalogo, buscar, ordenar, consultar, opcoesMarca, mensagemWhatsProduto, osa
+    precoNumerico, prepararCatalogo, buscar, ordenar, consultar, opcoesMarca, mensagemWhatsProduto, osa,
+    slugify, slugNome, hash4, resolverProduto, relacionados, esc, htmlBreadcrumb, htmlProdutoInfo, descricaoCurta, metaProduto,
+    copiarLink, compartilhar, BASE_PRODUTO, PLACEHOLDER_SVG
   };
 });
