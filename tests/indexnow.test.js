@@ -104,7 +104,7 @@ test('FAIL-SAFE: o script nunca falha o sync — arquivo ausente, JSON quebrado 
 });
 test('workflow: IndexNow depois do push, continue-on-error, timeout; geração entrega a lista; sync não depende dele', () => {
   const w = ler('.github/workflows/sync-produtos.yml');
-  const iPush = w.indexOf('git push'), iNow = w.indexOf('node scripts/indexnow.js');
+  const iPush = w.indexOf('git-push-seguro'), iNow = w.indexOf('node scripts/indexnow.js');
   assert.ok(iPush > 0 && iNow > iPush);
   const passo = w.slice(w.indexOf('- name: Notificar IndexNow'));
   assert.match(passo, /continue-on-error: true/); assert.match(passo, /timeout-minutes: \d+/);

@@ -189,7 +189,7 @@ const dirDe = url => url.replace(/^\/produto\//, '').replace(/\/$/, '');
 function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
   const itens = Core.prepararCatalogo(produtosBrutos);
   const est0 = (opts && opts.estado) || {};
-  if (opts && (!itens.length || (est0.ativos && itens.length < LIMITE_SAUDE * est0.ativos))) {
+  if (opts && (!itens.length || (!opts.confiavel && est0.ativos && itens.length < LIMITE_SAUDE * est0.ativos))) {
     return { arquivos: {}, itens, saudavel: false, estado: est0 };            // feed suspeito: não regenera nada
   }
   const anterior = (manifestoAnterior && manifestoAnterior.produtos) || {};
@@ -283,7 +283,8 @@ function executar(raiz) {
   const lerTxt = rel => { try { return fs.readFileSync(path.join(raiz, rel), 'utf8'); } catch (e) { return null; } };
   const manifesto = lerJson('produto/manifest.json');
   const shell = fs.readFileSync(path.join(raiz, 'templates/catalogo.html'), 'utf8');
-  const r = planejar(dados.produtos || [], tpl, manifesto, { shell, estado: lerJson('data/seo-estado.json'), atualizado: dados.atualizado, existente: lerTxt });
+  const confiavel = process.env.SYNC_FEED_VALIDADO === '1';                 // o sync já validou completude/estrutura deste feed: queda comercial legítima não é "feed doente"
+  const r = planejar(dados.produtos || [], tpl, manifesto, { shell, confiavel, estado: lerJson('data/seo-estado.json'), atualizado: dados.atualizado, existente: lerTxt });
   if (r.saudavel === false) {
     console.warn(`⚠️  Feed suspeito (${r.itens.length} itens; referência ${(r.estado || {}).ativos || '—'}): nada foi regenerado (falha de sync não é remoção de produto).`);
     return { produtos: r.itens.length, escritos: 0, iguais: 0, saudavel: false };
@@ -302,8 +303,9 @@ function executar(raiz) {
   return { produtos: r.itens.length, escritos, iguais, saudavel: true, alteradas };
 }
 
-module.exports = { LD, urlsAlteradas, planejar, textosTaxonomia, textoHome, GENERICAS, renderizarPagina, renderizarRedirecionamento, marcarIndisponivel, paginaHome, paginaTaxonomia, dirDe, ORIGEM, LOGO, CARENCIA_DIAS, LIMITE_SAUDE, TITLE_HOME, DESC_HOME, ROBOTS };
+module.exports = { executar, LD, urlsAlteradas, planejar, textosTaxonomia, textoHome, GENERICAS, renderizarPagina, renderizarRedirecionamento, marcarIndisponivel, paginaHome, paginaTaxonomia, dirDe, ORIGEM, LOGO, CARENCIA_DIAS, LIMITE_SAUDE, TITLE_HOME, DESC_HOME, ROBOTS };
 if (require.main === module) {
   const r = executar(path.join(__dirname, '..'));
+  if (r.saudavel === false) { console.error('❌ GERACAO_ABORTADA: feed recusado pelo gerador — nada foi gravado; o job falha ANTES do commit (nada é publicado)'); process.exit(1); }
   if (process.env.INDEXNOW_URLS_FILE) { try { fs.writeFileSync(process.env.INDEXNOW_URLS_FILE, JSON.stringify(r.alteradas || [])); } catch (e) { /* best-effort */ } }
 }

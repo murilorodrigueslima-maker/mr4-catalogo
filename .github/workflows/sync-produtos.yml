@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '*/30 * * * *'   # a cada 30 minutos
   workflow_dispatch:           # permite rodar manualmente
+    inputs:
+      permitir_queda_grande:
+        description: 'Aceitar queda > 70% dos produtos elegíveis (só após conferir que é uma redução comercial real)'
+        type: boolean
+        default: false
 
 concurrency:
   group: sync-produtos
@@ -12,6 +17,7 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 15          # sync normal ≈ 20–30 s; folga para retries, geração, push e IndexNow (antes: padrão de 360 min)
     permissions:
       contents: write
     steps:
@@ -23,26 +29,34 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Executar sync
+      # FAIL-SAFE: página que falha após retries, resposta incompleta/vazia ou estrutura inválida ABORTAM aqui (exit 1):
+      # o feed anterior fica intacto e os passos seguintes (gerar, commit, push, IndexNow) NÃO rodam.
+      - name: Executar sync (validado, atômico e idempotente)
+        id: sync
+        timeout-minutes: 6
         env:
           GC_ACCESS_TOKEN: ${{ secrets.GC_ACCESS_TOKEN }}
           GC_SECRET_ACCESS_TOKEN: ${{ secrets.GC_SECRET_ACCESS_TOKEN }}
+          SYNC_PERMITIR_QUEDA: ${{ github.event.inputs.permitir_queda_grande == 'true' && '1' || '0' }}
         run: node scripts/sync-produtos.js
 
       - name: Gerar site estático — produtos, categorias, marcas, home, sitemap (só escreve o que mudou)
+        timeout-minutes: 3
         env:
           INDEXNOW_URLS_FILE: ${{ runner.temp }}/indexnow-urls.json   # só URLs indexáveis cujo HTML mudou de verdade
+          SYNC_FEED_VALIDADO: '1'                                     # o sync acabou de validar o feed: queda comercial legítima não é "feed doente"
         run: node scripts/gerar-paginas.js
 
-      - name: Commit e push do produtos.json e dos arquivos estáticos alterados
+      - name: "Commit e push seguro (um único snapshot — JSON, páginas, Schema e sitemap)"
+        timeout-minutes: 3
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/produtos.json data/seo-estado.json produto/ categoria/ marca/ sobre/ contato/ privacidade/ index.html sitemap.xml robots.txt
           git diff --staged --quiet || git commit -m "sync: atualiza produtos.json e páginas [$(date -u '+%d/%m/%Y %H:%M')] UTC"
-          git push
+          node scripts/git-push-seguro.js        # nunca force; se o main mudou durante o run: rebase só com arquivos disjuntos, senão aborta e a próxima execução recupera
 
-      # IndexNow é BEST-EFFORT: roda depois do push, tem timeout/retry curto e o script sempre sai com código 0.
+      # IndexNow é BEST-EFFORT: roda depois do push seguro, tem timeout/retry curto e o script sempre sai com código 0.
       # Falha aqui NUNCA afeta o sync nem a publicação (continue-on-error + exit 0).
       - name: Notificar IndexNow (best-effort)
         continue-on-error: true
