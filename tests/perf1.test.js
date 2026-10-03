@@ -63,6 +63,9 @@ test('home em celular estreito: quebra determinística antes de "Visual/Compacto
   assert.equal((A['index.html'].match(/<span class="barra-quebra" aria-hidden="true"><\/span>/g) || []).length, 1);
   assert.ok(A['index.html'].indexOf('id="btnRapido"') < A['index.html'].indexOf('barra-quebra') && A['index.html'].indexOf('barra-quebra') < A['index.html'].indexOf('class="modo"'));
 });
+test('contexto institucional usa fonte do sistema (sem refluxo por troca de webfont em páginas curtas)', () => {
+  assert.match(CSS, /\.seo-contexto\{[^}]*font-family:system-ui/);
+});
 test('LCP: 1ª imagem do grid sem lazy + fetchpriority=high; as seguintes acima da dobra sem lazy; o resto lazy', () => {
   const it = prep(8);
   const img = (e, o) => C.htmlCard(e, o).match(/<img [^>]*>/)[0];

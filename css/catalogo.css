@@ -440,7 +440,7 @@ body[data-modo="compacto"] .conteudo{padding-top:10px}
 .rel-links{list-style:none;margin:6px 0 0;padding:0;columns:2 280px;column-gap:24px}
 .rel-links li{padding:3px 0}
 .seo-vazio{margin:16px 0;color:var(--muted)}
-.seo-contexto{max-width:1200px;margin:0 auto;padding:18px 20px 22px;font-size:.82rem;line-height:1.5;color:var(--muted)}
+.seo-contexto{max-width:1200px;margin:0 auto;padding:18px 20px 22px;font-size:.82rem;line-height:1.5;color:var(--muted);font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif}   /* fonte do sistema: sem troca de webfont ⇒ sem refluxo (CLS) em páginas curtas */
 .seo-contexto h2{margin:0 0 4px;font-size:.9rem;color:var(--ink)}
 .seo-contexto p{margin:0 0 8px;max-width:75ch}
 .seo-contexto nav{margin:0 0 6px}
