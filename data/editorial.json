@@ -1,6 +1,89 @@
 {
  "versao": 1,
  "_comentario": "Camada editorial MR4: correções chaveadas pelo ID do ERP. NUNCA contém preço/estoque/SKU. O sync não toca neste arquivo. Cada entrada precisa de motivo e evidência. Ver scripts/validar-editorial.js",
- "redirecionamentos": {},
- "produtos": {}
+ "redirecionamentos": {
+  "/marca/faimon/": "/marca/fiamon/"
+ },
+ "produtos": {
+  "57934402": {
+   "brand": "Fiamon",
+   "motivo": "Erro de digitação (transposição de letras): \"Faimon\" → \"Fiamon\".",
+   "evidencia": "Único produto com a grafia Faimon; categoria Moldura, nome no padrão \"MOLDURA 9 ... BLACK PIANO UV PROTECTION\" e SKU numérico vizinho (5857–5899, 6002–6059) idênticos aos de 47 produtos Fiamon."
+  },
+  "62812853": {
+   "brand": "2MIX",
+   "motivo": "[marca] Marca 2MIX escrita literalmente no nome; marca já existe no catálogo e o campo do ERP está vazio. [categoria] Categoria genérica (Geral); nome indica \"MULTIMIDIA\" e a categoria Multimídia já existe.",
+   "evidencia": "Nome ERP: \"MULTIMIDIA 9.75 TESLA QLED 1280X720DPI QUAD 2/32 2MIX\"; categoria Multimídia já existente com multimídias."
+  },
+  "66532946": {
+   "brand": "2MIX",
+   "motivo": "[marca] Marca 2MIX escrita literalmente no nome; marca já existe no catálogo e o campo do ERP está vazio. [categoria] Categoria genérica (Geral); nome indica \"MULTIMIDIA\" e a categoria Multimídia já existe.",
+   "evidencia": "Nome ERP: \"MULTIMIDIA 9P QLED 2MIX QUAD 2/32\"; categoria Multimídia já existente com multimídias."
+  },
+  "74430933": {
+   "brand": "LDCAR",
+   "motivo": "Marca LDCAR escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
+   "evidencia": "Nome ERP: \"D4 LDCAR 30.000 LUMENS\""
+  },
+  "76142759": {
+   "brand": "KX3",
+   "motivo": "Marca KX3 escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
+   "evidencia": "Nome ERP: \"CAMERA RE KX3 2X1 REMOVE GUIA INVERTE DIANTEIRA 130. CONECT RCA P4\""
+  },
+  "77209719": {
+   "brand": "Alemar",
+   "motivo": "Marca Alemar escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
+   "evidencia": "Nome ERP: \"ETI36BAR - BARRA DE LED 38,3X3X4 ALEMAR 12 LEDS, 36W, 12-24V\""
+  },
+  "77209720": {
+   "brand": "Alemar",
+   "motivo": "Marca Alemar escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
+   "evidencia": "Nome ERP: \"ETI72BAR - BARRA DE LED 70X3X4 ALEMAR 24 LEDS, 72W, 12-24V\""
+  },
+  "85058965": {
+   "brand": "KX3",
+   "motivo": "Marca KX3 escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
+   "evidencia": "Nome ERP: \"SENSOR DE ESTACIONAMENTO KX3 ECO PRATA\""
+  },
+  "86529422": {
+   "brand": "LDCAR",
+   "motivo": "Marca LDCAR escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
+   "evidencia": "Nome ERP: \"KIT RGB NANO 18X1 PREMIUM LDCAR\""
+  },
+  "87252234": {
+   "brand": "KX3",
+   "motivo": "Marca KX3 escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
+   "evidencia": "Nome ERP: \"SENSOR DE ESTACIONAMENTO KX3 ECO BRANCO\""
+  },
+  "95658794": {
+   "brand": "LDCAR",
+   "motivo": "Marca LDCAR escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
+   "evidencia": "Nome ERP: \"LED MINI CYBER 23MM UNIVERSAL 6W E 120 LUMENS CADA, LUZ BRANCA 6.000K 12V LDCAR\""
+  },
+  "96629118": {
+   "brand": "KX3",
+   "motivo": "Marca KX3 escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
+   "evidencia": "Nome ERP: \"FITA ISOLANTE 10M KX3\""
+  },
+  "96629119": {
+   "brand": "KX3",
+   "motivo": "Marca KX3 escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
+   "evidencia": "Nome ERP: \"FITA ISOLANTE 20M KX3\""
+  },
+  "97261244": {
+   "brand": "Bomber",
+   "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
+   "evidencia": "nome \"QUADRIAXIAL 6X9 BOMBER BEAT ...\" igual a 1.16.322/1.16.323 (TRIAXIAL BOMBER BEAT) já em Alto-Falantes"
+  },
+  "97261245": {
+   "brand": "Bomber",
+   "motivo": "Marca Bomber escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
+   "evidencia": "Nome ERP: \"TRIAXIAL 6'' BOMBER BEAT 80 WATTS RMS 4 OHMS\""
+  },
+  "97261246": {
+   "brand": "Bomber",
+   "motivo": "Marca Bomber escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
+   "evidencia": "Nome ERP: \"TRIAXIAL 5'' BOMBER BEAT 80 WATTS RMS 4 OHMS\""
+  }
+ }
 }
