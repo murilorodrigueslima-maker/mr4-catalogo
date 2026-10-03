@@ -49,7 +49,7 @@ test('fontes auto-hospedadas: sem CSS/conexão de terceiros, arquivos reais woff
   Object.keys(A).filter(k => /\.html$/.test(k)).forEach(k => assert.doesNotMatch(A[k], /fonts\.googleapis\.com|fonts\.gstatic\.com/, k));
   ['barlow-400-latin', 'barlow-600-latin', 'barlow-condensed-700-latin'].forEach(f => { const b = fs.readFileSync(path.join(RAIZ, `assets/fonts/${f}.woff2`)); assert.equal(b.slice(0, 4).toString(), 'wOF2'); assert.ok(b.length > 8000 && b.length < 40000); });
   assert.match(ler('assets/fonts/LICENSE.txt'), /SIL Open Font License/);
-  assert.equal((CSS.match(/font-display:swap/g) || []).length, 3);
+  assert.equal(((CSS.match(/@font-face\{[^}]+\}/g) || []).filter(f => /font-display:swap/.test(f))).length, 3);
 });
 test('fallback de fonte com largura ajustada (size-adjust) nas 3 faces e nas pilhas --f-body/--f-cond', () => {
   const fb = CSS.match(/@font-face\{font-family:'Barlow(?: Condensed)? Fallback'[^}]+\}/g) || [];

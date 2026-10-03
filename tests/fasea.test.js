@@ -124,7 +124,7 @@ test('fontes: só os pesos usados (Barlow 400/600 + Barlow Condensed 700), auto-
     assert.doesNotMatch(s, /fonts\.googleapis\.com|fonts\.gstatic\.com/);
     assert.doesNotMatch(s, /rel="preload"[^>]*fonts/);                                                 // sem preload: medido, disputa banda com CSS/JS/JSON em rede lenta e não melhora o LCP
   }
-  const faces = css.match(/@font-face\{[^}]+\}/g) || [];
+  const faces = (css.match(/@font-face\{[^}]+\}/g) || []).filter(f => /url\(/.test(f));          // as 3 faces reais (os fallbacks com size-adjust usam local())
   assert.equal(faces.length, 3);
   assert.ok(faces.some(f => /'Barlow Condensed'/.test(f) && /font-weight:700/.test(f)));
   assert.ok(faces.some(f => /'Barlow'/.test(f) && /font-weight:400/.test(f))); assert.ok(faces.some(f => /'Barlow'/.test(f) && /font-weight:600/.test(f)));
