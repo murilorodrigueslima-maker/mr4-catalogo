@@ -68,6 +68,9 @@ img{max-width:100%}
 .result-info{flex:1 1 auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:.95rem;color:var(--muted);min-width:0}
 .result-info strong{color:var(--ink)}
 .ri-ph{display:contents;visibility:hidden}
+.barra-quebra{display:none}
+/* home em celular estreito (≤415 px): "Visual/Compacto" SEMPRE na 2ª linha — antes dependia de poucos px (texto/fonte) e saltava 50 px quando o texto chegava (CLS). Com filtro/busca ativo (chip) não força. */
+@media(max-width:415px){body[data-pagina="home"] .barra:not(:has(.chip,.link-btn)) .barra-quebra{display:block;flex:0 0 100%;height:0}body[data-pagina="home"] .barra:not(:has(.chip,.link-btn)) .modo{margin-top:-6px}}   /* -6px: compensa o row-gap da linha vazia (layout idêntico ao anterior) */
 .chip{display:inline-flex;align-items:center;gap:2px;background:#fff3ec;border:1.5px solid var(--orange-ink);color:var(--orange-ink);border-radius:20px;padding:0 4px 0 12px;font-weight:600;font-size:.9rem;min-height:32px}
 .chip button{border:none;background:transparent;cursor:pointer;width:32px;height:32px;border-radius:50%;color:inherit;font-size:.9rem}
 .chip button:hover{background:rgba(194,65,12,.12)}

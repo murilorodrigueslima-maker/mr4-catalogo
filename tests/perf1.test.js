@@ -57,6 +57,12 @@ test('fallback de fonte com largura ajustada (size-adjust) nas 3 faces e nas pil
   fb.forEach(f => { assert.match(f, /size-adjust:\d+(\.\d+)?%/); assert.match(f, /local\('Arial/); const v = parseFloat(f.match(/size-adjust:([\d.]+)%/)[1]); assert.ok(v > 60 && v < 100); });
   assert.match(CSS, /--f-cond:'Barlow Condensed','Barlow Condensed Fallback',sans-serif/); assert.match(CSS, /--f-body:'Barlow','Barlow Fallback',system-ui,sans-serif/);
 });
+test('home em celular estreito: quebra determinística antes de "Visual/Compacto" (só home, só sem filtro, só ≤415 px)', () => {
+  assert.match(CSS, /@media\(max-width:415px\)\{body\[data-pagina="home"\] \.barra:not\(:has\(\.chip,\.link-btn\)\) \.barra-quebra\{display:block;flex:0 0 100%;height:0\}body\[data-pagina="home"\] \.barra:not\(:has\(\.chip,\.link-btn\)\) \.modo\{margin-top:-6px\}\}/);
+  assert.match(CSS, /\.barra-quebra\{display:none\}/);
+  assert.equal((A['index.html'].match(/<span class="barra-quebra" aria-hidden="true"><\/span>/g) || []).length, 1);
+  assert.ok(A['index.html'].indexOf('id="btnRapido"') < A['index.html'].indexOf('barra-quebra') && A['index.html'].indexOf('barra-quebra') < A['index.html'].indexOf('class="modo"'));
+});
 test('LCP: 1ª imagem do grid sem lazy + fetchpriority=high; as seguintes acima da dobra sem lazy; o resto lazy', () => {
   const it = prep(8);
   const img = (e, o) => C.htmlCard(e, o).match(/<img [^>]*>/)[0];
