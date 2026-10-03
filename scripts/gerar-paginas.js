@@ -248,6 +248,18 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
   return { arquivos, itens, saudavel: true, estado, tax, urls: urls.map(x => x.u) };
 }
 
+/** URLs INDEXÁVEIS cujo HTML (sem ?v=) é novo ou mudou de verdade — insumo do IndexNow. Sitemap/robots/estado/manifest nunca entram. */
+const PAGINA_INDEXAVEL = /^(index\.html|(categoria|marca|produto)\/[^/]+\/index\.html)$/;
+function urlsAlteradas(arquivos, existente) {
+  const out = [];
+  Object.keys(arquivos).filter(rel => PAGINA_INDEXAVEL.test(rel)).sort().forEach(rel => {
+    const antes = existente(rel);
+    if (antes !== null && normHtml(antes) === normHtml(arquivos[rel])) return;
+    out.push(rel === 'index.html' ? ORIGEM + '/' : ORIGEM + '/' + rel.replace(/index\.html$/, ''));
+  });
+  return out;
+}
+
 function executar(raiz) {
   const dados = JSON.parse(fs.readFileSync(path.join(raiz, 'data/produtos.json'), 'utf8'));
   const tpl = fs.readFileSync(path.join(raiz, 'templates/produto.html'), 'utf8');
@@ -260,6 +272,7 @@ function executar(raiz) {
     console.warn(`⚠️  Feed suspeito (${r.itens.length} itens; referência ${(r.estado || {}).ativos || '—'}): nada foi regenerado (falha de sync não é remoção de produto).`);
     return { produtos: r.itens.length, escritos: 0, iguais: 0, saudavel: false };
   }
+  const alteradas = urlsAlteradas(r.arquivos, lerTxt);                      // calculado ANTES de gravar
   let escritos = 0, iguais = 0;
   Object.keys(r.arquivos).sort().forEach(rel => {
     const destino = path.join(raiz, rel);
@@ -270,8 +283,11 @@ function executar(raiz) {
     escritos++;
   });
   console.log(`🧱 Site estático: ${r.itens.length} produtos · ${r.tax.categorias.length} categorias · ${r.tax.marcas.length} marcas · ${r.urls.length} URLs no sitemap · ${escritos} arquivos escritos · ${iguais} sem mudança`);
-  return { produtos: r.itens.length, escritos, iguais, saudavel: true };
+  return { produtos: r.itens.length, escritos, iguais, saudavel: true, alteradas };
 }
 
-module.exports = { LD, planejar, textosTaxonomia, textoHome, GENERICAS, renderizarPagina, renderizarRedirecionamento, marcarIndisponivel, paginaHome, paginaTaxonomia, dirDe, ORIGEM, LOGO, CARENCIA_DIAS, LIMITE_SAUDE, TITLE_HOME, DESC_HOME, ROBOTS };
-if (require.main === module) executar(path.join(__dirname, '..'));
+module.exports = { LD, urlsAlteradas, planejar, textosTaxonomia, textoHome, GENERICAS, renderizarPagina, renderizarRedirecionamento, marcarIndisponivel, paginaHome, paginaTaxonomia, dirDe, ORIGEM, LOGO, CARENCIA_DIAS, LIMITE_SAUDE, TITLE_HOME, DESC_HOME, ROBOTS };
+if (require.main === module) {
+  const r = executar(path.join(__dirname, '..'));
+  if (process.env.INDEXNOW_URLS_FILE) { try { fs.writeFileSync(process.env.INDEXNOW_URLS_FILE, JSON.stringify(r.alteradas || [])); } catch (e) { /* best-effort */ } }
+}

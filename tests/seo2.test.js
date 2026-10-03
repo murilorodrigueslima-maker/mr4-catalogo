@@ -222,8 +222,8 @@ test('Fase 1 preservada: links, sitemap, canonical, relacionados e UX intactos',
   assert.match(ler('js/produto-app.js'), /document\.title = C\.tituloProduto\(it, itens\)/);
 });
 function locs(x) { return [...x.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]); }
-test('sem Schema/JSON-LD/analytics/IndexNow nesta fase; sem bibliotecas novas', () => {
+test('sem analytics/verificações de buscadores no HTML; sem bibliotecas novas (IndexNow é só build/CI)', () => {
   const todo = [A['index.html'], pag(ITENS[0]), ler('js/catalogo-core.js'), ler('scripts/gerar-paginas.js')].join('\n');
-  assert.doesNotMatch(todo, /gtag\(|googletagmanager|GTM-|indexnow|google-site-verification|msvalidate/i);
+  assert.doesNotMatch(todo, /gtag\(|googletagmanager|GTM-|google-site-verification|msvalidate/i);
   assert.doesNotMatch(A['index.html'], /<script src="https?:/);
 });

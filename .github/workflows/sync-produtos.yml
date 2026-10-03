@@ -30,6 +30,8 @@ jobs:
         run: node scripts/sync-produtos.js
 
       - name: Gerar site estático — produtos, categorias, marcas, home, sitemap (só escreve o que mudou)
+        env:
+          INDEXNOW_URLS_FILE: ${{ runner.temp }}/indexnow-urls.json   # só URLs indexáveis cujo HTML mudou de verdade
         run: node scripts/gerar-paginas.js
 
       - name: Commit e push do produtos.json e dos arquivos estáticos alterados
@@ -39,3 +41,13 @@ jobs:
           git add data/produtos.json data/seo-estado.json produto/ categoria/ marca/ index.html sitemap.xml robots.txt
           git diff --staged --quiet || git commit -m "sync: atualiza produtos.json e páginas [$(date -u '+%d/%m/%Y %H:%M')] UTC"
           git push
+
+      # IndexNow é BEST-EFFORT: roda depois do push, tem timeout/retry curto e o script sempre sai com código 0.
+      # Falha aqui NUNCA afeta o sync nem a publicação (continue-on-error + exit 0).
+      - name: Notificar IndexNow (best-effort)
+        continue-on-error: true
+        timeout-minutes: 8
+        env:
+          INDEXNOW_URLS_FILE: ${{ runner.temp }}/indexnow-urls.json
+          INDEXNOW_AGUARDAR: '1'
+        run: node scripts/indexnow.js
