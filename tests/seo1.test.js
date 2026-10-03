@@ -10,13 +10,14 @@ const G = require('../scripts/gerar-paginas.js');
 const RAIZ = path.join(__dirname, '..');
 const ler = f => fs.readFileSync(path.join(RAIZ, f), 'utf8');
 const BRUTOS = JSON.parse(ler('data/produtos.json')).produtos;
+const ED = JSON.parse(ler('data/editorial.json'));            // as páginas publicadas já refletem a camada editorial
 const TPL = ler('templates/produto.html'), SHELL = ler('templates/catalogo.html');
 const APP = ler('js/catalogo-app.js');
 const ATUAL = '2026-10-02T10:00:00.000Z';
-const gerar = (brutos, estado, atualizado, existente) => G.planejar(brutos, TPL, null, { shell: SHELL, estado: estado || null, atualizado: atualizado || ATUAL, existente: existente || (() => null) });
+const gerar = (brutos, estado, atualizado, existente) => G.planejar(brutos, TPL, null, { shell: SHELL, editorial: ED, estado: estado || null, atualizado: atualizado || ATUAL, existente: existente || (() => null) });
 const R = gerar(BRUTOS);
 const A = R.arquivos;
-const itens = C.prepararCatalogo(BRUTOS);
+const itens = C.prepararCatalogo(BRUTOS, ED);
 const locs = x => [...x.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
 const links = html => [...html.matchAll(/<a [^>]*href="([^"#]*)"/g)].map(m => m[1].replace(/&amp;/g, '&'));
 const mk = (id, o) => Object.assign({ id: String(id), ref: 'R' + id, name: 'Produto ' + id, category: 'Cat A', brand: 'Marca A', price: 'R$ 10,00', stock: 5, img: '', desc: '' }, o || {});
