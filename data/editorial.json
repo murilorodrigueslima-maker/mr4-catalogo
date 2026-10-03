@@ -5,20 +5,57 @@
   "/marca/faimon/": "/marca/fiamon/"
  },
  "produtos": {
+  "33184538": {
+   "category": "Lâmpadas Halógenas",
+   "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
+   "evidencia": "nome \"LAMPADA HALOGENA ...\"; categoria Lâmpadas Halógenas já existe com produtos do mesmo tipo"
+  },
   "57934402": {
    "brand": "Fiamon",
    "motivo": "Erro de digitação (transposição de letras): \"Faimon\" → \"Fiamon\".",
    "evidencia": "Único produto com a grafia Faimon; categoria Moldura, nome no padrão \"MOLDURA 9 ... BLACK PIANO UV PROTECTION\" e SKU numérico vizinho (5857–5899, 6002–6059) idênticos aos de 47 produtos Fiamon."
   },
+  "58144073": {
+   "category": "Chicotes",
+   "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
+   "evidencia": "prefixo KPC: 6 de 7 irmãos já em Chicotes; texto \"POWER CABLES ACE SERIES ... CABLE CANBOX\" idêntico ao de FTCA-GM-0016C/RZ (Chicotes)"
+  },
+  "58144075": {
+   "category": "Chicotes",
+   "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
+   "evidencia": "prefixo KPC: 6 de 7 irmãos já em Chicotes; \"PC JOKER KING ...\" igual ao de KPC-MI-0091W (Chicotes)"
+  },
   "62812853": {
    "brand": "2MIX",
    "motivo": "[marca] Marca 2MIX escrita literalmente no nome; marca já existe no catálogo e o campo do ERP está vazio. [categoria] Categoria genérica (Geral); nome indica \"MULTIMIDIA\" e a categoria Multimídia já existe.",
-   "evidencia": "Nome ERP: \"MULTIMIDIA 9.75 TESLA QLED 1280X720DPI QUAD 2/32 2MIX\"; categoria Multimídia já existente com multimídias."
+   "evidencia": "Nome ERP: \"MULTIMIDIA 9.75 TESLA QLED 1280X720DPI QUAD 2/32 2MIX\"; categoria Multimídia já existente com multimídias.",
+   "category": "Multimídia"
+  },
+  "65132839": {
+   "category": "Interruptores",
+   "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
+   "evidencia": "nome \"INTERRUPTOR DE VIDRO ...\" + produtos 1502001/1502002/1502033 do mesmo padrão já em Interruptores"
+  },
+  "65132847": {
+   "category": "Interruptores",
+   "motivo": "Categoria genérica (PRODUTOS SEM GRUPO); nome/SKU indicam inequivocamente família já existente.",
+   "evidencia": "nome \"INTERRUPTOR VIDRO ...\" + SKUs vizinhos 1511003/1511006/1511007 (Logan/Sandero) já em Interruptores"
+  },
+  "65132849": {
+   "category": "Interruptores",
+   "motivo": "Categoria genérica (PRODUTOS SEM GRUPO); nome/SKU indicam inequivocamente família já existente.",
+   "evidencia": "nome \"INTERRUPTOR TRAVA/DESTRAVA LOGAN\" + SKUs vizinhos 1511006/1511007 já em Interruptores"
   },
   "66532946": {
    "brand": "2MIX",
    "motivo": "[marca] Marca 2MIX escrita literalmente no nome; marca já existe no catálogo e o campo do ERP está vazio. [categoria] Categoria genérica (Geral); nome indica \"MULTIMIDIA\" e a categoria Multimídia já existe.",
-   "evidencia": "Nome ERP: \"MULTIMIDIA 9P QLED 2MIX QUAD 2/32\"; categoria Multimídia já existente com multimídias."
+   "evidencia": "Nome ERP: \"MULTIMIDIA 9P QLED 2MIX QUAD 2/32\"; categoria Multimídia já existente com multimídias.",
+   "category": "Multimídia"
+  },
+  "71592890": {
+   "category": "Chicotes",
+   "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
+   "evidencia": "nome começa por \"CHICOTE\"; categoria Chicotes já existe com chicotes de módulo"
   },
   "74430933": {
    "brand": "LDCAR",
@@ -50,6 +87,11 @@
    "motivo": "Marca LDCAR escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
    "evidencia": "Nome ERP: \"KIT RGB NANO 18X1 PREMIUM LDCAR\""
   },
+  "86536500": {
+   "category": "Travas",
+   "motivo": "Categoria genérica (PRODUTOS SEM GRUPO); nome/SKU indicam inequivocamente família já existente.",
+   "evidencia": "prefixo PAKT: 8 de 8 irmãos em Travas; nome no padrão \"KIT ... P/TAMPA C/FURO - CACAMBA\" igual a PAKTFDMN008/PAKTGMMN020 (Travas)"
+  },
   "87252234": {
    "brand": "KX3",
    "motivo": "Marca KX3 escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
@@ -73,7 +115,8 @@
   "97261244": {
    "brand": "Bomber",
    "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
-   "evidencia": "nome \"QUADRIAXIAL 6X9 BOMBER BEAT ...\" igual a 1.16.322/1.16.323 (TRIAXIAL BOMBER BEAT) já em Alto-Falantes"
+   "evidencia": "nome \"QUADRIAXIAL 6X9 BOMBER BEAT ...\" igual a 1.16.322/1.16.323 (TRIAXIAL BOMBER BEAT) já em Alto-Falantes",
+   "category": "Alto-Falantes"
   },
   "97261245": {
    "brand": "Bomber",
