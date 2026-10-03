@@ -27,6 +27,11 @@ test('esqueleto estático: a grade já nasce com altura reservada (rodapé/conte
   assert.match(APP, /parseInt\(document\.body\.dataset\.n, 10\)/);
   assert.match(APP, /Math\.min\(6, n\)/);
 });
+test('esqueleto com altura próxima à do card real (mobile 150 px; grade 340 px) — evita salto do conteúdo abaixo', () => {
+  assert.match(CSS, /\.skeleton-card\{[^}]*height:150px\}/);
+  assert.match(CSS, /@media\(min-width:641px\)\{\.skeleton-card\{height:340px\}\}/);
+  assert.match(CSS, /\.lista-compacta \.skeleton-card\{height:56px/);                                 // modo Compacto mantém o esqueleto de linha
+});
 test('placeholder da linha de resultados: invisível, aria-hidden, só zeros (sem churn a cada sync), mesma estrutura do renderInfo', () => {
   const h = A['index.html'];
   assert.match(h, /<div class="result-info" id="resultInfo" role="status" aria-live="polite"><span class="ri-ph" aria-hidden="true"><span><strong>000<\/strong> produtos<\/span><\/span><\/div>/);
