@@ -51,6 +51,12 @@ test('fontes auto-hospedadas: sem CSS/conexão de terceiros, arquivos reais woff
   assert.match(ler('assets/fonts/LICENSE.txt'), /SIL Open Font License/);
   assert.equal((CSS.match(/font-display:swap/g) || []).length, 3);
 });
+test('fallback de fonte com largura ajustada (size-adjust) nas 3 faces e nas pilhas --f-body/--f-cond', () => {
+  const fb = CSS.match(/@font-face\{font-family:'Barlow(?: Condensed)? Fallback'[^}]+\}/g) || [];
+  assert.equal(fb.length, 3);
+  fb.forEach(f => { assert.match(f, /size-adjust:\d+(\.\d+)?%/); assert.match(f, /local\('Arial/); const v = parseFloat(f.match(/size-adjust:([\d.]+)%/)[1]); assert.ok(v > 60 && v < 100); });
+  assert.match(CSS, /--f-cond:'Barlow Condensed','Barlow Condensed Fallback',sans-serif/); assert.match(CSS, /--f-body:'Barlow','Barlow Fallback',system-ui,sans-serif/);
+});
 test('LCP: 1ª imagem do grid sem lazy + fetchpriority=high; as seguintes acima da dobra sem lazy; o resto lazy', () => {
   const it = prep(8);
   const img = (e, o) => C.htmlCard(e, o).match(/<img [^>]*>/)[0];
