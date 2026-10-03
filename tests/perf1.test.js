@@ -14,7 +14,7 @@ const TPL = ler('templates/produto.html'), SHELL = ler('templates/catalogo.html'
 const R = G.planejar(BRUTOS, TPL, null, { shell: SHELL, estado: null, atualizado: '2026-10-02T10:00:00Z', existente: () => null });
 const A = R.arquivos;
 const prep = n => C.prepararCatalogo(Array.from({ length: n }, (_, i) => ({ id: String(i + 1), ref: 'R' + i, name: 'P' + i, category: 'Cat', brand: 'M', price: 'R$ 1,00', stock: 2, img: 'https://x.test/' + i + '.jpg', desc: '' })));
-const grid = h => h.match(/<div class="grade" id="grid" aria-busy="true">([\s\S]*?)<\/div>\s*<div class="load-more"/)[1];
+const grid = h => h.match(/<div class="grade" id="grid" aria-busy="true">([\s\S]*?)<\/div>\s*(?:<script>[\s\S]*?<\/script>\s*)?<div class="load-more"/)[1];
 const sk = h => (grid(h).match(/skeleton-card skel/g) || []).length;
 
 test('esqueleto estático: a grade já nasce com altura reservada (rodapé/contexto não pulam quando o JS chega)', () => {
@@ -25,7 +25,7 @@ test('esqueleto estático: a grade já nasce com altura reservada (rodapé/conte
     assert.ok(A[f].includes(`data-n="${t.itens.length}"`), t.slug);
   });
   assert.match(APP, /parseInt\(document\.body\.dataset\.n, 10\)/);
-  assert.match(APP, /Math\.min\(6, n\)/);
+  assert.match(APP, /Math\.min\(base, n\)/);
 });
 test('esqueleto com altura próxima à do card real (mobile 150 px; grade 340 px) — evita salto do conteúdo abaixo', () => {
   assert.match(CSS, /\.skeleton-card\{[^}]*height:150px\}/);
@@ -65,6 +65,16 @@ test('home em celular estreito: quebra determinística antes de "Visual/Compacto
 });
 test('contexto institucional usa fonte do sistema (sem refluxo por troca de webfont em páginas curtas)', () => {
   assert.match(CSS, /\.seo-contexto\{[^}]*font-family:system-ui/);
+});
+test('modo Compacto salvo: script inline no HTML ajusta a grade ANTES do JS (esqueleto de linhas; sem salto do conteúdo abaixo)', () => {
+  const h = A['index.html'];
+  const m = h.match(/<script>try\{if\(localStorage\.getItem\("mr4_modo_catalogo"\)==="compacto"\)\{[\s\S]*?\}catch\(e\)\{\}<\/script>/);
+  assert.ok(m);
+  assert.ok(h.indexOf('id="grid"') < h.indexOf(m[0]) && h.indexOf(m[0]) < h.indexOf('class="load-more"'));
+  assert.match(m[0], /className="lista-compacta"/); assert.match(m[0], /Math\.min\(16,n\)/); assert.match(m[0], /dataset\.modo="compacto"/);
+  assert.match(APP, /const base = estado\.modo === 'compacto' \? 16 : 6;/);
+  assert.equal((Object.keys(A).filter(k => /\.html$/.test(k) && /^(index|categoria|marca)/.test(k) && !/mr4_modo_catalogo/.test(A[k]))).length, 0);   // todas as páginas de catálogo têm o script
+  assert.doesNotMatch(A['produto/' + C.prepararCatalogo(BRUTOS)[0].url.replace('/produto/', '') + 'index.html'], /mr4_modo_catalogo/);
 });
 test('LCP: 1ª imagem do grid sem lazy + fetchpriority=high; as seguintes acima da dobra sem lazy; o resto lazy', () => {
   const it = prep(8);

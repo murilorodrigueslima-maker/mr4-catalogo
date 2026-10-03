@@ -3,223 +3,223 @@
  "ativos": 606,
  "lastmod": {
   "/": {
-   "h": "1f55d395b4f7",
+   "h": "6589bd5d27c7",
    "d": "2026-10-03"
   },
   "/categoria/alarme/": {
-   "h": "b755f84fe6f2",
+   "h": "e604b663fdbf",
    "d": "2026-10-03"
   },
   "/categoria/alto-falantes/": {
-   "h": "8b5d3701db60",
+   "h": "4ff0fc00f078",
    "d": "2026-10-03"
   },
   "/categoria/antenas/": {
-   "h": "927defc8390f",
+   "h": "d6807b810754",
    "d": "2026-10-03"
   },
   "/categoria/barras-de-led/": {
-   "h": "21a76de7f6fe",
+   "h": "5b0a02352a13",
    "d": "2026-10-03"
   },
   "/categoria/bateria/": {
-   "h": "9b6bf4173e08",
+   "h": "02747283ea26",
    "d": "2026-10-03"
   },
   "/categoria/caixa-de-som/": {
-   "h": "4a8cf3b1bff5",
+   "h": "d1558468749a",
    "d": "2026-10-03"
   },
   "/categoria/camera/": {
-   "h": "22fb04aceb69",
+   "h": "09527c7838df",
    "d": "2026-10-03"
   },
   "/categoria/chave/": {
-   "h": "f3afb745609b",
+   "h": "0aa1256bd13a",
    "d": "2026-10-03"
   },
   "/categoria/chicotes/": {
-   "h": "fec78272f5f9",
+   "h": "e6911f25e52a",
    "d": "2026-10-03"
   },
   "/categoria/diversos/": {
-   "h": "45abcf33e475",
+   "h": "2eb6ed301a2d",
    "d": "2026-10-03"
   },
   "/categoria/farol-de-milha/": {
-   "h": "700c3769d9ec",
+   "h": "9eb0d2027389",
    "d": "2026-10-03"
   },
   "/categoria/fusiveis/": {
-   "h": "17a7e636383f",
+   "h": "9f59d0890473",
    "d": "2026-10-03"
   },
   "/categoria/geral/": {
-   "h": "ba968ce93846",
+   "h": "951378d9aea6",
    "d": "2026-10-03"
   },
   "/categoria/interruptores/": {
-   "h": "0a29561285bd",
+   "h": "bc444ea60774",
    "d": "2026-10-03"
   },
   "/categoria/lampada-de-led/": {
-   "h": "e2dac908f647",
+   "h": "83e6c19c8030",
    "d": "2026-10-03"
   },
   "/categoria/lampadas-halogenas/": {
-   "h": "c374ce570a4c",
+   "h": "2d65873a94eb",
    "d": "2026-10-03"
   },
   "/categoria/leds-interno-externo/": {
-   "h": "ed7f23112ba1",
+   "h": "63988cbd6991",
    "d": "2026-10-03"
   },
   "/categoria/modulos/": {
-   "h": "2d44263af757",
+   "h": "4b3a49e8200e",
    "d": "2026-10-03"
   },
   "/categoria/moldura/": {
-   "h": "d08349c8d621",
+   "h": "895571d8a3b4",
    "d": "2026-10-03"
   },
   "/categoria/multimidia/": {
-   "h": "15fdf76efc28",
+   "h": "dfd0d68af468",
    "d": "2026-10-03"
   },
   "/categoria/palheta/": {
-   "h": "6822cd0c1f41",
+   "h": "5c6fd63c6d8d",
    "d": "2026-10-03"
   },
   "/categoria/radio/": {
-   "h": "a4be706f2d04",
+   "h": "f90b1fedf469",
    "d": "2026-10-03"
   },
   "/categoria/sem-categoria/": {
-   "h": "5e18b3843ba6",
+   "h": "10e6e3d93cd4",
    "d": "2026-10-03"
   },
   "/categoria/sensor-estacionamento/": {
-   "h": "7ed94833362f",
+   "h": "7e853e9858f4",
    "d": "2026-10-03"
   },
   "/categoria/soquetes/": {
-   "h": "cac711aa8eda",
+   "h": "53599b122967",
    "d": "2026-10-03"
   },
   "/categoria/terminais/": {
-   "h": "4efcfdd0df5c",
+   "h": "a9e2380faa03",
    "d": "2026-10-03"
   },
   "/categoria/travas/": {
-   "h": "5d7560878124",
+   "h": "6728828d8e99",
    "d": "2026-10-03"
   },
   "/categoria/xenon/": {
-   "h": "474ff4ca81bf",
+   "h": "04c2795889f7",
    "d": "2026-10-03"
   },
   "/marca/2mix/": {
-   "h": "5478a7456326",
+   "h": "65b2370cc50f",
    "d": "2026-10-03"
   },
   "/marca/alemar/": {
-   "h": "0edb6d6887c2",
+   "h": "281f45272450",
    "d": "2026-10-03"
   },
   "/marca/asx/": {
-   "h": "2001d1f26c7e",
+   "h": "39bbd9664d9c",
    "d": "2026-10-03"
   },
   "/marca/bomber/": {
-   "h": "7d66671d130b",
+   "h": "46829f1e8372",
    "d": "2026-10-03"
   },
   "/marca/exclusive/": {
-   "h": "2404d1c9fd72",
+   "h": "3b54a8e974f3",
    "d": "2026-10-03"
   },
   "/marca/faimon/": {
-   "h": "8bc1d12ea80e",
+   "h": "f0df94a10dca",
    "d": "2026-10-03"
   },
   "/marca/fiamon/": {
-   "h": "079ff3de3851",
+   "h": "69cf58d44255",
    "d": "2026-10-03"
   },
   "/marca/first-option/": {
-   "h": "6ffc1057405e",
+   "h": "ab41d6e5d949",
    "d": "2026-10-03"
   },
   "/marca/fitto-joker/": {
-   "h": "10344dac21f7",
+   "h": "822b5bc255ba",
    "d": "2026-10-03"
   },
   "/marca/fitto/": {
-   "h": "97afb9ffd781",
+   "h": "8cf40a4bd10b",
    "d": "2026-10-03"
   },
   "/marca/fks/": {
-   "h": "a5b2c1395add",
+   "h": "f1e115b0b52a",
    "d": "2026-10-03"
   },
   "/marca/hurricane/": {
-   "h": "586dc7082f48",
+   "h": "7f00111d57e0",
    "d": "2026-10-03"
   },
   "/marca/jfa/": {
-   "h": "2a1abdee59f8",
+   "h": "3b20484f72fa",
    "d": "2026-10-03"
   },
   "/marca/joker/": {
-   "h": "ba2dcbed8242",
+   "h": "6adfc7eb7ed2",
    "d": "2026-10-03"
   },
   "/marca/kobo/": {
-   "h": "27f3d15573ac",
+   "h": "cd2a8120cfe2",
    "d": "2026-10-03"
   },
   "/marca/kx3/": {
-   "h": "a3e5ae06bab2",
+   "h": "a19fc5266178",
    "d": "2026-10-03"
   },
   "/marca/ldcar/": {
-   "h": "881432acbd77",
+   "h": "2f6e3ca8c1a8",
    "d": "2026-10-03"
   },
   "/marca/look-out/": {
-   "h": "19e04776e2d6",
+   "h": "d470fc5dd94d",
    "d": "2026-10-03"
   },
   "/marca/lux-led/": {
-   "h": "2d145350ac20",
+   "h": "6600b51e5ba7",
    "d": "2026-10-03"
   },
   "/marca/permak/": {
-   "h": "869bef016b1a",
+   "h": "d21848300091",
    "d": "2026-10-03"
   },
   "/marca/rayx/": {
-   "h": "6ff35b71236e",
+   "h": "d325eeb61bcf",
    "d": "2026-10-03"
   },
   "/marca/rpx/": {
-   "h": "a0043cf7b6ca",
+   "h": "55049b6a9eb2",
    "d": "2026-10-03"
   },
   "/marca/tarponn/": {
-   "h": "84be975ed23c",
+   "h": "42d0c52e38ca",
    "d": "2026-10-03"
   },
   "/marca/tiger/": {
-   "h": "7f203dcf1e00",
+   "h": "b28a8f76701a",
    "d": "2026-10-03"
   },
   "/marca/tragial/": {
-   "h": "dfe897ebcd69",
+   "h": "3485a2b9598c",
    "d": "2026-10-03"
   },
   "/marca/vipertron/": {
-   "h": "a221dc85e220",
+   "h": "95cc875bd13d",
    "d": "2026-10-03"
   },
   "/produto/1-polo-144-leds-ambar--1156-bau15s-3014-144smambar/": {

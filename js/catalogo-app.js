@@ -182,7 +182,8 @@
     aplicarModo();
     // páginas estáticas de categoria/marca informam quantos itens existem (data-n): o esqueleto não passa disso ⇒ o conteúdo abaixo não "pula" (CLS)
     const n = parseInt(document.body.dataset.n, 10);
-    $('grid').innerHTML = Array.from({ length: n > 0 ? Math.min(6, n) : 6 }, () => `<div class="skeleton-card skel"></div>`).join('');
+    const base = estado.modo === 'compacto' ? 16 : 6;                      // linhas compactas são baixas (56 px): 16 enchem a 1ª tela
+    $('grid').innerHTML = Array.from({ length: n > 0 ? Math.min(base, n) : base }, () => `<div class="skeleton-card skel"></div>`).join('');
     $('loadMore').hidden = true;
   }
   function renderErro(msg) {
