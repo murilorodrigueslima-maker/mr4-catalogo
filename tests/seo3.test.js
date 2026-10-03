@@ -33,25 +33,25 @@ test('home: @graph com Organization + WebSite; ids estáveis; publisher referenc
   assert.deepEqual(w.publisher, { '@id': ORI + '/#organization' });
   assert.equal(g.some(n => n['@type'] === 'BreadcrumbList'), false);          // home não tem breadcrumb real
 });
-test('Organization: só propriedades confirmadas — sem endereço, telefone, sameAs, taxID; logo = ativo institucional válido', () => {
+test('Organization: só propriedades confirmadas pelo proprietário (entidade.js) — sem sameAs/legalName/fundação/CEP; logo = ativo institucional válido', () => {
   const o = tipo(grafo(A['index.html']), 'Organization');
-  assert.deepEqual(Object.keys(o).sort(), ['@id', '@type', 'logo', 'name', 'url']);
-  ['address', 'telephone', 'sameAs', 'taxID', 'email', 'contactPoint', 'foundingDate', 'legalName'].forEach(k => assert.equal(k in o, false, k));
+  assert.deepEqual(Object.keys(o).sort(), ['@id', '@type', 'address', 'contactPoint', 'email', 'location', 'logo', 'name', 'taxID', 'telephone', 'url']);
+  ['sameAs', 'foundingDate', 'legalName', 'geo'].forEach(k => assert.equal(k in o, false, k));
   assert.equal(o.logo['@type'], 'ImageObject'); assert.match(o.logo.url, /^https:\/\/catalogo\.mr4distribuidora\.com\.br\/assets\/logo-header\.png$/);
   const png = fs.readFileSync(path.join(RAIZ, 'assets/logo-header.png'));
   assert.equal(png.readUInt32BE(16), o.logo.width); assert.equal(png.readUInt32BE(20), o.logo.height);   // dimensões declaradas = arquivo real
   assert.ok(o.logo.width >= 112 && o.logo.height >= 112 || o.logo.width >= 112);   // mínimo do Google: 112 px
-  assert.match(A['index.html'], /CNPJ 38\.440\.066\/0001-75 · Rua Ceará, 634 · Fortaleza, CE/);   // endereço publicado intacto (só não vai para o Schema)
+  assert.match(A['index.html'], /CNPJ 38\.440\.066\/0001-75 · Rua Ceará, 634 · Fortaleza, CE/);   // endereço publicado intacto
 });
 test('WebSite: sem SearchAction (recurso descontinuado pelo Google; busca é noindex)', () => {
   const w = tipo(grafo(A['index.html']), 'WebSite');
   assert.equal('potentialAction' in w, false);
   assert.doesNotMatch(Object.keys(A).filter(k => /\.html$/.test(k)).map(k => A[k]).join('').slice(0, 5e6), /SearchAction/);
 });
-test('telefone institucional não existe: os números do projeto são de vendedores', () => {
+test('telefone institucional = o confirmado pelo proprietário (entidade.js); fluxo de vendedores do pedido intacto', () => {
   const cesta = ler('js/catalogo-cesta.js');
   assert.match(cesta, /nome: 'Ademir'/); assert.match(cesta, /nome: 'Fabiana'/);
-  assert.doesNotMatch(A['index.html'], /telephone|"tel/);
+  assert.equal(tipo(grafo(A['index.html']), 'Organization').telephone, require('../scripts/entidade.js').telefoneE164);
 });
 test('produto: Product + BreadcrumbList; só propriedades permitidas; nada inventado', () => {
   const PERMITIDAS = new Set(['@type', '@id', 'name', 'url', 'sku', 'brand', 'image', 'description', 'category', 'offers']);   // offers: SEO Fase 3B
@@ -199,14 +199,14 @@ test('Offer (3B): sem rating/review/gtin/validade/condição/frete/devolução e
 });
 test('orçamento de bytes: JSON-LD leve (home, produto, categoria, marca)', () => {
   const b = f => Buffer.byteLength(scripts(A[f])[0]);
-  assert.ok(b('index.html') < 900);
+  assert.ok(b('index.html') < 2200);
   const prod = ITENS.map(e => Buffer.byteLength(scripts(pagP(e))[0])).sort((x, y) => x - y);
   assert.ok(prod[prod.length >> 1] < 1900);
   assert.ok(b('categoria/moldura/index.html') < 1500 && b('marca/tiger/index.html') < 1500);
 });
 test('Schema não altera a UX: nenhum JS/CSS referencia ld+json; sem biblioteca; tudo gerado no build', () => {
   ['js/catalogo-core.js', 'js/catalogo-app.js', 'js/catalogo-cesta.js', 'js/catalogo-rapido.js', 'js/produto-app.js', 'css/catalogo.css'].forEach(f => assert.doesNotMatch(ler(f), /ld\+json|JSON-LD/));
-  assert.deepEqual([...ler('scripts/jsonld.js').matchAll(/require\('([^']+)'\)/g)].map(m => m[1]), ['../js/catalogo-core.js']);
+  assert.deepEqual([...ler('scripts/jsonld.js').matchAll(/require\('([^']+)'\)/g)].map(m => m[1]), ['../js/catalogo-core.js', './entidade.js']);
   assert.doesNotMatch(A['index.html'], /<script src="https?:/);
 });
 test('Fases anteriores intactas: sitemap completo, robots, canonical e links estáticos', () => {

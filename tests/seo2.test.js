@@ -215,7 +215,7 @@ test('Twitter cards: não implementado (decisão: X usa as tags og:* como fallba
 });
 test('Fase 1 preservada: links, sitemap, canonical, relacionados e UX intactos', () => {
   assert.equal(locs(A['sitemap.xml']).length, R.urls.length);
-  assert.equal(R.urls.length, 1 + R.tax.categorias.length + R.tax.marcas.length + ITENS.length);
+  assert.equal(R.urls.length, 1 + R.tax.categorias.length + R.tax.marcas.length + 2 + ITENS.length);   // +2: /sobre/ e /contato/ (Fase Entidade)
   ITENS.forEach(e => { assert.ok(pag(e).includes(`rel="canonical" href="https://catalogo.mr4distribuidora.com.br${e.url}"`)); assert.doesNotMatch(pag(e), /name="robots"/); });
   const e0 = ITENS.find(e => e.marca && !e.semGrupo);
   assert.ok(pag(e0).includes('class="relacionados"')); assert.ok(pag(e0).includes(`href="${e0.catUrl}"`)); assert.ok(pag(e0).includes(`href="${e0.marcaUrl}"`));

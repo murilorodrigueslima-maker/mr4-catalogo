@@ -1,0 +1,20 @@
+/* páginas institucionais (/sobre/, /contato/): estáticas, sem JS; carregadas só nelas */
+.topo-inst{justify-content:space-between}
+.inst-catalogo{color:#fff;font-weight:600;font-size:.95rem;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;border-bottom:2px solid var(--orange)}
+.inst-catalogo:hover{color:var(--orange)}
+.inst{max-width:820px;margin:0 auto;padding:20px 20px 32px;min-height:60vh}
+.inst .bc{font-size:.85rem;color:var(--muted);margin:0 0 10px}
+.inst .bc a{color:inherit}
+.inst h1{font-family:var(--f-cond);font-size:2rem;line-height:1.15;margin:0 0 12px}
+.inst h2{font-family:var(--f-cond);font-size:1.3rem;line-height:1.2;margin:22px 0 6px}
+.inst p{margin:0 0 10px;max-width:70ch;line-height:1.55}
+.inst a{color:var(--orange-ink)}
+.inst-dados{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:12px 0 16px;padding:14px 16px;background:#fff;border:1px solid var(--border);border-radius:8px}
+.inst-dados dt{font-weight:700}
+.inst-dados dd{margin:0;overflow-wrap:anywhere}
+.inst-acoes{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.inst-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;border-radius:6px;font-family:var(--f-cond);font-weight:700;font-size:1.05rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;color:#fff!important;background:var(--green)}
+.inst-btn:hover{background:#176338}
+.inst-btn.sec{background:var(--orange-btn)}
+.inst-btn.sec:hover{background:var(--orange-dk)}
+@media (max-width:520px){.inst-dados{grid-template-columns:1fr;gap:0}.inst-dados dd{margin-bottom:8px}.inst h1{font-size:1.7rem}}

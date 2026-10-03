@@ -3,11 +3,12 @@
  * SEO Fase 3 — dados estruturados (JSON-LD), gerados no build, nativamente (sem biblioteca).
  * Regra: só dado confiável e presente na página. Omitido por falta de dado confiável (NÃO inventar):
  *   gtin/mpn/ean, rating/review, fabricante, modelo, priceValidUntil, itemCondition, frete/devolução (Merchant Listing),
- *   endereço (divergente de diretórios externos: pendência do proprietário), telefone (só há WhatsApp de vendedores),
+ *   (endereço/telefone/e-mail/CNPJ/horários: confirmados pelo proprietário em 03/10/2026 → scripts/entidade.js; sem CEP/coordenadas),
  *   sameAs (nenhum perfil oficial confirmado no projeto), SearchAction (Google descontinuou o recurso em nov/2024).
  * IDs: <origem>/#organization · <origem>/#website · <URL canônica>#product · #breadcrumb · #collection
  */
 const Core = require('../js/catalogo-core.js');
+const Ent = require('./entidade.js');
 
 const ORIGEM = 'https://catalogo.mr4distribuidora.com.br';
 const LOGO = { url: ORIGEM + '/assets/logo-header.png', width: 400, height: 139 };   // ativo institucional existente (PNG 400×139, HTTPS, 200)
@@ -20,8 +21,19 @@ function serializar(obj) {
 }
 const tag = grafo => `<script type="application/ld+json">${serializar({ '@context': 'https://schema.org', '@graph': grafo })}</script>`;
 
+/** Organization completa (home e páginas institucionais; mesmo @id em todo o site). Dados só de scripts/entidade.js (confirmados pelo proprietário). */
 function organizacao() {
-  return { '@type': 'Organization', '@id': ID_ORG, name: NOME_ORG, url: ORIGEM + '/', logo: { '@type': 'ImageObject', url: LOGO.url, width: LOGO.width, height: LOGO.height } };
+  return {
+    '@type': 'Organization', '@id': ID_ORG, name: NOME_ORG, url: ORIGEM + '/', logo: { '@type': 'ImageObject', url: LOGO.url, width: LOGO.width, height: LOGO.height },
+    taxID: Ent.cnpj, address: Ent.schemaEndereco(), telephone: Ent.telefoneE164, email: Ent.email,
+    contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', telephone: Ent.telefoneE164, email: Ent.email, availableLanguage: 'pt-BR' },
+    location: { '@type': 'Place', '@id': ORIGEM + '/#sede', name: NOME_ORG, address: Ent.schemaEndereco(), openingHoursSpecification: Ent.schemaHorarios() }
+  };
+}
+/** páginas institucionais: AboutPage / ContactPage + Organization (mesmo @id) + WebSite + breadcrumb */
+function paginaInstitucional(tipo, url, nome, descricao) {
+  const bc = breadcrumb(url, [passoCatalogo, { nome, url }]);
+  return [{ '@type': tipo, '@id': url + '#webpage', url, name: nome, description: descricao, inLanguage: 'pt-BR', isPartOf: { '@id': ID_SITE }, about: { '@id': ID_ORG }, breadcrumb: { '@id': bc['@id'] } }, organizacao(), site(), bc];
 }
 function site() {
   return { '@type': 'WebSite', '@id': ID_SITE, url: ORIGEM + '/', name: NOME_ORG, inLanguage: 'pt-BR', publisher: { '@id': ID_ORG } };
@@ -92,4 +104,4 @@ function somenteBreadcrumb(html) {
     return bc.length ? tag(bc) : '';
   });
 }
-module.exports = { precoCentavosValido, precoDecimal, disponibilidade, oferta, serializar, tag, organizacao, site, breadcrumb, breadcrumbProduto, produto, grafoHome, grafoProduto, grafoTaxonomia, somenteBreadcrumb, descricaoSchema, ORIGEM, LOGO, ID_ORG, ID_SITE };
+module.exports = { paginaInstitucional, precoCentavosValido, precoDecimal, disponibilidade, oferta, serializar, tag, organizacao, site, breadcrumb, breadcrumbProduto, produto, grafoHome, grafoProduto, grafoTaxonomia, somenteBreadcrumb, descricaoSchema, ORIGEM, LOGO, ID_ORG, ID_SITE };

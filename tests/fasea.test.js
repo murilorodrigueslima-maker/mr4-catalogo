@@ -8,7 +8,7 @@ const C = require('../js/catalogo-core.js');
 
 const RAIZ = path.join(__dirname, '..');
 const ler = f => fs.readFileSync(path.join(RAIZ, f), 'utf8');
-const IDX = ler('index.html'), TPL = ler('templates/produto.html'), NF = ler('404.html');
+const IDX = ler('index.html'), TPL = ler('templates/produto.html').replace('{{RODAPE}}', () => require('../scripts/entidade.js').rodape(true)), NF = ler('404.html');
 const CSS = ler('css/catalogo.css'), CSSP = ler('css/produto.css');
 const APP = ler('js/catalogo-app.js'), CESTA = ler('js/catalogo-cesta.js');
 const mk = (o = {}) => C.prepararCatalogo([Object.assign({ id: '9', ref: 'AB-1', name: 'Produto X', category: 'Moldura', brand: 'Tiger', price: 'R$ 12,50', stock: 42, img: 'https://x/y.png', desc: '' }, o)])[0];
@@ -133,8 +133,8 @@ test('fontes: só os pesos usados (Barlow 400/600 + Barlow Condensed 700), auto-
 });
 test('catálogo e páginas de produto usam as mesmas versões de css/js; versões novas (cache)', () => {
   const v = s => (s.match(/catalogo\.css\?v=([\w-]+)/) || [])[1];
-  assert.equal(v(IDX), v(TPL)); assert.equal(v(IDX), v(NF)); assert.match(v(IDX), /^(fase[ABCD]|seo\d|perf\d)-/);
-  assert.match(IDX, /catalogo-app\.js\?v=(fase[ABCD]|seo\d|perf\d)-/); assert.match(TPL, /produto-app\.js\?v=(fase[ABCD]|seo\d|perf\d)-/);
+  assert.equal(v(IDX), v(TPL)); assert.equal(v(IDX), v(NF)); assert.match(v(IDX), /^(fase[ABCD]|seo\d|perf\d|ent\d)-/);
+  assert.match(IDX, /catalogo-app\.js\?v=(fase[ABCD]|seo\d|perf\d|ent\d)-/); assert.match(TPL, /produto-app\.js\?v=(fase[ABCD]|seo\d|perf\d|ent\d)-/);
 });
 test('lógica comercial preservada: busca usa o núcleo; carrinho no mesmo formato; vendedores/telefones intactos', () => {
   assert.match(APP, /C\.consultar\(itens, estado, destaqueIds\)/);

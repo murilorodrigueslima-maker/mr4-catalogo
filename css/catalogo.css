@@ -447,3 +447,5 @@ body[data-modo="compacto"] .conteudo{padding-top:10px}
 .seo-contexto a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .marca-link{color:inherit}
 @media(max-width:640px){.titulo-pg{font-size:.8rem}.titulo-pg::after{margin-left:5px}}
+
+footer a{color:#fff;text-underline-offset:2px}

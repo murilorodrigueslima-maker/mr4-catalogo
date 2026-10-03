@@ -24,6 +24,8 @@ const fs = require('fs');
 const path = require('path');
 const Core = require('../js/catalogo-core.js');
 const LD = require('./jsonld.js');
+const Ent = require('./entidade.js');
+const Inst = require('./institucional.js');
 
 const ORIGEM = 'https://catalogo.mr4distribuidora.com.br';
 const LOGO = '/assets/logo-header.png';
@@ -111,7 +113,8 @@ function renderizarShell(shell, tax, pg) {
     .replace('{{RESULTINFO}}', () => pg.resultInfo || '')
     .replace('{{SKELETON}}', () => '<div class="skeleton-card skel"></div>'.repeat(pg.esqueleto == null ? 6 : pg.esqueleto))     // reserva a altura da grade antes do JS (CLS): rodapé/contexto não aparecem acima da dobra e depois "pulam"
     .replace('{{LISTA}}', () => pg.lista || '')
-    .replace('{{CONTEXTO}}', () => contextoSeo(tax, pg.contexto));
+    .replace('{{CONTEXTO}}', () => contextoSeo(tax, pg.contexto))
+    .replace('{{RODAPE}}', () => Ent.rodape(true));
 }
 /** Reserva o espaço da linha de resultados ANTES do JS (mesma estrutura que renderInfo gera): evita o deslocamento do grid (CLS) quando o texto chega.
  *  Invisível e aria-hidden; só dígitos "0" (a largura é igual à de qualquer contagem com o mesmo nº de dígitos) ⇒ página não muda a cada sync. */
@@ -163,7 +166,8 @@ function renderizarPagina(item, tpl, rel, titulo) {
     .replace('{{JSONLD}}', () => LD.tag(LD.grafoProduto(item)))
     .replace('{{BREADCRUMB}}', () => Core.htmlBreadcrumb(item).replace('<nav ', '<nav id="bc" '))
     .replace('{{INFO}}', () => Core.htmlProdutoInfo(item))
-    .replace('{{RELACIONADOS}}', () => Core.htmlRelacionadosEstatico(rel || []));
+    .replace('{{RELACIONADOS}}', () => Core.htmlRelacionadosEstatico(rel || []))
+    .replace('{{RODAPE}}', () => Ent.rodape(true));
 }
 function renderizarRedirecionamento(novoUrl) {
   const abs = ORIGEM + novoUrl;
@@ -234,12 +238,15 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
     arquivos[u.slice(1) + 'index.html'] = paginaTaxonomia(opts.shell, tax, m.tipo, { chave: m.chave, rotulo: m.rotulo, url: u, itens: [] }, true);
   });
   arquivos['index.html'] = paginaHome(opts.shell, tax);
+  const tplInst = opts.institucional || fs.readFileSync(path.join(__dirname, '../templates/institucional.html'), 'utf8');
+  Object.assign(arquivos, Inst.gerar(tplInst, headSeo));
   arquivos['robots.txt'] = ROBOTS;
 
   // sitemap: só URLs canônicas, indexáveis e com 200 (home, categorias, marcas, produtos atuais)
   const urls = [{ u: '/', f: 'index.html' }]
     .concat(tax.categorias.map(t => ({ u: t.url, f: t.url.slice(1) + 'index.html' })))
     .concat(tax.marcas.map(t => ({ u: t.url, f: t.url.slice(1) + 'index.html' })))
+    .concat(Object.keys(Inst.PAGINAS).map(k => ({ u: Ent.paginas[k], f: Inst.PAGINAS[k].caminho })))
     .concat(itens.map(i => ({ u: i.url, f: 'produto/' + dirDe(i.url) + '/index.html' })).sort((x, y) => (x.u < y.u ? -1 : 1)));
   const lm0 = est0.lastmod || {};
   const entradas = urls.map(({ u, f }) => {
@@ -258,7 +265,7 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
 }
 
 /** URLs INDEXÁVEIS cujo HTML (sem ?v=) é novo ou mudou de verdade — insumo do IndexNow. Sitemap/robots/estado/manifest nunca entram. */
-const PAGINA_INDEXAVEL = /^(index\.html|(categoria|marca|produto)\/[^/]+\/index\.html)$/;
+const PAGINA_INDEXAVEL = /^(index\.html|(categoria|marca|produto)\/[^/]+\/index\.html|(sobre|contato)\/index\.html)$/;
 function urlsAlteradas(arquivos, existente) {
   const out = [];
   Object.keys(arquivos).filter(rel => PAGINA_INDEXAVEL.test(rel)).sort().forEach(rel => {
