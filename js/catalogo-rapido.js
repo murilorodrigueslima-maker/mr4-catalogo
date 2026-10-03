@@ -8,6 +8,8 @@
   const $ = id => document.getElementById(id);
   const esc = C.esc;
   const LIMITE = 8;
+  const MED = (n, p) => { try { if (window.Medicao) window.Medicao.track(n, p); } catch (e) {} };
+  let nmTimer = null, nmUltimo = '';
 
   let itens = null, criado = false, aberto = false;
   let resultados = [], ativo = 0, selecionado = null, recentes = [];
@@ -57,6 +59,15 @@
     if (!itens) { resultados = []; lista.hidden = true; msg.hidden = false; msg.textContent = 'Carregando catálogo…'; return; }
     resultados = C.rapidoBuscar(itens, q, LIMITE);
     ativo = 0;
+    clearTimeout(nmTimer);
+    if (!resultados.length && C.norm(q)) {                                            // sem resultado: mede 1× por termo (após 900 ms parado); o texto só sai se passar pela política de termos
+      nmTimer = setTimeout(() => {
+        const t = q.trim().toLowerCase(); if (!t || t === nmUltimo) return; nmUltimo = t;
+        const conhecido = C.termoConhecido(itens, q);
+        const seguro = window.Medicao && window.Medicao.termoSeguro ? window.Medicao.termoSeguro(q, { resultados: 0, conhecido }) : null;
+        MED('quick_order_no_match', { search_term: seguro || undefined, search_term_length: q.trim().length });
+      }, 900);
+    }
     if (!resultados.length) {
       lista.hidden = true; lista.innerHTML = '';
       campo.setAttribute('aria-expanded', 'false'); campo.setAttribute('aria-activedescendant', '');
@@ -119,8 +130,9 @@
     if (!selecionado) return;
     const p = selecionado.p, qtd = qtdAtual();
     const antes = Cesta.qtdDe(p.id);
-    Cesta.add(p, qtd);                                   // Cesta soma e respeita o teto de 9.999
+    Cesta.add(p, qtd, 'pedido_rapido');                  // Cesta soma e respeita o teto de 9.999
     const agora = Cesta.qtdDe(p.id), adicionado = agora - antes;
+    MED('quick_order_add', { item_id: p.ref, quantity: adicionado });
     let texto = C.rapidoFeedback(p.name, adicionado, agora);
     if (agora > p.stock) texto += ` · acima do estoque atual (${p.stock})`;
     const fb = $('rapidoFeedback'); fb.textContent = texto; fb.classList.toggle('alerta', agora > p.stock);
@@ -162,7 +174,7 @@
     $('rapidoQtd').addEventListener('input', e => { const l = e.target.value.replace(/\D/g, '').slice(0, 4); if (l !== e.target.value) e.target.value = l; avisoEstoque(); });
     $('rapidoAdd').addEventListener('click', adicionar);
     $('rapidoFechar').addEventListener('click', fechar);
-    $('rapidoVer').addEventListener('click', () => { if (modal()) fechar(true); Cesta.abrirPedido(); });
+    $('rapidoVer').addEventListener('click', () => { MED('quick_order_to_cart', { item_count: Cesta.resumo().totalItens }); if (modal()) fechar(true); Cesta.abrirPedido(); });
     Cesta.aoMudar(() => { resumoPedido(); if (aberto && selecionado) avisoEstoque(); });
     resumoPedido();
   }
@@ -194,7 +206,8 @@
       else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primeiro.focus(); }
     }
   }
-  function abrir() {
+  function abrir(origem) {
+    MED('quick_order_open', { origin: origem === 'atalho' ? 'atalho' : 'botao' });
     if (!criado) criar();
     const painel = $('rapido');
     ultimoFoco = document.activeElement;
@@ -214,7 +227,7 @@
   function alternar() { if (aberto) fechar(); else abrir(); }
 
   document.addEventListener('keydown', e => {                                     // atalho secundário: Alt+Q (o botão visível continua sendo o acesso principal)
-    if (e.altKey && !e.ctrlKey && !e.metaKey && e.code === 'KeyQ') { e.preventDefault(); if (document.querySelector('.cart-sidebar.open:not(.dock),.vendedor-modal.open,.sheet-bg.open')) return; if (aberto) $('rapidoBusca').focus(); else abrir(); }
+    if (e.altKey && !e.ctrlKey && !e.metaKey && e.code === 'KeyQ') { e.preventDefault(); if (document.querySelector('.cart-sidebar.open:not(.dock),.vendedor-modal.open,.sheet-bg.open')) return; if (aberto) $('rapidoBusca').focus(); else abrir('atalho'); }
   });
 
   window.Rapido = {

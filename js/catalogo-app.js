@@ -35,6 +35,24 @@
   let categorias = { comerciais: [], semGrupo: [] };
   const contagem = {};
 
+  /* ───────── medição (GA4): ver js/catalogo-medicao.js — nada digitado sai sem passar pela política de termos ───────── */
+  const MED = (n, p) => { try { if (window.Medicao) window.Medicao.track(n, p); } catch (e) {} };
+  let medBuscaTimer = null, medBuscaUltima = '';
+  /** busca: 1× por termo final (900 ms parado). Sem resultado exato ⇒ `search_no_results`. O texto só é enviado se for seguro e casar com o catálogo. */
+  function medirBusca() {
+    clearTimeout(medBuscaTimer);
+    const q = estado.q.trim(); if (!q) { medBuscaUltima = ''; return; }
+    medBuscaTimer = setTimeout(() => {
+      const t = q.toLowerCase(); if (t === medBuscaUltima) return; medBuscaUltima = t;
+      const sem = resultado.total === 0 || !!resultado.corrigido;
+      const conhecido = C.termoConhecido(itens, q);
+      const termo = window.Medicao && window.Medicao.termoSeguro ? window.Medicao.termoSeguro(q, { resultados: sem ? 0 : resultado.total, conhecido }) : null;
+      MED(sem ? 'search_no_results' : 'search', { search_term: termo || undefined, search_term_length: q.length, results_count: resultado.total });
+    }, 900);
+  }
+  const medFiltro = (tipo, valor) => MED('filter_apply', { filter_type: tipo, filter_value: valor || 'todos', results_count: resultado.total });
+  const nomeLista = () => (estado.q.trim() ? 'busca' : estado.cat && estado.marca ? 'categoria+marca' : estado.cat ? 'categoria:' + estado.cat : estado.marca ? 'marca:' + estado.marca : 'home');
+
   /* ───────── carregamento + cache do JSON (revalidação por ETag; sem ?v=Date.now()) ───────── */
   async function inicializar() {
     renderSkeleton();
@@ -199,6 +217,7 @@
     const alvo = [...document.querySelectorAll('[data-id]')].find(el => !el.closest('header') && el.getBoundingClientRect().bottom > 72);   // 1º item visível
     const idTopo = alvo ? alvo.dataset.id : null;
     estado.modo = novo;
+    MED('view_mode_change', { mode: novo });
     aplicarModo();
     minVisiveis = Math.max(visiveis, minVisiveis);
     renderGrid(true);
@@ -286,13 +305,13 @@
   function sheetCategorias(opener) {
     const grupos = [{ opcoes: [{ v: '', r: 'Todas as categorias', n: itens.length }].concat(categorias.comerciais.map(c => ({ v: c, r: c, n: contagem[c] }))) }];
     if (categorias.semGrupo.length) grupos.push({ rotulo: 'Outros', opcoes: categorias.semGrupo.map(c => ({ v: c, r: C.rotuloCategoria(c), n: contagem[c] })) });
-    abrirSheet(opener, 'Categorias', grupos, estado.cat, v => { estado.cat = v; atualizar(); });
+    abrirSheet(opener, 'Categorias', grupos, estado.cat, v => { estado.cat = v; atualizar(); medFiltro('categoria', v); });
   }
   function sheetMarcas(opener) {
-    abrirSheet(opener, 'Marca', [{ opcoes: [{ v: '', r: 'Todas as marcas', n: null }].concat(C.opcoesMarca(itens).map(o => ({ v: o.marca, r: o.marca, n: o.n }))) }], estado.marca, v => { estado.marca = v; atualizar(); });
+    abrirSheet(opener, 'Marca', [{ opcoes: [{ v: '', r: 'Todas as marcas', n: null }].concat(C.opcoesMarca(itens).map(o => ({ v: o.marca, r: o.marca, n: o.n }))) }], estado.marca, v => { estado.marca = v; atualizar(); medFiltro('marca', v); });
   }
   function sheetOrdem(opener) {
-    abrirSheet(opener, 'Ordenar', [{ opcoes: [...$('sortSelect').options].map(o => ({ v: o.value, r: o.textContent, n: null })) }], estado.sort, v => { estado.sort = v; atualizar(); });
+    abrirSheet(opener, 'Ordenar', [{ opcoes: [...$('sortSelect').options].map(o => ({ v: o.value, r: o.textContent, n: null })) }], estado.sort, v => { estado.sort = v; atualizar(); medFiltro('ordenacao', v); });
   }
 
   /* ───────── eventos (delegação — sem onclick inline) ───────── */
@@ -308,11 +327,11 @@
     ajustaPlaceholder(); window.addEventListener('resize', ajustaPlaceholder);
     campo.addEventListener('input', e => {
       clearTimeout(buscaTimer);
-      buscaTimer = setTimeout(() => { estado.q = e.target.value; atualizar(); }, 150);
+      buscaTimer = setTimeout(() => { estado.q = e.target.value; atualizar(); medirBusca(); }, 150);
       $('searchClear').hidden = !e.target.value;
     });
     campo.addEventListener('keydown', e => { if (e.key === 'Escape' && e.target.value) { e.target.value = ''; estado.q = ''; atualizar(); } });
-    $('buscaForm').addEventListener('submit', e => { e.preventDefault(); clearTimeout(buscaTimer); estado.q = campo.value; atualizar(); campo.blur(); });
+    $('buscaForm').addEventListener('submit', e => { e.preventDefault(); clearTimeout(buscaTimer); estado.q = campo.value; atualizar(); medirBusca(); campo.blur(); });
     $('searchClear').addEventListener('click', () => { campo.value = ''; estado.q = ''; atualizar(); campo.focus(); });
     document.addEventListener('keydown', e => {                // "/" foca a busca (desktop), sem atrapalhar campos nem diálogos
       if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) return;
@@ -320,14 +339,14 @@
       if (/INPUT|TEXTAREA|SELECT/.test(tag) || (t && t.isContentEditable) || sheetAberto() || document.querySelector('.cart-sidebar.open,.vendedor-modal.open')) return;
       e.preventDefault(); campo.focus(); campo.select();
     });
-    $('sortSelect').addEventListener('change', e => { estado.sort = e.target.value; atualizar(); });
+    $('sortSelect').addEventListener('change', e => { estado.sort = e.target.value; atualizar(); medFiltro('ordenacao', estado.sort); });
     document.querySelectorAll('.modo-btn').forEach(b => b.addEventListener('click', () => trocarModo(b.dataset.modo)));
     $('btnRapido').addEventListener('click', () => { if (window.Rapido) window.Rapido.alternar(); });
     $('lateral').addEventListener('click', e => {
       const a = e.target.closest('a.cat-link'); if (!a || !semModificador(e)) return;
       e.preventDefault();
       if ('cat' in a.dataset) estado.cat = a.dataset.cat; else estado.marca = a.dataset.marca;
-      atualizar();
+      atualizar(); medFiltro('cat' in a.dataset ? 'categoria' : 'marca', 'cat' in a.dataset ? estado.cat : estado.marca);
     });
     $('btnCat').addEventListener('click', e => sheetCategorias(e.currentTarget));
     $('btnMarca').addEventListener('click', e => sheetMarcas(e.currentTarget));
@@ -362,7 +381,12 @@
     $('grid').addEventListener('click', e => {
       if (e.target.closest('[data-limpar-tudo]')) { limparTudo(); return; }
       if (e.target.closest('[data-retry]')) { inicializar(); return; }
-      if (e.target.closest('.card-open, .l-link')) salvarEstado();      // vai para a página do produto: guarda busca/filtros/posição
+      const lk = e.target.closest('.card-open, .l-link');
+      if (lk) {                                                         // vai para a página do produto: guarda busca/filtros/posição
+        salvarEstado();
+        const it = porId.get(String(lk.dataset.produto)), ia = it && C.itemAnalytics(it);
+        if (ia) MED('select_item', { item_list_name: nomeLista(), items: [ia] });
+      }
     });
     window.addEventListener('pagehide', salvarEstado);
     $('btnMore').addEventListener('click', mostrarMais);
@@ -370,9 +394,9 @@
       new IntersectionObserver(es => { if (es.some(x => x.isIntersecting)) mostrarMais(); }, { rootMargin: '600px 0px' }).observe($('loadMore'));
     }
     $('logoTopo').addEventListener('click', e => { if (location.pathname === '/' && !location.search) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); } });
-    $('btnContato').addEventListener('click', () => Cesta.abrirVendedores());
-    $('rodapeAtend').addEventListener('click', () => Cesta.abrirVendedores());
-    Cesta.delegarAcao($('grid'), id => (porId.get(String(id)) || {}).p);   // stepper/Adicionar dos cards (não abre a página)
+    $('btnContato').addEventListener('click', () => Cesta.abrirVendedores(null, 'header'));
+    $('rodapeAtend').addEventListener('click', () => Cesta.abrirVendedores(null, 'rodape'));
+    Cesta.delegarAcao($('grid'), id => (porId.get(String(id)) || {}).p, 'lista');   // stepper/Adicionar dos cards (não abre a página)
     Cesta.aoMudar(id => Cesta.pintar(id));
   }
 

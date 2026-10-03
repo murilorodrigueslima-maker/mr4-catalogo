@@ -57,7 +57,7 @@ test('/sobre/ e /contato/: title único, description factual, canonical, 1 H1, O
     ['og:title', 'og:description', 'og:url', 'og:type', 'og:image', 'og:locale'].forEach(p => assert.match(h, new RegExp('property="' + p + '"')));
     assert.doesNotMatch(h, /name="robots"/);
     assert.match(h, /<main id="conteudo"/); assert.match(h, /<nav class="bc"/); assert.match(h, /<header class="topo/);
-    assert.doesNotMatch(h, /<script src=/);                                            // páginas institucionais não carregam JS
+    assert.deepEqual([...h.matchAll(/<script src="([^"]+)"/g)].map(m => m[1]), ['/js/catalogo-medicao.js?v=ga1-1']);   // único JS das institucionais: a medição (GA4)
   });
   assert.ok(titulos.size > 600);
 });
@@ -164,14 +164,14 @@ test('sameAs: só Instagram e Facebook oficiais confirmados; nenhuma outra rede;
 test('/privacidade/: SEO, Schema WebPage, e-mail para acesso/correção/exclusão; só afirma o que o código faz', () => {
   const h = A['privacidade/index.html'], t = h.replace(/<script[\s\S]*?<\/script>/g, '');
   assert.ok(h.includes('<link rel="canonical" href="' + ORI + '/privacidade/">')); assert.equal((h.match(/<h1[ >]/g) || []).length, 1);
-  assert.doesNotMatch(h, /name="robots"/); assert.doesNotMatch(h, /<script src=/);
+  assert.doesNotMatch(h, /name="robots"/); assert.deepEqual([...h.matchAll(/<script src="([^"]+)"/g)].map(m => m[1]), ['/js/catalogo-medicao.js?v=ga1-1']);
   assert.equal(tipo(grafo(h), 'WebPage')['@type'], 'WebPage');
   assert.ok(links(h).includes('mailto:mr4distribuidora@gmail.com'));
-  ['acesso, correção ou exclusão', 'localStorage'.length ? 'Armazenamento local' : '', 'WhatsApp', 'Amazon S3', 'GitHub Pages', 'não define cookies', 'Analytics'].forEach(x => assert.ok(t.includes(x), x));
+  ['acesso, correção ou exclusão', 'localStorage'.length ? 'Armazenamento local' : '', 'WhatsApp', 'Amazon S3', 'GitHub Pages', 'Google Analytics', '_ga', 'googletagmanager.com', 'não envia ao Google Analytics', 'desativados'].forEach(x => assert.ok(t.includes(x), x));
   // não inventa
-  assert.doesNotMatch(t, /total conformidade|LGPD|encarregado|DPO|base legal|\d+\s*(dias|meses|anos)|compartilh|vendemos|Google Analytics|Facebook Pixel/i);
+  assert.doesNotMatch(t, /total conformidade|LGPD|encarregado|DPO|base legal|\d+\s*(dias|meses|anos)|compartilh|vendemos|Facebook Pixel|não usa ferramentas de análise|não define cookies e/i);
 });
-test('/privacidade/ × código: cada afirmação tem lastro (storage, WhatsApp, S3, ausência de cookies/analytics/POST)', () => {
+test('/privacidade/ × código: cada afirmação tem lastro (storage, WhatsApp, S3, sem cookies/POST no catálogo; GA4 só via módulo de medição)', () => {
   const cesta = ler('js/catalogo-cesta.js'), app = ler('js/catalogo-app.js'), todos = ['js/catalogo-core.js', 'js/catalogo-app.js', 'js/catalogo-cesta.js', 'js/catalogo-rapido.js', 'js/produto-app.js'].map(ler).join('\n');
   assert.match(cesta, /localStorage\.setItem\('mr4_carrinho'/); assert.match(app, /localStorage\.setItem\(CHAVE_MODO/); assert.match(cesta, /localStorage\.setItem\('mr4_ultimo_vendedor'/);
   assert.match(app, /sessionStorage\.setItem\(CHAVE_ESTADO/);

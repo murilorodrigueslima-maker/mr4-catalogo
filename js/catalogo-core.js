@@ -697,6 +697,23 @@
     return Object.keys(c).sort((a, b) => a.localeCompare(b, 'pt-BR')).map(m => ({ marca: m, n: c[m] }));
   }
 
+  /** o texto digitado tem alguma palavra que existe no catálogo (nome/código/marca/categoria)? usado só para decidir se o termo de busca pode ser medido */
+  function termoConhecido(itens, q) {
+    const ks = tokens(q); if (!ks.length) return false;
+    return (itens || []).some(e => { const t = norm(e.p.name + ' ' + e.p.ref + ' ' + (e.marca || '') + ' ' + (e.catRotulo || '')); return ks.some(k => t.indexOf(k) >= 0); });
+  }
+  /** item para o GA4 a partir de um item preparado (e): só dados públicos do catálogo — código, nome, marca, categoria e preço unitário */
+  function itemAnalytics(e, qtd) {
+    if (!e || !e.p) return null;
+    const c = precoCentavos(e.p.price);
+    const o = { item_id: String(e.p.ref), item_name: e.p.name };
+    if (e.marca) o.item_brand = e.marca;
+    if (!e.semGrupo && e.catRotulo) o.item_category = e.catRotulo;
+    if (c != null) o.price = c / 100;
+    if (qtd != null) o.quantity = normalizarQtd(qtd);
+    return o;
+  }
+
   function mensagemWhatsProduto(p, qtd, url) {
     const linhas = ['Olá, MR4 Distribuidora! Vi este produto no catálogo e tenho interesse:', '', '*' + p.name + '*', 'Ref: ' + p.ref];
     if (qtd && qtd > 0) linhas.push('Quantidade desejada: ' + qtd);
@@ -712,6 +729,26 @@
     precoNumerico, prepararCatalogo, buscar, ordenar, consultar, opcoesMarca, mensagemWhatsProduto, osa,
     slugify, slugNome, hash4, resolverProduto, atribuirTaxonomia, taxonomia, urlLimpa, BASE_CATEGORIA, BASE_MARCA, htmlRelacionadosEstatico, htmlListaProdutosSeo, titulosProdutos, tituloProduto, metaDescricaoProduto, descricaoSubstantiva, excertoDescricao, cortarPalavra, contemTermo, listaPt, SEO_TITLE_ALVO, relacionados, esc, htmlBreadcrumb, htmlProdutoInfo, descricaoCurta, metaProduto,
     copiarLink, compartilhar, BASE_PRODUTO, PLACEHOLDER_SVG, htmlCard, htmlAcao, MODOS, normalizarModo, htmlLinha, htmlCabecalhoLista, rapidoBuscar, rapidoMover, rapidoAcimaDoEstoque, rapidoFeedback,
-    MAX_QTD, normalizarQtd, precoCentavos, formatarCentavos, resolverPedido
+    MAX_QTD, normalizarQtd, precoCentavos, formatarCentavos, resolverPedido, itemAnalytics, termoConhecido
   };
 });
+
+/* Medição (GA4): stub + carregador. Mantém Medicao.track() sempre disponível (fila) e baixa js/catalogo-medicao.js depois do load,
+ * sem alterar o HTML das páginas. Guarda a URL de entrada ANTES de qualquer normalização (UTMs). Nunca quebra o catálogo. */
+(function () {
+  'use strict';
+  if (typeof window === 'undefined' || typeof document === 'undefined' || window.Medicao) return;
+  try {
+    window.__mr4url0 = location.href;
+    const fila = [];
+    window.Medicao = { q: fila, track: function (n, p) { if (fila.length < 60) fila.push([n, p]); return true; }, stub: true };
+    const carregar = function () {
+      try {
+        const s = document.createElement('script');
+        s.async = true; s.src = '/js/catalogo-medicao.js?v=ga1-1';
+        document.head.appendChild(s);
+      } catch (e) {}
+    };
+    if (document.readyState === 'complete') setTimeout(carregar, 0); else window.addEventListener('load', function () { setTimeout(carregar, 0); });
+  } catch (e) {}
+})();

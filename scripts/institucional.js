@@ -25,7 +25,7 @@ const PAGINAS = {
   privacidade: {
     caminho: 'privacidade/index.html', url: ORIGEM + E.paginas.privacidade, tipo: 'WebPage', nome: 'Privacidade',
     title: 'Privacidade | MR4 Distribuidora',
-    description: 'Como o catálogo B2B da MR4 Distribuidora trata informações: dados no navegador, pedido pelo WhatsApp, recursos externos e pedidos de acesso, correção ou exclusão.',
+    description: 'Como o catálogo B2B da MR4 Distribuidora trata informações: dados no navegador, medição de uso, pedido pelo WhatsApp e pedidos de acesso, correção ou exclusão.',
     h1: 'Privacidade'
   }
 };
@@ -83,15 +83,17 @@ function conteudoPrivacidade() {
 <p>Para o catálogo funcionar, o seu navegador guarda no próprio dispositivo: o pedido em montagem (produtos e quantidades), a preferência de modo de exibição, o vendedor escolhido por último e, durante a sessão, a busca, os filtros e a posição da página para você voltar de um produto sem perder o lugar. A finalidade é só manter o seu pedido e a sua navegação. Essas informações ficam no seu dispositivo e não são enviadas à MR4 por esse mecanismo. Para apagá-las, use “Limpar pedido” no catálogo ou limpe os dados do site nas configurações do navegador.</p>
 <h2>Pedido pelo WhatsApp</h2>
 <p>Ao usar “Enviar pedido pelo WhatsApp”, o catálogo abre o WhatsApp com uma mensagem já preenchida para o vendedor escolhido, contendo o nome ou a empresa informado (se houver), os produtos com referência e as quantidades. Nada é enviado até você confirmar o envio no próprio WhatsApp. A partir daí, a conversa passa a ocorrer pelo WhatsApp e a MR4 recebe a mensagem para atender o pedido. O botão de WhatsApp da página de <a href="${E.paginas.contato}">contato</a> abre uma conversa com o número institucional e uma mensagem inicial padrão, sem dados pessoais.</p>
+<h2>Medição de uso (Google Analytics)</h2>
+<p>Para entender como o catálogo é usado, o site usa o Google Analytics 4, do Google. Ele registra, por exemplo, as páginas e os produtos visualizados, as buscas feitas, os filtros usados, os itens adicionados ao pedido e os cliques para enviar o pedido pelo WhatsApp (o clique, não o conteúdo da mensagem). O Google Analytics usa cookies de medição (como o _ga) e recebe informações técnicas do navegador e a origem do acesso. O catálogo não envia ao Google Analytics o nome ou a empresa digitados, telefone, e-mail, CNPJ, a mensagem do WhatsApp nem a lista do pedido, e o endereço de página enviado não inclui o que você digita na busca. Os termos de busca só são enviados de forma resumida e quando não parecem dados pessoais. O Google trata esses dados conforme os termos dele. Os recursos de publicidade e de personalização de anúncios do Google Analytics ficam desativados. Se preferir não ser medido, você pode bloquear cookies ou scripts do Google Analytics no navegador: o catálogo continua funcionando.</p>
 <h2>Recursos externos</h2>
-<p>As fotos dos produtos são carregadas de um serviço de armazenamento externo (Amazon S3); ao exibir uma foto, o seu navegador faz uma requisição a esse serviço. O site é hospedado no GitHub Pages. As fontes, os estilos e os scripts do catálogo são servidos pelo próprio site.</p>
-<h2>Cookies e análise de acesso</h2>
-<p>O código do catálogo não define cookies e, atualmente, não usa ferramentas de análise de acesso (Analytics), pixels de publicidade nem rastreamento para anúncios. Se isso mudar, esta página será atualizada.</p>
+<p>As fotos dos produtos são carregadas de um serviço de armazenamento externo (Amazon S3) e, para a medição acima, o navegador carrega o script do Google Analytics (googletagmanager.com); ao exibir uma foto ou carregar o script, o seu navegador faz uma requisição a esses serviços. O site é hospedado no GitHub Pages. As fontes, os estilos e os demais scripts do catálogo são servidos pelo próprio site.</p>
+<h2>Cookies</h2>
+<p>O catálogo em si não define cookies. Os cookies de medição (como o _ga) são definidos pelo Google Analytics. O catálogo não usa pixels de publicidade nem rastreamento para anúncios. Se isso mudar, esta página será atualizada.</p>
 <h2>Solicitações sobre dados pessoais</h2>
 <p>Pedidos de acesso, correção ou exclusão de dados pessoais podem ser feitos pelo e-mail ${mail}. Esse também é o canal para dúvidas sobre esta página.</p>
 <h2>Dados da empresa</h2>
 <p>${esc(E.nome)} — ${esc(E.razaoSocial)}, CNPJ ${esc(E.cnpj)}. ${esc(E.enderecoLinha)}, CEP ${esc(E.endereco.cep)}.</p>
-<p>Última atualização: outubro de 2026.</p>`;
+<p>Última atualização: outubro de 2026 (medição de uso com Google Analytics).</p>`;
 }
 
 /** { 'sobre/index.html': html, 'contato/index.html': html } — `head(o)` e `rodape` vêm do gerador */

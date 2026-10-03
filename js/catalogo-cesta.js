@@ -88,29 +88,57 @@
   function avisar(id) { ouvintes.forEach(f => { try { f(id); } catch (e) {} }); }
   const sr = t => { const el = $('srAviso'); if (el) el.textContent = t; };
 
+  /* ───────── medição (GA4): só código/nome/marca/categoria/preço/quantidade; nunca nome do cliente, telefone ou mensagem ───────── */
+  const MED = (n, p) => { try { if (window.Medicao) window.Medicao.track(n, p); } catch (e) {} };
+  let usouRapido = false, origemVend = '', itemVend = '';
+  function itemMed(id, qtd) {                                  // catálogo atual (marca/categoria); senão o instantâneo do carrinho
+    const e = catalogo && catalogo.find(x => String(x.p.id) === String(id));
+    if (e) return C.itemAnalytics(e, qtd);
+    const l = carrinho[id]; return l && l.produto ? C.itemAnalytics({ p: l.produto }, qtd) : null;
+  }
+  const valorMed = it => (it && it.price != null && it.quantity != null ? Math.round(it.price * it.quantity * 100) / 100 : undefined);
+
   /* ───────── operações do pedido ───────── */
   const qtdDe = id => (carrinho[id] ? C.normalizarQtd(carrinho[id].qty) : 0);
-  function add(p, qtd) {
+  function add(p, qtd, origem) {
     qtd = C.normalizarQtd(qtd == null ? 1 : qtd);
+    const antes = carrinho[p.id] ? C.normalizarQtd(carrinho[p.id].qty) : 0;
     if (!carrinho[p.id]) carrinho[p.id] = { produto: p, qty: qtd };
     else carrinho[p.id].qty = Math.min(C.MAX_QTD, C.normalizarQtd(carrinho[p.id].qty) + qtd);
+    if (origem === 'pedido_rapido') usouRapido = true;
+    try { const q = C.normalizarQtd(carrinho[p.id].qty) - antes, it = itemMed(p.id, q); MED('add_to_cart', { currency: 'BRL', value: valorMed(it), items: it ? [it] : [], origin: origem || 'catalogo' }); } catch (e) {}
     salvar(); mudou(p.id);
     sr(`Adicionado ao pedido: ${p.name}, ${carrinho[p.id].qty} ${carrinho[p.id].qty === 1 ? 'unidade' : 'unidades'}`);
   }
+  /** medição de mudança de quantidade: ≤ 0 = remoção; senão `quantity_change` (de → para) */
+  function medirQtd(id, de, para, origem) {
+    try {
+      if (para <= 0) { const it = itemMed(id, de); MED('remove_from_cart', { currency: 'BRL', value: valorMed(it), items: it ? [it] : [], origin: origem || 'pedido' }); }
+      else if (para !== de) { const it = itemMed(id, 1); MED('quantity_change', { item_id: it && it.item_id, quantity_from: de, quantity_to: para }); }
+    } catch (e) {}
+  }
   function changeQty(id, delta) {
     if (!carrinho[id]) return;
-    const n = qtdDe(id) + delta;
+    const de = qtdDe(id), n = de + delta;
+    medirQtd(id, de, n <= 0 ? 0 : Math.min(C.MAX_QTD, n), 'pedido');
     if (n <= 0) delete carrinho[id]; else carrinho[id].qty = Math.min(C.MAX_QTD, n);
     salvar(); mudou(id);
   }
   function setQty(id, val) {
     if (!carrinho[id]) return;
-    const n = parseInt(val, 10);
+    const n = parseInt(val, 10), de = qtdDe(id);
+    medirQtd(id, de, isNaN(n) || n <= 0 ? 0 : Math.min(C.MAX_QTD, n), 'pedido');
     if (isNaN(n) || n <= 0) delete carrinho[id]; else carrinho[id].qty = Math.min(C.MAX_QTD, n);
     salvar(); mudou(id);
   }
-  function remove(id) { delete carrinho[id]; salvar(); mudou(id); }
-  function limpar() { carrinho = {}; salvar(); mudou(null); }
+  function remove(id) { medirQtd(id, qtdDe(id), 0, 'pedido'); delete carrinho[id]; salvar(); mudou(id); }
+  function limpar() {
+    try {
+      const its = Object.keys(carrinho).slice(0, 20).map(id => itemMed(id, qtdDe(id))).filter(Boolean);
+      if (its.length) MED('remove_from_cart', { currency: 'BRL', value: Math.round(its.reduce((s, i) => s + (valorMed(i) || 0), 0) * 100) / 100, items: its, origin: 'limpar_pedido' });
+    } catch (e) {}
+    carrinho = {}; salvar(); mudou(null);
+  }
   const resumo = () => C.resolverPedido(carrinho, catalogo);
   function definirCatalogo(itens) { catalogo = itens; desenhar(); }
   function mudou(id) { desenhar(); avisar(id); }
@@ -131,14 +159,14 @@
   function pintar(id) {
     document.querySelectorAll(id == null ? '.acao' : `.acao[data-id="${String(id).replace(/"/g, '')}"]`).forEach(pintarAcao);
   }
-  function delegarAcao(raiz, resolver) {
+  function delegarAcao(raiz, resolver, origem) {
     const prod = el => resolver(el.dataset.id);
     const aplicar = (acao, adicionarSeFora) => {
       const inp = acao.querySelector('.qi'), id = acao.dataset.id, p = prod(acao);
       if (!inp || !p) return;
       const n = C.normalizarQtd(inp.value);
       inp.value = String(n);
-      if (qtdDe(id) > 0) setQty(id, n); else if (adicionarSeFora) add(p, n);
+      if (qtdDe(id) > 0) setQty(id, n); else if (adicionarSeFora) add(p, n, origem);
     };
     raiz.addEventListener('click', e => {
       const acao = e.target.closest('.acao'); if (!acao) return;
@@ -152,7 +180,7 @@
         const d = parseInt(qb.dataset.q, 10);
         if (qtdDe(id) > 0) changeQty(id, d);                       // no pedido: altera de verdade (− no 1 remove)
         else inp.value = String(Math.max(1, Math.min(C.MAX_QTD, C.normalizarQtd(inp.value) + d)));
-      } else if (qtdDe(id) === 0) add(p, C.normalizarQtd(inp.value));
+      } else if (qtdDe(id) === 0) add(p, C.normalizarQtd(inp.value), origem);
     });
     raiz.addEventListener('input', e => {
       const qi = e.target.closest && e.target.closest('.qi'); if (!qi) return;
@@ -251,7 +279,11 @@
       ultimoFoco = document.activeElement; document.body.style.overflow = 'hidden';
     }
     $('cartFab').setAttribute('aria-expanded', 'true');
-    if (comFoco !== false) setTimeout(() => $('cartClose').focus(), 30);
+    if (comFoco !== false) {
+      setTimeout(() => $('cartClose').focus(), 30);
+      try { const r = resumo();                                      // view_cart: só ao abrir de verdade (não na restauração automática do painel docado)
+      if (r.totalItens) MED('view_cart', { currency: 'BRL', value: r.carregado ? Math.round(r.totalCent) / 100 : undefined, item_count: r.totalItens, items: r.linhas.slice(0, 20).map(l => itemMed(l.id, l.qtd)).filter(Boolean) }); } catch (e) {}
+    }
   }
   function fecharCarrinho(semFoco) {
     const sb = $('cartSidebar'), eraDock = sb.classList.contains('dock');
@@ -269,7 +301,9 @@
   /* vendedores */
   const lerVendedor = () => { try { const v = localStorage.getItem('mr4_ultimo_vendedor'); return VENDEDORES.some(x => x.chave === v) ? v : VENDEDORES[0].chave; } catch (e) { return VENDEDORES[0].chave; } };
   const gravarVendedor = v => { try { localStorage.setItem('mr4_ultimo_vendedor', v); } catch (e) {} };
-  function abrirVendedores(mensagemCodificada) {
+  function abrirVendedores(mensagemCodificada, origem, itemRef) {
+    origemVend = origem || 'atendimento'; itemVend = itemRef || '';
+    MED('salesperson_selection_view', { origin: origemVend });
     const msg = mensagemCodificada || encodeURIComponent('Olá, MR4 Distribuidora! Gostaria de informações sobre o catálogo.');
     VENDEDORES.forEach(v => {
       const el = $(v.id);
@@ -310,6 +344,8 @@
       url = `https://wa.me/${v.num}`;
       msgEl.textContent = 'Pedido grande: o texto foi copiado. Cole na conversa do WhatsApp.'; msgEl.hidden = false;
     } else { msgEl.hidden = true; }
+    try { const r = resumo();                                    // intenção de envio: NÃO prova que a mensagem foi enviada/recebida/faturada
+      MED('whatsapp_order_click', { salesperson_id: v.chave, item_count: r.totalItens, line_count: r.linhas.length, value: r.carregado ? Math.round(r.totalCent) / 100 : undefined, currency: 'BRL', flow: usouRapido ? 'pedido_rapido' : 'catalogo', message_truncated: encoded.length > 3000 }); } catch (e) {}
     const w = window.open ? window.open(url, '_blank', 'noopener') : null;
     if (!w && typeof location !== 'undefined') { try { location.href = url; } catch (e) {} }
     sr(`Abrindo WhatsApp de ${v.nome}`);
@@ -327,7 +363,7 @@
     $('cartOverlay').addEventListener('click', () => fecharCarrinho());
     $('barraVer').addEventListener('click', () => abrirPedido());
     $('btnEnviarPedido').addEventListener('click', enviarPedido);
-    $('vendedorSel').addEventListener('change', e => gravarVendedor(e.target.value));
+    $('vendedorSel').addEventListener('change', e => { gravarVendedor(e.target.value); MED('salesperson_select', { salesperson_id: e.target.value, context: 'pedido' }); });
     $('btnLimpar').addEventListener('click', () => { $('limparConfirma').hidden = false; $('limparSim').focus(); });
     $('limparNao').addEventListener('click', () => { $('limparConfirma').hidden = true; $('btnLimpar').focus(); });
     $('limparSim').addEventListener('click', () => { limpar(); $('limparConfirma').hidden = true; sr('Pedido limpo'); });
@@ -341,7 +377,7 @@
     $('vendedorFechar').addEventListener('click', fecharVendedores);
     $('vendedorModal').addEventListener('click', e => {
       if (e.target === $('vendedorModal')) fecharVendedores();
-      const a = e.target.closest && e.target.closest('a.vendedor-btn'); if (a) { const v = VENDEDORES.find(x => x.id === a.id); if (v) gravarVendedor(v.chave); }
+      const a = e.target.closest && e.target.closest('a.vendedor-btn'); if (a) { const v = VENDEDORES.find(x => x.id === a.id); if (v) { gravarVendedor(v.chave); MED('whatsapp_contact_click', { salesperson_id: v.chave, origin: origemVend, item_id: itemVend || undefined }); } }
     });
     document.addEventListener('keydown', e => {
       const vendAberto = $('vendedorModal').classList.contains('open');

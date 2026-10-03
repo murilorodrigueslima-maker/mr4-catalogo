@@ -63,7 +63,7 @@
     const url = origem + it.url;
     pintarResumo(it);
     $('pInteresse').addEventListener('click', () => {
-      Cesta.abrirVendedores(encodeURIComponent(C.mensagemWhatsProduto(it.p, qtdEscolhida(), url)));
+      Cesta.abrirVendedores(encodeURIComponent(C.mensagemWhatsProduto(it.p, qtdEscolhida(), url)), 'produto_interesse', String(it.p.ref));
     });
     const manual = () => { $('pManual').classList.add('visivel'); const i = $('pManualUrl'); i.value = url; i.focus(); i.select(); };
     $('pShare').addEventListener('click', async () => {
@@ -106,7 +106,7 @@
       <form action="/" method="get" role="search"><label class="sr-only" for="qIndisp">Buscar no catálogo</label><input id="qIndisp" type="search" name="q" value="${esc(codigo || '')}" placeholder="Buscar no catálogo"><button type="submit" class="btn-modal-cart" style="width:auto;padding:0 20px">Buscar</button></form>
       <div class="acoes-sec"><a class="btn-sec" href="/?r=1">Voltar ao catálogo</a><button type="button" class="btn-interesse" id="pFalar">Falar com vendedor</button></div>
     </div>`;
-    $('pFalar').addEventListener('click', () => Cesta.abrirVendedores());
+    $('pFalar').addEventListener('click', () => Cesta.abrirVendedores(null, 'produto_indisponivel'));
     const bc = $('bc'); if (bc) bc.hidden = true;
   }
   function falhaDados() {
@@ -114,7 +114,7 @@
     if (c) c.innerHTML = `<p class="produto-carregando">Não foi possível carregar preço e estoque agora.</p><div class="produto-acoes"><button type="button" class="btn-modal-cart" id="pRetry">Tentar novamente</button><button type="button" class="btn-interesse" id="pFalar">Falar com vendedor</button></div>`;
     else indisponivel('', '', false);
     const r = $('pRetry'); if (r) r.addEventListener('click', () => location.reload());
-    const f = $('pFalar'); if (f) f.addEventListener('click', () => Cesta.abrirVendedores());
+    const f = $('pFalar'); if (f) f.addEventListener('click', () => Cesta.abrirVendedores(null, 'produto_indisponivel'));
   }
 
   /* ───────── principal ───────── */
@@ -122,8 +122,8 @@
     document.body.classList.add('pagina-produto');
     Cesta.iniciar();
     const ph = $('searchInput'); if (ph && window.matchMedia('(max-width:640px)').matches) ph.placeholder = 'Buscar produto…';
-    const bt = $('btnContato'); if (bt) bt.addEventListener('click', () => Cesta.abrirVendedores());
-    const ra = $('rodapeAtend'); if (ra) ra.addEventListener('click', () => Cesta.abrirVendedores());
+    const bt = $('btnContato'); if (bt) bt.addEventListener('click', () => Cesta.abrirVendedores(null, 'header'));
+    const ra = $('rodapeAtend'); if (ra) ra.addEventListener('click', () => Cesta.abrirVendedores(null, 'rodape'));
     const codigoUrl = (location.pathname.match(/\/produto\/([^/]+)/i) || [])[1];
     const codigo = codigoUrl ? decodeURIComponent(codigoUrl).split('--').pop() : '';
     const nomeEstatico = ($('pNome') || {}).textContent || '';
@@ -150,12 +150,13 @@
     $('produtoArtigo').innerHTML = C.htmlProdutoInfo(it, true);
     $('pCompra').outerHTML = `<div class="produto-compra" id="pCompra" data-estado="pronto">${htmlCompra(it)}</div>`;
     ligarCompra(it, location.origin);
-    Cesta.delegarAcao($('pCompra'), () => it.p);
+    Cesta.delegarAcao($('pCompra'), () => it.p, 'produto');
+    try { const ia = C.itemAnalytics(it); if (window.Medicao && ia) window.Medicao.track('view_item', { currency: 'BRL', value: ia.price, items: [ia] }); } catch (e) {}
     const rel = $('relacionados');
     if (rel) {
       rel.innerHTML = htmlRelacionados(C.relacionados(itens, it, 4));
       const porId = new Map(itens.map(e => [String(e.p.id), e.p]));
-      Cesta.delegarAcao(rel, id => porId.get(String(id)));
+      Cesta.delegarAcao(rel, id => porId.get(String(id)), 'relacionados');
     }
     Cesta.aoMudar(id => { Cesta.pintar(id); pintarResumo(it); });   // card ↔ pedido ↔ página: um só estado
   }
