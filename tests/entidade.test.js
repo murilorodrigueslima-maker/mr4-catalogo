@@ -23,7 +23,7 @@ const links = h => [...h.matchAll(/<a [^>]*href="([^"]+)"/g)].map(m => m[1]);
 test('fonte única: dados oficiais confirmados pelo proprietário', () => {
   assert.equal(E.nome, 'MR4 Distribuidora'); assert.equal(E.cnpj, '38.440.066/0001-75');
   assert.equal(E.endereco.rua, 'Rua Ceará, 634'); assert.equal(E.endereco.cidade, 'Fortaleza'); assert.equal(E.endereco.uf, 'CE');
-  assert.equal(E.telefone, '(85) 9119-4961'); assert.equal(E.telefoneE164, '+558591194961'); assert.equal(E.whatsappDigitos, '558591194961');
+  assert.equal(E.telefone, '(85) 99609-8520'); assert.equal(E.telefoneE164, '+5585996098520'); assert.equal(E.whatsappDigitos, '5585996098520');
   assert.equal(E.email, 'mr4distribuidora@gmail.com');
   assert.deepEqual(E.horarios.map(h => [h.rotulo, h.abre, h.fecha]), [['Segunda a sexta', '08:30', '17:30'], ['Sábado', '08:30', '12:00']]);
   assert.equal(E.endereco.cep, '60441-842');
@@ -63,14 +63,14 @@ test('/sobre/ e /contato/: title único, description factual, canonical, 1 H1, O
 });
 test('/contato/: NAP + CNPJ + horário; WhatsApp institucional sem dados pessoais/pedido; vendedores não usados', () => {
   const h = A['contato/index.html'];
-  ['MR4 Distribuidora', 'Rua Ceará, 634', 'Fortaleza', 'Ceará', '(85) 9119-4961', 'mr4distribuidora@gmail.com', '38.440.066/0001-75', 'Segunda a sexta: 08:30 às 17:30', 'Sábado: 08:30 às 12:00'].forEach(t => assert.ok(h.includes(t), t));
-  assert.ok(links(h).includes('tel:+558591194961')); assert.ok(links(h).includes('mailto:mr4distribuidora@gmail.com'));
+  ['MR4 Distribuidora', 'Rua Ceará, 634', 'Fortaleza', 'Ceará', '(85) 99609-8520', 'mr4distribuidora@gmail.com', '38.440.066/0001-75', 'Segunda a sexta: 08:30 às 17:30', 'Sábado: 08:30 às 12:00'].forEach(t => assert.ok(h.includes(t), t));
+  assert.ok(links(h).includes('tel:+5585996098520')); assert.ok(links(h).includes('mailto:mr4distribuidora@gmail.com'));
   const w = links(h).find(u => u.startsWith('https://wa.me/'));
-  assert.ok(w.startsWith('https://wa.me/558591194961?text=')); assert.equal(w.split('?')[1].startsWith('text='), true);
+  assert.ok(w.startsWith('https://wa.me/5585996098520?text=')); assert.equal(w.split('?')[1].startsWith('text='), true);
   assert.equal(decodeURIComponent(w.split('text=')[1]), E.mensagemWhatsapp);
   assert.doesNotMatch(decodeURIComponent(w.split('text=')[1]), /pedido n|R\$|\d{3,}/);   // sem dados de pedido/pessoais
-  assert.doesNotMatch(h, /558596098520|96098-520/);                                   // número do Ademir fora da página institucional
-  assert.match(ler('js/catalogo-cesta.js'), /558596098520/); assert.match(ler('js/catalogo-cesta.js'), /558591194961/);   // fluxo de vendedores intacto
+  assert.doesNotMatch(h, /558596098520|96098-520|9119-4961|558591194961/);   // nem o número antigo/incompleto nem os formatos de vendedor aparecem na página institucional
+  assert.match(ler('js/catalogo-cesta.js'), /num: '558596098520'/); assert.match(ler('js/catalogo-cesta.js'), /num: '558591194961'/);   // fluxo de vendedores intacto
 });
 test('/sobre/: responde às perguntas básicas e NÃO inventa fatos', () => {
   const h = A['sobre/index.html'];
@@ -82,14 +82,14 @@ test('Organization: mesmo @id em todo o site; NAP/taxID/legalName/PostalAddress 
   const o = tipo(grafo(A['index.html']), 'Organization');
   assert.equal(o['@id'], ORI + '/#organization'); assert.equal(o.taxID, '38.440.066/0001-75');
   assert.deepEqual(o.address, { '@type': 'PostalAddress', streetAddress: 'Rua Ceará, 634', addressLocality: 'Fortaleza', addressRegion: 'CE', postalCode: '60441-842', addressCountry: 'BR' });
-  assert.equal(o.telephone, '+558591194961'); assert.equal(o.email, 'mr4distribuidora@gmail.com');
+  assert.equal(o.telephone, '+5585996098520'); assert.equal(o.email, 'mr4distribuidora@gmail.com');
   assert.equal(o.contactPoint.contactType, 'customer service');
   const hs = o.location.openingHoursSpecification;
   assert.deepEqual(hs.map(x => [x.dayOfWeek, x.opens, x.closes]), [[['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], '08:30', '17:30'], [['Saturday'], '08:30', '12:00']]);
   assert.equal(o.location['@type'], 'Place'); assert.deepEqual(o.location.address, o.address);
   ['geo', 'foundingDate', 'hasMap'].forEach(k => { assert.equal(k in o, false, k); assert.equal(k in o.location, false, k); });
   assert.equal(o.name, 'MR4 Distribuidora'); assert.equal(o.legalName, 'MR4 COMERCIO DE PECAS E ACESSORIOS AUTOMOTIVOS LTDA');
-  assert.deepEqual(o.sameAs, ['https://www.instagram.com/mr4distribuidora/']);
+  assert.deepEqual(o.sameAs, ['https://www.instagram.com/mr4distribuidora/', 'https://www.facebook.com/p/Mr4distribuidora-100064696208963/']);
   assert.deepEqual(o.areaServed, { '@type': 'Country', name: 'Brasil' });
   ['sobre/index.html', 'contato/index.html', 'privacidade/index.html'].forEach(k => assert.deepEqual(tipo(grafo(A[k]), 'Organization'), o, k));   // idêntica: sem entidade duplicada divergente
   // produto/categoria/marca não carregam outra Organization (só referência por @id no seller)
@@ -154,10 +154,11 @@ test('abrangência: Brasil; a limitação antiga CE · PI · RN não existe em n
   assert.ok(A['index.html'].match(/<meta name="description" content="([^"]*)"/)[1].includes('todo o Brasil'));
   [A['index.html'], A['sobre/index.html'], A['contato/index.html'], A['privacidade/index.html']].forEach(h => assert.doesNotMatch(h.replace(/<script[\s\S]*?<\/script>/g, ''), /frete gr[áa]tis|prazo nacional|entrega pr[óo]pria|entregamos|entrega em todo/i));
 });
-test('Instagram: sameAs só com o perfil confirmado; nenhuma outra rede; link visível em /sobre/ coerente', () => {
+test('sameAs: só Instagram e Facebook oficiais confirmados; nenhuma outra rede; link do Instagram visível em /sobre/', () => {
   const o = tipo(grafo(A['index.html']), 'Organization');
-  assert.equal(o.sameAs.length, 1); assert.equal(o.sameAs[0], E.instagram); assert.match(E.instagram, /^https:\/\/www\.instagram\.com\/mr4distribuidora\/$/);
-  htmls().forEach(k => assert.doesNotMatch(A[k], /facebook\.com|tiktok\.com|youtube\.com|linkedin\.com|twitter\.com|x\.com\//i, k));
+  assert.equal(o.sameAs.length, 2); assert.equal(o.sameAs[0], E.instagram); assert.equal(o.sameAs[1], 'https://www.facebook.com/p/Mr4distribuidora-100064696208963/'); assert.match(E.instagram, /^https:\/\/www\.instagram\.com\/mr4distribuidora\/$/);
+  htmls().forEach(k => assert.doesNotMatch(A[k].replace(/"sameAs":\[[^\]]*\]/g, ''), /facebook\.com|tiktok\.com|youtube\.com|linkedin\.com|twitter\.com|x\.com\//i, k));   // fora do sameAs, nenhuma rede aparece
+  htmls().forEach(k => { (A[k].match(/"sameAs":\[([^\]]*)\]/g) || []).forEach(m => assert.doesNotMatch(m, /tiktok|youtube|linkedin|twitter|x\.com/i)); });
   assert.ok(links(A['sobre/index.html']).includes(E.instagram));
 });
 test('/privacidade/: SEO, Schema WebPage, e-mail para acesso/correção/exclusão; só afirma o que o código faz', () => {
@@ -180,4 +181,14 @@ test('/privacidade/ × código: cada afirmação tem lastro (storage, WhatsApp, 
   assert.deepEqual([...todos.matchAll(/fetch\(\s*'([^']+)'/g)].map(m => m[1]).sort(), ['/data/destaques.json', '/data/produtos.json', '/data/produtos.json']);   // só dados do próprio site
   const hosts = new Set(BRUTOS.filter(p => p.img).map(p => new URL(p.img).host)); assert.deepEqual([...hosts], ['upload-arquivos.s3-sa-east-1.amazonaws.com']);
   htmls().forEach(k => assert.doesNotMatch(A[k], /<script[^>]+src="https?:|<link[^>]+href="https?:\/\/(?!catalogo)/, k));
+});
+
+test('telefone: o número incompleto (85) 9119-4961 não é mais institucional em lugar nenhum; vendedores intactos', () => {
+  const geradas = htmls().map(k => A[k]).concat([ler('scripts/entidade.js').replace(/\/\/.*$/gm, ''), ler('scripts/jsonld.js'), ler('scripts/institucional.js')]);
+  geradas.forEach(t => assert.doesNotMatch(t, /9119-4961|91194961(?!.)|\+558591194961/));
+  htmls().forEach(k => assert.doesNotMatch(A[k], /wa\.me\/558591194961/, k));
+  const o = ler('js/catalogo-cesta.js');
+  assert.match(o, /nome: 'Ademir', num: '558596098520'/); assert.match(o, /nome: 'Fabiana', num: '558591194961'/);       // vendedores: não alterados nesta correção
+  assert.match(o, /\(85\) 96098-520/); assert.match(o, /\(85\) 91194-961/);
+  assert.equal(E.whatsappUrl().startsWith('https://wa.me/5585996098520?text='), true);
 });

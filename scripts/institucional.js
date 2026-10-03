@@ -19,7 +19,7 @@ const PAGINAS = {
   contato: {
     caminho: 'contato/index.html', url: ORIGEM + E.paginas.contato, tipo: 'ContactPage', nome: 'Contato',
     title: 'Contato | MR4 Distribuidora — Fortaleza, CE',
-    description: 'Contato da MR4 Distribuidora: Rua Ceará, 634, Fortaleza (CE). WhatsApp e telefone (85) 9119-4961, e-mail e horário de atendimento.',
+    description: `Contato da MR4 Distribuidora: ${E.endereco.rua}, ${E.endereco.cidade} (${E.endereco.uf}). WhatsApp e telefone ${E.telefone}, e-mail e horário de atendimento.`,
     h1: 'Contato — MR4 Distribuidora'
   },
   privacidade: {

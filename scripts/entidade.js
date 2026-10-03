@@ -13,9 +13,9 @@ const E = {
   razaoSocial: 'MR4 COMERCIO DE PECAS E ACESSORIOS AUTOMOTIVOS LTDA',   // confirmada pelo proprietário (03/10/2026); só onde faz sentido legal/institucional
   cnpj: '38.440.066/0001-75',
   endereco: { rua: 'Rua Ceará, 634', cidade: 'Fortaleza', uf: 'CE', estado: 'Ceará', cep: '60441-842', pais: 'BR', paisNome: 'Brasil' },
-  telefone: '(85) 9119-4961',
-  telefoneE164: '+558591194961',
-  whatsappDigitos: '558591194961',
+  telefone: '(85) 99609-8520',   // decisão do proprietário 03/10/2026: o mesmo número da ficha do Google Business Profile ((85) 9119-4961 foi rejeitado pelo Google como inválido)
+  telefoneE164: '+5585996098520',
+  whatsappDigitos: '5585996098520',
   email: 'mr4distribuidora@gmail.com',
   horarios: [
     { rotulo: 'Segunda a sexta', dias: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], abre: '08:30', fecha: '17:30' },
@@ -24,8 +24,10 @@ const E = {
   mensagemWhatsapp: 'Olá! Vim pelo catálogo B2B da MR4 Distribuidora e gostaria de falar com o atendimento.',   // institucional: sem dados pessoais nem de pedido
   abrangencia: 'Atendimento para todo o Brasil',   // confirmada pelo proprietário; NÃO implica frete grátis, prazo nacional nem entrega própria
   instagram: 'https://www.instagram.com/mr4distribuidora/',   // perfil aberto e conferido (logo MR4, "Distribuidora de peças e acessórios automotivos · Atacado")
+  facebook: 'https://www.facebook.com/p/Mr4distribuidora-100064696208963/',   // página oficial confirmada pelo proprietário; URL canônico real (og:url/canonical do Facebook), página "Mr4distribuidora" (id 100064696208963)
   paginas: { sobre: '/sobre/', contato: '/contato/', privacidade: '/privacidade/' }
 };
+E.sameAs = () => [E.instagram, E.facebook];   // só perfis oficiais confirmados
 E.enderecoLinha = `${E.endereco.rua} — ${E.endereco.cidade}, ${E.endereco.estado}`;
 E.enderecoCurto = `${E.endereco.rua} · ${E.endereco.cidade}, ${E.endereco.uf}`;
 E.horarioTexto = h => `${h.rotulo}: ${h.abre} às ${h.fecha}`;

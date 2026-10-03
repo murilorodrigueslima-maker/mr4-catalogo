@@ -25,7 +25,7 @@ const tag = grafo => `<script type="application/ld+json">${serializar({ '@contex
 function organizacao() {
   return {
     '@type': 'Organization', '@id': ID_ORG, name: NOME_ORG, legalName: Ent.razaoSocial, url: ORIGEM + '/', logo: { '@type': 'ImageObject', url: LOGO.url, width: LOGO.width, height: LOGO.height },
-    taxID: Ent.cnpj, sameAs: [Ent.instagram], areaServed: { '@type': 'Country', name: Ent.endereco.paisNome }, address: Ent.schemaEndereco(), telephone: Ent.telefoneE164, email: Ent.email,
+    taxID: Ent.cnpj, sameAs: Ent.sameAs(), areaServed: { '@type': 'Country', name: Ent.endereco.paisNome }, address: Ent.schemaEndereco(), telephone: Ent.telefoneE164, email: Ent.email,
     contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', telephone: Ent.telefoneE164, email: Ent.email, availableLanguage: 'pt-BR' },
     location: { '@type': 'Place', '@id': ORIGEM + '/#sede', name: NOME_ORG, address: Ent.schemaEndereco(), openingHoursSpecification: Ent.schemaHorarios() }
   };
