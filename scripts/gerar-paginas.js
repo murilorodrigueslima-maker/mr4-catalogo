@@ -108,8 +108,17 @@ function renderizarShell(shell, tax, pg) {
     // home: o H1 é a marca no topo (logo com alt), sem ocupar a barra de resultados; categoria/marca: H1 compacto na barra
     .replace('{{LOGO}}', () => (pg.h1Logo ? `<h1 class="h1-logo">${LOGO_LINK(esc(pg.h1Logo))}</h1>` : LOGO_LINK('MR4 Distribuidora')))
     .replace('{{H1}}', () => (pg.h1 ? `<h1 class="titulo-pg">${esc(pg.h1)}</h1>` : ''))
+    .replace('{{RESULTINFO}}', () => pg.resultInfo || '')
+    .replace('{{SKELETON}}', () => '<div class="skeleton-card skel"></div>'.repeat(pg.esqueleto == null ? 6 : pg.esqueleto))     // reserva a altura da grade antes do JS (CLS): rodapé/contexto não aparecem acima da dobra e depois "pulam"
     .replace('{{LISTA}}', () => pg.lista || '')
     .replace('{{CONTEXTO}}', () => contextoSeo(tax, pg.contexto));
+}
+/** Reserva o espaço da linha de resultados ANTES do JS (mesma estrutura que renderInfo gera): evita o deslocamento do grid (CLS) quando o texto chega.
+ *  Invisível e aria-hidden; só dígitos "0" (a largura é igual à de qualquer contagem com o mesmo nº de dígitos) ⇒ página não muda a cada sync. */
+function resultInfoPlaceholder(rotulo, n) {
+  const dig = '0'.repeat(Math.max(1, String(n).length));
+  const chip = rotulo ? `<span class="chip">${esc(rotulo)}<button type="button" tabindex="-1">✕</button></span><button type="button" class="link-btn" tabindex="-1">Limpar filtros</button>` : '';
+  return `<span class="ri-ph" aria-hidden="true"><span><strong>${dig}</strong> ${n === 1 ? 'produto' : 'produtos'}</span>${chip}</span>`;
 }
 function paginaTaxonomia(shell, tax, tipo, t, vazia) {
   const cat = tipo === 'categoria', url = ORIGEM + t.url;
@@ -117,15 +126,15 @@ function paginaTaxonomia(shell, tax, tipo, t, vazia) {
   return renderizarShell(shell, tax, {
     title: tx.title, description: tx.description,
     canonical: url, noindex: !!vazia, jsonld: LD.tag(LD.grafoTaxonomia(tipo, t, tx.description, !!vazia)),
-    bodyAttrs: ` data-pagina="${tipo}" data-${cat ? 'cat' : 'marca'}="${esc(t.chave)}"`,
-    h1: rotulo,
+    bodyAttrs: ` data-pagina="${tipo}" data-${cat ? 'cat' : 'marca'}="${esc(t.chave)}" data-n="${t.itens.length}"`,
+    esqueleto: Math.min(6, t.itens.length), h1: rotulo, resultInfo: resultInfoPlaceholder(vazia ? '' : (tipo === 'categoria' ? Core.rotuloCategoria(t.chave) : rotulo), t.itens.length || 100),
     lista: vazia ? `<p class="seo-vazio">Nenhum produto disponível nesta ${cat ? 'categoria' : 'marca'} no momento. <a href="/">Ver todo o catálogo</a>.</p>` : Core.htmlListaProdutosSeo(t.itens, cat ? `Produtos da categoria ${rotulo}` : `Produtos da marca ${rotulo}`),
     contexto: { titulo: cat ? `Sobre a categoria ${rotulo}` : `Sobre a marca ${rotulo}`, texto: tx.intro }
   });
 }
 function paginaHome(shell, tax) {
   return renderizarShell(shell, tax, {
-    title: TITLE_HOME, description: DESC_HOME, canonical: ORIGEM + '/', jsonld: LD.tag(LD.grafoHome()), bodyAttrs: ' data-pagina="home"', h1: '', h1Logo: H1_HOME, lista: '',
+    title: TITLE_HOME, description: DESC_HOME, canonical: ORIGEM + '/', jsonld: LD.tag(LD.grafoHome()), bodyAttrs: ' data-pagina="home"', h1: '', h1Logo: H1_HOME, resultInfo: resultInfoPlaceholder('', 100), lista: '',
     contexto: { titulo: 'Sobre o catálogo', texto: textoHome(tax) }
   });
 }

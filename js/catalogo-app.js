@@ -144,7 +144,8 @@
       (algum ? `<button type="button" class="link-btn" data-limpar-tudo>${resultado.comBusca && !chips.length ? 'Limpar busca' : (chips.length && !resultado.comBusca ? 'Limpar filtros' : 'Limpar tudo')}</button>` : '');
   }
 
-  const cardHTML = e => C.htmlCard(e, { qtd: Cesta.qtdDe(e.p.id), destaque: destaqueIds.has(String(e.p.id)) });
+  // LCP: as primeiras imagens (acima da dobra) não são lazy e a 1ª tem prioridade alta; o resto continua lazy
+  const cardHTML = (e, i) => C.htmlCard(e, { qtd: Cesta.qtdDe(e.p.id), destaque: destaqueIds.has(String(e.p.id)), prioridade: i === 0 ? 'alta' : (i < (mobile() ? 2 : 4) ? 'eager' : '') });
   const linhaHTML = e => C.htmlLinha(e, { qtd: Cesta.qtdDe(e.p.id), destaque: destaqueIds.has(String(e.p.id)) });
   /** aplica o modo ao contêiner e ao seletor (mesmos dados, outra representação) */
   function aplicarModo() {
@@ -167,7 +168,7 @@
     const ate = Math.min(resultado.total, reiniciar ? Math.max(passo, minVisiveis) : visiveis + passo);
     minVisiveis = 0;
     const compacto = estado.modo === 'compacto';
-    const html = resultado.lista.slice(reiniciar ? 0 : visiveis, ate).map(compacto ? linhaHTML : cardHTML).join('');
+    const html = resultado.lista.slice(reiniciar ? 0 : visiveis, ate).map((e, i) => (compacto ? linhaHTML(e) : cardHTML(e, reiniciar ? i : 99))).join('');
     if (reiniciar) grid.innerHTML = (compacto ? C.htmlCabecalhoLista() : '') + html; else grid.insertAdjacentHTML('beforeend', html);
     visiveis = ate;
     const resta = resultado.total - visiveis;
@@ -179,7 +180,9 @@
 
   function renderSkeleton() {
     aplicarModo();
-    $('grid').innerHTML = Array.from({ length: 6 }, () => `<div class="skeleton-card skel"></div>`).join('');
+    // páginas estáticas de categoria/marca informam quantos itens existem (data-n): o esqueleto não passa disso ⇒ o conteúdo abaixo não "pula" (CLS)
+    const n = parseInt(document.body.dataset.n, 10);
+    $('grid').innerHTML = Array.from({ length: n > 0 ? Math.min(6, n) : 6 }, () => `<div class="skeleton-card skel"></div>`).join('');
     $('loadMore').hidden = true;
   }
   function renderErro(msg) {

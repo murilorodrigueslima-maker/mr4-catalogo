@@ -79,7 +79,7 @@ test('não altera a busca/filtros do catálogo principal e abre lazy', () => {
   assert.doesNotMatch(IDX, /id="rapido"/);
 });
 test('botão visível, atalho Alt+Q, "/" intacto, scripts versionados', () => {
-  assert.match(IDX, /id="btnRapido"/); assert.match(IDX, /Pedido rápido/); assert.match(IDX, /catalogo-rapido\.js\?v=(faseD|seo\d)-\d/);
+  assert.match(IDX, /id="btnRapido"/); assert.match(IDX, /Pedido rápido/); assert.match(IDX, /catalogo-rapido\.js\?v=(faseD|seo\d|perf\d)-\d/);
   assert.match(RQ, /e\.altKey && !e\.ctrlKey && !e\.metaKey && e\.code === 'KeyQ'/);
   assert.match(APP, /e\.key !== '\/'/);
   assert.match(APP, /Rapido\.alternar/);

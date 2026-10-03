@@ -109,7 +109,7 @@ test('CSS do compacto: lista com contêiner (sem tabela larga/rolagem horizontal
   assert.match(CSS, /\.linha \.acao\.no-pedido \.btn-add-cart::after\{content:"✓"/);                      // celular: "✓" cabe ao lado do stepper
 });
 test('compacto sem download de fotos: o modo escolhe o template ANTES de gerar HTML (nenhum <img> escondido por CSS)', () => {
-  assert.match(APP, /map\(compacto \? linhaHTML : cardHTML\)/);
+  assert.match(APP, /compacto \? linhaHTML\(e\) : cardHTML\(e, /);
   assert.equal((C.htmlLinha.toString().match(/<img/g) || []).length, 0);
   assert.equal(/display:\s*none[^}]*img|img[^}]*display:\s*none/.test(CSS.slice(CSS.indexOf('MODO COMPACTO'))), false);
 });

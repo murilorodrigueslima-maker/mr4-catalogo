@@ -118,21 +118,23 @@ test('alvos de toque ≥ 44 px nos controles principais e sem fontes < 12 px', (
   const tamanhos = [...CSS.matchAll(/font-size:\s*([\d.]+)(rem|px)/g)].map(m => (m[2] === 'rem' ? Number(m[1]) * 16 : Number(m[1])));
   assert.ok(Math.min(...tamanhos) >= 12, 'menor fonte: ' + Math.min(...tamanhos));
 });
-test('fontes: só os pesos usados (Barlow 400/600 + Barlow Condensed 700), sem JetBrains Mono', () => {
+test('fontes: só os pesos usados (Barlow 400/600 + Barlow Condensed 700), auto-hospedadas (sem CSS de terceiros bloqueando), sem JetBrains Mono', () => {
+  const css = fs.readFileSync(path.join(RAIZ, 'css/catalogo.css'), 'utf8');
   for (const s of [IDX, TPL, NF]) {
-    const l = s.match(/fonts\.googleapis\.com\/css2\?([^"]+)"/)[1];
-    assert.match(l, /family=Barlow\+Condensed:wght@700/); assert.match(l, /family=Barlow:wght@400;600/);
-    assert.doesNotMatch(l, /JetBrains/); assert.match(l, /display=swap/);
-    assert.equal((l.match(/family=/g) || []).length, 2);
+    assert.doesNotMatch(s, /fonts\.googleapis\.com|fonts\.gstatic\.com/);
+    assert.doesNotMatch(s, /rel="preload"[^>]*fonts/);                                                 // sem preload: medido, disputa banda com CSS/JS/JSON em rede lenta e não melhora o LCP
   }
-  assert.doesNotMatch(CSS + CSSP, /JetBrains/);
-  const pesos = [...(CSS + CSSP).matchAll(/font-weight:\s*(\d+)/g)].map(m => Number(m[1]));
-  assert.ok(Math.max(...pesos) <= 800);
+  const faces = css.match(/@font-face\{[^}]+\}/g) || [];
+  assert.equal(faces.length, 3);
+  assert.ok(faces.some(f => /'Barlow Condensed'/.test(f) && /font-weight:700/.test(f)));
+  assert.ok(faces.some(f => /'Barlow'/.test(f) && /font-weight:400/.test(f))); assert.ok(faces.some(f => /'Barlow'/.test(f) && /font-weight:600/.test(f)));
+  faces.forEach(f => { assert.match(f, /font-display:swap/); const u = f.match(/url\((\/assets\/fonts\/[^)]+)\)/)[1]; assert.ok(fs.existsSync(path.join(RAIZ, u)), u); });
+  assert.doesNotMatch(css, /JetBrains/);
 });
 test('catálogo e páginas de produto usam as mesmas versões de css/js; versões novas (cache)', () => {
   const v = s => (s.match(/catalogo\.css\?v=([\w-]+)/) || [])[1];
-  assert.equal(v(IDX), v(TPL)); assert.equal(v(IDX), v(NF)); assert.match(v(IDX), /^(fase[ABCD]|seo\d)-/);
-  assert.match(IDX, /catalogo-app\.js\?v=(fase[ABCD]|seo\d)-/); assert.match(TPL, /produto-app\.js\?v=(fase[ABCD]|seo\d)-/);
+  assert.equal(v(IDX), v(TPL)); assert.equal(v(IDX), v(NF)); assert.match(v(IDX), /^(fase[ABCD]|seo\d|perf\d)-/);
+  assert.match(IDX, /catalogo-app\.js\?v=(fase[ABCD]|seo\d|perf\d)-/); assert.match(TPL, /produto-app\.js\?v=(fase[ABCD]|seo\d|perf\d)-/);
 });
 test('lógica comercial preservada: busca usa o núcleo; carrinho no mesmo formato; vendedores/telefones intactos', () => {
   assert.match(APP, /C\.consultar\(itens, estado, destaqueIds\)/);

@@ -1,3 +1,7 @@
+/* Fontes auto-hospedadas (Barlow/Barlow Condensed, SIL OFL 1.1; subconjunto latin): sem CSS de terceiros bloqueando a renderização e sem troca de fonte tardia (CLS) */
+@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/barlow-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/barlow-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/barlow-condensed-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 /* MR4 Catálogo — UX B2B Fase A: header com busca, primeira tela enxuta, sidebar/sheets, card B2B.
    Regras de cor: laranja = ação primária e estado ativo; preço/nome em texto escuro; estoque em verde/âmbar/vermelho. */
 :root{
@@ -59,6 +63,7 @@ img{max-width:100%}
 .barra{display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;min-height:36px;margin-bottom:10px}
 .result-info{flex:1 1 auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:.95rem;color:var(--muted);min-width:0}
 .result-info strong{color:var(--ink)}
+.ri-ph{display:contents;visibility:hidden}
 .chip{display:inline-flex;align-items:center;gap:2px;background:#fff3ec;border:1.5px solid var(--orange-ink);color:var(--orange-ink);border-radius:20px;padding:0 4px 0 12px;font-weight:600;font-size:.9rem;min-height:32px}
 .chip button{border:none;background:transparent;cursor:pointer;width:32px;height:32px;border-radius:50%;color:inherit;font-size:.9rem}
 .chip button:hover{background:rgba(194,65,12,.12)}

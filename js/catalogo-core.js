@@ -423,7 +423,7 @@
     const sl = p.stock > 10 ? `${p.stock} em estoque` : p.stock > 0 ? `Últimas ${p.stock} unid.` : 'Sem estoque';
     return `<article class="card${o.destaque ? ' destaque-card' : ''}" data-id="${id}">
       ${o.destaque ? `<div class="destaque-badge">🔥 Destaque</div>` : ''}
-      <div class="card-img">${p.img ? `<img src="${esc(p.img)}" alt="" loading="lazy" decoding="async">` : PLACEHOLDER_SVG}</div>
+      <div class="card-img">${p.img ? `<img src="${esc(p.img)}" alt="" ${o.prioridade === 'alta' ? 'fetchpriority="high" ' : o.prioridade === 'eager' ? '' : 'loading="lazy" '}decoding="async">` : PLACEHOLDER_SVG}</div>
       <div class="card-body">
         <h3 class="card-name"><a class="card-open" href="${esc(e.url)}" title="${esc(p.name)}" data-produto="${id}">${esc(p.name)}</a></h3>
         <div class="card-cod">Cód. <b>${esc(p.ref)}</b>${e.marca ? ` · ${esc(e.marca)}` : ''}</div>
