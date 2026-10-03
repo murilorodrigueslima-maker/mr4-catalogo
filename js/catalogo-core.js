@@ -184,20 +184,24 @@
   }
   /** aplica os overrides (cópias; o feed original não é mutado). IDs sem override passam intactos. */
   function aplicarEditorial(produtos, ed) {
-    const mapa = ed && ed.produtos;
+    // TOTAL por construção: um editorial malformado NUNCA pode derrubar o catálogo (o navegador não valida; só o gerador valida).
+    const objeto = x => x != null && typeof x === 'object' && !Array.isArray(x);
+    const mapa = objeto(ed) && objeto(ed.produtos) ? ed.produtos : null;
     if (!mapa) return produtos || [];
-    const cats = new Set((produtos || []).map(p => String(p.category || '').trim()).filter(Boolean));
+    const tem = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
+    const cats = new Set((produtos || []).map(p => String((p && p.category) || '').trim()).filter(Boolean));
     return (produtos || []).map(r => {
-      const o = mapa[String(r.id)];
-      if (!o) return r;
+      const id = r && r.id != null ? String(r.id) : '';
+      const o = id && tem(mapa, id) ? mapa[id] : null;
+      if (!objeto(o)) return r;
       const p = Object.assign({}, r), erp = {}, editado = [];
       const descErpValida = r.desc && String(r.desc).trim().length >= 40;
       EDITORIAL_CAMPOS.forEach(k => {
-        if (!(k in o)) return;
+        if (!tem(o, k) || typeof o[k] !== 'string' || !o[k].trim()) return;                // só texto não vazio
         const campo = k === 'title' ? 'name' : k;
         if (k === 'desc' && descErpValida && o.descModo !== 'substituir') return;      // ERP válida vence, salvo substituição explícita
-        if (k === 'category' && !cats.has(String(o[k]).trim())) return;                   // só categoria que já existe no feed
-        const novo = String(o[k]).trim();
+        if (k === 'category' && !cats.has(o[k].trim())) return;                         // só categoria que já existe no feed
+        const novo = o[k].trim();
         if (String(p[campo] == null ? '' : p[campo]).trim() === novo) return;
         erp[campo] = r[campo] == null ? '' : r[campo];
         p[campo] = novo; editado.push(campo);
@@ -206,7 +210,6 @@
       return p;
     });
   }
-
   /** relatório auditável: toda transformação realizada (bruto → exibido), com contagem */
   function relatorioMarcas(lista) {
     const c = {};

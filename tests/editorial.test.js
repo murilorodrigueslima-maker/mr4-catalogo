@@ -187,3 +187,19 @@ test('push seguro: mudança remota em data/editorial.json conta como entrada do 
   assert.ok(P.ENTRADAS_DO_GERADOR.test('data/editorial.json') && P.ENTRADAS_DO_GERADOR.test('templates/produto.html') && P.ENTRADAS_DO_GERADOR.test('js/catalogo-core.js'));
   assert.ok(!P.ENTRADAS_DO_GERADOR.test('data/produtos.json') && !P.ENTRADAS_DO_GERADOR.test('tests/x.test.js') && !P.ENTRADAS_DO_GERADOR.test('data/editorial.json.bak'));
 });
+
+test('ROBUSTEZ: editorial malformado no navegador (sem validação) NUNCA lança nem altera o catálogo', () => {
+  const lista = [prod(1, { brand: 'Tiger' }), prod(2)];
+  const lixo = [null, undefined, 42, 'texto', [], [1, 2], {}, { produtos: null }, { produtos: [] }, { produtos: 'x' }, { versao: 1, produtos: { 1: null } }, { versao: 1, produtos: { 1: 'texto' } }, { versao: 1, produtos: { 1: [1] } }, { versao: 1, produtos: { 1: { brand: 5 } } }, { versao: 1, produtos: { 1: { brand: '  ' } } }, { versao: 1, produtos: { 1: { brand: { x: 1 } } } }, { versao: 1, produtos: { __proto__: { 1: { brand: 'X' } } } }];
+  lixo.forEach(ed => {
+    let r; assert.doesNotThrow(() => { r = C.prepararCatalogo(lista, ed); }, JSON.stringify(ed));
+    assert.deepEqual(r.map(e => e.marca), ['Tiger', ''], JSON.stringify(ed));
+  });
+  // ids que colidem com Object.prototype não casam com override algum
+  const ids = ['constructor', 'toString', '__proto__', 'hasOwnProperty'].map(i => prod(i));
+  const r = C.aplicarEditorial(ids, ed({ 1: ok({ brand: 'X' }) }));
+  r.forEach((p, i) => assert.equal(p, ids[i]));
+  // entrada válida convive com entradas lixo
+  const mista = C.aplicarEditorial(lista, { versao: 1, produtos: { 1: 'texto', 2: { brand: 'LDCAR', motivo: 'm' } } });
+  assert.equal(mista[0], lista[0]); assert.equal(mista[1].brand, 'LDCAR');
+});
