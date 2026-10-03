@@ -169,7 +169,7 @@ function renderizarPagina(item, tpl, rel, titulo) {
     .replace('{{RELACIONADOS}}', () => Core.htmlRelacionadosEstatico(rel || []))
     .replace('{{RODAPE}}', () => Ent.rodape(true));
 }
-function renderizarRedirecionamento(novoUrl) {
+function renderizarRedirecionamento(novoUrl, tipo) {
   const abs = ORIGEM + novoUrl;
   return `<!DOCTYPE html>
 <html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -177,7 +177,7 @@ function renderizarRedirecionamento(novoUrl) {
 <meta name="robots" content="noindex">
 <link rel="canonical" href="${Core.esc(abs)}">
 <meta http-equiv="refresh" content="0; url=${Core.esc(novoUrl)}">
-</head><body><p>Este produto mudou de endereço: <a href="${Core.esc(novoUrl)}">abrir página atual</a>.</p>
+</head><body><p>${tipo === 'marca' ? 'Esta marca' : 'Este produto'} mudou de endereço: <a href="${Core.esc(novoUrl)}">abrir página atual</a>.</p>
 <script>location.replace(${JSON.stringify(novoUrl).replace(/</g, '\\u003c')}+location.search+location.hash);</script></body></html>
 `;
 }
@@ -187,7 +187,7 @@ const dirDe = url => url.replace(/^\/produto\//, '').replace(/\/$/, '');
  *  Sem `opts` = comportamento da Fase 2 (só páginas de produto + manifest).
  *  Com `opts` = { shell, estado, atualizado, existente(rel) } → SEO Fase 1 (home, categorias, marcas, robots, sitemap, estado). */
 function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
-  const itens = Core.prepararCatalogo(produtosBrutos);
+  const itens = Core.prepararCatalogo(produtosBrutos, opts && opts.editorial);
   const est0 = (opts && opts.estado) || {};
   if (opts && (!itens.length || (!opts.confiavel && est0.ativos && itens.length < LIMITE_SAUDE * est0.ativos))) {
     return { arquivos: {}, itens, saudavel: false, estado: est0 };            // feed suspeito: não regenera nada
@@ -232,7 +232,15 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
     estado.taxonomias[t.url] = { tipo, chave: t.chave, rotulo: t.rotulo };
     arquivos[t.url.slice(1) + 'index.html'] = paginaTaxonomia(opts.shell, tax, tipo, t, false);
   }));
-  Object.keys(est0.taxonomias || {}).filter(u => !vivas[u]).forEach(u => {
+  // redirecionamentos editoriais (alias inequívoco, ex.: marca com erro de digitação): a URL antiga leva à canônica viva e SAI do estado/sitemap
+  const reds = (opts.editorial && opts.editorial.redirecionamentos) || {};
+  const redirecionadas = {};
+  Object.keys(reds).forEach(de => {
+    if (vivas[de] || !vivas[reds[de]]) return;                                // origem ainda tem produtos, ou destino não existe: não redireciona
+    arquivos[de.slice(1) + 'index.html'] = renderizarRedirecionamento(reds[de], de.split('/')[1]);
+    redirecionadas[de] = reds[de];
+  });
+  Object.keys(est0.taxonomias || {}).filter(u => !vivas[u] && !redirecionadas[u]).forEach(u => {
     const m = est0.taxonomias[u];
     estado.taxonomias[u] = m;
     arquivos[u.slice(1) + 'index.html'] = paginaTaxonomia(opts.shell, tax, m.tipo, { chave: m.chave, rotulo: m.rotulo, url: u, itens: [] }, true);
@@ -261,7 +269,7 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
   const ord = o => Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {});
   estado.lastmod = ord(estado.lastmod); estado.ausentes = ord(estado.ausentes); estado.taxonomias = ord(estado.taxonomias);
   arquivos['data/seo-estado.json'] = JSON.stringify(estado, null, 1) + '\n';
-  return { arquivos, itens, saudavel: true, estado, tax, urls: urls.map(x => x.u) };
+  return { arquivos, itens, saudavel: true, estado, tax, urls: urls.map(x => x.u), redirecionadas };
 }
 
 /** URLs INDEXÁVEIS cujo HTML (sem ?v=) é novo ou mudou de verdade — insumo do IndexNow. Sitemap/robots/estado/manifest nunca entram. */
@@ -283,8 +291,15 @@ function executar(raiz) {
   const lerTxt = rel => { try { return fs.readFileSync(path.join(raiz, rel), 'utf8'); } catch (e) { return null; } };
   const manifesto = lerJson('produto/manifest.json');
   const shell = fs.readFileSync(path.join(raiz, 'templates/catalogo.html'), 'utf8');
+  // camada editorial (opcional): arquivo inválido BLOQUEIA a geração; ID órfão só avisa
+  let editorial = null;
+  try { editorial = JSON.parse(fs.readFileSync(path.join(raiz, 'data/editorial.json'), 'utf8')); }
+  catch (e) { if (e.code !== 'ENOENT') throw new Error('EDITORIAL_INVALIDO: data/editorial.json ilegível — ' + e.message); }
+  const vEd = Core.validarEditorial(editorial, dados.produtos || []);
+  vEd.avisos.forEach(a => console.warn('⚠️  ' + a));
+  if (vEd.erros.length) throw new Error('EDITORIAL_INVALIDO: geração bloqueada\n  - ' + vEd.erros.join('\n  - '));
   const confiavel = process.env.SYNC_FEED_VALIDADO === '1';                 // o sync já validou completude/estrutura deste feed: queda comercial legítima não é "feed doente"
-  const r = planejar(dados.produtos || [], tpl, manifesto, { shell, confiavel, estado: lerJson('data/seo-estado.json'), atualizado: dados.atualizado, existente: lerTxt });
+  const r = planejar(dados.produtos || [], tpl, manifesto, { shell, confiavel, editorial, estado: lerJson('data/seo-estado.json'), atualizado: dados.atualizado, existente: lerTxt });
   if (r.saudavel === false) {
     console.warn(`⚠️  Feed suspeito (${r.itens.length} itens; referência ${(r.estado || {}).ativos || '—'}): nada foi regenerado (falha de sync não é remoção de produto).`);
     return { produtos: r.itens.length, escritos: 0, iguais: 0, saudavel: false };
@@ -305,7 +320,8 @@ function executar(raiz) {
 
 module.exports = { executar, LD, urlsAlteradas, planejar, textosTaxonomia, textoHome, GENERICAS, renderizarPagina, renderizarRedirecionamento, marcarIndisponivel, paginaHome, paginaTaxonomia, dirDe, ORIGEM, LOGO, CARENCIA_DIAS, LIMITE_SAUDE, TITLE_HOME, DESC_HOME, ROBOTS };
 if (require.main === module) {
-  const r = executar(path.join(__dirname, '..'));
+  let r;
+  try { r = executar(path.join(__dirname, '..')); } catch (e) { console.error('❌ ' + e.message); process.exit(1); }
   if (r.saudavel === false) { console.error('❌ GERACAO_ABORTADA: feed recusado pelo gerador — nada foi gravado; o job falha ANTES do commit (nada é publicado)'); process.exit(1); }
   if (process.env.INDEXNOW_URLS_FILE) { try { fs.writeFileSync(process.env.INDEXNOW_URLS_FILE, JSON.stringify(r.alteradas || [])); } catch (e) { /* best-effort */ } }
 }

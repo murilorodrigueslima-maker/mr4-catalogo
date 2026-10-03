@@ -79,7 +79,7 @@ test('troca de modo no cliente: sem recarregar, sem nova consulta, mantém lote/
   const corpo = APP.slice(APP.indexOf('function trocarModo'), APP.indexOf('/* ───────── estado da navegação'));
   assert.doesNotMatch(corpo, /location\.reload|location\.href|fetch\(|C\.consultar|atualizar\(\)|Cesta\.(add|setQty|limpar|remove)/);
   assert.match(corpo, /renderGrid\(true\)/); assert.match(corpo, /minVisiveis = Math\.max\(visiveis, minVisiveis\)/);
-  assert.equal((APP.match(/fetch\(/g) || []).length, 2);                                                  // produtos.json + destaques.json (nenhum a mais)
+  assert.equal((APP.match(/fetch\(/g) || []).length, 3);                                                  // produtos.json + destaques.json + editorial.json (nenhum a mais)
   assert.match(APP, /Cesta\.delegarAcao\(\$\('grid'\)/);                                                   // MESMA delegação do pedido nos dois modos
   assert.match(APP, /Cesta\.aoMudar\(id => Cesta\.pintar\(id\)\)/);
   assert.match(APP, /\.closest\('\.card-open, \.l-link'\)/);                                              // abrir produto pelo compacto guarda o estado

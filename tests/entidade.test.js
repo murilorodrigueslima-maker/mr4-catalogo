@@ -178,7 +178,7 @@ test('/privacidade/ × código: cada afirmação tem lastro (storage, WhatsApp, 
   assert.doesNotMatch(cesta.replace(/\/\/.*$/gm, ''), /localStorage\.setItem\([^)]*clienteNome/);          // o nome digitado NÃO é guardado
   assert.match(cesta, /https:\/\/wa\.me\/\$\{v\.num\}\?text=/); assert.match(cesta, /\*\$\{nomeCliente \|\| 'Cliente'\}\*/);
   assert.doesNotMatch(todos, /document\.cookie|sendBeacon|XMLHttpRequest|gtag|dataLayer|fbq\(|clarity|googletagmanager|method:\s*['"]POST/i);
-  assert.deepEqual([...todos.matchAll(/fetch\(\s*'([^']+)'/g)].map(m => m[1]).sort(), ['/data/destaques.json', '/data/produtos.json', '/data/produtos.json']);   // só dados do próprio site
+  assert.deepEqual([...todos.matchAll(/fetch\(\s*'([^']+)'/g)].map(m => m[1]).sort(), ['/data/destaques.json', '/data/editorial.json', '/data/editorial.json', '/data/produtos.json', '/data/produtos.json']);   // só dados do próprio site
   const hosts = new Set(BRUTOS.filter(p => p.img).map(p => new URL(p.img).host)); assert.deepEqual([...hosts], ['upload-arquivos.s3-sa-east-1.amazonaws.com']);
   htmls().forEach(k => assert.doesNotMatch(A[k], /<script[^>]+src="https?:|<link[^>]+href="https?:\/\/(?!catalogo)/, k));
 });

@@ -114,6 +114,99 @@
     if (_marcaInvalida[k]) return '';
     return _marcaPorChave[k] || t;
   }
+
+  /* ───────── camada EDITORIAL (data/editorial.json) ─────────
+   * Correções versionadas, chaveadas pelo ID do ERP, aplicadas DEPOIS do feed (que continua 100 % ERP) e ANTES de qualquer
+   * derivação (marca/slug/categoria/URL/SEO). O próximo sync nunca as apaga: o sync não toca neste arquivo.
+   * Campos aceitos: brand, category, title, desc (+ descModo, motivo, evidencia, status). Preço/estoque/código/imagem/ID: NUNCA (erro de validação).
+   * Produto sem override ou produto novo: segue exatamente o ERP. ID órfão: aviso (não bloqueia). Arquivo inválido: bloqueia a geração.
+   * Cada item alterado carrega `p.erp` (valores originais do ERP) e `p.editado` (lista de campos) — o dado ERP continua distinguível. */
+  const EDITORIAL_CAMPOS = ['brand', 'category', 'title', 'desc'];
+  const EDITORIAL_META = ['descModo', 'motivo', 'evidencia', 'status'];
+  const EDITORIAL_PROIBIDOS = ['price', 'preco', 'stock', 'estoque', 'ref', 'sku', 'codigo', 'id', 'img', 'image', 'imagem', 'gtin', 'mpn', 'valores'];
+  function descricaoEditorialProblema(d) {
+    const t = String(d || '');
+    if (/<[a-z!\/][^>]*>/i.test(t)) return 'contém HTML';
+    if (/https?:\/\/|www\.|\b[a-z0-9-]+\.(com|net|org|br)\b/i.test(t)) return 'contém URL/domínio';
+    if (/R\$\s?\d|\b\d+[.,]\d{2}\s?(reais|r\$)|\bpor apenas\b|\bpromo[cç][aã]o\b|\bdesconto\b/i.test(t)) return 'contém preço/promoção';
+    if (/\(?\b\d{2}\)?\s?9?\d{4}[-\s]?\d{4}\b|\bwhats(app)?\b/i.test(t)) return 'contém telefone/WhatsApp';
+    if (/\bNCM\b|\bCFOP\b|\bCST\b|\bCEST\b/i.test(t)) return 'contém dado fiscal (NCM/CFOP/CST)';
+    if (/\b(garantia de|melhor do mercado|o mais vendido|original de f[aá]brica|100\s?%\s?original|homologad[oa]|certificad[oa] pelo|inmetro)\b/i.test(t)) return 'contém afirmação não comprovada (exige evidência)';
+    if (t.trim().length < 40) return 'muito curta (< 40 caracteres)';
+    if (t.length > 1500) return 'muito longa (> 1500 caracteres)';
+    return '';
+  }
+  /** valida o arquivo editorial contra o feed ERP. Devolve { erros, avisos }; qualquer erro ⇒ o chamador deve BLOQUEAR. */
+  function validarEditorial(ed, produtosErp) {
+    const erros = [], avisos = [];
+    if (ed == null) return { erros, avisos };
+    if (typeof ed !== 'object' || Array.isArray(ed)) return { erros: ['editorial: raiz deve ser um objeto'], avisos };
+    if (ed.versao !== 1) erros.push('editorial: "versao" deve ser 1');
+    const mapa = ed.produtos;
+    if (mapa == null || typeof mapa !== 'object' || Array.isArray(mapa)) { erros.push('editorial: "produtos" deve ser um objeto { <id>: {...} }'); return { erros, avisos }; }
+    const red = ed.redirecionamentos;
+    if (red != null) {
+      if (typeof red !== 'object' || Array.isArray(red)) erros.push('editorial: "redirecionamentos" deve ser um objeto { "/marca/antiga/": "/marca/canonica/" }');
+      else Object.keys(red).forEach(de => {
+        const para = red[de], re = /^\/(marca|categoria)\/[a-z0-9]+(-[a-z0-9]+)*\/$/;
+        if (!re.test(de) || typeof para !== 'string' || !re.test(para)) erros.push('editorial.redirecionamentos["' + de + '"]: origem e destino devem ser /marca/<slug>/ ou /categoria/<slug>/');
+        else if (de === para) erros.push('editorial.redirecionamentos["' + de + '"]: origem = destino');
+        else if (de.split('/')[1] !== para.split('/')[1]) erros.push('editorial.redirecionamentos["' + de + '"]: origem e destino devem ser do mesmo tipo');
+      });
+    }
+    const erp = new Map((produtosErp || []).map(p => [String(p.id), p]));
+    const cats = new Set((produtosErp || []).map(p => String(p.category || '').trim()).filter(Boolean));
+    Object.keys(mapa).forEach(id => {
+      const o = mapa[id], ctx = 'editorial[' + id + ']';
+      if (!/^\d+$/.test(id)) { erros.push(ctx + ': chave deve ser o ID numérico do ERP'); return; }
+      if (o == null || typeof o !== 'object' || Array.isArray(o)) { erros.push(ctx + ': deve ser um objeto'); return; }
+      const chaves = Object.keys(o);
+      chaves.forEach(k => {
+        if (EDITORIAL_PROIBIDOS.indexOf(k.toLowerCase()) >= 0) erros.push(ctx + ': campo "' + k + '" é do ERP e NUNCA pode ser sobrescrito editorialmente');
+        else if (EDITORIAL_CAMPOS.indexOf(k) < 0 && EDITORIAL_META.indexOf(k) < 0) erros.push(ctx + ': campo desconhecido "' + k + '"');
+      });
+      EDITORIAL_CAMPOS.forEach(k => { if (k in o && (typeof o[k] !== 'string' || !o[k].trim())) erros.push(ctx + ': "' + k + '" deve ser texto não vazio'); });
+      if (!EDITORIAL_CAMPOS.some(k => k in o)) erros.push(ctx + ': nenhum campo editorial (brand/category/title/desc)');
+      if ('descModo' in o && o.descModo !== 'preencher' && o.descModo !== 'substituir') erros.push(ctx + ': descModo deve ser "preencher" ou "substituir"');
+      if (!o.motivo || typeof o.motivo !== 'string') erros.push(ctx + ': "motivo" é obrigatório (por que a correção é segura)');
+      if (typeof o.brand === 'string' && (o.brand.length > 40 || /[<>\/\\]{2,}|https?:/i.test(o.brand))) erros.push(ctx + ': marca inválida');
+      if (typeof o.brand === 'string' && _marcaInvalida[norm(o.brand)]) erros.push(ctx + ': "' + o.brand + '" é tipo de produto, não marca');
+      if (typeof o.category === 'string' && !cats.has(o.category.trim())) avisos.push(ctx + ': categoria "' + o.category + '" não existe mais no catálogo — override de categoria ignorado (só categorias já existentes; não bloqueia o sync)');
+      if (typeof o.title === 'string') {
+        if (o.title.length > 100) erros.push(ctx + ': title > 100 caracteres');
+        if (/https?:|R\$\s?\d|<[^>]+>/i.test(o.title)) erros.push(ctx + ': title contém URL/preço/HTML');
+      }
+      if (typeof o.desc === 'string') { const pr = descricaoEditorialProblema(o.desc); if (pr) erros.push(ctx + ': desc ' + pr); }
+      const p = erp.get(id);
+      if (!p) avisos.push(ctx + ': ID órfão (não está no feed ERP atual) — override ignorado');
+    });
+    return { erros, avisos };
+  }
+  /** aplica os overrides (cópias; o feed original não é mutado). IDs sem override passam intactos. */
+  function aplicarEditorial(produtos, ed) {
+    const mapa = ed && ed.produtos;
+    if (!mapa) return produtos || [];
+    const cats = new Set((produtos || []).map(p => String(p.category || '').trim()).filter(Boolean));
+    return (produtos || []).map(r => {
+      const o = mapa[String(r.id)];
+      if (!o) return r;
+      const p = Object.assign({}, r), erp = {}, editado = [];
+      const descErpValida = r.desc && String(r.desc).trim().length >= 40;
+      EDITORIAL_CAMPOS.forEach(k => {
+        if (!(k in o)) return;
+        const campo = k === 'title' ? 'name' : k;
+        if (k === 'desc' && descErpValida && o.descModo !== 'substituir') return;      // ERP válida vence, salvo substituição explícita
+        if (k === 'category' && !cats.has(String(o[k]).trim())) return;                   // só categoria que já existe no feed
+        const novo = String(o[k]).trim();
+        if (String(p[campo] == null ? '' : p[campo]).trim() === novo) return;
+        erp[campo] = r[campo] == null ? '' : r[campo];
+        p[campo] = novo; editado.push(campo);
+      });
+      if (editado.length) { p.erp = erp; p.editado = editado; }
+      return p;
+    });
+  }
+
   /** relatório auditável: toda transformação realizada (bruto → exibido), com contagem */
   function relatorioMarcas(lista) {
     const c = {};
@@ -168,8 +261,8 @@
     const s = String((p && p.price) || '').replace(/[^\d,]/g, '').replace(',', '.');
     return parseFloat(s) || 0;
   }
-  function prepararCatalogo(bruto) {
-    const itens = (bruto || []).map((r, ordem) => {
+  function prepararCatalogo(bruto, editorial) {
+    const itens = aplicarEditorial(bruto || [], editorial).map((r, ordem) => {
       const p = Object.assign({}, r, {
         name: limparNome(r.name),
         desc: limparDescricao(r.desc),
@@ -724,6 +817,7 @@
 
   return {
     norm, compacto, tokens, removerFiscal, limparDescricao, limparNome,
+    EDITORIAL_CAMPOS, validarEditorial, aplicarEditorial, descricaoEditorialProblema,
     MAPA_MARCAS, MARCAS_INVALIDAS, marcaNormalizada, relatorioMarcas, marcasNaoUnificadas,
     ORDEM_CATEGORIAS, prioridadeCategoria, ehSemGrupo, rotuloCategoria, ROTULO_SEM_GRUPO, ordenarCategorias,
     precoNumerico, prepararCatalogo, buscar, ordenar, consultar, opcoesMarca, mensagemWhatsProduto, osa,

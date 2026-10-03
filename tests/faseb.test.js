@@ -222,8 +222,8 @@ test('sincronização: um só estado (carrinho) pintado em cards, relacionados, 
   assert.match(CESTA, /window\.addEventListener\('storage'/);                                           // outra aba/janela
   assert.match(CESTA, /function mudou\(id\) \{ desenhar\(\); avisar\(id\); \}/);
   assert.match(APP, /Cesta\.definirCatalogo\(itens\)/); assert.match(PAGINA, /Cesta\.definirCatalogo\(itens\)/);
-  assert.equal((APP.match(/fetch\(/g) || []).length, 2);                                                 // produtos.json + destaques.json: um carregamento, sem refetch
-  assert.equal((PAGINA.match(/fetch\(/g) || []).length, 1);
+  assert.equal((APP.match(/fetch\(/g) || []).length, 3);                                                 // produtos.json + destaques.json + editorial.json: um carregamento, sem refetch
+  assert.equal((PAGINA.match(/fetch\(/g) || []).length, 2);                                            // produtos.json + editorial.json
 });
 
 /* ── painel do pedido: docado × modal, barra mobile, acessibilidade ── */

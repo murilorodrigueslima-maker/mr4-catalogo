@@ -133,7 +133,9 @@
       const res = await fetch('/data/produtos.json', { cache: 'no-cache' });
       if (!res.ok) throw new Error('http ' + res.status);
       const dados = await res.json();
-      itens = C.prepararCatalogo(dados.produtos || []);
+      let editorial = null;
+      try { const re = await fetch('/data/editorial.json', { cache: 'no-cache' }); if (re.ok) editorial = await re.json(); } catch (e) { editorial = null; }
+      itens = C.prepararCatalogo(dados.produtos || [], editorial);
       const sb = $('syncBadge');
       if (sb && dados.atualizado) sb.textContent = 'Preços e estoque atualizados em ' + new Date(dados.atualizado).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'America/Fortaleza' });
     } catch (e) { falhaDados(); return; }

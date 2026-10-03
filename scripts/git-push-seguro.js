@@ -12,7 +12,7 @@
 'use strict';
 const { spawnSync } = require('child_process');
 
-const ENTRADAS_DO_GERADOR = /^(scripts|templates|js)\//;     // mudanças aqui tornam o snapshot gerado potencialmente velho
+const ENTRADAS_DO_GERADOR = /^((scripts|templates|js)\/|data\/editorial\.json$)/;     // mudanças aqui tornam o snapshot gerado potencialmente velho
 
 function criarGit(cwd, run) {
   const exec = run || spawnSync;

@@ -58,13 +58,16 @@
     renderSkeleton();
     const sl = $('seoLista'); if (sl) sl.remove();                   // links estáticos (SEO/sem JS) saem quando o catálogo interativo assume
     try {
-      const [resProd, resDest] = await Promise.all([
+      const [resProd, resDest, resEd] = await Promise.all([
         fetch('/data/produtos.json', { cache: 'no-cache' }),
-        fetch('/data/destaques.json', { cache: 'no-cache' }).catch(() => null)
+        fetch('/data/destaques.json', { cache: 'no-cache' }).catch(() => null),
+        fetch('/data/editorial.json', { cache: 'no-cache' }).catch(() => null)
       ]);
+      let editorial = null;
+      try { if (resEd && resEd.ok) editorial = await resEd.json(); } catch (e) { editorial = null; }     // sem editorial = ERP puro (nunca quebra o catálogo)
       if (!resProd.ok) throw new Error('Erro ao carregar produtos');
       const data = await resProd.json();
-      itens = C.prepararCatalogo(data.produtos || []);
+      itens = C.prepararCatalogo(data.produtos || [], editorial);
       porId = new Map(itens.map(e => [String(e.p.id), e]));
       Cesta.definirCatalogo(itens);                                  // preço/estoque do pedido vêm deste JSON
       if (window.Rapido) window.Rapido.definirCatalogo(itens);       // o Pedido Rápido busca neste mesmo catálogo
