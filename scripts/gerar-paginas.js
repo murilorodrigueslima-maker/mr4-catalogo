@@ -37,7 +37,7 @@ const LIMITE_SAUDE = 0.85;          // feed com menos de 85 % dos itens da últi
 const NOME_HOME = 'Catálogo B2B de acessórios automotivos';
 const H1_HOME = 'MR4 Distribuidora — Catálogo B2B';   // H1 da home = logo do topo (alt); a barra de resultados não ganha largura
 const TITLE_HOME = NOME_HOME + ' | MR4 Distribuidora';
-const DESC_HOME = 'Catálogo B2B da MR4 Distribuidora (Fortaleza, CE): acessórios automotivos no atacado para lojistas e instaladores — iluminação LED, molduras, alarmes, multimídia e mais. Atendemos CE, PI e RN.';
+const DESC_HOME = 'Catálogo B2B da MR4 Distribuidora (Fortaleza, CE): acessórios automotivos no atacado para lojistas e instaladores. Atendimento para todo o Brasil.';
 const hash12 = t => crypto.createHash('sha1').update(String(t)).digest('hex').slice(0, 12);
 const normHtml = h => h.replace(/\?v=[A-Za-z0-9._-]+/g, '');
 const esc = Core.esc;
@@ -64,7 +64,7 @@ function contextoSeo(tax, intro) {
 <nav aria-label="Marcas do catálogo"><strong>Marcas:</strong> ${tax.marcas.map(m => `<a href="${esc(m.url)}">${esc(m.rotulo)}</a>`).join(' · ')}</nav></section>`;
 }
 const textoHome = tax => [
-  'A MR4 Distribuidora é distribuidora de acessórios e peças automotivas no atacado, com sede em Fortaleza (CE). Este é o catálogo B2B para lojistas e instaladores de CE, PI e RN.',
+  'A MR4 Distribuidora é distribuidora de acessórios e peças automotivas no atacado, com sede em Fortaleza (CE). Este é o catálogo B2B para lojistas e instaladores, com atendimento para todo o Brasil.',
   `Navegue por categorias como ${Core.listaPt(tax.categorias.filter(c => !GENERICAS.has(Core.norm(c.chave))).slice(0, 6).map(c => c.rotulo))} ou por marca, consulte código, preço e estoque atualizados a cada sincronização e monte seu pedido para enviar ao atendimento pelo WhatsApp.`
 ];
 const LOGO_LINK = alt => `<a class="logo" href="/" id="logoTopo" aria-label="MR4 Distribuidora — catálogo"><img class="logo-img" src="/assets/logo-header.png" width="103" height="36" alt="${alt}"></a>`;
@@ -265,7 +265,7 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
 }
 
 /** URLs INDEXÁVEIS cujo HTML (sem ?v=) é novo ou mudou de verdade — insumo do IndexNow. Sitemap/robots/estado/manifest nunca entram. */
-const PAGINA_INDEXAVEL = /^(index\.html|(categoria|marca|produto)\/[^/]+\/index\.html|(sobre|contato)\/index\.html)$/;
+const PAGINA_INDEXAVEL = /^(index\.html|(categoria|marca|produto)\/[^/]+\/index\.html|(sobre|contato|privacidade)\/index\.html)$/;
 function urlsAlteradas(arquivos, existente) {
   const out = [];
   Object.keys(arquivos).filter(rel => PAGINA_INDEXAVEL.test(rel)).sort().forEach(rel => {

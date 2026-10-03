@@ -3,8 +3,8 @@
  * SEO Fase 3 — dados estruturados (JSON-LD), gerados no build, nativamente (sem biblioteca).
  * Regra: só dado confiável e presente na página. Omitido por falta de dado confiável (NÃO inventar):
  *   gtin/mpn/ean, rating/review, fabricante, modelo, priceValidUntil, itemCondition, frete/devolução (Merchant Listing),
- *   (endereço/telefone/e-mail/CNPJ/horários: confirmados pelo proprietário em 03/10/2026 → scripts/entidade.js; sem CEP/coordenadas),
- *   sameAs (nenhum perfil oficial confirmado no projeto), SearchAction (Google descontinuou o recurso em nov/2024).
+ *   (endereço/telefone/e-mail/CNPJ/horários: confirmados pelo proprietário em 03/10/2026 → scripts/entidade.js; sem coordenadas),
+ *   SearchAction (Google descontinuou o recurso em nov/2024).
  * IDs: <origem>/#organization · <origem>/#website · <URL canônica>#product · #breadcrumb · #collection
  */
 const Core = require('../js/catalogo-core.js');
@@ -24,8 +24,8 @@ const tag = grafo => `<script type="application/ld+json">${serializar({ '@contex
 /** Organization completa (home e páginas institucionais; mesmo @id em todo o site). Dados só de scripts/entidade.js (confirmados pelo proprietário). */
 function organizacao() {
   return {
-    '@type': 'Organization', '@id': ID_ORG, name: NOME_ORG, url: ORIGEM + '/', logo: { '@type': 'ImageObject', url: LOGO.url, width: LOGO.width, height: LOGO.height },
-    taxID: Ent.cnpj, address: Ent.schemaEndereco(), telephone: Ent.telefoneE164, email: Ent.email,
+    '@type': 'Organization', '@id': ID_ORG, name: NOME_ORG, legalName: Ent.razaoSocial, url: ORIGEM + '/', logo: { '@type': 'ImageObject', url: LOGO.url, width: LOGO.width, height: LOGO.height },
+    taxID: Ent.cnpj, sameAs: [Ent.instagram], areaServed: { '@type': 'Country', name: Ent.endereco.paisNome }, address: Ent.schemaEndereco(), telephone: Ent.telefoneE164, email: Ent.email,
     contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', telephone: Ent.telefoneE164, email: Ent.email, availableLanguage: 'pt-BR' },
     location: { '@type': 'Place', '@id': ORIGEM + '/#sede', name: NOME_ORG, address: Ent.schemaEndereco(), openingHoursSpecification: Ent.schemaHorarios() }
   };

@@ -26,7 +26,7 @@ test('fonte única: dados oficiais confirmados pelo proprietário', () => {
   assert.equal(E.telefone, '(85) 9119-4961'); assert.equal(E.telefoneE164, '+558591194961'); assert.equal(E.whatsappDigitos, '558591194961');
   assert.equal(E.email, 'mr4distribuidora@gmail.com');
   assert.deepEqual(E.horarios.map(h => [h.rotulo, h.abre, h.fecha]), [['Segunda a sexta', '08:30', '17:30'], ['Sábado', '08:30', '12:00']]);
-  assert.equal('cep' in E.endereco || 'postalCode' in E.endereco, false);              // CEP não confirmado: não existe
+  assert.equal(E.endereco.cep, '60441-842');
 });
 test('endereço antigo/divergente ausente de TODAS as páginas geradas, do repositório versionado e dos geradores', () => {
   const ruim = /Rio Grande do Norte,?\s*1105|Rua Rio Grande|Democrito Rocha|Dem[óo]crito/i;
@@ -34,12 +34,12 @@ test('endereço antigo/divergente ausente de TODAS as páginas geradas, do repos
   ['index.html', '404.html', 'templates/catalogo.html', 'templates/produto.html', 'templates/institucional.html', 'scripts/entidade.js', 'scripts/institucional.js', 'scripts/jsonld.js', 'scripts/gerar-paginas.js', 'js/catalogo-cesta.js'].forEach(f => assert.doesNotMatch(ler(f), ruim, f));
 });
 test('rodapé: gerado pela fonte única, compacto, com Sobre e Contato, em catálogo, categoria, marca, produto e 404', () => {
-  const amostra = ['index.html', 'categoria/moldura/index.html', 'marca/tiger/index.html', Object.keys(A).find(k => /^produto\/.+\/index\.html$/.test(k)), 'sobre/index.html', 'contato/index.html'];
+  const amostra = ['index.html', 'categoria/moldura/index.html', 'marca/tiger/index.html', Object.keys(A).find(k => /^produto\/.+\/index\.html$/.test(k)), 'sobre/index.html', 'contato/index.html', 'privacidade/index.html'];
   amostra.forEach(k => {
     const h = A[k]; const f = h.match(/<footer>[\s\S]*?<\/footer>/)[0];
     assert.ok(f.includes('CNPJ 38.440.066/0001-75 · Rua Ceará, 634 · Fortaleza, CE'), k);
-    assert.ok(f.includes('<a href="/sobre/">Sobre</a>') && f.includes('<a href="/contato/">Contato</a>'), k);
-    assert.ok(f.length < 900, k);
+    assert.ok(f.includes('<a href="/sobre/">Sobre</a>') && f.includes('<a href="/contato/">Contato</a>') && f.includes('<a href="/privacidade/">Privacidade</a>'), k);
+    assert.ok(f.length < 1000, k);
   });
   assert.ok(ler('404.html').includes(E.rodape(true)));
   assert.equal(ler('templates/catalogo.html').includes('<footer>'), false);            // nada de rodapé duplicado manualmente nos templates
@@ -47,13 +47,13 @@ test('rodapé: gerado pela fonte única, compacto, com Sobre e Contato, em catá
 });
 test('/sobre/ e /contato/: title único, description factual, canonical, 1 H1, Open Graph, breadcrumb, HTML semântico', () => {
   const titulos = new Set(htmls().map(k => A[k].match(/<title>([^<]*)<\/title>/)[1]));
-  [['sobre/index.html', '/sobre/'], ['contato/index.html', '/contato/']].forEach(([k, u]) => {
+  [['sobre/index.html', '/sobre/'], ['contato/index.html', '/contato/'], ['privacidade/index.html', '/privacidade/']].forEach(([k, u] ) => {
     const h = A[k];
     assert.ok(h.includes(`<link rel="canonical" href="${ORI}${u}">`));
     assert.equal((h.match(/<h1[ >]/g) || []).length, 1);
     assert.equal(h.match(/<title>([^<]*)<\/title>/)[1].length <= 70, true);
     assert.equal(htmls().filter(x => A[x].match(/<title>([^<]*)<\/title>/)[1] === h.match(/<title>([^<]*)<\/title>/)[1]).length, 1);
-    const d = h.match(/<meta name="description" content="([^"]*)"/)[1]; assert.ok(d.length >= 70 && d.length <= 170);
+    const d = h.match(/<meta name="description" content="([^"]*)"/)[1]; assert.ok(d.length >= 70 && d.length <= 180);
     ['og:title', 'og:description', 'og:url', 'og:type', 'og:image', 'og:locale'].forEach(p => assert.match(h, new RegExp('property="' + p + '"')));
     assert.doesNotMatch(h, /name="robots"/);
     assert.match(h, /<main id="conteudo"/); assert.match(h, /<nav class="bc"/); assert.match(h, /<header class="topo/);
@@ -74,21 +74,24 @@ test('/contato/: NAP + CNPJ + horário; WhatsApp institucional sem dados pessoai
 });
 test('/sobre/: responde às perguntas básicas e NÃO inventa fatos', () => {
   const h = A['sobre/index.html'];
-  ['O que é a MR4 Distribuidora?', 'A MR4 atende lojistas e instaladores?', 'Como acessar o catálogo?', 'Onde fica a MR4 Distribuidora?', 'Qual o horário de atendimento'].forEach(t => assert.ok(h.includes(t), t));
+  ['O que é a MR4 Distribuidora?', 'Quem a MR4 atende?', 'Como acessar o catálogo?', 'Onde fica a MR4 Distribuidora?', 'Qual o horário de atendimento'].forEach(t => assert.ok(h.includes(t), t));
   [A['sobre/index.html'], A['contato/index.html']].forEach(x => assert.doesNotMatch(x.replace(/<script[\s\S]*?<\/script>/g, ''), /fundad|desde \d{4}|\d+ anos|há \d+ anos|milhares|\d+\s*clientes|líder|certific|exclusiv|melhor|maior|depoiment|avalia[çc]/i));
-  assert.doesNotMatch(h, /postalCode|CEP|\b\d{5}-\d{3}\b/);
+  assert.match(h, /CEP 60441-842/);
 });
-test('Organization: mesmo @id em todo o site; NAP/taxID/PostalAddress/horários; sem CEP, geo, sameAs, legalName', () => {
+test('Organization: mesmo @id em todo o site; NAP/taxID/legalName/PostalAddress com CEP/horários/sameAs/areaServed; sem geo', () => {
   const o = tipo(grafo(A['index.html']), 'Organization');
   assert.equal(o['@id'], ORI + '/#organization'); assert.equal(o.taxID, '38.440.066/0001-75');
-  assert.deepEqual(o.address, { '@type': 'PostalAddress', streetAddress: 'Rua Ceará, 634', addressLocality: 'Fortaleza', addressRegion: 'CE', addressCountry: 'BR' });
+  assert.deepEqual(o.address, { '@type': 'PostalAddress', streetAddress: 'Rua Ceará, 634', addressLocality: 'Fortaleza', addressRegion: 'CE', postalCode: '60441-842', addressCountry: 'BR' });
   assert.equal(o.telephone, '+558591194961'); assert.equal(o.email, 'mr4distribuidora@gmail.com');
   assert.equal(o.contactPoint.contactType, 'customer service');
   const hs = o.location.openingHoursSpecification;
   assert.deepEqual(hs.map(x => [x.dayOfWeek, x.opens, x.closes]), [[['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], '08:30', '17:30'], [['Saturday'], '08:30', '12:00']]);
   assert.equal(o.location['@type'], 'Place'); assert.deepEqual(o.location.address, o.address);
-  ['sameAs', 'geo', 'legalName', 'foundingDate'].forEach(k => { assert.equal(k in o, false, k); assert.equal(k in o.location, false, k); });
-  ['sobre/index.html', 'contato/index.html'].forEach(k => assert.deepEqual(tipo(grafo(A[k]), 'Organization'), o, k));   // idêntica: sem entidade duplicada divergente
+  ['geo', 'foundingDate', 'hasMap'].forEach(k => { assert.equal(k in o, false, k); assert.equal(k in o.location, false, k); });
+  assert.equal(o.name, 'MR4 Distribuidora'); assert.equal(o.legalName, 'MR4 COMERCIO DE PECAS E ACESSORIOS AUTOMOTIVOS LTDA');
+  assert.deepEqual(o.sameAs, ['https://www.instagram.com/mr4distribuidora/']);
+  assert.deepEqual(o.areaServed, { '@type': 'Country', name: 'Brasil' });
+  ['sobre/index.html', 'contato/index.html', 'privacidade/index.html'].forEach(k => assert.deepEqual(tipo(grafo(A[k]), 'Organization'), o, k));   // idêntica: sem entidade duplicada divergente
   // produto/categoria/marca não carregam outra Organization (só referência por @id no seller)
   Object.keys(A).filter(k => /^(produto|categoria|marca)\/.+\/index\.html$/.test(k)).forEach(k => assert.equal(grafo(A[k]).some(n => n['@type'] === 'Organization'), false, k));
   const seller = Object.keys(A).filter(k => /^produto\//.test(k)).map(k => A[k]).find(h => /"seller"/.test(h));
@@ -104,14 +107,13 @@ test('Schema das páginas: AboutPage/ContactPage + Organization (@id) + Breadcru
     assert.equal(tipo(g, 'WebSite')['@id'], ORI + '/#website');
   });
 });
-test('LocalBusiness NÃO é usado (decisão: manter Organization + Place da sede); privacidade não publicada sem confirmação', () => {
+test('LocalBusiness NÃO é usado (decisão: manter Organization + Place da sede)', () => {
   htmls().forEach(k => assert.doesNotMatch(A[k], /"@type":"(LocalBusiness|Store|AutoPartsStore|WholesaleStore)"/, k));
-  assert.equal('privacidade/index.html' in A, false);
 });
-test('sitemap: inclui /sobre/ e /contato/; contagem = home + categorias + marcas + 2 + produtos; todas canônicas e com arquivo', () => {
+test('sitemap: inclui /sobre/ e /contato/; contagem = home + categorias + marcas + 3 + produtos; todas canônicas e com arquivo', () => {
   const locs = [...A['sitemap.xml'].matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
-  assert.ok(locs.includes(ORI + '/sobre/') && locs.includes(ORI + '/contato/'));
-  assert.equal(locs.length, 1 + R.tax.categorias.length + R.tax.marcas.length + 2 + R.itens.length);
+  assert.ok(locs.includes(ORI + '/sobre/') && locs.includes(ORI + '/contato/') && locs.includes(ORI + '/privacidade/'));
+  assert.equal(locs.length, 1 + R.tax.categorias.length + R.tax.marcas.length + 3 + R.itens.length);
   assert.equal(new Set(locs).size, locs.length);
   locs.forEach(u => { const rel = u.replace(ORI, '').replace(/^\//, '') + 'index.html'; assert.ok(rel in A, rel); assert.ok(A[rel].includes(`rel="canonical" href="${u}"`), u); });
 });
@@ -119,21 +121,63 @@ test('crawl estático: de /, só por <a href>, alcança /sobre/ e /contato/ (0 �
   const vistos = new Set(['/']), fila = ['/'];
   while (fila.length) {
     const u = fila.pop(); const rel = u.replace(/^\//, '') + 'index.html'; const h = A[rel]; assert.ok(h, u);
-    links(h).filter(l => /^\/(sobre|contato)\/$|^\/(categoria|marca|produto)\/[^?#]+\/$|^\/$/.test(l)).forEach(l => { if (!vistos.has(l)) { vistos.add(l); fila.push(l); } });
+    links(h).filter(l => /^\/(sobre|contato|privacidade)\/$|^\/(categoria|marca|produto)\/[^?#]+\/$|^\/$/.test(l)).forEach(l => { if (!vistos.has(l)) { vistos.add(l); fila.push(l); } });
   }
-  assert.ok(vistos.has('/sobre/') && vistos.has('/contato/'));
+  assert.ok(vistos.has('/sobre/') && vistos.has('/contato/') && vistos.has('/privacidade/'));
   const indexaveis = Object.keys(A).filter(k => /index\.html$/.test(k)).map(k => '/' + k.replace(/index\.html$/, ''));
   assert.deepEqual(indexaveis.filter(u => !vistos.has(u)), []);
   assert.ok(links(A['sobre/index.html']).includes('/') && links(A['sobre/index.html']).includes('/contato/'));
   assert.ok(links(A['contato/index.html']).includes('/sobre/'));
 });
 test('IndexNow: /sobre/ e /contato/ são páginas indexáveis detectáveis por diff (sem seed)', () => {
-  const novas = G.urlsAlteradas(A, rel => (/^(sobre|contato)\//.test(rel) ? null : A[rel]));
-  assert.deepEqual(novas, [ORI + '/contato/', ORI + '/sobre/']);
+  const novas = G.urlsAlteradas(A, rel => (/^(sobre|contato|privacidade)\//.test(rel) ? null : A[rel]));
+  assert.deepEqual(novas, [ORI + '/contato/', ORI + '/privacidade/', ORI + '/sobre/']);
 });
 test('desempenho: institucionais sem JS e CSS próprio pequeno; catálogo e produto sem peso novo', () => {
   assert.ok(Buffer.byteLength(A['sobre/index.html']) < 9000 && Buffer.byteLength(A['contato/index.html']) < 8000);
   assert.ok(Buffer.byteLength(ler('css/institucional.css')) < 3000);
   assert.equal(ler('templates/catalogo.html').includes('institucional.css'), false);
   assert.equal(ler('templates/produto.html').includes('institucional.css'), false);
+});
+
+test('CEP e razão social nos lugares certos: /contato/ e /sobre/ (dados completos), nunca como nome público do site', () => {
+  ['contato/index.html', 'sobre/index.html'].forEach(k => { ['60441-842', 'MR4 COMERCIO DE PECAS E ACESSORIOS AUTOMOTIVOS LTDA', '38.440.066/0001-75', 'Rua Ceará, 634'].forEach(t => assert.ok(A[k].includes(t), k + ' ' + t)); });
+  htmls().forEach(k => { assert.equal(A[k].match(/<title>([^<]*)<\/title>/)[1].includes('COMERCIO'), false, k); assert.equal(/<h1[^>]*>[^<]*COMERCIO/.test(A[k]), false, k); });
+  assert.doesNotMatch(A['index.html'].replace(/<script[\s\S]*?<\/script>/g, ''), /COMERCIO DE PECAS/);   // nome público do catálogo segue "MR4 Distribuidora"
+  assert.equal(tipo(grafo(A['index.html']), 'WebSite').name, 'MR4 Distribuidora');
+});
+test('abrangência: Brasil; a limitação antiga CE · PI · RN não existe em nenhuma página gerada nem na fonte', () => {
+  const velha = /CE\s*·\s*PI\s*·\s*RN|CE,\s*PI\s*e\s*RN|Atendemos CE|Cear[áa],\s*Piau[íi]|Piau[íi]\s*e\s*Rio Grande do Norte/i;
+  htmls().forEach(k => assert.doesNotMatch(A[k], velha, k));
+  ['index.html', '404.html', 'scripts/entidade.js', 'scripts/gerar-paginas.js', 'scripts/institucional.js', 'templates/catalogo.html', 'templates/produto.html'].forEach(f => assert.doesNotMatch(ler(f), velha, f));
+  assert.ok(A['index.html'].includes('Atendimento para todo o Brasil')); assert.ok(A['sobre/index.html'].includes('Atendimento para todo o Brasil'));
+  assert.ok(A['index.html'].match(/<meta name="description" content="([^"]*)"/)[1].includes('todo o Brasil'));
+  [A['index.html'], A['sobre/index.html'], A['contato/index.html'], A['privacidade/index.html']].forEach(h => assert.doesNotMatch(h.replace(/<script[\s\S]*?<\/script>/g, ''), /frete gr[áa]tis|prazo nacional|entrega pr[óo]pria|entregamos|entrega em todo/i));
+});
+test('Instagram: sameAs só com o perfil confirmado; nenhuma outra rede; link visível em /sobre/ coerente', () => {
+  const o = tipo(grafo(A['index.html']), 'Organization');
+  assert.equal(o.sameAs.length, 1); assert.equal(o.sameAs[0], E.instagram); assert.match(E.instagram, /^https:\/\/www\.instagram\.com\/mr4distribuidora\/$/);
+  htmls().forEach(k => assert.doesNotMatch(A[k], /facebook\.com|tiktok\.com|youtube\.com|linkedin\.com|twitter\.com|x\.com\//i, k));
+  assert.ok(links(A['sobre/index.html']).includes(E.instagram));
+});
+test('/privacidade/: SEO, Schema WebPage, e-mail para acesso/correção/exclusão; só afirma o que o código faz', () => {
+  const h = A['privacidade/index.html'], t = h.replace(/<script[\s\S]*?<\/script>/g, '');
+  assert.ok(h.includes('<link rel="canonical" href="' + ORI + '/privacidade/">')); assert.equal((h.match(/<h1[ >]/g) || []).length, 1);
+  assert.doesNotMatch(h, /name="robots"/); assert.doesNotMatch(h, /<script src=/);
+  assert.equal(tipo(grafo(h), 'WebPage')['@type'], 'WebPage');
+  assert.ok(links(h).includes('mailto:mr4distribuidora@gmail.com'));
+  ['acesso, correção ou exclusão', 'localStorage'.length ? 'Armazenamento local' : '', 'WhatsApp', 'Amazon S3', 'GitHub Pages', 'não define cookies', 'Analytics'].forEach(x => assert.ok(t.includes(x), x));
+  // não inventa
+  assert.doesNotMatch(t, /total conformidade|LGPD|encarregado|DPO|base legal|\d+\s*(dias|meses|anos)|compartilh|vendemos|Google Analytics|Facebook Pixel/i);
+});
+test('/privacidade/ × código: cada afirmação tem lastro (storage, WhatsApp, S3, ausência de cookies/analytics/POST)', () => {
+  const cesta = ler('js/catalogo-cesta.js'), app = ler('js/catalogo-app.js'), todos = ['js/catalogo-core.js', 'js/catalogo-app.js', 'js/catalogo-cesta.js', 'js/catalogo-rapido.js', 'js/produto-app.js'].map(ler).join('\n');
+  assert.match(cesta, /localStorage\.setItem\('mr4_carrinho'/); assert.match(app, /localStorage\.setItem\(CHAVE_MODO/); assert.match(cesta, /localStorage\.setItem\('mr4_ultimo_vendedor'/);
+  assert.match(app, /sessionStorage\.setItem\(CHAVE_ESTADO/);
+  assert.doesNotMatch(cesta.replace(/\/\/.*$/gm, ''), /localStorage\.setItem\([^)]*clienteNome/);          // o nome digitado NÃO é guardado
+  assert.match(cesta, /https:\/\/wa\.me\/\$\{v\.num\}\?text=/); assert.match(cesta, /\*\$\{nomeCliente \|\| 'Cliente'\}\*/);
+  assert.doesNotMatch(todos, /document\.cookie|sendBeacon|XMLHttpRequest|gtag|dataLayer|fbq\(|clarity|googletagmanager|method:\s*['"]POST/i);
+  assert.deepEqual([...todos.matchAll(/fetch\(\s*'([^']+)'/g)].map(m => m[1]).sort(), ['/data/destaques.json', '/data/produtos.json', '/data/produtos.json']);   // só dados do próprio site
+  const hosts = new Set(BRUTOS.filter(p => p.img).map(p => new URL(p.img).host)); assert.deepEqual([...hosts], ['upload-arquivos.s3-sa-east-1.amazonaws.com']);
+  htmls().forEach(k => assert.doesNotMatch(A[k], /<script[^>]+src="https?:|<link[^>]+href="https?:\/\/(?!catalogo)/, k));
 });

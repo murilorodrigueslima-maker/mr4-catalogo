@@ -53,7 +53,7 @@ test('home: title, description factual, canonical, H1 único e Open Graph', () =
   assert.ok(G.TITLE_HOME.length <= 65);
   assert.match(h, new RegExp('<title>' + G.TITLE_HOME.replace(/[|]/g, '\\|') + '</title>'));
   assert.ok(G.DESC_HOME.length <= 200);
-  assert.doesNotMatch(G.DESC_HOME, /maior|melhor|líder|anos|frete|todo o brasil|nacional|clientes/i);   // nada que não seja fato público
+  assert.doesNotMatch(G.DESC_HOME, /maior|melhor|líder|anos|frete|nacional|clientes/i);   // nada que não seja fato público
   assert.match(h, /<link rel="canonical" href="https:\/\/catalogo\.mr4distribuidora\.com\.br\/">/);
   assert.equal((h.match(/<h1[ >]/g) || []).length, 1);
   ['og:title', 'og:description', 'og:url', 'og:type', 'og:image'].forEach(p => assert.match(h, new RegExp('property="' + p + '"')));

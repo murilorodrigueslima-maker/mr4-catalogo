@@ -20,8 +20,8 @@ const token = n => (CSS.match(new RegExp('--' + n + ':\\s*(#[0-9a-fA-F]{6})')) |
 test('bloco institucional removido da área principal (sem hero, título, pills, contadores, marca d\'água)', () => {
   assert.doesNotMatch(IDX, /class="hero|hero-inner|hero-pill|hero-stats|stat-num|Catálogo Digital 2026|Acessórios\s*<br>|Para Revendedores|para Revendedores/i);
   assert.doesNotMatch(CSS, /\.hero|hero::after|\.stat-num/);
-  assert.equal((IDX.match(/CE · PI · RN/g) || []).length, 1);            // aparece uma vez (rodapé), não 4×
-  assert.match(IDX, /<footer>[\s\S]*Atacado B2B[\s\S]*CE · PI · RN[\s\S]*CNPJ[\s\S]*<\/footer>/);
+  assert.equal((IDX.match(/<footer>[\s\S]*<\/footer>/)[0].match(/Atendimento para todo o Brasil/g) || []).length, 1);            // aparece uma vez no rodapé, não 4×
+  assert.match(IDX, /<footer>[\s\S]*Atacado B2B[\s\S]*Atendimento para todo o Brasil[\s\S]*CNPJ[\s\S]*<\/footer>/);
 });
 test('header B2B: sticky, 56–64 px, busca protagonista, atendimento e pedido; ids preservados', () => {
   assert.match(IDX, /<header class="topo">/);

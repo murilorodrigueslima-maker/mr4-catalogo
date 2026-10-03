@@ -33,10 +33,10 @@ test('home: @graph com Organization + WebSite; ids estáveis; publisher referenc
   assert.deepEqual(w.publisher, { '@id': ORI + '/#organization' });
   assert.equal(g.some(n => n['@type'] === 'BreadcrumbList'), false);          // home não tem breadcrumb real
 });
-test('Organization: só propriedades confirmadas pelo proprietário (entidade.js) — sem sameAs/legalName/fundação/CEP; logo = ativo institucional válido', () => {
+test('Organization: só propriedades confirmadas pelo proprietário (entidade.js) — sem fundação/geo; logo = ativo institucional válido', () => {
   const o = tipo(grafo(A['index.html']), 'Organization');
-  assert.deepEqual(Object.keys(o).sort(), ['@id', '@type', 'address', 'contactPoint', 'email', 'location', 'logo', 'name', 'taxID', 'telephone', 'url']);
-  ['sameAs', 'foundingDate', 'legalName', 'geo'].forEach(k => assert.equal(k in o, false, k));
+  assert.deepEqual(Object.keys(o).sort(), ['@id', '@type', 'address', 'areaServed', 'contactPoint', 'email', 'legalName', 'location', 'logo', 'name', 'sameAs', 'taxID', 'telephone', 'url']);
+  ['foundingDate', 'geo'].forEach(k => assert.equal(k in o, false, k));
   assert.equal(o.logo['@type'], 'ImageObject'); assert.match(o.logo.url, /^https:\/\/catalogo\.mr4distribuidora\.com\.br\/assets\/logo-header\.png$/);
   const png = fs.readFileSync(path.join(RAIZ, 'assets/logo-header.png'));
   assert.equal(png.readUInt32BE(16), o.logo.width); assert.equal(png.readUInt32BE(20), o.logo.height);   // dimensões declaradas = arquivo real

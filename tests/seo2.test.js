@@ -182,8 +182,8 @@ test('home: conteúdo curto (≤ 2 parágrafos), factual; categorias citadas exi
   const ps = sec.match(/<p>[\s\S]*?<\/p>/g);
   assert.equal(ps.length, 2);
   ps.forEach(p => assert.ok(p.length < 520));
-  assert.match(sec, /Fortaleza \(CE\)/); assert.match(sec, /lojistas e instaladores de CE, PI e RN/);
-  assert.doesNotMatch(sec, /\d{2,}\s*(clientes|anos)|todo o Brasil|nacional/i);
+  assert.match(sec, /Fortaleza \(CE\)/); assert.match(sec, /lojistas e instaladores, com atendimento para todo o Brasil/);
+  assert.doesNotMatch(sec, /\d{2,}\s*(clientes|anos)|frete|prazo nacional|entrega pr[óo]pria/i);
   const cit = (ps[1].match(/categorias como (.+?) ou por marca/) || [, ''])[1].split(/, | e /);
   cit.forEach(c => assert.ok(R.tax.categorias.some(x => x.rotulo === c), c));
   assert.ok(A['index.html'].indexOf('seo-contexto') > A['index.html'].indexOf('id="grid"'));   // conteúdo editorial abaixo da grade
@@ -215,7 +215,7 @@ test('Twitter cards: não implementado (decisão: X usa as tags og:* como fallba
 });
 test('Fase 1 preservada: links, sitemap, canonical, relacionados e UX intactos', () => {
   assert.equal(locs(A['sitemap.xml']).length, R.urls.length);
-  assert.equal(R.urls.length, 1 + R.tax.categorias.length + R.tax.marcas.length + 2 + ITENS.length);   // +2: /sobre/ e /contato/ (Fase Entidade)
+  assert.equal(R.urls.length, 1 + R.tax.categorias.length + R.tax.marcas.length + 3 + ITENS.length);   // +3: /sobre/, /contato/ e /privacidade/ (Fase Entidade)
   ITENS.forEach(e => { assert.ok(pag(e).includes(`rel="canonical" href="https://catalogo.mr4distribuidora.com.br${e.url}"`)); assert.doesNotMatch(pag(e), /name="robots"/); });
   const e0 = ITENS.find(e => e.marca && !e.semGrupo);
   assert.ok(pag(e0).includes('class="relacionados"')); assert.ok(pag(e0).includes(`href="${e0.catUrl}"`)); assert.ok(pag(e0).includes(`href="${e0.marcaUrl}"`));
