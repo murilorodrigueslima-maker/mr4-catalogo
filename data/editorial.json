@@ -10,6 +10,16 @@
    "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
    "evidencia": "nome \"LAMPADA HALOGENA ...\"; categoria Lâmpadas Halógenas já existe com produtos do mesmo tipo"
   },
+  "57208040": {
+   "title": "FAROL DE MILHA AVULSO GOL G6 13 - LADO DIREITO",
+   "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
+   "evidencia": "Convenção do próprio ERP: SKU 02003E = \"FAROL DE MILHA AVULSO UNIVERSAL LADO ESQUERDO\" e 02003D = \"... LADO DIREITO\" (E=esquerdo, D=direito); demais pares usam sufixo \" E\"/\" D\" no nome."
+  },
+  "57208041": {
+   "title": "FAROL DE MILHA AVULSO GOL G6 13 - LADO ESQUERDO",
+   "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
+   "evidencia": "Convenção do próprio ERP: SKU 02003E = \"FAROL DE MILHA AVULSO UNIVERSAL LADO ESQUERDO\" e 02003D = \"... LADO DIREITO\" (E=esquerdo, D=direito); demais pares usam sufixo \" E\"/\" D\" no nome."
+  },
   "57934402": {
    "brand": "Fiamon",
    "motivo": "Erro de digitação (transposição de letras): \"Faimon\" → \"Fiamon\".",
@@ -24,6 +34,26 @@
    "category": "Chicotes",
    "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
    "evidencia": "prefixo KPC: 6 de 7 irmãos já em Chicotes; \"PC JOKER KING ...\" igual ao de KPC-MI-0091W (Chicotes)"
+  },
+  "59919400": {
+   "title": "FAROL DE MILHA AVULSO HILUX PICK-UP 12 15 PICK-UP - LADO DIREITO",
+   "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
+   "evidencia": "Convenção do próprio ERP: SKU 02003E = \"FAROL DE MILHA AVULSO UNIVERSAL LADO ESQUERDO\" e 02003D = \"... LADO DIREITO\" (E=esquerdo, D=direito); demais pares usam sufixo \" E\"/\" D\" no nome."
+  },
+  "59919401": {
+   "title": "FAROL DE MILHA AVULSO HILUX PICK-UP 12 15 PICK-UP - LADO ESQUERDO",
+   "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
+   "evidencia": "Convenção do próprio ERP: SKU 02003E = \"FAROL DE MILHA AVULSO UNIVERSAL LADO ESQUERDO\" e 02003D = \"... LADO DIREITO\" (E=esquerdo, D=direito); demais pares usam sufixo \" E\"/\" D\" no nome."
+  },
+  "59919402": {
+   "title": "FAROL DE MILHA AVULSO HILUX PICK-UP 09 11 - LADO DIREITO",
+   "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
+   "evidencia": "Convenção do próprio ERP: SKU 02003E = \"FAROL DE MILHA AVULSO UNIVERSAL LADO ESQUERDO\" e 02003D = \"... LADO DIREITO\" (E=esquerdo, D=direito); demais pares usam sufixo \" E\"/\" D\" no nome."
+  },
+  "59919403": {
+   "title": "FAROL DE MILHA AVULSO HILUX PICK-UP 09 11 - LADO ESQUERDO",
+   "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
+   "evidencia": "Convenção do próprio ERP: SKU 02003E = \"FAROL DE MILHA AVULSO UNIVERSAL LADO ESQUERDO\" e 02003D = \"... LADO DIREITO\" (E=esquerdo, D=direito); demais pares usam sufixo \" E\"/\" D\" no nome."
   },
   "62812853": {
    "brand": "2MIX",
@@ -76,6 +106,16 @@
    "brand": "Alemar",
    "motivo": "Marca Alemar escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
    "evidencia": "Nome ERP: \"ETI72BAR - BARRA DE LED 70X3X4 ALEMAR 24 LEDS, 72W, 12-24V\""
+  },
+  "79916437": {
+   "title": "FAROL DE MILHA AVULSO HB20/HB20S 2016 2017 - LADO DIREITO",
+   "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
+   "evidencia": "Convenção do próprio ERP: SKU 02003E = \"FAROL DE MILHA AVULSO UNIVERSAL LADO ESQUERDO\" e 02003D = \"... LADO DIREITO\" (E=esquerdo, D=direito); demais pares usam sufixo \" E\"/\" D\" no nome."
+  },
+  "79916438": {
+   "title": "FAROL DE MILHA AVULSO HB20/HB20S 2016 2017 - LADO ESQUERDO",
+   "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
+   "evidencia": "Convenção do próprio ERP: SKU 02003E = \"FAROL DE MILHA AVULSO UNIVERSAL LADO ESQUERDO\" e 02003D = \"... LADO DIREITO\" (E=esquerdo, D=direito); demais pares usam sufixo \" E\"/\" D\" no nome."
   },
   "85058965": {
    "brand": "KX3",
