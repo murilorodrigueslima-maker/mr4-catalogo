@@ -100,6 +100,48 @@
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
    "evidencia": "Catálogo 2026 Tarponn: TP-6165 = Sky 4K HB3 | fonte: tarponn.com.br/Arquivos/Catalogo (PDF)"
   },
+  "47504569": {
+   "desc": "Lâmpada H7 clear, 12V, 55W. Marca ASX. Código 2312-2.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: modelo H7; clear; 12V; 55W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "47504571": {
+   "desc": "Lâmpada H8 clear, 12V, 35W. Marca ASX. Código 2319-5.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: modelo H8; clear; 12V; 35W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "47504573": {
+   "desc": "Lâmpada HB4 clear, 12V, 55W. Marca ASX. Código 2322-1.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: modelo HB4; clear; 12V; 55W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "47504574": {
+   "desc": "Lâmpada HB3 clear, 12V, 65W. Marca ASX. Código 2323-0.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: modelo HB3; clear; 12V; 65W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "47504575": {
+   "desc": "Lâmpada torpedo clear 31 mm, 12V. Marca ASX. Código 2324-9.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: torpedo clear 31 mm; 12V. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "47504576": {
+   "desc": "Lâmpada torpedo clear 36 mm, 12V. Marca ASX. Código 2325-8.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: torpedo clear 36 mm; 12V. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "47504578": {
+   "desc": "Lâmpada torpedo clear 41 mm, 12V. Marca ASX. Código 2326-7.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: torpedo clear 41 mm; 12V. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "50582732": {
    "brand": "Tarponn",
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
