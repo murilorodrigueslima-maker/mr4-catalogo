@@ -59,7 +59,10 @@ test('home: title, description factual, canonical, H1 único e Open Graph', () =
   assert.equal((h.match(/<h1[ >]/g) || []).length, 1);
   ['og:title', 'og:description', 'og:url', 'og:type', 'og:image'].forEach(p => assert.match(h, new RegExp('property="' + p + '"')));
   assert.match(h, /property="og:url" content="https:\/\/catalogo\.mr4distribuidora\.com\.br\/"/);
-  assert.equal(ler('index.html'), h);                      // o index.html versionado é exatamente o gerado
+  // o index.html versionado é o gerado, exceto as LISTAS de categorias/marcas: elas mudam a cada correção editorial e o workflow
+  // regenera o HTML no disparo seguinte (≤15 min) — comparar essas listas fixaria o teste ao instante da regeneração.
+  const semListas = x => x.replace(/<div( class="lista")? id="(catLista|marcaLista)">[\s\S]*?<\/div>/g, '').replace(/<nav aria-label="(Categorias|Marcas) do catálogo">[\s\S]*?<\/nav>/g, '');
+  assert.equal(semListas(ler('index.html')), semListas(h));
 });
 test('home: links estáticos para TODAS as categorias e marcas; endereço institucional preservado', () => {
   const l = links(A['index.html']);

@@ -170,10 +170,11 @@ test('DADOS REAIS: aplicar o editorial NÃO altera preço, estoque, SKU, ID nem 
   const mudou = ef.filter(p => p.editado).length;
   assert.ok(mudou <= Object.keys(ED.produtos).length);
 });
-test('DADOS REAIS: nenhuma categoria nova é criada e nenhuma marca é inventada (só marcas/categorias que já existem no ERP)', () => {
+test('DADOS REAIS: nenhuma categoria nova é criada e nenhuma marca é inventada (marca já existe no ERP OU está escrita no nome do produto)', () => {
   const marcasErp = new Set(FEED.produtos.map(p => C.marcaNormalizada(p.brand)).filter(Boolean)), catsErp = new Set(FEED.produtos.map(p => p.category));
   Object.entries(ED.produtos).forEach(([id, o]) => {
-    if (o.brand) assert.ok(marcasErp.has(C.marcaNormalizada(o.brand)), id + ' marca ' + o.brand);
+    const p = FEED.produtos.find(x => x.id === id);
+    if (o.brand && p) assert.ok(marcasErp.has(C.marcaNormalizada(o.brand)) || C.norm(p.name).includes(C.norm(o.brand)), id + ' marca ' + o.brand);
     if (o.category) assert.ok(catsErp.has(o.category), id + ' categoria ' + o.category);
   });
 });

@@ -10,6 +10,46 @@
    "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
    "evidencia": "nome \"LAMPADA HALOGENA ...\"; categoria Lâmpadas Halógenas já existe com produtos do mesmo tipo"
   },
+  "46458278": {
+   "brand": "Tarponn",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "Site oficial/ML: \"TP-6127 Kit Lâmpada LED SKY 6K H7 40W 4100LM Tarponn\" | fonte: tarponn.com.br; mercadolivre MLBU3520928975"
+  },
+  "46458284": {
+   "brand": "Tarponn",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "Site oficial Tarponn: TP-6130 \"Kit Lâmpada LED SKY 6K HB4 PREMIUM\" | fonte: tarponn.com.br/produto"
+  },
+  "47303014": {
+   "brand": "Tarponn",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "Site oficial Tarponn: TP-6162 \"Kit Lâmpada LED SKY 4K H4 PREMIUM\" | fonte: tarponn.com.br/produto; ML MLBU2754582421"
+  },
+  "47303016": {
+   "brand": "Tarponn",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "Catálogo 2026 Tarponn: TP-6165 = Sky 4K HB3 | fonte: tarponn.com.br/Arquivos/Catalogo (PDF)"
+  },
+  "50582732": {
+   "brand": "Tarponn",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "Site oficial Tarponn: TP-4039 \"LED ROCK ATMOSFERA EXTERNA CYBER – VERMELHO\"; ML \"Marca Tarponn, TP-4039\" | fonte: tarponn.com.br/buscaProduto; catálogo 2026"
+  },
+  "50694965": {
+   "brand": "Rayx",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "rayx.com.br (\"Distribuidora oficial\"); Equasa/ML/Shopee: \"Mini Ultra Led Small RAYX H4/HB4 6000K 8400 lumens\" | fonte: rayx.com.br; equasa.com.br; Mercado Livre (03/10/2026)"
+  },
+  "54313350": {
+   "brand": "Tarponn",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "Site oficial Tarponn: TP-2018 Porta-Fusível Plástico ABS; Mercado Livre \"Marca: Tarponn, Modelo: Porta-fusível 2018\" | fonte: tarponn.com.br/buscaProduto (TP-2015…); mercadolivre MLBU3300218118"
+  },
+  "54313361": {
+   "brand": "Tarponn",
+   "motivo": "Marca provada por fonte externa/oficial.",
+   "evidencia": "catálogo/site oficial Tarponn: esquema TP-NNNN (soquetes)"
+  },
   "57208040": {
    "title": "FAROL DE MILHA AVULSO GOL G6 13 - LADO DIREITO",
    "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
@@ -34,6 +74,21 @@
    "category": "Chicotes",
    "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
    "evidencia": "prefixo KPC: 6 de 7 irmãos já em Chicotes; \"PC JOKER KING ...\" igual ao de KPC-MI-0091W (Chicotes)"
+  },
+  "59323431": {
+   "brand": "RPX",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "Anúncios: \"Controle Alarme Positron Px32 Flex RPX\" e \"Controle Positron Px32 4 Botões … RPX\": a RPX vende controle COMPATÍVEL com alarmes Positron | fonte: Mercado Livre (consulta 03/10/2026)"
+  },
+  "59326323": {
+   "brand": "RPX",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "Varejistas: \"Chave Canivete Universal 3BT – RPX\", SKU RPX027, Marca: RPX; Instagram @rpxacessorios divulga RPX027 | fonte: amkdistribuidora.com.br; guerradistribuidora.com.br; Instagram rpxacessorios"
+  },
+  "59422550": {
+   "brand": "FKS",
+   "motivo": "Marca provada por fonte externa/oficial.",
+   "evidencia": "fks.com.br: manual \"FK903 ALF\""
   },
   "59919400": {
    "title": "FAROL DE MILHA AVULSO HILUX PICK-UP 12 15 PICK-UP - LADO DIREITO",
@@ -61,20 +116,98 @@
    "evidencia": "Nome ERP: \"MULTIMIDIA 9.75 TESLA QLED 1280X720DPI QUAD 2/32 2MIX\"; categoria Multimídia já existente com multimídias.",
    "category": "Multimídia"
   },
+  "64152103": {
+   "brand": "Tarponn",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "Site oficial Tarponn: TP-2027 Soquete de Plástico ABS HB4/9006; catálogo 2026 | fonte: tarponn.com.br/produto (soquete 2027); catálogo 2026 PDF"
+  },
+  "65132828": {
+   "brand": "Tiger",
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "franpel.com.br: \"TIGER AUTO 1501004\""
+  },
+  "65132829": {
+   "brand": "Tiger",
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "Mercado Livre: Marca Tiger, peça 1501032; franpel: \"TIGER AUTO 1501032\""
+  },
+  "65132830": {
+   "brand": "Tiger",
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "carfix/PedidoOK: \"Código 1501033, Marca TIGER AUTO\""
+  },
+  "65132832": {
+   "brand": "Tiger",
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "carfix/PedidoOK: \"Código 1502001, Marca TIGER AUTO\""
+  },
+  "65132833": {
+   "brand": "Tiger",
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "Mercado Livre: \"Botão Interruptor Vidro Fiat Siena Strada Palio Tg1502002\" (código Tiger TG+número)"
+  },
+  "65132836": {
+   "brand": "Tiger",
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "Mercado Livre: Tiger, número de peça 1502024"
+  },
+  "65132837": {
+   "brand": "Tiger",
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "tabela de preços da própria MR4 (PDF público): \"1502027 TIGER AUTO\""
+  },
+  "65132838": {
+   "brand": "Tiger",
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "Mercado Livre: \"Marca: Tiger, código do fabricante 1502028\""
+  },
   "65132839": {
    "category": "Interruptores",
-   "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
-   "evidencia": "nome \"INTERRUPTOR DE VIDRO ...\" + produtos 1502001/1502002/1502033 do mesmo padrão já em Interruptores"
+   "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente. | [marca] Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "nome \"INTERRUPTOR DE VIDRO ...\" + produtos 1502001/1502002/1502033 do mesmo padrão já em Interruptores | carfix/PedidoOK: código 1502032 / \"Tg1502032\" (código Tiger)",
+   "brand": "Tiger"
+  },
+  "65132840": {
+   "brand": "Tiger",
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "Mercado Livre: \"1502033 Interruptor Vidro Palio/Siena… Tiger\""
+  },
+  "65132843": {
+   "brand": "Tiger",
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "Mercado Livre: \"Marca Tiger Auto, peça 1504018\"; tabela MR4: \"1504018 TIGER AUTO\""
   },
   "65132847": {
    "category": "Interruptores",
-   "motivo": "Categoria genérica (PRODUTOS SEM GRUPO); nome/SKU indicam inequivocamente família já existente.",
-   "evidencia": "nome \"INTERRUPTOR VIDRO ...\" + SKUs vizinhos 1511003/1511006/1511007 (Logan/Sandero) já em Interruptores"
+   "motivo": "Categoria genérica (PRODUTOS SEM GRUPO); nome/SKU indicam inequivocamente família já existente. | [marca] Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "nome \"INTERRUPTOR VIDRO ...\" + SKUs vizinhos 1511003/1511006/1511007 (Logan/Sandero) já em Interruptores | Mercado Livre: Tiger, número de peça 1511002 (\"Tg1511002\")",
+   "brand": "Tiger"
+  },
+  "65132848": {
+   "brand": "Tiger",
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "Mercado Livre: \"Tiger Auto … Código do Fabricante 1511003\"; tabela de preços: \"TG1511.003 INTERRUPTOR VIDRO LOGAN ANTIGO/SANDERO\""
   },
   "65132849": {
    "category": "Interruptores",
-   "motivo": "Categoria genérica (PRODUTOS SEM GRUPO); nome/SKU indicam inequivocamente família já existente.",
-   "evidencia": "nome \"INTERRUPTOR TRAVA/DESTRAVA LOGAN\" + SKUs vizinhos 1511006/1511007 já em Interruptores"
+   "motivo": "Categoria genérica (PRODUTOS SEM GRUPO); nome/SKU indicam inequivocamente família já existente. | [marca] Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "nome \"INTERRUPTOR TRAVA/DESTRAVA LOGAN\" + SKUs vizinhos 1511006/1511007 já em Interruptores | carfix/PedidoOK + tabela MR4: \"1511005 TIGER AUTO\"",
+   "brand": "Tiger"
+  },
+  "65132850": {
+   "brand": "Tiger",
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "tabela de preços da própria MR4: \"1511006 TIGER AUTO\"; NT Auto 1511006"
+  },
+  "65132851": {
+   "brand": "Tiger",
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
+   "evidencia": "Mercado Livre: \"Tg1511007 / Tiger Auto TG1511.007\""
+  },
+  "65342487": {
+   "brand": "Knup",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "Dezenas de anúncios \"Bateria CR2016 3V KP-BT2016 Knup\" (cartela com 5) | fonte: Mercado Livre, Contato Celular, Zip Cartuchos (03/10/2026)"
   },
   "66532946": {
    "brand": "2MIX",
@@ -82,10 +215,20 @@
    "evidencia": "Nome ERP: \"MULTIMIDIA 9P QLED 2MIX QUAD 2/32\"; categoria Multimídia já existente com multimídias.",
    "category": "Multimídia"
   },
+  "67646378": {
+   "brand": "Tarponn",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "Sulcape/Click Auto Parts: \"Marca: TARPONN, TP6168 Kit LED Sky H27 4K\"; catálogo 2026 lista TP-6168 | fonte: sulcape.com.br; clickautoparts.com.br; tarponn.com.br catálogo"
+  },
   "71592890": {
    "category": "Chicotes",
    "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
    "evidencia": "nome começa por \"CHICOTE\"; categoria Chicotes já existe com chicotes de módulo"
+  },
+  "72456040": {
+   "brand": "Tarponn",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "Site oficial Tarponn: TP-6131 \"Kit Lâmpada PREMIUM FORCE 4000 H4\" | fonte: tarponn.com.br/categoria; catálogo 2026"
   },
   "74430933": {
    "brand": "LDCAR",
@@ -117,10 +260,25 @@
    "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
    "evidencia": "Convenção do próprio ERP: SKU 02003E = \"FAROL DE MILHA AVULSO UNIVERSAL LADO ESQUERDO\" e 02003D = \"... LADO DIREITO\" (E=esquerdo, D=direito); demais pares usam sufixo \" E\"/\" D\" no nome."
   },
+  "82132426": {
+   "brand": "Vipertron",
+   "motivo": "Marca provada por fonte externa/oficial.",
+   "evidencia": "carfix/PedidoOK: Marca VIPERTRON (código 14002); marca do Grupo Tiger"
+  },
+  "82132429": {
+   "brand": "Vipertron",
+   "motivo": "Marca provada por fonte externa/oficial.",
+   "evidencia": "carfix/PedidoOK: Marca VIPERTRON (código 14003)"
+  },
   "85058965": {
    "brand": "KX3",
    "motivo": "Marca KX3 escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
    "evidencia": "Nome ERP: \"SENSOR DE ESTACIONAMENTO KX3 ECO PRATA\""
+  },
+  "85835391": {
+   "brand": "RPX",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "Bolpar lista RPX079 sob a marca \"rpx controles\"; catálogo RPX (LiquidaPeças) lista RPX079 \"Chave Canivete Compatível VW 3BT Novo Direct\" | fonte: bolpar.com.br/produto/bolpar/RPX079; liquidapecas.com.br/catalogo/rpx"
   },
   "86529422": {
    "brand": "LDCAR",
@@ -137,10 +295,25 @@
    "motivo": "Marca KX3 escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
    "evidencia": "Nome ERP: \"SENSOR DE ESTACIONAMENTO KX3 ECO BRANCO\""
   },
+  "88233696": {
+   "brand": "2MIX",
+   "motivo": "Marca provada por fonte externa/oficial.",
+   "evidencia": "2mix.com.br: Central Multimídia 2Mix Detroit 7\""
+  },
+  "89568347": {
+   "brand": "KX3",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
+   "evidencia": "kx3.com.br e Lojas: \"MP5 KX3 KRC3100 7 polegadas\" (modelo oficial KX3) | fonte: kx3.com.br; lojadosomeacessorios.com.br; Instagram @kx3_acessorios"
+  },
   "95658794": {
    "brand": "LDCAR",
    "motivo": "Marca LDCAR escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
    "evidencia": "Nome ERP: \"LED MINI CYBER 23MM UNIVERSAL 6W E 120 LUMENS CADA, LUZ BRANCA 6.000K 12V LDCAR\""
+  },
+  "95972266": {
+   "brand": "Permak",
+   "motivo": "Marca provada por fonte externa/oficial.",
+   "evidencia": "Permak/ML: \"Moldura Toyota Hilux/SW4 2005-2015, SKU 89-Z3\""
   },
   "96629118": {
    "brand": "KX3",
