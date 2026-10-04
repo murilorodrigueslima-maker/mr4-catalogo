@@ -3,119 +3,119 @@
  "ativos": 606,
  "lastmod": {
   "/": {
-   "h": "a1d0e381be0a",
+   "h": "7eb196f118ef",
    "d": "2026-10-03"
   },
   "/categoria/alarme/": {
-   "h": "7538e95eb2e1",
+   "h": "7bb876ccbc5d",
    "d": "2026-10-03"
   },
   "/categoria/alto-falantes/": {
-   "h": "9759fc55b5cb",
+   "h": "2f7aef805a39",
    "d": "2026-10-03"
   },
   "/categoria/antenas/": {
-   "h": "35b93582ee4d",
+   "h": "adfe35611f1b",
    "d": "2026-10-03"
   },
   "/categoria/barras-de-led/": {
-   "h": "1ead82323a91",
+   "h": "83666f8d64f5",
    "d": "2026-10-03"
   },
   "/categoria/bateria/": {
-   "h": "c2b2aa61e5f2",
+   "h": "6601289efdfb",
    "d": "2026-10-03"
   },
   "/categoria/caixa-de-som/": {
-   "h": "ff6ff7b8627e",
+   "h": "8de240f097ec",
    "d": "2026-10-03"
   },
   "/categoria/camera/": {
-   "h": "7dd972e8fc51",
+   "h": "26b202722fa5",
    "d": "2026-10-03"
   },
   "/categoria/chave/": {
-   "h": "2f074bdceec5",
+   "h": "fb7e070a2785",
    "d": "2026-10-03"
   },
   "/categoria/chicotes/": {
-   "h": "81be2eda5ae3",
+   "h": "d961d17a6201",
    "d": "2026-10-03"
   },
   "/categoria/diversos/": {
-   "h": "1104ffb8248c",
+   "h": "252a37b98c5c",
    "d": "2026-10-03"
   },
   "/categoria/farol-de-milha/": {
-   "h": "af98d9c56288",
+   "h": "9ff15ce1644f",
    "d": "2026-10-03"
   },
   "/categoria/fusiveis/": {
-   "h": "88045a5b517c",
+   "h": "b85f1784b01b",
    "d": "2026-10-03"
   },
   "/categoria/geral/": {
-   "h": "cf845345940a",
+   "h": "6595772f0a1b",
    "d": "2026-10-03"
   },
   "/categoria/interruptores/": {
-   "h": "e7e00b35fef0",
+   "h": "4c7658c265e9",
    "d": "2026-10-03"
   },
   "/categoria/lampada-de-led/": {
-   "h": "bb3e3400dc65",
+   "h": "7c3d04124f13",
    "d": "2026-10-03"
   },
   "/categoria/lampadas-halogenas/": {
-   "h": "74d058cfa08c",
+   "h": "7ec69aa2bef4",
    "d": "2026-10-03"
   },
   "/categoria/leds-interno-externo/": {
-   "h": "0f18334fb332",
+   "h": "a253d53ab1c7",
    "d": "2026-10-03"
   },
   "/categoria/modulos/": {
-   "h": "45568cc09185",
+   "h": "8648091d24ef",
    "d": "2026-10-03"
   },
   "/categoria/moldura/": {
-   "h": "346fa4db2ff2",
+   "h": "c7da42171b89",
    "d": "2026-10-03"
   },
   "/categoria/multimidia/": {
-   "h": "4539a460e4d2",
+   "h": "9824ed360325",
    "d": "2026-10-03"
   },
   "/categoria/palheta/": {
-   "h": "3b3f48057a53",
+   "h": "c53c920e463b",
    "d": "2026-10-03"
   },
   "/categoria/radio/": {
-   "h": "0ccfe2e7d598",
+   "h": "cdc65ef69e58",
    "d": "2026-10-03"
   },
   "/categoria/sem-categoria/": {
-   "h": "b164203c82c9",
+   "h": "433812e80b81",
    "d": "2026-10-03"
   },
   "/categoria/sensor-estacionamento/": {
-   "h": "eb653ca06830",
+   "h": "3315bebe7bae",
    "d": "2026-10-03"
   },
   "/categoria/soquetes/": {
-   "h": "be47f75b40b4",
+   "h": "33200457e463",
    "d": "2026-10-03"
   },
   "/categoria/terminais/": {
-   "h": "009439f2c6d7",
+   "h": "4cb712327278",
    "d": "2026-10-03"
   },
   "/categoria/travas/": {
-   "h": "94bf265f0012",
+   "h": "d3c0c140a7a0",
    "d": "2026-10-03"
   },
   "/categoria/xenon/": {
-   "h": "0199278dadf3",
+   "h": "8d4cac94f04d",
    "d": "2026-10-03"
   },
   "/contato/": {
@@ -123,103 +123,107 @@
    "d": "2026-10-03"
   },
   "/marca/2mix/": {
-   "h": "8b0f326559f8",
+   "h": "0b6e113878b9",
    "d": "2026-10-03"
   },
   "/marca/alemar/": {
-   "h": "a445239e699c",
+   "h": "3f1578274324",
    "d": "2026-10-03"
   },
   "/marca/asx/": {
-   "h": "9ce8676c792d",
+   "h": "895cbd4841b8",
    "d": "2026-10-03"
   },
   "/marca/bomber/": {
-   "h": "119fd2926f72",
+   "h": "6bc2dc0c9282",
    "d": "2026-10-03"
   },
   "/marca/exclusive/": {
-   "h": "c908c548e346",
+   "h": "d7b63d733ae1",
    "d": "2026-10-03"
   },
   "/marca/fiamon/": {
-   "h": "8d70dda2e6ec",
+   "h": "d88acb984062",
    "d": "2026-10-03"
   },
   "/marca/first-option/": {
-   "h": "09e1912d777a",
+   "h": "6e7e99f0c61c",
    "d": "2026-10-03"
   },
   "/marca/fitto-joker/": {
-   "h": "9fbf8f9bf617",
+   "h": "67e2b6d86f65",
    "d": "2026-10-03"
   },
   "/marca/fitto/": {
-   "h": "ce679402aaa0",
+   "h": "d041ca7ee151",
    "d": "2026-10-03"
   },
   "/marca/fks/": {
-   "h": "7e2f0bc75601",
+   "h": "1e1a07940fdc",
    "d": "2026-10-03"
   },
   "/marca/hurricane/": {
-   "h": "19b07a16c00b",
+   "h": "30c3ab1d8f44",
    "d": "2026-10-03"
   },
   "/marca/jfa/": {
-   "h": "1f8c4e316321",
+   "h": "e18899affb44",
    "d": "2026-10-03"
   },
   "/marca/joker/": {
-   "h": "a06a8306158c",
+   "h": "e205e9e00940",
+   "d": "2026-10-03"
+  },
+  "/marca/knup/": {
+   "h": "bcba84edb004",
    "d": "2026-10-03"
   },
   "/marca/kobo/": {
-   "h": "9cccd1125a53",
+   "h": "fbe30170f0ee",
    "d": "2026-10-03"
   },
   "/marca/kx3/": {
-   "h": "6b3733e4e02e",
+   "h": "9920cf4ab4bd",
    "d": "2026-10-03"
   },
   "/marca/ldcar/": {
-   "h": "dafa4a750a34",
+   "h": "5efba5dcf437",
    "d": "2026-10-03"
   },
   "/marca/look-out/": {
-   "h": "aa58cffc80b8",
+   "h": "dfea5d63af18",
    "d": "2026-10-03"
   },
   "/marca/lux-led/": {
-   "h": "95e2b112b461",
+   "h": "1fc9d2b9d836",
    "d": "2026-10-03"
   },
   "/marca/permak/": {
-   "h": "a168cf305dcb",
+   "h": "204de58c438e",
    "d": "2026-10-03"
   },
   "/marca/rayx/": {
-   "h": "e20326add1d2",
+   "h": "bcb43593fde4",
    "d": "2026-10-03"
   },
   "/marca/rpx/": {
-   "h": "7bc45c9733e0",
+   "h": "2ad005f29f7d",
    "d": "2026-10-03"
   },
   "/marca/tarponn/": {
-   "h": "98aa1eb6f566",
+   "h": "8c8f82175004",
    "d": "2026-10-03"
   },
   "/marca/tiger/": {
-   "h": "e8eae3c8cdb2",
+   "h": "96c207af42b7",
    "d": "2026-10-03"
   },
   "/marca/tragial/": {
-   "h": "e69e426cdeda",
+   "h": "aad9a5ca90d2",
    "d": "2026-10-03"
   },
   "/marca/vipertron/": {
-   "h": "9c138a6d2c5e",
+   "h": "a3aa0bf3e542",
    "d": "2026-10-03"
   },
   "/privacidade/": {
@@ -319,15 +323,15 @@
    "d": "2026-10-03"
   },
   "/produto/android-7-octacore-double-din-2gb-ram-64gb-memoria-kx3--krc4110/": {
-   "h": "4731279540f0",
+   "h": "8062cfddc568",
    "d": "2026-10-03"
   },
   "/produto/android-9-2din-4gb-ram-64gb-memoria-cp-aa-sem-fio--krc5050/": {
-   "h": "87520e21e6f3",
+   "h": "5e3ce27a6b66",
    "d": "2026-10-03"
   },
   "/produto/android-9-2gb-ram-64gb-memoria-kx3--krc5010/": {
-   "h": "701256a5e213",
+   "h": "76a7d1116e56",
    "d": "2026-10-03"
   },
   "/produto/antena-eletronica-pertronic-1000--100-h/": {
@@ -379,7 +383,7 @@
    "d": "2026-10-03"
   },
   "/produto/bateria-cr2016-knup-cartela-5-un--kp-bt2016/": {
-   "h": "d1d0cbdbe07b",
+   "h": "5d1913b04c79",
    "d": "2026-10-03"
   },
   "/produto/bateria-eletrica-12v-23a-kx3--kb23a/": {
@@ -531,7 +535,7 @@
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-3bt-positron-flex--rpx028/": {
-   "h": "6685b8ea2af2",
+   "h": "d86cdb8aafa3",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-chevrolet-gm-fks-cr710--30808135/": {
@@ -539,11 +543,11 @@
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-compativel-vw-3bt-novo-direct--rpx079/": {
-   "h": "a249a90e5e9d",
+   "h": "539b27cffe2c",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-fiat-positron-flex--rpx012/": {
-   "h": "9239276fe227",
+   "h": "e903b81c486c",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-fiat-universal--rpx033/": {
@@ -551,127 +555,127 @@
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-gm-2bt-positron-flex--rpx009/": {
-   "h": "f0cb9bea28e7",
+   "h": "96dffc5736bc",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-gm-2bt-universal--rpx035/": {
-   "h": "0ba657e38cc9",
+   "h": "5cb737ca820c",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-gm-3bt-positron-flex--rpx010/": {
-   "h": "cd0057b1d9a8",
+   "h": "c8c7749b19bd",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-gm-3bt-universal--rpx036/": {
-   "h": "6a05c4120550",
+   "h": "4516d07f7b99",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-gm-nova-positron-flex--rpx032/": {
-   "h": "190bd56d20b4",
+   "h": "beeac089c353",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-golf-polo-passat-jetta-fks-sistec-stetsom--rpx030/": {
-   "h": "0d386e89ac1c",
+   "h": "c7738d9b60ce",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-golf-polo-passat-jetta-positron-flex--rpx029/": {
-   "h": "610257d1a6fc",
+   "h": "b148463a9d2d",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-honda-3bt-positron-flex--rpx070/": {
-   "h": "47a011e2a430",
+   "h": "19c448aedb1b",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-honda-3bt-universal--rpx074/": {
-   "h": "d7dd1ae741d5",
+   "h": "4e6ea1924335",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-hyundai-2bt-p-positron-flex--rpx037/": {
-   "h": "016c9ebc8ea8",
+   "h": "4b328c389787",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-hyundai-2bt-p-universal--rpx034/": {
-   "h": "1d916e04419a",
+   "h": "6bef22aa2527",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-oca-adaptacao-toyota--rpx062/": {
-   "h": "87f09c9596e2",
+   "h": "70c0afa945e3",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-oca-fiat--rpx021/": {
-   "h": "d98b8f9bfd67",
+   "h": "b4cb3600866c",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-oca-gm-2bt--rpx019/": {
-   "h": "da717750aedb",
+   "h": "96a8911e7e58",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-oca-gm-3bt--rpx020/": {
-   "h": "75b811a4e20e",
+   "h": "41261c0aaad3",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-oca-gm-nova-3bt--rpx063/": {
-   "h": "d9b577c85648",
+   "h": "33806d3163d4",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-oca-hyundai-2bt-p--rpx038/": {
-   "h": "82d936ab6e39",
+   "h": "29cd8417b1d9",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-oca-vw-g5-2bt--rpx016/": {
-   "h": "8f2023810472",
+   "h": "9639a0032d01",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-oca-vw-g5-3bt--rpx015/": {
-   "h": "792e8466ef98",
+   "h": "14aff9afe47a",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-oca-vw-g6-2bt--rpx018/": {
-   "h": "88aff6b42872",
+   "h": "5f45a209396f",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-oca-vw-g6-3bt--rpx017/": {
-   "h": "bf9fd7a0566b",
+   "h": "8f53ba482e15",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-px80-positron-flex--rpx011/": {
-   "h": "28b4477920ae",
+   "h": "f90eb7bd921c",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-toyota-3bt-positron-flex--rpx069/": {
-   "h": "9d8d94f028cb",
+   "h": "77c7aa85aab4",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-toyota-3bt-universal--rpx073/": {
-   "h": "250096e2ad06",
+   "h": "716575c59bfc",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-universal-3bt--rpx027/": {
-   "h": "c0941642c549",
+   "h": "576688c2fc72",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-volkswagen-2bt-positron-flex--rpx008/": {
-   "h": "fb96a8417f92",
+   "h": "b978821e784d",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-volkswagen-2bt-universal--rpx026/": {
-   "h": "2a7cea899188",
+   "h": "7feb0b3679a7",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-volkswagen-3bt-positron-flex--rpx007/": {
-   "h": "94ba0ea71b0f",
+   "h": "42d6e06ab8a7",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-volkswagen-3bt-universal--rpx025/": {
-   "h": "f224020b6fce",
+   "h": "5b2a258ec154",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-vw-modelo-bmw-3bt-positron-flex--rpx043/": {
-   "h": "09dcd53833fb",
+   "h": "8205013bcaf1",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-vw-modelo-bmw-3bt-universal--rpx044/": {
-   "h": "6938d2dae1f7",
+   "h": "857220b8233b",
    "d": "2026-10-03"
   },
   "/produto/chicote-4-vias-injetado-fio-4-00mm--35-x2/": {
@@ -767,39 +771,39 @@
    "d": "2026-10-03"
   },
   "/produto/conectores-t10-2006--tp-2006/": {
-   "h": "113bd0acec94",
+   "h": "007e65a13bbb",
    "d": "2026-10-03"
   },
   "/produto/controle-cabeca-fiat-positron-flex--rpx005/": {
-   "h": "300a7cfdce3b",
+   "h": "b2e034a3244c",
    "d": "2026-10-03"
   },
   "/produto/controle-fiat-universal--rpx023/": {
-   "h": "d9119978235f",
+   "h": "9cde838fccd5",
    "d": "2026-10-03"
   },
   "/produto/controle-ford-alarme-original-3bt--rpx014/": {
-   "h": "05573032fdab",
+   "h": "c529feb31199",
    "d": "2026-10-03"
   },
   "/produto/controle-ford-alarme-original-4bt--rpx013/": {
-   "h": "a72f26311b99",
+   "h": "90252051ccf6",
    "d": "2026-10-03"
   },
   "/produto/controle-px32-4bt-novo-positron-flex--rpx006/": {
-   "h": "dff9d184a52c",
+   "h": "912aa9a83641",
    "d": "2026-10-03"
   },
   "/produto/controle-px32-positron-flex--rpx003/": {
-   "h": "895cf57fd625",
+   "h": "4876ddf60c43",
    "d": "2026-10-03"
   },
   "/produto/controle-px40-positron-flex--rpx001/": {
-   "h": "254464ea36ab",
+   "h": "4e90d355e365",
    "d": "2026-10-03"
   },
   "/produto/controle-pxn52-positron-flex--rpx002/": {
-   "h": "afd3e6c1d539",
+   "h": "84c4b6136f89",
    "d": "2026-10-03"
   },
   "/produto/controle-remoto-cr961-controle-remoto-fiat-c-961--30808030/": {
@@ -811,7 +815,7 @@
    "d": "2026-10-03"
   },
   "/produto/controle-toyota-corolla-antigo-2bt-p--rpx022/": {
-   "h": "849813d86e85",
+   "h": "d1da57dc5b47",
    "d": "2026-10-03"
   },
   "/produto/cr-750-canivete-toyota-c-750--30808133/": {
@@ -975,7 +979,7 @@
    "d": "2026-10-03"
   },
   "/produto/fk903-alf-02-controle-cr941-com-antifurto-travamento--30800342/": {
-   "h": "f36edd84b0d0",
+   "h": "8881e1faa214",
    "d": "2026-10-03"
   },
   "/produto/fki505-can-sem-controleargos-cronos-mobi-toro-uno-a-partir--30800373/": {
@@ -1099,7 +1103,7 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-bloqueio-logan-sandero-14--1511006/": {
-   "h": "e329b55c88a1",
+   "h": "8b6fc86545e9",
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-emergencia-renault-logan-sandero--1511010/": {
@@ -1111,27 +1115,27 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-diant-dir-palio-12-mostrina-cinza--1502020/": {
-   "h": "3bf04b0b501e",
+   "h": "3cb944ffdf86",
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-diant-dir-palio-grand-siena-idea--1502032/": {
-   "h": "845d0c372a55",
+   "h": "4fffe8908b2c",
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-diant-esq-nivus-t-cross-polo-virt--1501033/": {
-   "h": "972108e5f675",
+   "h": "7c5de6b7130c",
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-duplo-diant-esq-onix-spin-prisma--1504023/": {
-   "h": "ccfc319023ff",
+   "h": "b224741c4723",
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-duplo-diant-esq-palio-grand-sienaa--1502033/": {
-   "h": "28c733097c6b",
+   "h": "41a18e0c2b05",
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-duplo-volkswagen-up-14-17-s-led--1501032/": {
-   "h": "74c5441e4d07",
+   "h": "d0e7a7f0e8aa",
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-quadruplo-diant-esq-prisma-onix-13--1504021/": {
@@ -1139,7 +1143,7 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-tras-dir-e-esq-onix-prisma-spin--1504018/": {
-   "h": "f73a961a03df",
+   "h": "f9c241a02ec9",
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-tras-dir-e-esq-prisma-onix-13-c--1504022/": {
@@ -1147,15 +1151,15 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-tras-dir-grand-siena-12-mostrina-gr--1502028/": {
-   "h": "ffee2abdc6d3",
+   "h": "174681ca46e4",
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-tras-dir-palio-12-mostrina-cinza--1502024/": {
-   "h": "d476d314fc99",
+   "h": "9bcf9e889f32",
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-tras-esq-grand-siena-12-mostrina-g--1502027/": {
-   "h": "319891fb86e5",
+   "h": "ea0a5f2781a9",
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-tras-esq-palio-12-mostrina-cinza--1502023/": {
@@ -1163,7 +1167,7 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-do-retrovisor-diant-esq-palio-strada-siena--1502035/": {
-   "h": "d5950fb1b83f",
+   "h": "9fb4307dff72",
    "d": "2026-10-03"
   },
   "/produto/interruptor-renault-retrovisor-novo-sandero-logan--bir-ren-6201/": {
@@ -1171,11 +1175,11 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-simples-logan-sandero-14--1511007/": {
-   "h": "10706d6b834c",
+   "h": "2f64a699e4da",
    "d": "2026-10-03"
   },
   "/produto/interruptor-trava-destrava-logan--1511005/": {
-   "h": "bd445fb4f751",
+   "h": "e64dcde62082",
    "d": "2026-10-03"
   },
   "/produto/interruptor-vidro-celta-4-pinos-console-vermelho--1504014/": {
@@ -1183,7 +1187,7 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-vidro-clio-6-pinos--1511002/": {
-   "h": "751d4b978936",
+   "h": "d50bc985a84c",
    "d": "2026-10-03"
   },
   "/produto/interruptor-vidro-gol-g3--biv-vol-3010/": {
@@ -1195,11 +1199,11 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-vidro-gol-g4-g5-fox-duplo-1-estagio--1501004/": {
-   "h": "6fd5186e3ac3",
+   "h": "31d83473219b",
    "d": "2026-10-03"
   },
   "/produto/interruptor-vidro-logan-antigo-sandero--1511003/": {
-   "h": "09182dd02810",
+   "h": "adb69dca5942",
    "d": "2026-10-03"
   },
   "/produto/interruptor-vidro-palio-fire-d-dir-led-ambar--biv-fia-1014/": {
@@ -1207,11 +1211,11 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-vidro-palio-novo-d-dir-simples--1502002/": {
-   "h": "400decc95870",
+   "h": "0841461f6ff6",
    "d": "2026-10-03"
   },
   "/produto/interruptor-vidro-palio-novo-d-esq-duplo--1502001/": {
-   "h": "076ccd5b8fac",
+   "h": "fde9577e9e41",
    "d": "2026-10-03"
   },
   "/produto/interruptor-vidro-palio-young-d-esq-led-verde-duplo--biv-fia-1015/": {
@@ -1283,27 +1287,27 @@
    "d": "2026-10-03"
   },
   "/produto/kit-lampada-led-force-4000-premium-h4-40w-4200lm-4000k--tp-6131/": {
-   "h": "fd5cf79af834",
+   "h": "85c6fb8f28aa",
    "d": "2026-10-03"
   },
   "/produto/kit-lampada-led-sky-4k-premium-h27-40w-4100lm--tp-6168/": {
-   "h": "4195bb147747",
+   "h": "109fae7442b7",
    "d": "2026-10-03"
   },
   "/produto/kit-lampada-led-sky-4k-premium-h4--tp-6162/": {
-   "h": "8a88221b5909",
+   "h": "a1800d19ecda",
    "d": "2026-10-03"
   },
   "/produto/kit-lampada-led-sky-4k-premium-hb3--tp-6165/": {
-   "h": "b33f8932306a",
+   "h": "9730b7e842ce",
    "d": "2026-10-03"
   },
   "/produto/kit-lampada-led-sky-6k-premium-h7--tp-6127/": {
-   "h": "d9200d88a4de",
+   "h": "e693bd3ec058",
    "d": "2026-10-03"
   },
   "/produto/kit-lampada-led-sky-6k-premium-hb4--tp-6130/": {
-   "h": "191e73148ac8",
+   "h": "55ab7953a9c2",
    "d": "2026-10-03"
   },
   "/produto/kit-lampada-tarponn-ultra-led-h16-40w-e-4000lm-cada-6000k--tp-6109/": {
@@ -1663,7 +1667,7 @@
    "d": "2026-10-03"
   },
   "/produto/modulo-de-travamento-portas-centralina-universal-ctl100-fks--30804008/": {
-   "h": "f8820c537059",
+   "h": "9e5fe854b93a",
    "d": "2026-10-03"
   },
   "/produto/modulo-de-vidro-dedicado-hilux-srx-sw4-srv-2016-ate-2025-4--30801687/": {
@@ -1675,15 +1679,15 @@
    "d": "2026-10-03"
   },
   "/produto/mold-7-palio-attractive-12-17-blk-piano--89-j3b/": {
-   "h": "a849aef21c1a",
+   "h": "776944d64a4a",
    "d": "2026-10-03"
   },
   "/produto/mold-adaptadora-1din-p-9-universal--89-g18/": {
-   "h": "98be1a312015",
+   "h": "7b567124db51",
    "d": "2026-10-03"
   },
   "/produto/mold-fiat-palio-siena-strada-2-ger-czb--89-j28c/": {
-   "h": "ae4ae3454337",
+   "h": "36a50eb73500",
    "d": "2026-10-03"
   },
   "/produto/mold-gm-onix-cobalt-2din-s-pintura--89-m4a/": {
@@ -1695,19 +1699,19 @@
    "d": "2026-10-03"
   },
   "/produto/mold-gol-parati-saveiro-g4-2-din-preta--89-a6/": {
-   "h": "d497fde4a336",
+   "h": "6a941f59dfb2",
    "d": "2026-10-03"
   },
   "/produto/mold-gol-voyage-saveiro-g6-2-din-preta--89-a8/": {
-   "h": "088e089e55c9",
+   "h": "9b80489800d7",
    "d": "2026-10-03"
   },
   "/produto/mold-palio-siena-2-din-preta--89-j1/": {
-   "h": "0f908ae282b1",
+   "h": "64a80ef75692",
    "d": "2026-10-03"
   },
   "/produto/mold-toyota-hilux-sw4-2-din--89-z3/": {
-   "h": "064cdb67bc4f",
+   "h": "46301083a400",
    "d": "2026-10-03"
   },
   "/produto/moldura-10-1-polegadas-compativel-com-toyota-corolla-2014-16--md10-0081-v1/": {
@@ -2039,39 +2043,39 @@
    "d": "2026-10-03"
   },
   "/produto/multimidia-10p-ips-detroit-2mix-2-32-cpaa--2m-det10s/": {
-   "h": "7847bb5e0c9a",
+   "h": "bb2b12299446",
    "d": "2026-10-03"
   },
   "/produto/multimidia-9-75-tesla-qled-1280x720dpi-quad-2-32-2mix--cpaa-32297a/": {
-   "h": "2cc58cd55c82",
+   "h": "e94878f65850",
    "d": "2026-10-03"
   },
   "/produto/multimidia-9p-ips-detroit-2mix-2-32-cpaa--2m-det09s/": {
-   "h": "db49b57d1e5a",
+   "h": "a1e949291f53",
    "d": "2026-10-03"
   },
   "/produto/multimidia-9p-qled-2mix-quad-2-32--cpaa-32209ax/": {
-   "h": "588e44241180",
+   "h": "3535814d7ead",
    "d": "2026-10-03"
   },
   "/produto/multimidia-android-10-kx3-4gb-ram-64gb-memoria-cp-aa-sem-fio--krc6000/": {
-   "h": "26168178d5cb",
+   "h": "d97682334bab",
    "d": "2026-10-03"
   },
   "/produto/multimidia-carplay-7--krc3100/": {
-   "h": "ab2f8f2c0638",
+   "h": "97b8c1a9d63c",
    "d": "2026-10-03"
   },
   "/produto/multimidia-carplay-9--krc3200/": {
-   "h": "6efb8d8cee4b",
+   "h": "cab2fe18fe46",
    "d": "2026-10-03"
   },
   "/produto/multimidia-detroit-android-14-7-proces-quad-core-1-5-ghz--2mdet07/": {
-   "h": "78dffd990ef9",
+   "h": "5919ba69e722",
    "d": "2026-10-03"
   },
   "/produto/multimidia-kx3-krc6100-android-carplay-tela-10-5-pol-4-64gb--krc6100/": {
-   "h": "f22701687cdd",
+   "h": "fbcf3fba41ed",
    "d": "2026-10-03"
   },
   "/produto/multivias-5-bbr-55-watts-rms-4-ohms-carcaca-plastica--1-16-335/": {
@@ -2195,7 +2199,7 @@
    "d": "2026-10-03"
   },
   "/produto/par-led-atmosfera-externa-vermelho--tp-4039/": {
-   "h": "37fe8158d202",
+   "h": "92fe0f1a0923",
    "d": "2026-10-03"
   },
   "/produto/pc-joker-king-hyundai-creta-2016-20-sem-cable-canbox--kpc-hy-0066w/": {
@@ -2231,11 +2235,11 @@
    "d": "2026-10-03"
   },
   "/produto/porta-fusivel--tp-2018/": {
-   "h": "f417e7dcf470",
+   "h": "c833b29d4350",
    "d": "2026-10-03"
   },
   "/produto/porta-fusivel-lamina-max-plastico-2059--tp-2059/": {
-   "h": "3bf2f48d025c",
+   "h": "fe5bb2938153",
    "d": "2026-10-03"
   },
   "/produto/power-cable-compativel-com-fiat-unificado-strada-palio-c--kpc-fi-0033w/": {
@@ -2283,15 +2287,15 @@
    "d": "2026-10-03"
   },
   "/produto/sensor-de-estacionamento-c-display-slim-oem-branco-16-5mm--14003/": {
-   "h": "f1bc908199e8",
+   "h": "e12347a0dfb9",
    "d": "2026-10-03"
   },
   "/produto/sensor-de-estacionamento-c-display-slim-oem-prata-16-5mm--14002/": {
-   "h": "d2a8b80a183e",
+   "h": "c8fa6be75ccd",
    "d": "2026-10-03"
   },
   "/produto/sensor-de-estacionamento-c-display-slim-oem-preto-16-5mm--14001/": {
-   "h": "13db33d56de7",
+   "h": "30d715ae5284",
    "d": "2026-10-03"
   },
   "/produto/sensor-de-estacionamento-kx3-eco-branco--kxeco201a/": {
@@ -2331,11 +2335,11 @@
    "d": "2026-10-03"
   },
   "/produto/small-hb4-ray-x-8-4000-lumens--smallhb4/": {
-   "h": "c360ebb6ec73",
+   "h": "31775cd1f144",
    "d": "2026-10-03"
   },
   "/produto/soquete-9005-hb3-ceramica-2026--tp-2026/": {
-   "h": "405f68e49ef3",
+   "h": "c823619ab8c1",
    "d": "2026-10-03"
   },
   "/produto/soquete-9005-hb3-ceramica-ldcar--ldcar023/": {
@@ -2343,11 +2347,11 @@
    "d": "2026-10-03"
   },
   "/produto/soquete-9005-hb3-plastico-2025--tp-2025/": {
-   "h": "54c106b38d2b",
+   "h": "862234656fff",
    "d": "2026-10-03"
   },
   "/produto/soquete-9006-hb4-ceramica-2028--tp-2028/": {
-   "h": "858c097d78f7",
+   "h": "be1a15c86e82",
    "d": "2026-10-03"
   },
   "/produto/soquete-9006-hb4-ceramica-ldcar--ldcar024/": {
@@ -2355,15 +2359,15 @@
    "d": "2026-10-03"
   },
   "/produto/soquete-9006-hb4-plastico-2027--tp-2027/": {
-   "h": "f319cf69f28c",
+   "h": "3d54ce5b518d",
    "d": "2026-10-03"
   },
   "/produto/soquete-h4-plastico-2033--tp-2033/": {
-   "h": "7421b66fa7f3",
+   "h": "c4325df33385",
    "d": "2026-10-03"
   },
   "/produto/soquete-h7-ceramica-2041--tp-2041/": {
-   "h": "8b463338a221",
+   "h": "0d1305bb37bd",
    "d": "2026-10-03"
   },
   "/produto/soquete-h7-ceramica-ldcar--ldcar020/": {
@@ -2375,27 +2379,27 @@
    "d": "2026-10-03"
   },
   "/produto/soquete-h8-h11-plastico-2031--tp-2031/": {
-   "h": "75733662cda2",
+   "h": "43fb22e68632",
    "d": "2026-10-03"
   },
   "/produto/soquetes-ba15d-2-polos-plastico-2048--tp-2048/": {
-   "h": "3a1c93d6a119",
+   "h": "3318f4b950df",
    "d": "2026-10-03"
   },
   "/produto/soquetes-ba15d-haste-l-2-polos-2012--tp-2012/": {
-   "h": "96bcf14d1a3f",
+   "h": "4856a9f34af8",
    "d": "2026-10-03"
   },
   "/produto/soquetes-ba15s-1-polo-garra-plastico-2049--tp-2049/": {
-   "h": "52f4a8fcf450",
+   "h": "5db348e7ba7b",
    "d": "2026-10-03"
   },
   "/produto/soquetes-ba15s-1-polo-plastico-2047--tp-2047/": {
-   "h": "5878b021cc2a",
+   "h": "d5b0d5a044c1",
    "d": "2026-10-03"
   },
   "/produto/soquetes-ba15s-liso-1-polo-2015--tp-2015/": {
-   "h": "9c6173d061f8",
+   "h": "2b24ce110a7d",
    "d": "2026-10-03"
   },
   "/produto/soquetes-h1-h3-ceramico-ldcar--ldcar021/": {
@@ -2403,31 +2407,31 @@
    "d": "2026-10-03"
   },
   "/produto/soquetes-h4-ceramico-emborrachado-preto-2040--tp-2040/": {
-   "h": "228d57be9917",
+   "h": "4a844fd24c20",
    "d": "2026-10-03"
   },
   "/produto/soquetes-t10-2002--tp-2002/": {
-   "h": "6864a0271bfa",
+   "h": "4ede00855a7b",
    "d": "2026-10-03"
   },
   "/produto/soquetes-t10-2003--tp-2003/": {
-   "h": "dfa7ae0f36c7",
+   "h": "5dc4abe6d40a",
    "d": "2026-10-03"
   },
   "/produto/soquetes-t10-2005--tp-2005/": {
-   "h": "53d591933140",
+   "h": "0b2862aecf52",
    "d": "2026-10-03"
   },
   "/produto/soquetes-t20-1-polo-2010--tp-2010/": {
-   "h": "770f9d5905b0",
+   "h": "b724775511b4",
    "d": "2026-10-03"
   },
   "/produto/soquetes-t20-2-polos-2009--tp-2009/": {
-   "h": "a6cbb76ce700",
+   "h": "2a970067123c",
    "d": "2026-10-03"
   },
   "/produto/soquetes-t5-2008--tp-2008/": {
-   "h": "8d041e6f7a8a",
+   "h": "2895866c288f",
    "d": "2026-10-03"
   },
   "/produto/sr5-evolution-jfa--043/": {
@@ -2861,6 +2865,11 @@
    "tipo": "marca",
    "chave": "Joker",
    "rotulo": "Joker"
+  },
+  "/marca/knup/": {
+   "tipo": "marca",
+   "chave": "Knup",
+   "rotulo": "Knup"
   },
   "/marca/kobo/": {
    "tipo": "marca",
