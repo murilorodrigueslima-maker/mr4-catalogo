@@ -73,7 +73,7 @@ test('modo Compacto salvo: script inline no HTML ajusta a grade ANTES do JS (esq
   assert.ok(h.indexOf('id="grid"') < h.indexOf(m[0]) && h.indexOf(m[0]) < h.indexOf('class="load-more"'));
   assert.match(m[0], /className="lista-compacta"/); assert.match(m[0], /Math\.min\(16,n\)/); assert.match(m[0], /dataset\.modo="compacto"/);
   assert.match(APP, /const base = estado\.modo === 'compacto' \? 16 : 6;/);
-  assert.equal((Object.keys(A).filter(k => /\.html$/.test(k) && /^(index|categoria|marca)/.test(k) && !/mr4_modo_catalogo/.test(A[k]))).length, 0);   // todas as páginas de catálogo têm o script
+  assert.equal((Object.keys(A).filter(k => /\.html$/.test(k) && /^(index\.html|categoria\/[^/]+\/index\.html|marca\/[^/]+\/index\.html)$/.test(k) && !/mr4_modo_catalogo/.test(A[k]))).length, 0);   // todas as páginas de catálogo têm o script
   assert.doesNotMatch(A['produto/' + C.prepararCatalogo(BRUTOS)[0].url.replace('/produto/', '') + 'index.html'], /mr4_modo_catalogo/);
 });
 test('LCP: 1ª imagem do grid sem lazy + fetchpriority=high; as seguintes acima da dobra sem lazy; o resto lazy', () => {

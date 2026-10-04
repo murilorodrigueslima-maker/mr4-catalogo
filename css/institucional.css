@@ -18,3 +18,10 @@
 .inst-btn.sec{background:var(--orange-btn)}
 .inst-btn.sec:hover{background:var(--orange-dk)}
 @media (max-width:520px){.inst-dados{grid-template-columns:1fr;gap:0}.inst-dados dd{margin-bottom:8px}.inst h1{font-size:1.7rem}}
+/* hubs de navegação (/marcas/, /categoria/moldura/<montadora>/): listas estáticas */
+.hub-lista{list-style:none;margin:12px 0 16px;padding:0;display:grid;gap:6px}
+.hub-lista li{padding:10px 14px;background:#fff;border:1px solid var(--border);border-radius:8px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.hub-lista a{font-weight:700}
+.hub-n,.hub-cats,.rel-cod{color:var(--muted);font-size:.9rem}
+.hub-nota,.hub-outras{font-size:.92rem}
+@media (min-width:720px){.hub-lista:not(.hub-prod){grid-template-columns:1fr 1fr}}

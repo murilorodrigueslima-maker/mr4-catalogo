@@ -110,7 +110,7 @@ test('workflow: IndexNow depois do push, continue-on-error, timeout; geração e
   assert.match(passo, /continue-on-error: true/); assert.match(passo, /timeout-minutes: \d+/);
   assert.match(w, /INDEXNOW_URLS_FILE: \$\{\{ runner\.temp \}\}\/indexnow-urls\.json[\s\S]*node scripts\/gerar-paginas\.js/);
   assert.equal((w.match(/node scripts\/indexnow\.js/g) || []).length, 1);
-  assert.match(w, /git add data\/produtos\.json data\/seo-estado\.json produto\/ categoria\/ marca\/ sobre\/ contato\/ privacidade\/ index\.html sitemap\.xml robots\.txt/);   // o resto do sync intacto
+  assert.match(w, /git add data\/produtos\.json data\/seo-estado\.json produto\/ categoria\/ marca\/ marcas\/ sobre\/ contato\/ privacidade\/ index\.html sitemap\.xml robots\.txt/);   // o resto do sync intacto
 });
 test('URLs do diff (reaproveita o gerador): nada mudou ⇒ []; preço de 1 produto ⇒ só a página dele', () => {
   const b = mk(12);
@@ -131,7 +131,7 @@ test('URLs do diff: produto novo (+categoria/marca/home/relacionados que mudam),
   assert.ok(u.includes(ORI + '/produto/produto-novo--novo/'));                                              // página nova
   assert.ok(u.includes(ORI + '/categoria/cat-b/') && u.includes(ORI + '/marca/marca-b/'));                 // categoria e marca novas
   assert.ok(u.includes(ORI + '/'));                                                                         // home lista a nova categoria/marca
-  u.forEach(x => assert.match(x, /^https:\/\/catalogo\.mr4distribuidora\.com\.br\/(|categoria\/[^/]+\/|marca\/[^/]+\/|produto\/[^/]+\/)$/));
+  u.forEach(x => assert.match(x, /^https:\/\/catalogo\.mr4distribuidora\.com\.br\/(|categoria\/[^/]+\/|categoria\/[^/]+\/[^/]+\/|marca\/[^/]+\/|marcas\/|produto\/[^/]+\/)$/));
   assert.ok(!u.some(x => /sitemap|robots|estado|manifest|\.txt|\.json|\.xml/.test(x)));
   const sem3 = b.filter(p => p.id !== '3');                                                                 // produto sai do feed
   const r1 = G.planejar(sem3, TPL, man, { shell: SHELL, estado: r0.estado, atualizado: '2026-10-04T10:00:00Z', existente: ex0 });

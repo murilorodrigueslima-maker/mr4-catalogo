@@ -26,6 +26,7 @@ const Core = require('../js/catalogo-core.js');
 const LD = require('./jsonld.js');
 const Ent = require('./entidade.js');
 const Inst = require('./institucional.js');
+const Hubs = require('./hubs.js');
 
 const ORIGEM = 'https://catalogo.mr4distribuidora.com.br';
 const LOGO = '/assets/logo-header.png';
@@ -61,7 +62,7 @@ function linksTaxonomia(tax, raizTexto) {
 function contextoSeo(tax, intro) {
   return `<section class="seo-contexto" aria-labelledby="ctxTit"><h2 id="ctxTit">${esc(intro.titulo)}</h2>${[].concat(intro.texto).map(t => `<p>${esc(t)}</p>`).join('')}
 <nav aria-label="Categorias do catálogo"><strong>Categorias:</strong> ${tax.categorias.map(c => `<a href="${esc(c.url)}">${esc(c.rotulo)}</a>`).join(' · ')}</nav>
-<nav aria-label="Marcas do catálogo"><strong>Marcas:</strong> ${tax.marcas.map(m => `<a href="${esc(m.url)}">${esc(m.rotulo)}</a>`).join(' · ')}</nav></section>`;
+<nav aria-label="Marcas do catálogo"><strong>Marcas:</strong> ${tax.marcas.map(m => `<a href="${esc(m.url)}">${esc(m.rotulo)}</a>`).join(' · ')} · <a href="/marcas/">Ver todas as marcas</a></nav>${intro.extra || ''}</section>`;
 }
 const textoHome = tax => [
   'A MR4 Distribuidora é distribuidora de acessórios e peças automotivas no atacado, com sede em Fortaleza (CE). Este é o catálogo B2B para lojistas e instaladores, com atendimento para todo o Brasil.',
@@ -123,7 +124,7 @@ function resultInfoPlaceholder(rotulo, n) {
   const chip = rotulo ? `<span class="chip">${esc(rotulo)}<button type="button" tabindex="-1">✕</button></span><button type="button" class="link-btn" tabindex="-1">Limpar filtros</button>` : '';
   return `<span class="ri-ph" aria-hidden="true"><span><strong>${dig}</strong> ${n === 1 ? 'produto' : 'produtos'}</span>${chip}</span>`;
 }
-function paginaTaxonomia(shell, tax, tipo, t, vazia) {
+function paginaTaxonomia(shell, tax, tipo, t, vazia, extra) {
   const cat = tipo === 'categoria', url = ORIGEM + t.url;
   const rotulo = t.rotulo, tx = textosTaxonomia(tipo, t);
   return renderizarShell(shell, tax, {
@@ -132,7 +133,7 @@ function paginaTaxonomia(shell, tax, tipo, t, vazia) {
     bodyAttrs: ` data-pagina="${tipo}" data-${cat ? 'cat' : 'marca'}="${esc(t.chave)}" data-n="${t.itens.length}"`,
     esqueleto: Math.min(6, t.itens.length), h1: rotulo, resultInfo: resultInfoPlaceholder(vazia ? '' : (tipo === 'categoria' ? Core.rotuloCategoria(t.chave) : rotulo), t.itens.length || 100),
     lista: vazia ? `<p class="seo-vazio">Nenhum produto disponível nesta ${cat ? 'categoria' : 'marca'} no momento. <a href="/">Ver todo o catálogo</a>.</p>` : Core.htmlListaProdutosSeo(t.itens, cat ? `Produtos da categoria ${rotulo}` : `Produtos da marca ${rotulo}`),
-    contexto: { titulo: cat ? `Sobre a categoria ${rotulo}` : `Sobre a marca ${rotulo}`, texto: tx.intro }
+    contexto: { titulo: cat ? `Sobre a categoria ${rotulo}` : `Sobre a marca ${rotulo}`, texto: tx.intro, extra: extra || '' }
   });
 }
 function paginaHome(shell, tax) {
@@ -227,10 +228,11 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
 
   // páginas de categoria e marca (memória: página que existiu e ficou sem produtos vira noindex, nunca é apagada)
   const vivas = {};
+  const hubs = Hubs.hubsMoldura(itens);                                      // hubs de montadora candidatos (molduras)
   [['categoria', tax.categorias], ['marca', tax.marcas]].forEach(([tipo, lista]) => lista.forEach(t => {
     vivas[t.url] = 1;
     estado.taxonomias[t.url] = { tipo, chave: t.chave, rotulo: t.rotulo };
-    arquivos[t.url.slice(1) + 'index.html'] = paginaTaxonomia(opts.shell, tax, tipo, t, false);
+    arquivos[t.url.slice(1) + 'index.html'] = paginaTaxonomia(opts.shell, tax, tipo, t, false, tipo === 'categoria' && t.chave === 'Moldura' ? Hubs.navMontadoras(hubs) : '');
   }));
   // redirecionamentos editoriais (alias inequívoco, ex.: marca com erro de digitação): a URL antiga leva à canônica viva e SAI do estado/sitemap
   const reds = (opts.editorial && opts.editorial.redirecionamentos) || {};
@@ -247,6 +249,16 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
   });
   arquivos['index.html'] = paginaHome(opts.shell, tax);
   const tplInst = opts.institucional || fs.readFileSync(path.join(__dirname, '../templates/institucional.html'), 'utf8');
+  arquivos['marcas/index.html'] = Hubs.paginaMarcas(tplInst, headSeo, tax);
+  estado.hubs = {};
+  hubs.forEach(h => { estado.hubs[h.url] = { montadora: h.montadora }; arquivos[h.url.slice(1) + 'index.html'] = Hubs.paginaHubMoldura(tplInst, headSeo, h, hubs, false); });
+  // hub que existiu e deixou de ser candidato (poucos produtos): fica no ar com noindex e FORA do sitemap (nunca apagado)
+  Object.keys(est0.hubs || {}).filter(u => !estado.hubs[u]).forEach(u => {
+    const m = est0.hubs[u].montadora, base = (itens.find(Hubs.ehMoldura) || {}).catUrl || u.replace(/[^/]+\/$/, '');
+    const lista = itens.filter(it => Hubs.ehMoldura(it) && Hubs.montadorasDoNome(it.p.name).includes(m));
+    estado.hubs[u] = { montadora: m };
+    arquivos[u.slice(1) + 'index.html'] = Hubs.paginaHubMoldura(tplInst, headSeo, { montadora: m, url: u, base, itens: lista }, hubs, true);
+  });
   Object.assign(arquivos, Inst.gerar(tplInst, headSeo));
   arquivos['robots.txt'] = ROBOTS;
 
@@ -254,6 +266,8 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
   const urls = [{ u: '/', f: 'index.html' }]
     .concat(tax.categorias.map(t => ({ u: t.url, f: t.url.slice(1) + 'index.html' })))
     .concat(tax.marcas.map(t => ({ u: t.url, f: t.url.slice(1) + 'index.html' })))
+    .concat([{ u: '/marcas/', f: 'marcas/index.html' }])
+    .concat(hubs.map(h => ({ u: h.url, f: h.url.slice(1) + 'index.html' })))
     .concat(Object.keys(Inst.PAGINAS).map(k => ({ u: Ent.paginas[k], f: Inst.PAGINAS[k].caminho })))
     .concat(itens.map(i => ({ u: i.url, f: 'produto/' + dirDe(i.url) + '/index.html' })).sort((x, y) => (x.u < y.u ? -1 : 1)));
   const lm0 = est0.lastmod || {};
@@ -267,13 +281,13 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
   });
   arquivos['sitemap.xml'] = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entradas.join('\n')}\n</urlset>\n`;
   const ord = o => Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {});
-  estado.lastmod = ord(estado.lastmod); estado.ausentes = ord(estado.ausentes); estado.taxonomias = ord(estado.taxonomias);
+  estado.lastmod = ord(estado.lastmod); estado.ausentes = ord(estado.ausentes); estado.taxonomias = ord(estado.taxonomias); estado.hubs = ord(estado.hubs);
   arquivos['data/seo-estado.json'] = JSON.stringify(estado, null, 1) + '\n';
   return { arquivos, itens, saudavel: true, estado, tax, urls: urls.map(x => x.u), redirecionadas };
 }
 
 /** URLs INDEXÁVEIS cujo HTML (sem ?v=) é novo ou mudou de verdade — insumo do IndexNow. Sitemap/robots/estado/manifest nunca entram. */
-const PAGINA_INDEXAVEL = /^(index\.html|(categoria|marca|produto)\/[^/]+\/index\.html|(sobre|contato|privacidade)\/index\.html)$/;
+const PAGINA_INDEXAVEL = /^(index\.html|(categoria|marca|produto)\/[^/]+\/index\.html|categoria\/[^/]+\/[^/]+\/index\.html|(sobre|contato|privacidade|marcas)\/index\.html)$/;
 function urlsAlteradas(arquivos, existente) {
   const out = [];
   Object.keys(arquivos).filter(rel => PAGINA_INDEXAVEL.test(rel)).sort().forEach(rel => {

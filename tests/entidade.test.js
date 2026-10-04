@@ -115,7 +115,7 @@ test('LocalBusiness NÃO é usado (decisão: manter Organization + Place da sede
 test('sitemap: inclui /sobre/ e /contato/; contagem = home + categorias + marcas + 3 + produtos; todas canônicas e com arquivo', () => {
   const locs = [...A['sitemap.xml'].matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
   assert.ok(locs.includes(ORI + '/sobre/') && locs.includes(ORI + '/contato/') && locs.includes(ORI + '/privacidade/'));
-  assert.equal(locs.length, 1 + R.tax.categorias.length + R.tax.marcas.length + 3 + R.itens.length);
+  assert.equal(locs.length, 1 + R.tax.categorias.length + R.tax.marcas.length + 3 + 1 + require('../scripts/hubs.js').hubsMoldura(R.itens).length + R.itens.length);   // +1 /marcas/ e hubs de montadora (molduras)
   assert.equal(new Set(locs).size, locs.length);
   locs.forEach(u => { const rel = u.replace(ORI, '').replace(/^\//, '') + 'index.html'; assert.ok(rel in A, rel); assert.ok(A[rel].includes(`rel="canonical" href="${u}"`), u); });
 });
@@ -123,7 +123,7 @@ test('crawl estático: de /, só por <a href>, alcança /sobre/ e /contato/ (0 �
   const vistos = new Set(['/']), fila = ['/'];
   while (fila.length) {
     const u = fila.pop(); const rel = u.replace(/^\//, '') + 'index.html'; const h = A[rel]; assert.ok(h, u);
-    links(h).filter(l => /^\/(sobre|contato|privacidade)\/$|^\/(categoria|marca|produto)\/[^?#]+\/$|^\/$/.test(l)).forEach(l => { if (!vistos.has(l)) { vistos.add(l); fila.push(l); } });
+    links(h).filter(l => /^\/(sobre|contato|privacidade|marcas)\/$|^\/(categoria|marca|produto)\/[^?#]+\/$|^\/$/.test(l)).forEach(l => { if (!vistos.has(l)) { vistos.add(l); fila.push(l); } });
   }
   assert.ok(vistos.has('/sobre/') && vistos.has('/contato/') && vistos.has('/privacidade/'));
   const indexaveis = Object.keys(A).filter(k => /index\.html$/.test(k)).map(k => '/' + k.replace(/index\.html$/, ''));

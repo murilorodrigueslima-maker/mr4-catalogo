@@ -52,7 +52,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/produtos.json data/seo-estado.json produto/ categoria/ marca/ sobre/ contato/ privacidade/ index.html sitemap.xml robots.txt
+          git add data/produtos.json data/seo-estado.json produto/ categoria/ marca/ marcas/ sobre/ contato/ privacidade/ index.html sitemap.xml robots.txt
           git diff --staged --quiet || git commit -m "sync: atualiza produtos.json e páginas [$(date -u '+%d/%m/%Y %H:%M')] UTC"
           node scripts/git-push-seguro.js        # nunca force; se o main mudou durante o run: rebase só com arquivos disjuntos, senão aborta e a próxima execução recupera
 

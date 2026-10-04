@@ -35,7 +35,7 @@ test('sitemap: XML válido, URLs absolutas, sem duplicata, sem parâmetros, 605 
   assert.equal(new Set(l).size, l.length);
   l.forEach(u => { assert.match(u, /^https:\/\/catalogo\.mr4distribuidora\.com\.br\//); assert.doesNotMatch(u, /[?#&]/); });
   assert.equal(l.filter(u => u.includes('/produto/')).length, itens.length);
-  assert.equal(l.filter(u => u.includes('/categoria/')).length, R.tax.categorias.length);
+  assert.equal(l.filter(u => /\/categoria\/[^/]+\/$/.test(u)).length, R.tax.categorias.length);
   assert.equal(l.filter(u => u.includes('/marca/')).length, R.tax.marcas.length);
   assert.ok(l.includes('https://catalogo.mr4distribuidora.com.br/'));
   assert.equal((x.match(/<url>/g) || []).length, l.length);

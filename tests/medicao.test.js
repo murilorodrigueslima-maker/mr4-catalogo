@@ -162,7 +162,7 @@ test('institucionais: único script é a medição (defer), tel/WhatsApp medidos
   assert.equal(ev.find(e => e[0] === 'page_view')[1].page_type, 'institucional');
 });
 test('SEO/Schema sem regressão: JSON-LD, canonical e sitemap iguais; IndexNow detecta só mudança real (versão ?v= não conta)', () => {
-  assert.equal(R.urls.length, 1 + R.tax.categorias.length + R.tax.marcas.length + 3 + R.itens.length);
+  assert.equal(R.urls.length, 1 + R.tax.categorias.length + R.tax.marcas.length + 3 + 1 + require('../scripts/hubs.js').hubsMoldura(R.itens).length + R.itens.length);
   htmls().filter(k => /^(produto|categoria|marca)\//.test(k) || k === 'index.html').forEach(k => assert.equal((A[k].match(/application\/ld\+json/g) || []).length, 1, k));
   const trocaVersao = h => h.replace(/\?v=ga1-1/g, '?v=ga9-9');
   assert.deepEqual(G.urlsAlteradas(A, rel => (A[rel] == null ? null : trocaVersao(A[rel]))), []);

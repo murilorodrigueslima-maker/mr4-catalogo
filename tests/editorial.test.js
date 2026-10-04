@@ -138,7 +138,7 @@ test('geração: editorial INVÁLIDO bloqueia (nada é escrito); JSON ilegível 
 test('geração: CLI sai com código 1 e mensagem clara quando o editorial é inválido', () => {
   const d = raizTemp(feed3(), ed({ 1: { brand: 'X' } }));
   fs.mkdirSync(path.join(d, 'scripts')); fs.mkdirSync(path.join(d, 'js'));
-  ['gerar-paginas.js', 'jsonld.js', 'entidade.js', 'institucional.js'].forEach(f => fs.copyFileSync(path.join(RAIZ, 'scripts', f), path.join(d, 'scripts', f)));
+  ['gerar-paginas.js', 'jsonld.js', 'entidade.js', 'institucional.js', 'hubs.js'].forEach(f => fs.copyFileSync(path.join(RAIZ, 'scripts', f), path.join(d, 'scripts', f)));
   fs.copyFileSync(path.join(RAIZ, 'js/catalogo-core.js'), path.join(d, 'js/catalogo-core.js'));
   const r = spawnSync('node', ['scripts/gerar-paginas.js'], { cwd: d, encoding: 'utf8', env: { PATH: process.env.PATH, SYNC_FEED_VALIDADO: '1' } });
   assert.equal(r.status, 1); assert.match(r.stderr, /EDITORIAL_INVALIDO/); assert.match(r.stderr, /motivo/);

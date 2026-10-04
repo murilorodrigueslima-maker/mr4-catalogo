@@ -96,6 +96,12 @@ function grafoTaxonomia(tipo, t, descricao, vazia) {
   if (vazia) return [bc];
   return [{ '@type': 'CollectionPage', '@id': url + '#collection', url, name: t.rotulo, description: descricao, inLanguage: 'pt-BR', isPartOf: { '@id': ID_SITE }, breadcrumb: { '@id': bc['@id'] } }, bc];
 }
+/** página de lista (índice de marcas, hub de montadora): CollectionPage + ItemList (só os links visíveis) + breadcrumb. Sem Product agregado. */
+function grafoLista(url, nome, descricao, itens, passos) {
+  const bc = breadcrumb(url, passos);
+  return [{ '@type': 'CollectionPage', '@id': url + '#collection', url, name: nome, description: descricao, inLanguage: 'pt-BR', isPartOf: { '@id': ID_SITE }, breadcrumb: { '@id': bc['@id'] }, mainEntity: { '@id': url + '#lista' } },
+    { '@type': 'ItemList', '@id': url + '#lista', numberOfItems: itens.length, itemListElement: itens.map((x, i) => ({ '@type': 'ListItem', position: i + 1, url: x.url, name: x.nome })) }, bc];
+}
 /** produto fora do feed: sai o Product (nada de dado "ativo"); o breadcrumb pode ficar */
 function somenteBreadcrumb(html) {
   return html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/, (m, js) => {
@@ -104,4 +110,4 @@ function somenteBreadcrumb(html) {
     return bc.length ? tag(bc) : '';
   });
 }
-module.exports = { paginaInstitucional, precoCentavosValido, precoDecimal, disponibilidade, oferta, serializar, tag, organizacao, site, breadcrumb, breadcrumbProduto, produto, grafoHome, grafoProduto, grafoTaxonomia, somenteBreadcrumb, descricaoSchema, ORIGEM, LOGO, ID_ORG, ID_SITE };
+module.exports = { paginaInstitucional, precoCentavosValido, precoDecimal, disponibilidade, oferta, serializar, tag, organizacao, site, breadcrumb, breadcrumbProduto, produto, grafoHome, grafoProduto, grafoTaxonomia, grafoLista, somenteBreadcrumb, descricaoSchema, ORIGEM, LOGO, ID_ORG, ID_SITE };

@@ -21,7 +21,7 @@ const scripts = h => [...h.matchAll(/<script type="application\/ld\+json">([\s\S
 const grafo = h => { const s = scripts(h); assert.equal(s.length, 1); const j = JSON.parse(s[0]); assert.equal(j['@context'], 'https://schema.org'); return j['@graph']; };
 const tipo = (g, t) => g.find(n => n['@type'] === t);
 const prep = l => C.prepararCatalogo(l.map((o, i) => Object.assign({ id: String(i + 1), ref: 'R' + (i + 1), name: 'Produto ' + (i + 1), category: 'Cat A', brand: '', price: 'R$ 1,00', stock: 3, img: '', desc: '' }, o)));
-const paginas = () => Object.keys(A).filter(k => /\.html$/.test(k) && /^(index|categoria\/|marca\/|produto\/)/.test(k) && !/http-equiv="refresh"/.test(A[k]));
+const paginas = () => Object.keys(A).filter(k => /\.html$/.test(k) && /^(index|categoria\/|marca\/|marcas\/|produto\/)/.test(k) && !/http-equiv="refresh"/.test(A[k]));
 
 test('home: @graph com Organization + WebSite; ids estáveis; publisher referencia a Organization', () => {
   const g = grafo(A['index.html']);
@@ -135,7 +135,7 @@ test('categoria/marca: CollectionPage leve (sem ItemList, sem Brand/Product); is
     tamanhos.push(scripts(A[f])[0].length);
   });
   assert.ok(Math.max(...tamanhos) < 1500);                                      // independe do nº de produtos (93 em Moldura)
-  assert.doesNotMatch(Object.keys(A).filter(k => /^(categoria|marca)\//.test(k)).map(k => scripts(A[k])[0]).join(''), /ItemList"|"Product"|"Brand"|"Offer/);
+  assert.doesNotMatch(Object.keys(A).filter(k => /^(categoria|marca)\/[^/]+\/index\.html$/.test(k)).map(k => scripts(A[k])[0]).join(''), /ItemList"|"Product"|"Brand"|"Offer/);
 });
 test('categoria/marca vazia (noindex): só BreadcrumbList; sem CollectionPage', () => {
   const todos = Array.from({ length: 10 }, (_, i) => ({ id: String(i + 1), ref: 'R' + i, name: 'P' + i, category: i === 0 ? 'B' : 'A', brand: i === 0 ? 'Y' : 'X', price: 'R$ 1', stock: 2, img: '', desc: '' }));
@@ -191,7 +191,8 @@ test('JSON-LD: 100 % das páginas indexáveis parseiam, um script no <head>, URL
     const todas = []; (function walk(o) { if (o && typeof o === 'object') Object.keys(o).forEach(k => { if ((k === 'url' || k === 'item') && typeof o[k] === 'string') todas.push(o[k]); walk(o[k]); }); })(g);
     todas.forEach(u => { assert.match(u, /^https:\/\//); if (!/assets\/logo-header\.png$/.test(u)) assert.ok(urls.has(u), f + ' → ' + u); assert.doesNotMatch(u, /\?|index\.html/); });
   });
-  assert.deepEqual(cont, { org: 1, site: 1, bc: ITENS.length + R.tax.categorias.length + R.tax.marcas.length, prod: ITENS.length, col: R.tax.categorias.length + R.tax.marcas.length });
+  const NH = require('../scripts/hubs.js').hubsMoldura(ITENS).length;   // /marcas/ + hubs de montadora (CollectionPage + breadcrumb cada)
+  assert.deepEqual(cont, { org: 1, site: 1, bc: ITENS.length + R.tax.categorias.length + R.tax.marcas.length + 1 + NH, prod: ITENS.length, col: R.tax.categorias.length + R.tax.marcas.length + 1 + NH });
 });
 test('Offer (3B): sem rating/review/gtin/validade/condição/frete/devolução em nenhuma página', () => {
   const todo = paginas().map(k => scripts(A[k])[0]).join('');
