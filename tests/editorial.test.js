@@ -247,3 +247,18 @@ test('DADOS REAIS: nenhum produto exibido como "Tiger"; todos os antigos Tiger/T
   assert.equal(ED.aliasesMarca.Tiger, 'Tiger Auto');
   assert.ok(!Object.keys(ED.aliasesMarca).some(k => /vipertron|fitto|joker/i.test(k)));
 });
+test('DADOS REAIS: descrições editoriais só contêm números/códigos presentes no cadastro (nome, marca ou código) — nenhuma medida inventada', () => {
+  const feed = FEED.produtos;
+  const por = new Map(feed.map(p => [String(p.id), p]));
+  const tok = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/(\d)\.(\d)/g, '$1$2').replace(/(\d),(\d)/g, '$1$2').replace(/([a-z])(\d)/g, '$1 $2').replace(/(\d)([a-z])/g, '$1 $2').split(/[^a-z0-9]+/).filter(Boolean);
+  let n = 0;
+  Object.entries(ED.produtos).forEach(([id, o]) => {
+    if (!o.desc) return; n++;
+    const p = por.get(id); if (!p) return;   // órfão = aviso do validador
+    assert.equal(C.descricaoEditorialProblema(o.desc), '', id);
+    const fonte = new Set(tok([p.name, p.brand, p.ref, ED.aliasesMarca && ED.aliasesMarca[p.brand], o.brand].join(' ')));
+    tok(o.desc).filter(t => /\d/.test(t)).forEach(t => assert.ok(fonte.has(t), `${id}: "${t}" não está no cadastro`));
+    assert.doesNotMatch(o.desc, /fitto|joker/i, id);   // Fitto/Joker bloqueado
+  });
+  assert.ok(n >= 20, 'piloto: ao menos ~20 descrições');
+});

@@ -9,6 +9,12 @@
   "/marca/tiger/": "/marca/tiger-auto/"
  },
  "produtos": {
+  "33002136": {
+   "desc": "Moldura 2 DIN para Toyota Corolla 08/13, cor grafite. Marca Fiamon. Código 2870.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: TOYOTA COROLLA 08/13; acabamento/cor: GRAFITE. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "33184538": {
    "category": "Lâmpadas Halógenas",
    "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
@@ -39,6 +45,18 @@
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
    "evidencia": "Site oficial Tarponn: TP-4039 \"LED ROCK ATMOSFERA EXTERNA CYBER – VERMELHO\"; ML \"Marca Tarponn, TP-4039\" | fonte: tarponn.com.br/buscaProduto; catálogo 2026"
   },
+  "50639277": {
+   "desc": "Lâmpada Super Branca 8500K tipo H1, 12V, 55W. Marca Tiger Auto. Código 1011H1.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: SUPER BRANCA 8500K; modelo H1; 12V; 55W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "50639283": {
+   "desc": "Lâmpada Super Branca 8500K tipo HB3 Premium, 12V, 61W. Marca Tiger Auto. Código 1012HB3.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: SUPER BRANCA 8500K; modelo HB3; 12V; 61W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "50694965": {
    "brand": "Rayx",
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
@@ -49,10 +67,40 @@
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
    "evidencia": "Site oficial Tarponn: TP-2018 Porta-Fusível Plástico ABS; Mercado Livre \"Marca: Tarponn, Modelo: Porta-fusível 2018\" | fonte: tarponn.com.br/buscaProduto (TP-2015…); mercadolivre MLBU3300218118"
   },
+  "54313354": {
+   "desc": "Soquete BA15S liso 1 polo. Marca Tarponn. Código TP-2015.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete BA15S; LISO 1 POLO. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "54313361": {
    "brand": "Tarponn",
    "motivo": "Marca provada por fonte externa/oficial.",
    "evidencia": "catálogo/site oficial Tarponn: esquema TP-NNNN (soquetes)"
+  },
+  "54344946": {
+   "desc": "Terminal de compressão para bateria, 25 mm. Marca Permak. Código 34/G.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: literal do nome do cadastro: TERMINAL COMPRESSAO BATERIA 25MM. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "54344957": {
+   "desc": "Fusível de lâmina comum, 5A. Marca Permak. Código 61/A.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: literal do nome do cadastro: FUSIVEL DE LAMINA COMUM 5A. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "55588169": {
+   "desc": "Moldura 2 DIN para Hyundai Creta 17/21, cor preta. Marca Fiamon. Código 4001.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: HYUNDAI CRETA 17/21; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "55588172": {
+   "desc": "Moldura 9 para VW Novo Polo, Virtus 18, T-Cross 19, Nivus 20, cor preta. Marca Fiamon. Código 4278.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9; aplicação: VW NOVO POLO, VIRTUS 18 , T-CROSS 19 , NIVUS 20; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "57208040": {
    "title": "FAROL DE MILHA AVULSO GOL G6 13 - LADO DIREITO",
@@ -64,10 +112,18 @@
    "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
    "evidencia": "Convenção do próprio ERP: SKU 02003E = \"FAROL DE MILHA AVULSO UNIVERSAL LADO ESQUERDO\" e 02003D = \"... LADO DIREITO\" (E=esquerdo, D=direito); demais pares usam sufixo \" E\"/\" D\" no nome."
   },
+  "57748546": {
+   "desc": "Lâmpada halógena H7, 12V, 55W. Marca Tiger Auto. Código 1015H7.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: HALOGENA; modelo H7; 12V; 55W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "57934402": {
    "brand": "Fiamon",
-   "motivo": "Erro de digitação (transposição de letras): \"Faimon\" → \"Fiamon\".",
-   "evidencia": "Único produto com a grafia Faimon; categoria Moldura, nome no padrão \"MOLDURA 9 ... BLACK PIANO UV PROTECTION\" e SKU numérico vizinho (5857–5899, 6002–6059) idênticos aos de 47 produtos Fiamon."
+   "motivo": "Erro de digitação (transposição de letras): \"Faimon\" → \"Fiamon\". | Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Único produto com a grafia Faimon; categoria Moldura, nome no padrão \"MOLDURA 9 ... BLACK PIANO UV PROTECTION\" e SKU numérico vizinho (5857–5899, 6002–6059) idênticos aos de 47 produtos Fiamon. | Fatos: tipo: moldura 9; aplicação: FIAT TORO 2022; acabamento/cor: BLACK PIANO UV PROTECTION. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos.",
+   "desc": "Moldura 9 para Fiat Toro 2022, acabamento Black Piano UV Protection (rótulo do cadastro). Marca Fiamon. Código 5870.",
+   "descModo": "preencher"
   },
   "58144073": {
    "category": "Chicotes",
@@ -114,16 +170,36 @@
    "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
    "evidencia": "Convenção do próprio ERP: SKU 02003E = \"FAROL DE MILHA AVULSO UNIVERSAL LADO ESQUERDO\" e 02003D = \"... LADO DIREITO\" (E=esquerdo, D=direito); demais pares usam sufixo \" E\"/\" D\" no nome."
   },
+  "61964786": {
+   "desc": "Lâmpada halógena H4, 12V, 60/55W. Marca Tiger Auto. Código 1015H4.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: HALOGENA; modelo H4; 12V; 60/55W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "62288341": {
+   "desc": "Moldura 2 DIN para Honda Civic 01/06, cor preta. Marca Fiamon. Código 4059.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: HONDA CIVIC 01/06; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "62812853": {
    "brand": "2MIX",
    "motivo": "[marca] Marca 2MIX escrita literalmente no nome; marca já existe no catálogo e o campo do ERP está vazio. [categoria] Categoria genérica (Geral); nome indica \"MULTIMIDIA\" e a categoria Multimídia já existe.",
    "evidencia": "Nome ERP: \"MULTIMIDIA 9.75 TESLA QLED 1280X720DPI QUAD 2/32 2MIX\"; categoria Multimídia já existente com multimídias.",
    "category": "Multimídia"
   },
+  "63614238": {
+   "desc": "Farol de milha LED universal, 12/24V, 16 LEDs, 6000K, quadrado. Marca Tiger Auto. Código 0802033.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: literal do nome do cadastro: FDM LED UNIVERSAL 12/24V 16 LEDS 6000K QUADRADO. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "64152103": {
    "brand": "Tarponn",
-   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
-   "evidencia": "Site oficial Tarponn: TP-2027 Soquete de Plástico ABS HB4/9006; catálogo 2026 | fonte: tarponn.com.br/produto (soquete 2027); catálogo 2026 PDF"
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv). | Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Site oficial Tarponn: TP-2027 Soquete de Plástico ABS HB4/9006; catálogo 2026 | fonte: tarponn.com.br/produto (soquete 2027); catálogo 2026 PDF | Fatos: tipo: soquete; material: PLASTICO; lâmpada: 9006 HB4. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos.",
+   "desc": "Soquete plástico para lâmpada 9006/HB4. Marca Tarponn. Código TP-2027.",
+   "descModo": "preencher"
   },
   "65132828": {
    "brand": "Tiger",
@@ -213,6 +289,12 @@
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
    "evidencia": "Dezenas de anúncios \"Bateria CR2016 3V KP-BT2016 Knup\" (cartela com 5) | fonte: Mercado Livre, Contato Celular, Zip Cartuchos (03/10/2026)"
   },
+  "66478081": {
+   "desc": "Kit LED Full Mini Y3 com 2 lâmpadas, H7, 12V, 22.000 LM, 6.500K. Marca Lux Led. Código SC-Y3MINI-H7-SC.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: literal do nome do cadastro: KIT LED FULL MINI Y3 (2 LAMP.) - 12V - 22000LM 6500K - H7. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "66532946": {
    "brand": "2MIX",
    "motivo": "[marca] Marca 2MIX escrita literalmente no nome; marca já existe no catálogo e o campo do ERP está vazio. [categoria] Categoria genérica (Geral); nome indica \"MULTIMIDIA\" e a categoria Multimídia já existe.",
@@ -223,6 +305,12 @@
    "brand": "Tarponn",
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
    "evidencia": "Sulcape/Click Auto Parts: \"Marca: TARPONN, TP6168 Kit LED Sky H27 4K\"; catálogo 2026 lista TP-6168 | fonte: sulcape.com.br; clickautoparts.com.br; tarponn.com.br catálogo"
+  },
+  "69989798": {
+   "desc": "Moldura 9 para Honda Civic 17/21, acabamento Black Piano UV Protection (rótulo do cadastro). Marca Fiamon. Código 4116.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9; aplicação: HONDA CIVIC 17/21; acabamento/cor: BLACK PIANO UV PROTECTION. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "71592890": {
    "category": "Chicotes",
@@ -244,10 +332,24 @@
    "motivo": "Marca KX3 escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
    "evidencia": "Nome ERP: \"CAMERA RE KX3 2X1 REMOVE GUIA INVERTE DIANTEIRA 130. CONECT RCA P4\""
   },
+  "76142761": {
+   "desc": "Câmera de ré 2x1, 180 graus, Full HD. Marca KX3. Código KC360-K5100.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: literal do nome do cadastro: CAMERA DE RE 2X1 KX3 180 GRAUS, FULL HD. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "76142769": {
+   "desc": "Bateria elétrica 3V CR2025. Marca KX3. Código KB2025.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: literal do nome do cadastro: BATERIA ELETRICA 3V CR2025 KX3. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "77209719": {
    "brand": "Alemar",
-   "motivo": "Marca Alemar escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
-   "evidencia": "Nome ERP: \"ETI36BAR - BARRA DE LED 38,3X3X4 ALEMAR 12 LEDS, 36W, 12-24V\""
+   "motivo": "Marca Alemar escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio. | Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Nome ERP: \"ETI36BAR - BARRA DE LED 38,3X3X4 ALEMAR 12 LEDS, 36W, 12-24V\" | Fatos: literal do nome do cadastro: ETI36BAR - BARRA DE LED 38,3X3X4 ALEMAR 12 LEDS, 36W, 12-24V. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos.",
+   "desc": "Barra de LED 38,3x3x4, 12 LEDs, 36W, 12-24V. Marca Alemar. Código 000403.",
+   "descModo": "preencher"
   },
   "77209720": {
    "brand": "Alemar",
@@ -263,6 +365,12 @@
    "title": "FAROL DE MILHA AVULSO HB20/HB20S 2016 2017 - LADO ESQUERDO",
    "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
    "evidencia": "Convenção do próprio ERP: SKU 02003E = \"FAROL DE MILHA AVULSO UNIVERSAL LADO ESQUERDO\" e 02003D = \"... LADO DIREITO\" (E=esquerdo, D=direito); demais pares usam sufixo \" E\"/\" D\" no nome."
+  },
+  "80678578": {
+   "desc": "Lâmpada LED H7, linha Fenix, 11.000 lumens. Marca LDCAR. Código FENIXH7.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: literal do nome do cadastro: H7 LED FENIX 11.000 LUMENS. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "82132426": {
    "brand": "Vipertron",
@@ -308,6 +416,18 @@
    "brand": "KX3",
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
    "evidencia": "kx3.com.br e Lojas: \"MP5 KX3 KRC3100 7 polegadas\" (modelo oficial KX3) | fonte: kx3.com.br; lojadosomeacessorios.com.br; Instagram @kx3_acessorios"
+  },
+  "95657041": {
+   "desc": "Soquete cerâmico para lâmpada H7. Marca LDCAR. Código LDCAR020.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete; material: CERAMICA; lâmpada: H7. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "95657251": {
+   "desc": "Soquete cerâmico para lâmpada 9006/HB4. Marca LDCAR. Código LDCAR024.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete; material: CERAMICA; lâmpada: 9006 HB4. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "95658794": {
    "brand": "LDCAR",
