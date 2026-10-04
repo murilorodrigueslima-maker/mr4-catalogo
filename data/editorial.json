@@ -15,10 +15,70 @@
    "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
    "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: TOYOTA COROLLA 08/13; acabamento/cor: GRAFITE. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
+  "33002137": {
+   "desc": "Moldura 2 DIN para Fiat Palio Way 14/18, cor preta. Marca Fiamon. Código 2959.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: FIAT PALIO WAY 14/18; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "33002151": {
+   "desc": "Moldura 2 DIN para Fiat Toro G1 16/21, acabamento Black Piano UV Protection (rótulo do cadastro). Marca Fiamon. Código 4123.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: FIAT TORO G1 16/21; acabamento/cor: BLACK PIANO UV PROTECTION. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "33002153": {
+   "desc": "Moldura 9 para Fiat Toro G1 16/21, acabamento Black Piano UV Protection (rótulo do cadastro). Marca Fiamon. Código 4173.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9; aplicação: FIAT TORO G1 16/21; acabamento/cor: BLACK PIANO UV PROTECTION. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "33002166": {
+   "desc": "Moldura 2 DIN para GM Spin 18/21, cor preta. Marca Fiamon. Código 4271.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: GM SPIN 18/21; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "33002171": {
+   "desc": "Moldura 9 para Fiat Mobi, cor preta. Marca Fiamon. Código 4994.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9; aplicação: FIAT MOBI; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "33184538": {
    "category": "Lâmpadas Halógenas",
    "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
    "evidencia": "nome \"LAMPADA HALOGENA ...\"; categoria Lâmpadas Halógenas já existe com produtos do mesmo tipo"
+  },
+  "38143024": {
+   "desc": "Moldura 2 DIN para VW Gol G5, Saveiro, Voyage, cor preta. Marca Fiamon. Código 2372.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: VW GOL G5, SAVEIRO, VOYAGE; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "38143026": {
+   "desc": "Moldura 2 DIN para VW Polo, Golf, Fox, Ecosport, Fiesta, Bora, Passat, cor preta. Marca Fiamon. Código 4051.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: VW POLO, GOLF, FOX, ECOSPORT, FIESTA, BORA, PASSAT; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "38143027": {
+   "desc": "Moldura 2 DIN japonês para Fiat Punto 13/17, Linea 15/16, cor preta. Marca Fiamon. Código 4069.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN japonês; aplicação: FIAT PUNTO 13/17, LINEA 15/16; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "44105216": {
+   "desc": "Moldura 2 DIN chinês e japonês para Honda HR-V 15/21, acabamento Black Piano UV Protection (rótulo do cadastro). Marca Fiamon. Código 3203.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN chinês e japonês; aplicação: HONDA HR-V 15/21; acabamento/cor: BLACK PIANO UV PROTECTION. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "44105218": {
+   "desc": "Moldura 9 para Suzuki Grand Vitara 16/19, cor preta. Marca Fiamon. Código 4150.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9; aplicação: SUZUKI GRAND VITARA 16/19; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "46458278": {
    "brand": "Tarponn",
@@ -51,6 +111,18 @@
    "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
    "evidencia": "Fatos: tipo: SUPER BRANCA 8500K; modelo H1; 12V; 55W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
+  "50639280": {
+   "desc": "Lâmpada Super Branca 8500K tipo H3, 12V, 55W. Marca Tiger Auto. Código 1011H3.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: SUPER BRANCA 8500K; modelo H3; 12V; 55W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "50639282": {
+   "desc": "Lâmpada Super Branca 8500K tipo H8, 12V, 35W. Marca Tiger Auto. Código 1011H8.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: SUPER BRANCA 8500K; modelo H8; 12V; 35W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "50639283": {
    "desc": "Lâmpada Super Branca 8500K tipo HB3 Premium, 12V, 61W. Marca Tiger Auto. Código 1012HB3.",
    "descModo": "preencher",
@@ -62,10 +134,40 @@
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
    "evidencia": "rayx.com.br (\"Distribuidora oficial\"); Equasa/ML/Shopee: \"Mini Ultra Led Small RAYX H4/HB4 6000K 8400 lumens\" | fonte: rayx.com.br; equasa.com.br; Mercado Livre (03/10/2026)"
   },
+  "52198460": {
+   "desc": "Soquete cerâmico para lâmpada 9005/HB3. Marca Tarponn. Código TP-2026.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete; material: CERAMICA; lâmpada: 9005 HB3. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "52198461": {
+   "desc": "Soquete cerâmico para lâmpada 9006/HB4. Marca Tarponn. Código TP-2028.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete; material: CERAMICA; lâmpada: 9006 HB4. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "52198464": {
+   "desc": "Soquete cerâmico para lâmpada H7. Marca Tarponn. Código TP-2041.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete; material: CERAMICA; lâmpada: H7. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "54141306": {
+   "desc": "Lâmpada Super Branca 8500K tipo H7, 12V, 55W. Marca Tiger Auto. Código 1011H7.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: SUPER BRANCA 8500K; modelo H7; 12V; 55W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "54313350": {
    "brand": "Tarponn",
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
    "evidencia": "Site oficial Tarponn: TP-2018 Porta-Fusível Plástico ABS; Mercado Livre \"Marca: Tarponn, Modelo: Porta-fusível 2018\" | fonte: tarponn.com.br/buscaProduto (TP-2015…); mercadolivre MLBU3300218118"
+  },
+  "54313353": {
+   "desc": "Soquete BA15D 2 polos plástico. Marca Tarponn. Código TP-2048.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete BA15D; 2 POLOS PLASTICO. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "54313354": {
    "desc": "Soquete BA15S liso 1 polo. Marca Tarponn. Código TP-2015.",
@@ -73,10 +175,30 @@
    "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
    "evidencia": "Fatos: tipo: soquete BA15S; LISO 1 POLO. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
+  "54313355": {
+   "desc": "Soquete BA15S 1 polo garra plástico. Marca Tarponn. Código TP-2049.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete BA15S; 1 POLO GARRA PLASTICO. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "54313356": {
+   "desc": "Soquete BA15S 1 polo plástico. Marca Tarponn. Código TP-2047.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete BA15S; 1 POLO PLASTICO. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "54313360": {
+   "desc": "Soquete T20 1 polo. Marca Tarponn. Código TP-2010.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete T20; 1 POLO. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "54313361": {
    "brand": "Tarponn",
-   "motivo": "Marca provada por fonte externa/oficial.",
-   "evidencia": "catálogo/site oficial Tarponn: esquema TP-NNNN (soquetes)"
+   "motivo": "Marca provada por fonte externa/oficial. | Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "catálogo/site oficial Tarponn: esquema TP-NNNN (soquetes) | Fatos: tipo: soquete T20; 2 POLOS. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos.",
+   "desc": "Soquete T20 2 polos. Marca Tarponn. Código TP-2009.",
+   "descModo": "preencher"
   },
   "54344946": {
    "desc": "Terminal de compressão para bateria, 25 mm. Marca Permak. Código 34/G.",
@@ -102,6 +224,18 @@
    "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
    "evidencia": "Fatos: tipo: moldura 9; aplicação: VW NOVO POLO, VIRTUS 18 , T-CROSS 19 , NIVUS 20; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
+  "55588175": {
+   "desc": "Moldura 9 flutuante para GM S10 16 AR analógico, cor preta. Marca Fiamon. Código 5860.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9 flutuante; aplicação: GM S10 16 AR ANALOGICO; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "55588183": {
+   "desc": "Moldura 2 DIN japonês para VW Polo, Golf, Fox G2, Ecosport, Fiesta, Bora, Passat, cor preta. Marca Fiamon. Código 846.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN japonês; aplicação: VW POLO, GOLF, FOX G2, ECOSPORT, FIESTA, BORA, PASSAT; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "57208040": {
    "title": "FAROL DE MILHA AVULSO GOL G6 13 - LADO DIREITO",
    "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
@@ -117,6 +251,18 @@
    "descModo": "preencher",
    "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
    "evidencia": "Fatos: tipo: HALOGENA; modelo H7; 12V; 55W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "57748547": {
+   "desc": "Lâmpada halógena H8, 12V, 35W. Marca Tiger Auto. Código 1015H8.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: HALOGENA; modelo H8; 12V; 35W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "57934398": {
+   "desc": "Moldura 2 DIN para GM S10 16 AR analógico, cor preta. Marca Fiamon. Código 4020.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: GM S10 16 AR ANALOGICO; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "57934402": {
    "brand": "Fiamon",
@@ -134,6 +280,12 @@
    "category": "Chicotes",
    "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente.",
    "evidencia": "prefixo KPC: 6 de 7 irmãos já em Chicotes; \"PC JOKER KING ...\" igual ao de KPC-MI-0091W (Chicotes)"
+  },
+  "58144122": {
+   "desc": "Soquete cerâmico emborrachado preto para lâmpada H4. Marca Tarponn. Código TP-2040.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete; material: CERAMICO; lâmpada: H4. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "59323431": {
    "brand": "RPX",
@@ -170,11 +322,71 @@
    "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
    "evidencia": "Convenção do próprio ERP: SKU 02003E = \"FAROL DE MILHA AVULSO UNIVERSAL LADO ESQUERDO\" e 02003D = \"... LADO DIREITO\" (E=esquerdo, D=direito); demais pares usam sufixo \" E\"/\" D\" no nome."
   },
+  "59919406": {
+   "desc": "Lâmpada halógena H1, 12V, 55W. Marca Tiger Auto. Código 1015H1.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: HALOGENA; modelo H1; 12V; 55W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "59919407": {
+   "desc": "Lâmpada halógena H11, 12V, 55W. Marca Tiger Auto. Código 1015H11.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: HALOGENA; modelo H11; 12V; 55W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "61171365": {
+   "desc": "Moldura 2 DIN chinês e japonês para Honda City 15/21 com botão airbag duplo, acabamento Black Piano UV Protection (rótulo do cadastro). Marca Fiamon. Código 4090.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN chinês e japonês; aplicação: HONDA CITY 15/21 COM BOTAO AIRBAG DUPLO; acabamento/cor: BLACK PIANO UV PROTECTION. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "61171366": {
+   "desc": "Moldura 9 flutuante para Novo Palio Attractive 12/17, Grand Siena 21, acabamento Black Piano UV Protection (rótulo do cadastro). Marca Fiamon. Código 5857.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9 flutuante; aplicação: NOVO PALIO ATTRACTIVE 12/17, GRAND SIENA 21; acabamento/cor: BLACK PIANO UV PROTECTION. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "61964781": {
+   "desc": "Lâmpada Super Branca 8500K tipo H11, 12V, 55W. Marca Tiger Auto. Código 1011H11.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: SUPER BRANCA 8500K; modelo H11; 12V; 55W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "61964782": {
+   "desc": "Lâmpada Super Branca 8500K tipo H27, 12V, 27W. Marca Tiger Auto. Código 1011H27.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: SUPER BRANCA 8500K; modelo H27; 12V; 27W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "61964783": {
+   "desc": "Lâmpada halógena H27, 12V, 27W. Marca Tiger Auto. Código 1015H27.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: HALOGENA; modelo H27; 12V; 27W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "61964785": {
+   "desc": "Lâmpada halógena H3, 12V, 55W. Marca Tiger Auto. Código 1015H3.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: HALOGENA; modelo H3; 12V; 55W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "61964786": {
    "desc": "Lâmpada halógena H4, 12V, 60/55W. Marca Tiger Auto. Código 1015H4.",
    "descModo": "preencher",
    "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
    "evidencia": "Fatos: tipo: HALOGENA; modelo H4; 12V; 60/55W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "61964787": {
+   "desc": "Lâmpada halógena HB3, 12V, 61W. Marca Tiger Auto. Código 1015HB3.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: HALOGENA; modelo HB3; 12V; 61W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "61964788": {
+   "desc": "Lâmpada halógena HB4, 12V, 61W. Marca Tiger Auto. Código 1015HB4.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: HALOGENA; modelo HB4; 12V; 61W. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "62288341": {
    "desc": "Moldura 2 DIN para Honda Civic 01/06, cor preta. Marca Fiamon. Código 4059.",
@@ -188,11 +400,35 @@
    "evidencia": "Nome ERP: \"MULTIMIDIA 9.75 TESLA QLED 1280X720DPI QUAD 2/32 2MIX\"; categoria Multimídia já existente com multimídias.",
    "category": "Multimídia"
   },
+  "63374947": {
+   "desc": "Moldura 2 DIN para Renault Duster, Oroch 18/21 (sem rádio), cor preta. Marca Fiamon. Código 4035MD.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: RENAULT DUSTER, OROCH 18/21 (SEM RADIO); acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "63374948": {
+   "desc": "Moldura 9 para Nissan Kicks 16/22, cor preta com friso prata. Marca Fiamon. Código 4177MD.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9; aplicação: NISSAN KICKS 16/22; acabamento/cor: PRETA COM FRISO PRATA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "63374949": {
+   "desc": "Moldura 9 para VW Amarok 17, cor preta. Marca Fiamon. Código 4225MD.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9; aplicação: VW AMAROK 17; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "63614238": {
    "desc": "Farol de milha LED universal, 12/24V, 16 LEDs, 6000K, quadrado. Marca Tiger Auto. Código 0802033.",
    "descModo": "preencher",
    "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
    "evidencia": "Fatos: literal do nome do cadastro: FDM LED UNIVERSAL 12/24V 16 LEDS 6000K QUADRADO. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "64152101": {
+   "desc": "Soquete plástico para lâmpada 9005/HB3. Marca Tarponn. Código TP-2025.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete; material: PLASTICO; lâmpada: 9005 HB3. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "64152103": {
    "brand": "Tarponn",
@@ -284,10 +520,34 @@
    "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
    "evidencia": "Mercado Livre: \"Tg1511007 / Tiger Auto TG1511.007\""
   },
+  "65175681": {
+   "desc": "Moldura 2 DIN chinês e japonês para Hyundai I30 14/15, cor preta. Marca Fiamon. Código 3162.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN chinês e japonês; aplicação: HYUNDAI I30 14/15; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "65175683": {
+   "desc": "Moldura 2 DIN chinês e japonês para Hyundai I30 09/12 AR digital, cor preta. Marca Fiamon. Código 3165.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN chinês e japonês; aplicação: HYUNDAI I30 09/12 AR DIGITAL; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "65175684": {
+   "desc": "Moldura 9 flutuante para Ford Ka, Ka+ 19/21, cor prata. Marca Fiamon. Código 5972MD.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9 flutuante; aplicação: FORD KA, KA+ 19/21; acabamento/cor: PRATA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "65342487": {
    "brand": "Knup",
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
    "evidencia": "Dezenas de anúncios \"Bateria CR2016 3V KP-BT2016 Knup\" (cartela com 5) | fonte: Mercado Livre, Contato Celular, Zip Cartuchos (03/10/2026)"
+  },
+  "66036583": {
+   "desc": "Moldura 9 para Citroen C3 2023, acabamento Black Piano. Marca Fiamon. Código 5953MD.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9; aplicação: CITROEN C3 2023; acabamento/cor: BLACK PIANO. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "66478081": {
    "desc": "Kit LED Full Mini Y3 com 2 lâmpadas, H7, 12V, 22.000 LM, 6.500K. Marca Lux Led. Código SC-Y3MINI-H7-SC.",
@@ -306,11 +566,65 @@
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
    "evidencia": "Sulcape/Click Auto Parts: \"Marca: TARPONN, TP6168 Kit LED Sky H27 4K\"; catálogo 2026 lista TP-6168 | fonte: sulcape.com.br; clickautoparts.com.br; tarponn.com.br catálogo"
   },
+  "69989779": {
+   "desc": "Moldura 2 DIN chinês e japonês para VW Fox, Spacefox, Spacecross, Crossfox G3, cor preta. Marca Fiamon. Código 2699MD.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN chinês e japonês; aplicação: VW FOX, SPACEFOX, SPACECROSS, CROSSFOX G3; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "69989782": {
+   "desc": "Moldura 2 DIN para Honda Fit G01 04/08, cor grafite. Marca Fiamon. Código 3152MD.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: HONDA FIT G01 04/08; acabamento/cor: GRAFITE. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "69989792": {
+   "desc": "Moldura 2 DIN chinês e japonês para Volkswagen Up 17/21, acabamento Black Piano UV Protection (rótulo do cadastro). Marca Fiamon. Código 4019MD.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN chinês e japonês; aplicação: VOLKSWAGEN UP 17/21; acabamento/cor: BLACK PIANO UV PROTECTION. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "69989795": {
+   "desc": "Moldura 2 DIN para Toyota Yaris 18 AR analógico, cor preta. Marca Fiamon. Código 4053MD.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: TOYOTA YARIS 18 AR ANALOGICO; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "69989798": {
    "desc": "Moldura 9 para Honda Civic 17/21, acabamento Black Piano UV Protection (rótulo do cadastro). Marca Fiamon. Código 4116.",
    "descModo": "preencher",
    "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
    "evidencia": "Fatos: tipo: moldura 9; aplicação: HONDA CIVIC 17/21; acabamento/cor: BLACK PIANO UV PROTECTION. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "69989801": {
+   "desc": "Moldura 9 para Fiat Stilo 03/11, cor preta. Marca Fiamon. Código 4244MD.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9; aplicação: FIAT STILO 03/11; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "69989805": {
+   "desc": "Moldura 9 para SW4 2016 em diante, acabamento Black Piano UV Protection (rótulo do cadastro). Marca Fiamon. Código 5878MD.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9; aplicação: SW4 2016 EM DIANTE; acabamento/cor: BLACK PIANO UV PROTECTION. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "69989808": {
+   "desc": "Moldura 9 chinês para VW New Beetle 2006/2010, cor preta. Marca Fiamon. Código 5899.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9 chinês; aplicação: VW NEW BEETLE 2006/2010; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "69989811": {
+   "desc": "Moldura 9 para Peugeot 307 2002/2012, cor prata. Marca Fiamon. Código 6059.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9; aplicação: PEUGEOT 307 2002/2012; acabamento/cor: PRATA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "69989814": {
+   "desc": "Moldura 2 DIN chinês e japonês para Renault Clio G2 98/12 e G3 13/16, cor preta. Marca Fiamon. Código 6139MD.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 2 DIN chinês e japonês; aplicação: RENAULT CLIO G2 98/12 E G3 13/16; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "71592890": {
    "category": "Chicotes",
@@ -322,10 +636,28 @@
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
    "evidencia": "Site oficial Tarponn: TP-6131 \"Kit Lâmpada PREMIUM FORCE 4000 H4\" | fonte: tarponn.com.br/categoria; catálogo 2026"
   },
+  "74226043": {
+   "desc": "Soquete plástico para lâmpada H4. Marca Tarponn. Código TP-2033.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete; material: PLASTICO; lâmpada: H4. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "74226044": {
+   "desc": "Soquete plástico para lâmpada H8/H11. Marca Tarponn. Código TP-2031.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete; material: PLASTICO; lâmpada: H8/H11. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "74430933": {
    "brand": "LDCAR",
    "motivo": "Marca LDCAR escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
    "evidencia": "Nome ERP: \"D4 LDCAR 30.000 LUMENS\""
+  },
+  "74784989": {
+   "desc": "Moldura 9 flutuante para VW Fox, Spacefox, Spacecross, Crossfox G3, cor preta. Marca Fiamon. Código 5862MD.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9 flutuante; aplicação: VW FOX, SPACEFOX, SPACECROSS, CROSSFOX G3; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "76142759": {
    "brand": "KX3",
@@ -366,6 +698,12 @@
    "motivo": "Nome ERP idêntico ao do par esquerdo/direito; título de exibição passa a indicar o lado.",
    "evidencia": "Convenção do próprio ERP: SKU 02003E = \"FAROL DE MILHA AVULSO UNIVERSAL LADO ESQUERDO\" e 02003D = \"... LADO DIREITO\" (E=esquerdo, D=direito); demais pares usam sufixo \" E\"/\" D\" no nome."
   },
+  "80422973": {
+   "desc": "Moldura 9 chinês para Mitsubishi Pajero Sport G3 2016, acabamento Black Piano. Marca Fiamon. Código 6002.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9 chinês; aplicação: MITSUBISHI PAJERO SPORT G3 2016; acabamento/cor: BLACK PIANO. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
   "80678578": {
    "desc": "Lâmpada LED H7, linha Fenix, 11.000 lumens. Marca LDCAR. Código FENIXH7.",
    "descModo": "preencher",
@@ -381,6 +719,12 @@
    "brand": "Vipertron",
    "motivo": "Marca provada por fonte externa/oficial.",
    "evidencia": "carfix/PedidoOK: Marca VIPERTRON (código 14003)"
+  },
+  "84882473": {
+   "desc": "Moldura 9 para Hyundai Santa Fe G3 13/18, cor preta. Marca Fiamon. Código 4251.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: moldura 9; aplicação: HYUNDAI SANTA FE G3 13/18; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "85058965": {
    "brand": "KX3",
@@ -422,6 +766,24 @@
    "descModo": "preencher",
    "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
    "evidencia": "Fatos: tipo: soquete; material: CERAMICA; lâmpada: H7. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "95657094": {
+   "desc": "Soquete cerâmico para lâmpada H1/H3. Marca LDCAR. Código LDCAR021.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete; material: CERAMICO; lâmpada: H1/H3. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "95657138": {
+   "desc": "Soquete cerâmico para lâmpada H8/H11. Marca LDCAR. Código LDCAR022.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete; material: CERAMICO; lâmpada: H8/H11. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "95657219": {
+   "desc": "Soquete cerâmico para lâmpada 9005/HB3. Marca LDCAR. Código LDCAR023.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
+   "evidencia": "Fatos: tipo: soquete; material: CERAMICA; lâmpada: 9005 HB3. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
   "95657251": {
    "desc": "Soquete cerâmico para lâmpada 9006/HB4. Marca LDCAR. Código LDCAR024.",
