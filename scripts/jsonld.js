@@ -24,10 +24,10 @@ const tag = grafo => `<script type="application/ld+json">${serializar({ '@contex
 /** Organization completa (home e páginas institucionais; mesmo @id em todo o site). Dados só de scripts/entidade.js (confirmados pelo proprietário). */
 function organizacao() {
   return {
-    '@type': 'Organization', '@id': ID_ORG, name: NOME_ORG, legalName: Ent.razaoSocial, url: ORIGEM + '/', logo: { '@type': 'ImageObject', url: LOGO.url, width: LOGO.width, height: LOGO.height },
+    '@type': 'Organization', '@id': ID_ORG, name: NOME_ORG, legalName: Ent.razaoSocial, description: Ent.descricao, url: ORIGEM + '/', logo: { '@type': 'ImageObject', url: LOGO.url, width: LOGO.width, height: LOGO.height },
     taxID: Ent.cnpj, sameAs: Ent.sameAs(), areaServed: { '@type': 'Country', name: Ent.endereco.paisNome }, address: Ent.schemaEndereco(), telephone: Ent.telefoneE164, email: Ent.email,
     contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', telephone: Ent.telefoneE164, email: Ent.email, availableLanguage: 'pt-BR' },
-    location: { '@type': 'Place', '@id': ORIGEM + '/#sede', name: NOME_ORG, address: Ent.schemaEndereco(), openingHoursSpecification: Ent.schemaHorarios() }
+    location: { '@type': 'Place', '@id': ORIGEM + '/#sede', name: NOME_ORG, address: Ent.schemaEndereco(), hasMap: Ent.gbp, openingHoursSpecification: Ent.schemaHorarios() }
   };
 }
 /** páginas institucionais: AboutPage / ContactPage + Organization (mesmo @id) + WebSite + breadcrumb */

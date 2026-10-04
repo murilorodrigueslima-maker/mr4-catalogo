@@ -35,7 +35,7 @@ test('home: @graph com Organization + WebSite; ids estáveis; publisher referenc
 });
 test('Organization: só propriedades confirmadas pelo proprietário (entidade.js) — sem fundação/geo; logo = ativo institucional válido', () => {
   const o = tipo(grafo(A['index.html']), 'Organization');
-  assert.deepEqual(Object.keys(o).sort(), ['@id', '@type', 'address', 'areaServed', 'contactPoint', 'email', 'legalName', 'location', 'logo', 'name', 'sameAs', 'taxID', 'telephone', 'url']);
+  assert.deepEqual(Object.keys(o).sort(), ['@id', '@type', 'address', 'areaServed', 'contactPoint', 'description', 'email', 'legalName', 'location', 'logo', 'name', 'sameAs', 'taxID', 'telephone', 'url']);
   ['foundingDate', 'geo'].forEach(k => assert.equal(k in o, false, k));
   assert.equal(o.logo['@type'], 'ImageObject'); assert.match(o.logo.url, /^https:\/\/catalogo\.mr4distribuidora\.com\.br\/assets\/logo-header\.png$/);
   const png = fs.readFileSync(path.join(RAIZ, 'assets/logo-header.png'));

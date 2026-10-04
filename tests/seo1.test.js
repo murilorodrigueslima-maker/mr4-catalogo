@@ -61,7 +61,7 @@ test('home: title, description factual, canonical, H1 único e Open Graph', () =
   assert.match(h, /property="og:url" content="https:\/\/catalogo\.mr4distribuidora\.com\.br\/"/);
   // o index.html versionado é o gerado, exceto as LISTAS de categorias/marcas: elas mudam a cada correção editorial e o workflow
   // regenera o HTML no disparo seguinte (≤15 min) — comparar essas listas fixaria o teste ao instante da regeneração.
-  const semListas = x => x.replace(/<div( class="lista")? id="(catLista|marcaLista)">[\s\S]*?<\/div>/g, '').replace(/<nav aria-label="(Categorias|Marcas) do catálogo">[\s\S]*?<\/nav>/g, '');
+  const semListas = x => x.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\n?/g, '').replace(/<div( class="lista")? id="(catLista|marcaLista)">[\s\S]*?<\/div>/g, '').replace(/<nav aria-label="(Categorias|Marcas) do catálogo">[\s\S]*?<\/nav>/g, '');   // JSON-LD da home é coberto por seo3/entidade; muda junto com entidade.js e só chega ao publicado após o workflow
   assert.equal(semListas(ler('index.html')), semListas(h));
 });
 test('home: links estáticos para TODAS as categorias e marcas; endereço institucional preservado', () => {

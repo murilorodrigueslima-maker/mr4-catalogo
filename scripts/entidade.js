@@ -25,9 +25,11 @@ const E = {
   abrangencia: 'Atendimento para todo o Brasil',   // confirmada pelo proprietário; NÃO implica frete grátis, prazo nacional nem entrega própria
   instagram: 'https://www.instagram.com/mr4distribuidora/',   // perfil aberto e conferido (logo MR4, "Distribuidora de peças e acessórios automotivos · Atacado")
   facebook: 'https://www.facebook.com/p/Mr4distribuidora-100064696208963/',   // página oficial confirmada pelo proprietário; URL canônico real (og:url/canonical do Facebook), página "Mr4distribuidora" (id 100064696208963)
+  gbp: 'https://www.google.com/maps?cid=17633794425759222596',   // ficha oficial no Google Business Profile (gerenciada pelo proprietário; mesmo NAP e site; CID = 0xf4b7d29a35a44b44 do lugar "MR4 Distribuidora", Rua Ceará 634) — desambigua a entidade de outras empresas "MR4"
+  descricao: 'Distribuidora de acessórios e peças automotivas no atacado, com sede em Fortaleza, Ceará. Catálogo B2B para lojistas e instaladores.',   // mesma afirmação já publicada em /sobre/ (confirmada pelo proprietário)
   paginas: { sobre: '/sobre/', contato: '/contato/', privacidade: '/privacidade/' }
 };
-E.sameAs = () => [E.instagram, E.facebook];   // só perfis oficiais confirmados
+E.sameAs = () => [E.instagram, E.facebook, E.gbp];   // só perfis oficiais confirmados (redes sociais + ficha do Google)
 E.enderecoLinha = `${E.endereco.rua} — ${E.endereco.cidade}, ${E.endereco.estado}`;
 E.enderecoCurto = `${E.endereco.rua} · ${E.endereco.cidade}, ${E.endereco.uf}`;
 E.horarioTexto = h => `${h.rotulo}: ${h.abre} às ${h.fecha}`;
