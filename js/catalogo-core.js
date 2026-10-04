@@ -154,6 +154,20 @@
         else if (de.split('/')[1] !== para.split('/')[1]) erros.push('editorial.redirecionamentos["' + de + '"]: origem e destino devem ser do mesmo tipo');
       });
     }
+    const ali = ed.aliasesMarca;
+    if (ali != null) {
+      if (typeof ali !== 'object' || Array.isArray(ali)) erros.push('editorial: "aliasesMarca" deve ser um objeto { "Marca antiga": "Marca canônica" }');
+      else {
+        const chaves = Object.keys(ali).map(norm);
+        Object.keys(ali).forEach(de => {
+          const para = ali[de], ctx = 'editorial.aliasesMarca["' + de + '"]';
+          if (typeof para !== 'string' || !para.trim()) erros.push(ctx + ': destino deve ser texto não vazio');
+          else if (norm(de) === norm(para)) erros.push(ctx + ': origem = destino');
+          else if (chaves.indexOf(norm(para)) >= 0) erros.push(ctx + ': destino é origem de outro alias (cadeia/ciclo proibido)');
+          else if (_marcaInvalida[norm(para)]) erros.push(ctx + ': destino "' + para + '" é tipo de produto, não marca');
+        });
+      }
+    }
     const erp = new Map((produtosErp || []).map(p => [String(p.id), p]));
     const cats = new Set((produtosErp || []).map(p => String(p.category || '').trim()).filter(Boolean));
     Object.keys(mapa).forEach(id => {
@@ -210,6 +224,15 @@
       return p;
     });
   }
+  /** alias editorial de marca (ed.aliasesMarca: { "Tiger": "Tiger Auto" }): aplicado DEPOIS da normalização por mapa; chave comparada sem caixa/acento; total e seguro */
+  function aliasMarca(marca, ed) {
+    const al = ed && typeof ed === 'object' && !Array.isArray(ed) ? ed.aliasesMarca : null;
+    if (!marca || al == null || typeof al !== 'object' || Array.isArray(al)) return marca;
+    const k = norm(marca);
+    for (const de of Object.keys(al)) { if (norm(de) === k && typeof al[de] === 'string' && al[de].trim()) return al[de].replace(/\s+/g, ' ').trim(); }
+    return marca;
+  }
+
   /** relatório auditável: toda transformação realizada (bruto → exibido), com contagem */
   function relatorioMarcas(lista) {
     const c = {};
@@ -271,7 +294,7 @@
         desc: limparDescricao(r.desc),
         category: String(r.category || '').trim()
       });
-      const marca = marcaNormalizada(r.brand);
+      const marca = aliasMarca(marcaNormalizada(r.brand), editorial);
       const semGrupo = ehSemGrupo(p.category);
       const catRot = rotuloCategoria(p.category);
       const nome = norm(p.name), ref = norm(p.ref), cat = semGrupo ? '' : norm(p.category), mar = norm(marca);
@@ -820,7 +843,7 @@
 
   return {
     norm, compacto, tokens, removerFiscal, limparDescricao, limparNome,
-    EDITORIAL_CAMPOS, validarEditorial, aplicarEditorial, descricaoEditorialProblema,
+    EDITORIAL_CAMPOS, validarEditorial, aplicarEditorial, aliasMarca, descricaoEditorialProblema,
     MAPA_MARCAS, MARCAS_INVALIDAS, marcaNormalizada, relatorioMarcas, marcasNaoUnificadas,
     ORDEM_CATEGORIAS, prioridadeCategoria, ehSemGrupo, rotuloCategoria, ROTULO_SEM_GRUPO, ordenarCategorias,
     precoNumerico, prepararCatalogo, buscar, ordenar, consultar, opcoesMarca, mensagemWhatsProduto, osa,

@@ -1,8 +1,12 @@
 {
  "versao": 1,
  "_comentario": "Camada editorial MR4: correções chaveadas pelo ID do ERP. NUNCA contém preço/estoque/SKU. O sync não toca neste arquivo. Cada entrada precisa de motivo e evidência. Ver scripts/validar-editorial.js",
+ "aliasesMarca": {
+  "Tiger": "Tiger Auto"
+ },
  "redirecionamentos": {
-  "/marca/faimon/": "/marca/fiamon/"
+  "/marca/faimon/": "/marca/fiamon/",
+  "/marca/tiger/": "/marca/tiger-auto/"
  },
  "produtos": {
   "33184538": {

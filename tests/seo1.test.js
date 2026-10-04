@@ -169,8 +169,8 @@ test('parâmetros: política no app — URL limpa, canonical por estado, noindex
   assert.match(APP, /C\.urlLimpa\(itens, estado\.cat, estado\.marca\)/);
   assert.match(APP, /can\.href = origem \+ alvo/);
   assert.equal(C.urlLimpa(itens, 'Moldura', ''), '/categoria/moldura/');
-  assert.equal(C.urlLimpa(itens, '', 'Tiger'), '/marca/tiger/');
-  assert.equal(C.urlLimpa(itens, 'Moldura', 'Tiger'), null);                  // combinação nunca ganha URL própria
+  assert.equal(C.urlLimpa(itens, '', 'Tiger Auto'), '/marca/tiger-auto/');
+  assert.equal(C.urlLimpa(itens, 'Moldura', 'Tiger Auto'), null);                  // combinação nunca ganha URL própria
   assert.equal(C.urlLimpa(itens, '', ''), null);
   assert.match(APP, /\?q=|set\('q'/);                                          // busca compartilhável preservada
   assert.match(APP, /atualizarSeoEstado\(\);\n  \}/);

@@ -204,3 +204,46 @@ test('ROBUSTEZ: editorial malformado no navegador (sem validação) NUNCA lança
   const mista = C.aplicarEditorial(lista, { versao: 1, produtos: { 1: 'texto', 2: { brand: 'LDCAR', motivo: 'm' } } });
   assert.equal(mista[0], lista[0]); assert.equal(mista[1].brand, 'LDCAR');
 });
+
+/* ───── alias editorial de marca (Tiger → Tiger Auto) ───── */
+test('alias de marca: aplicado após o mapa (qualquer caixa/variante), sem alterar outros campos; sem alias = ERP', () => {
+  const ed0 = { versao: 1, aliasesMarca: { Tiger: 'Tiger Auto' }, produtos: {} };
+  const lista = ['Tiger', 'TIGER', 'TIGER AUTO', 'tiger', 'Tiger Auto', 'Permak', ''].map((b, i) => prod(i + 1, { brand: b }));
+  const com = C.prepararCatalogo(lista, ed0), sem = C.prepararCatalogo(lista);
+  assert.deepEqual(com.map(e => e.marca), ['Tiger Auto', 'Tiger Auto', 'Tiger Auto', 'Tiger Auto', 'Tiger Auto', 'Permak', '']);
+  assert.deepEqual(sem.slice(0, 4).map(e => e.marca), ['Tiger', 'Tiger', 'Tiger', 'Tiger']);
+  assert.equal(com[0].marcaSlug, 'tiger-auto');
+  com.forEach((e, i) => ['id', 'ref', 'price', 'stock', 'name', 'category', 'desc', 'img'].forEach(k => assert.equal(e.p[k], lista[i][k] === undefined ? e.p[k] : lista[i][k], k)));
+});
+test('alias de marca: validação (ciclo, origem=destino, destino vazio/inválido) e navegador tolera lixo', () => {
+  const e = a => C.validarEditorial({ versao: 1, aliasesMarca: a, produtos: {} }, []).erros.join('|');
+  assert.equal(e({ Tiger: 'Tiger Auto' }), '');
+  assert.match(e({ A: 'B', B: 'A' }), /cadeia\/ciclo/);
+  assert.match(e({ A: 'B', B: 'C' }), /cadeia\/ciclo/);
+  assert.match(e({ Tiger: 'tiger' }), /origem = destino/);
+  assert.match(e({ Tiger: '' }), /não vazio/);
+  assert.match(e({ Tiger: 5 }), /não vazio/);
+  assert.match(e({ Tiger: 'Soquete' }), /tipo de produto/);
+  assert.match(e([]), /objeto/); assert.match(e('x'), /objeto/);
+  [null, [], 'x', 5, { Tiger: 5 }, { Tiger: '' }, { Tiger: { a: 1 } }].forEach(a => assert.equal(C.prepararCatalogo([prod(1, { brand: 'Tiger' })], { versao: 1, aliasesMarca: a, produtos: {} })[0].marca, 'Tiger', JSON.stringify(a)));
+});
+test('alias de marca: geração — /marca/tiger/ vira redirecionamento e /marca/tiger-auto/ existe; sitemap só com a canônica', () => {
+  const f = [prod(1, { brand: 'Tiger', name: 'LAMPADA UM', ref: 'T1' }), prod(2, { brand: 'TIGER AUTO', name: 'LAMPADA DOIS', ref: 'T2' }), prod(3, { brand: 'Permak', name: 'MOLDURA TRES', ref: 'P3' })];
+  const d0 = raizTemp(f); gerar(d0); assert.ok(fs.existsSync(path.join(d0, 'marca/tiger/index.html')));
+  const d1 = raizTemp(f, { versao: 1, aliasesMarca: { Tiger: 'Tiger Auto' }, redirecionamentos: { '/marca/tiger/': '/marca/tiger-auto/' }, produtos: {} });
+  fs.cpSync(d0, d1, { recursive: true, filter: s => !/data[\\/](produtos|editorial)\.json$/.test(s) });
+  gerar(d1);
+  assert.match(lerD(d1, 'marca/tiger/index.html'), /http-equiv="refresh" content="0; url=\/marca\/tiger-auto\/"/);
+  assert.match(lerD(d1, 'marca/tiger-auto/index.html'), /LAMPADA UM/); assert.match(lerD(d1, 'marca/tiger-auto/index.html'), /LAMPADA DOIS/);
+  const sm = lerD(d1, 'sitemap.xml'); assert.match(sm, /marca\/tiger-auto\//); assert.doesNotMatch(sm, /marca\/tiger\/</);
+  assert.match(lerD(d1, 'produto/' + JSON.parse(lerD(d1, 'produto/manifest.json')).produtos.t1 + '/index.html'), /"brand":\{"@type":"Brand","name":"Tiger Auto"\}/);
+});
+test('DADOS REAIS: nenhum produto exibido como "Tiger"; todos os antigos Tiger/TIGER AUTO aparecem como "Tiger Auto"; /marca/tiger/ tem redirecionamento editorial', () => {
+  const ef = C.prepararCatalogo(FEED.produtos, ED), erp = C.prepararCatalogo(FEED.produtos);
+  assert.equal(ef.filter(e => e.marca === 'Tiger').length, 0);
+  const antes = erp.filter(e => e.marca === 'Tiger').length;
+  assert.ok(ef.filter(e => e.marca === 'Tiger Auto').length >= antes);
+  assert.equal(ED.redirecionamentos['/marca/tiger/'], '/marca/tiger-auto/');
+  assert.equal(ED.aliasesMarca.Tiger, 'Tiger Auto');
+  assert.ok(!Object.keys(ED.aliasesMarca).some(k => /vipertron|fitto|joker/i.test(k)));
+});
