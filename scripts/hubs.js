@@ -103,4 +103,9 @@ ${outras.length ? `<p class="hub-outras"><strong>Outras montadoras:</strong> ${o
 function navMontadoras(hubs) {
   return hubs.length ? `<nav aria-label="Molduras por montadora"><strong>Molduras por montadora:</strong> ${hubs.map(h => `<a href="${esc(h.url)}">${esc(h.montadora)}</a>`).join(' · ')}</nav>` : '';
 }
-module.exports = { ehMoldura, MIN_PRODUTOS, MIN_MODELOS, montadorasDoNome, modelosEstimados, hubsMoldura, paginaMarcas, paginaHubMoldura, navMontadoras, marcasOrdenadas };
+/** link da página do produto para o(s) hub(s) de montadora a que ele pertence (vazio se não pertence a nenhum) */
+function linkHubsDoProduto(hubs, item) {
+  const meus = hubs.filter(h => h.itens.includes(item));
+  return meus.length ? `<nav class="mais-hub" aria-label="Molduras por montadora">${meus.map(h => `<a href="${esc(h.url)}">Mais molduras para ${esc(h.montadora)}</a>`).join(' · ')}</nav>` : '';
+}
+module.exports = { linkHubsDoProduto, ehMoldura, MIN_PRODUTOS, MIN_MODELOS, montadorasDoNome, modelosEstimados, hubsMoldura, paginaMarcas, paginaHubMoldura, navMontadoras, marcasOrdenadas };

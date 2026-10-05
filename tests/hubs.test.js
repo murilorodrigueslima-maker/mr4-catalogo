@@ -104,3 +104,16 @@ test('camada editorial NÃO altera preço, estoque, código, ID nem imagem de ne
   assert.equal(it.length, BRUTOS.length);
   it.forEach(x => { const o = por.get(String(x.p.id)); ['price', 'stock', 'ref', 'id', 'img'].forEach(k => assert.equal(x.p[k], o[k], x.p.id + ' ' + k)); });
 });
+test('página de produto leva ao hub da montadora: só moldura que pertence a um hub; o alvo existe; demais produtos sem o bloco', () => {
+  const dentro = new Set(); hubs.forEach(h => h.itens.forEach(i => dentro.add(i)));
+  R.itens.forEach(it => {
+    const html = A['produto/' + G.dirDe(it.url) + '/index.html'];
+    const m = html.match(/<nav class="mais-hub"[^>]*>([\s\S]*?)<\/nav>/);
+    if (!dentro.has(it)) { assert.equal(m, null, it.p.name); return; }
+    assert.ok(m, it.p.name);
+    const alvos = [...m[1].matchAll(/href="([^"]+)"/g)].map(x => x[1]);
+    alvos.forEach(u => { assert.ok(hubs.some(h => h.url === u && h.itens.includes(it)), u); assert.ok(arquivoDe(u) in A); });
+    assert.doesNotMatch(html, /\{\{HUBLINK\}\}/);
+  });
+  assert.ok(dentro.size >= 50);
+});

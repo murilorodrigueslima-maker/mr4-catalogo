@@ -155,7 +155,7 @@ const diasEntre = (a, b) => { const x = new Date(a), y = new Date(b); return isN
 const urlXml = (loc, lastmod) => `<url><loc>${esc(loc)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}</url>`;
 const ROBOTS = `User-agent: *\nAllow: /\n\nSitemap: ${ORIGEM}/sitemap.xml\n`;
 
-function renderizarPagina(item, tpl, rel, titulo) {
+function renderizarPagina(item, tpl, rel, titulo, hubLink) {
   const m = Core.metaProduto(item, ORIGEM, LOGO, titulo);
   const og = ['<meta property="product:retailer_item_id" content="' + Core.esc(item.p.ref) + '">'].concat(item.marca ? ['<meta property="product:brand" content="' + Core.esc(item.marca) + '">'] : []).join('\n');
   return tpl
@@ -168,6 +168,7 @@ function renderizarPagina(item, tpl, rel, titulo) {
     .replace('{{BREADCRUMB}}', () => Core.htmlBreadcrumb(item).replace('<nav ', '<nav id="bc" '))
     .replace('{{INFO}}', () => Core.htmlProdutoInfo(item))
     .replace('{{RELACIONADOS}}', () => Core.htmlRelacionadosEstatico(rel || []))
+    .replace('{{HUBLINK}}', () => hubLink || '')
     .replace('{{RODAPE}}', () => Ent.rodape(true));
 }
 function renderizarRedirecionamento(novoUrl, tipo) {
@@ -198,9 +199,11 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
   const produtos = Object.assign({}, anterior);
   const rel = opts ? (it => Core.relacionados(itens, it, 4)) : (() => []);
   const titulos = Core.titulosProdutos(itens);                              // title único: o código desambigua nomes iguais
+  const hubs = opts ? Hubs.hubsMoldura(itens) : [];                          // hubs de montadora (molduras): a página do produto leva a eles (link natural, só quando a montadora é literal no nome)
+  const hubLink = it => Hubs.linkHubsDoProduto(hubs, it);
   itens.forEach((it, i) => {
     const dir = dirDe(it.url);
-    arquivos['produto/' + dir + '/index.html'] = renderizarPagina(it, tpl, rel(it), titulos[i]);
+    arquivos['produto/' + dir + '/index.html'] = renderizarPagina(it, tpl, rel(it), titulos[i], hubLink(it));
     const antigo = anterior[it.slugCodigo];
     if (antigo && antigo !== dir) arquivos['produto/' + antigo + '/index.html'] = renderizarRedirecionamento(it.url);
     produtos[it.slugCodigo] = dir;
@@ -228,7 +231,6 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
 
   // páginas de categoria e marca (memória: página que existiu e ficou sem produtos vira noindex, nunca é apagada)
   const vivas = {};
-  const hubs = Hubs.hubsMoldura(itens);                                      // hubs de montadora candidatos (molduras)
   [['categoria', tax.categorias], ['marca', tax.marcas]].forEach(([tipo, lista]) => lista.forEach(t => {
     vivas[t.url] = 1;
     estado.taxonomias[t.url] = { tipo, chave: t.chave, rotulo: t.rotulo };
