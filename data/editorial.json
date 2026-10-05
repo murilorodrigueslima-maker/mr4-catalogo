@@ -506,8 +506,10 @@
   },
   "65132828": {
    "brand": "Tiger",
-   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
-   "evidencia": "franpel.com.br: \"TIGER AUTO 1501004\""
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger. | Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "franpel.com.br: \"TIGER AUTO 1501004\" | Fatos do cadastro ERP (nome/marca/código): INTERRUPTOR VIDRO GOL G4/G5 FOX DUPLO 1 ESTAGIO (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)",
+   "desc": "Interruptor de vidro, Gol G4/G5 Fox, duplo, 1 estágio. Marca Tiger Auto. Código 1501004.",
+   "descModo": "preencher"
   },
   "65132829": {
    "brand": "Tiger",
@@ -546,9 +548,11 @@
   },
   "65132839": {
    "category": "Interruptores",
-   "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente. | [marca] Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
-   "evidencia": "nome \"INTERRUPTOR DE VIDRO ...\" + produtos 1502001/1502002/1502033 do mesmo padrão já em Interruptores | carfix/PedidoOK: código 1502032 / \"Tg1502032\" (código Tiger)",
-   "brand": "Tiger"
+   "motivo": "Categoria genérica (Geral); nome/SKU indicam inequivocamente família já existente. | [marca] Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger. | Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "nome \"INTERRUPTOR DE VIDRO ...\" + produtos 1502001/1502002/1502033 do mesmo padrão já em Interruptores | carfix/PedidoOK: código 1502032 / \"Tg1502032\" (código Tiger) | Fatos do cadastro ERP (nome/marca/código): INTERRUPTOR DE VIDRO DIANT. DIR. PALIO / GRAND SIENA / IDEA (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)",
+   "brand": "Tiger",
+   "desc": "Interruptor de vidro dianteiro direito, Palio/Grand Siena/Idea. Marca Tiger Auto. Código 1502032.",
+   "descModo": "preencher"
   },
   "65132840": {
    "brand": "Tiger",
@@ -557,14 +561,18 @@
   },
   "65132843": {
    "brand": "Tiger",
-   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
-   "evidencia": "Mercado Livre: \"Marca Tiger Auto, peça 1504018\"; tabela MR4: \"1504018 TIGER AUTO\""
+   "motivo": "Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger. | Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Mercado Livre: \"Marca Tiger Auto, peça 1504018\"; tabela MR4: \"1504018 TIGER AUTO\" | Fatos do cadastro ERP (nome/marca/código): INTERRUPTOR DE VIDRO TRAS. DIR. E ESQ. ONIX / PRISMA / SPIN (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)",
+   "desc": "Interruptor de vidro traseiro direito e esquerdo, Onix/Prisma/Spin. Marca Tiger Auto. Código 1504018.",
+   "descModo": "preencher"
   },
   "65132847": {
    "category": "Interruptores",
-   "motivo": "Categoria genérica (PRODUTOS SEM GRUPO); nome/SKU indicam inequivocamente família já existente. | [marca] Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
-   "evidencia": "nome \"INTERRUPTOR VIDRO ...\" + SKUs vizinhos 1511003/1511006/1511007 (Logan/Sandero) já em Interruptores | Mercado Livre: Tiger, número de peça 1511002 (\"Tg1511002\")",
-   "brand": "Tiger"
+   "motivo": "Categoria genérica (PRODUTOS SEM GRUPO); nome/SKU indicam inequivocamente família já existente. | [marca] Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger. | Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "nome \"INTERRUPTOR VIDRO ...\" + SKUs vizinhos 1511003/1511006/1511007 (Logan/Sandero) já em Interruptores | Mercado Livre: Tiger, número de peça 1511002 (\"Tg1511002\") | Fatos do cadastro ERP (nome/marca/código): INTERRUPTOR VIDRO CLIO 6 PINOS (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)",
+   "brand": "Tiger",
+   "desc": "Interruptor de vidro, Clio, 6 pinos. Marca Tiger Auto. Código 1511002.",
+   "descModo": "preencher"
   },
   "65132848": {
    "brand": "Tiger",
@@ -573,9 +581,11 @@
   },
   "65132849": {
    "category": "Interruptores",
-   "motivo": "Categoria genérica (PRODUTOS SEM GRUPO); nome/SKU indicam inequivocamente família já existente. | [marca] Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger.",
-   "evidencia": "nome \"INTERRUPTOR TRAVA/DESTRAVA LOGAN\" + SKUs vizinhos 1511006/1511007 já em Interruptores | carfix/PedidoOK + tabela MR4: \"1511005 TIGER AUTO\"",
-   "brand": "Tiger"
+   "motivo": "Categoria genérica (PRODUTOS SEM GRUPO); nome/SKU indicam inequivocamente família já existente. | [marca] Marca Tiger Auto comprovada para este código (esquema TG+número do catálogo Tiger Auto) — rótulo atual do catálogo: Tiger. | Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "nome \"INTERRUPTOR TRAVA/DESTRAVA LOGAN\" + SKUs vizinhos 1511006/1511007 já em Interruptores | carfix/PedidoOK + tabela MR4: \"1511005 TIGER AUTO\" | Fatos do cadastro ERP (nome/marca/código): INTERRUPTOR TRAVA/DESTRAVA LOGAN (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)",
+   "brand": "Tiger",
+   "desc": "Interruptor trava/destrava, Logan. Marca Tiger Auto. Código 1511005.",
+   "descModo": "preencher"
   },
   "65132850": {
    "brand": "Tiger",
@@ -607,8 +617,10 @@
   },
   "65342487": {
    "brand": "Knup",
-   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
-   "evidencia": "Dezenas de anúncios \"Bateria CR2016 3V KP-BT2016 Knup\" (cartela com 5) | fonte: Mercado Livre, Contato Celular, Zip Cartuchos (03/10/2026)"
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv). | Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Dezenas de anúncios \"Bateria CR2016 3V KP-BT2016 Knup\" (cartela com 5) | fonte: Mercado Livre, Contato Celular, Zip Cartuchos (03/10/2026) | Fatos do cadastro ERP (nome/marca/código): BATERIA CR2016; CARTELA 5 UN",
+   "desc": "Bateria CR2016, cartela com 5 unidades. Marca Knup. Código KP-BT2016.",
+   "descModo": "preencher"
   },
   "66036583": {
    "desc": "Moldura 9 para Citroen C3 2023, acabamento Black Piano. Marca Fiamon. Código 5953MD.",
@@ -752,8 +764,10 @@
   },
   "77209720": {
    "brand": "Alemar",
-   "motivo": "Marca Alemar escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
-   "evidencia": "Nome ERP: \"ETI72BAR - BARRA DE LED 70X3X4 ALEMAR 24 LEDS, 72W, 12-24V\""
+   "motivo": "Marca Alemar escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio. | Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Nome ERP: \"ETI72BAR - BARRA DE LED 70X3X4 ALEMAR 24 LEDS, 72W, 12-24V\" | Fatos do cadastro ERP (nome/marca/código): BARRA DE LED; 70X3X4; 24 LEDS; 72W; 12-24V",
+   "desc": "Barra de LED 70x3x4, 24 LEDs, 72W, 12-24V. Marca Alemar. Código 000402.",
+   "descModo": "preencher"
   },
   "79916437": {
    "title": "FAROL DE MILHA AVULSO HB20/HB20S 2016 2017 - LADO DIREITO",
@@ -938,6 +952,120 @@
    "brand": "Bomber",
    "motivo": "Marca Bomber escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
    "evidencia": "Nome ERP: \"TRIAXIAL 5'' BOMBER BEAT 80 WATTS RMS 4 OHMS\""
+  },
+  "55573235": {
+   "desc": "Botão interruptor de vidro elétrico, Fiat Uno, simples, LED âmbar. Código BIV-FIA-1002.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): BOTAO INTERRUPTOR DE VIDRO ELETRICO FIAT UNO LED-AMBAR SIMPLES (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
+  },
+  "61964791": {
+   "desc": "Lâmpada xenon série D2S/5, encaixe PK32D-2, 5.500K, 35W, 12V. Marca Tiger Auto. Código 1023D2S/5.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): XENON SERIES D2S/5; ENCAIXE PK32D-2; 5500K; 35W; 12V"
+  },
+  "66984179": {
+   "desc": "Lâmpada xenon série D3S/5, encaixe PK32D-2, 5.500K, 35W, 12V. Código 1023D3S/5.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): XENON SERIES D3S/5; ENCAIXE PK32D-2; 5500K; 35W; 12V"
+  },
+  "65132852": {
+   "desc": "Interruptor de emergência, Renault Logan/Sandero. Código 1511010.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): INTERRUPTOR DE EMERGENCIA RENAULT LOGAN / SANDERO (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
+  },
+  "65132846": {
+   "desc": "Interruptor de vidro dianteiro esquerdo, Onix/Spin/Prisma, duplo. Marca Tiger Auto. Código 1504023.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): INTERRUPTOR DE VIDRO DUPLO DIANT. ESQ. ONIX / SPIN / PRISMA (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
+  },
+  "55573236": {
+   "desc": "Botão interruptor de vidro elétrico, Fiat Uno, simples, LED âmbar. Código BIV-FIA-1003.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): Botão Interruptor Vidro Eletrico Fiat Uno Simples led-Ambar (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
+  },
+  "55573215": {
+   "desc": "Botão de retrovisor, Corsa Astra Meriva Zafira Vectra Agile GM. Código BIR-CHE-2202.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): Botão Retrovisor Corsa Astra Meriva Zafira Vectra Agile Gm (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
+  },
+  "55573234": {
+   "desc": "Botão interruptor de vidro elétrico, Fiat Uno, simples, LED verde. Código BIV-FIA-1001.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): BOTAO INTERRUPTOR DE VIDRO ELETRICO FIAT UNO LED-VERDE SIMPLES (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
+  },
+  "55573213": {
+   "desc": "Botão de farol de milha, Gol/Saveiro/Voyage G7. Código BFM-VOL-3302.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): BOTÃO FAROL DE MILHA GOL/ SAVEIRO/ VOYAGE G7 (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
+  },
+  "48515825": {
+   "desc": "Par de lâmpadas automotivas D1R, 5500K. Marca Rayx. Código D1R 55K.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): D1R; 5500K; PAR DE LAMPADA AUTOMOTIVA"
+  },
+  "55573227": {
+   "desc": "Botão de vidro elétrico, Onix Spin Cobalt, duplo. Código BIV-CHE-2002.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): Botão Vidro Elétrico Duplo Onix Spin Cobalt (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
+  },
+  "55573224": {
+   "desc": "Interruptor de vidro traseiro, Gol G3, com bloqueio. Código BIT-VOL-3105.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): INTERRUPTOR VIDRO GOL G3 TRAS. C/ BLOQUEIO (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
+  },
+  "48515829": {
+   "desc": "Par de lâmpadas automotivas D2R, 4300K. Marca Rayx. Código D2R 43K.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): D2R; 4300K; PAR DE LAMPADA AUTOMOTIVA"
+  },
+  "65132841": {
+   "desc": "Interruptor do retrovisor dianteiro esquerdo, Palio/Strada/Siena. Marca Tiger Auto. Código 1502035.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): INTERRUPTOR DO RETROVISOR DIANT. ESQ. PALIO / STRADA / SIENA (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
+  },
+  "48515827": {
+   "desc": "Par de lâmpadas automotivas D2S, 4300K. Marca Rayx. Código D2S 43K.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): D2S; 4300K; PAR DE LAMPADA AUTOMOTIVA"
+  },
+  "55573240": {
+   "desc": "Botão interruptor de vidro elétrico, Fiat Uno, duplo, LED âmbar. Código BIV-FIA-1006.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): BOTAO INTERRUPTOR DE VIDRO ELETRICO FIAT UNO LED-AMBAR DUPLO (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
+  },
+  "55573269": {
+   "desc": "Interruptor de vidro, Gol G3. Código BIV-VOL-3010.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): INTERRUPTOR VIDRO GOL G3 (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
+  },
+  "55573237": {
+   "desc": "Botão interruptor de vidro elétrico, Fiat Uno, simples, LED verde. Código BIV-FIA-1004.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): Botão Interruptor Vidro Eletrico Fiat Uno Simples Led-Verde (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
+  },
+  "61964790": {
+   "desc": "Lâmpada xenon série D2R/5, encaixe PK32D-2, 5.500K, 35W, 12V. Marca Tiger Auto. Código 1023D2R/5.",
+   "descModo": "preencher",
+   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
+   "evidencia": "Fatos do cadastro ERP (nome/marca/código): XENON SERIES D2R/5; ENCAIXE PK32D-2; 5500K; 35W; 12V"
   }
  }
 }
