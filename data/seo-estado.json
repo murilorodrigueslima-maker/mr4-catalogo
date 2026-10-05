@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 604,
+ "ativos": 603,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -98,8 +98,8 @@
    "d": "2026-10-03"
   },
   "/categoria/moldura/": {
-   "h": "560d4c0f499b",
-   "c": "e574be1ac234",
+   "h": "19eba5276912",
+   "c": "3b929967e871",
    "d": "2026-10-05"
   },
   "/categoria/moldura/chevrolet/": {
@@ -123,8 +123,8 @@
    "d": "2026-10-03"
   },
   "/categoria/moldura/toyota/": {
-   "h": "c4bdf0d4c585",
-   "c": "9cce9589c1f3",
+   "h": "61c14f3ab4a9",
+   "c": "759546abaeaf",
    "d": "2026-10-05"
   },
   "/categoria/moldura/volkswagen/": {
@@ -243,9 +243,9 @@
    "d": "2026-10-03"
   },
   "/marca/joker/": {
-   "h": "460eb171bd87",
-   "c": "bfe1f36bf6c5",
-   "d": "2026-10-03"
+   "h": "e12e4fd5a8fe",
+   "c": "3c71dba965d7",
+   "d": "2026-10-05"
   },
   "/marca/knup/": {
    "h": "8aa7f62ade56",
@@ -313,8 +313,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "5028299d3ad5",
-   "c": "88741b3e9caf",
+   "h": "61d9ba0313db",
+   "c": "baf8fc8ae9b0",
    "d": "2026-10-05"
   },
   "/privacidade/": {
@@ -948,9 +948,9 @@
    "d": "2026-10-03"
   },
   "/produto/chicote-p-cd-pioneer-1350-1450--35-m/": {
-   "h": "70dea50efd36",
-   "c": "0869fafe5846",
-   "d": "2026-10-03"
+   "h": "3207465819c1",
+   "c": "61f3dba360c7",
+   "d": "2026-10-05"
   },
   "/produto/chicote-p-cd-pioneer-2250-2280-4250--35-p1/": {
    "h": "57d417209e62",
@@ -1248,9 +1248,9 @@
    "d": "2026-10-03"
   },
   "/produto/fita-isolante-rolo-c-10m-permak--200-p/": {
-   "h": "95c35d5b8a3d",
-   "c": "b772166fcb06",
-   "d": "2026-10-03"
+   "h": "6ed015e2ed00",
+   "c": "ab06169b1e54",
+   "d": "2026-10-05"
   },
   "/produto/fita-tecido-25m-x-19mm--208/": {
    "h": "a396d4bf02b6",
@@ -1352,11 +1352,6 @@
    "c": "889f02363b69",
    "d": "2026-10-03"
   },
-  "/produto/i-panel-9polegadas-compativelcom-toyota-hilux-2006-11black--ip09-0160-v1/": {
-   "h": "814f1233a063",
-   "c": "661799e43a16",
-   "d": "2026-10-03"
-  },
   "/produto/i-panel-de-09-polegadas-chevrolet-onix-2012-2019-black-piano--md09-0009-v1/": {
    "h": "00b6e25d5099",
    "c": "4abf2c6cf57e",
@@ -1398,7 +1393,7 @@
    "d": "2026-10-03"
   },
   "/produto/i-panel-de-09-polegadas-renault-sandero-2008-11-prata--ip09-0067-v1/": {
-   "h": "e57418d05b21",
+   "h": "07711c7da78c",
    "c": "5644032c401f",
    "d": "2026-10-03"
   },
@@ -2183,7 +2178,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-9-hyundai-ix35-2010-19-preto-fosco-ch-joker--ip09-0085-v1/": {
-   "h": "595398d9b9f4",
+   "h": "7e476804259b",
    "c": "8c569e0855c2",
    "d": "2026-10-03"
   },
@@ -2403,7 +2398,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-chevrolet-cobalt-lt-ltz--md09-0111-v1/": {
-   "h": "bbe5f7f4320b",
+   "h": "fec510ef1415",
    "c": "e5164aae9e91",
    "d": "2026-10-03"
   },
@@ -2438,7 +2433,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-suzuki-vitara-2016-22--md09-0094-v2/": {
-   "h": "1d903b307087",
+   "h": "ba86f5d320db",
    "c": "8838dbd9924f",
    "d": "2026-10-03"
   },
@@ -2598,19 +2593,19 @@
    "d": "2026-10-03"
   },
   "/produto/multimidia-android-10-kx3-4gb-ram-64gb-memoria-cp-aa-sem-fio--krc6000/": {
-   "h": "a3cea64ba293",
-   "c": "c73190f20c71",
-   "d": "2026-10-03"
+   "h": "8f6d33f75a26",
+   "c": "0bef2d8682c7",
+   "d": "2026-10-05"
   },
   "/produto/multimidia-carplay-7--krc3100/": {
-   "h": "4f119e098e91",
-   "c": "ba5983b43691",
-   "d": "2026-10-03"
+   "h": "2f77a5fd8955",
+   "c": "79bd58c519ee",
+   "d": "2026-10-05"
   },
   "/produto/multimidia-carplay-9--krc3200/": {
-   "h": "69e6855e6800",
-   "c": "6cc6927aa4cc",
-   "d": "2026-10-03"
+   "h": "785e1df9f02c",
+   "c": "851bd303317e",
+   "d": "2026-10-05"
   },
   "/produto/multimidia-detroit-android-14-7-proces-quad-core-1-5-ghz--2mdet07/": {
    "h": "bcfa15504331",
@@ -3073,9 +3068,9 @@
    "d": "2026-10-03"
   },
   "/produto/subwoofer-8-upgrade-400-watts-rms-4-ohms--1-04-154/": {
-   "h": "4c0a60003db9",
-   "c": "f28d388728a4",
-   "d": "2026-10-03"
+   "h": "82e3ce222a7c",
+   "c": "f342b75b37d4",
+   "d": "2026-10-05"
   },
   "/produto/sw-12-outdoor-500-watts-rms-4-ohms--1-20-011/": {
    "h": "7b0aefe11f5e",
@@ -3350,7 +3345,8 @@
  },
  "ausentes": {
   "1501004": "2026-10-05",
-  "1502033": "2026-10-05"
+  "1502033": "2026-10-05",
+  "ip09-0160-v1": "2026-10-05"
  },
  "taxonomias": {
   "/categoria/alarme/": {
