@@ -1066,6 +1066,31 @@
    "descModo": "preencher",
    "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
    "evidencia": "Fatos do cadastro ERP (nome/marca/código): XENON SERIES D2R/5; ENCAIXE PK32D-2; 5500K; 35W; 12V"
+  },
+  "95972254": {
+   "brand": "Permak",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU 89/M4A literal em https://www.permak.com.br/produto/moldura-2-din-chevrolet-onix-2013-2018-cobalt-2011-2015-preto-sem-pintar/ — \"5 | Preto (Sem Pintar) Moldura 2 Din Chevrolet Onix 2013 – 2018/ Cobalt 2011 – 2015 | Preto (Sem Pintar) SKU: 89/M4A A Moldura 2 DIN Chevrol\""
+  },
+  "95972263": {
+   "brand": "Permak",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU 89/A5 literal em https://www.permak.com.br/produto/moldura-vw-gol-g7-amarok-jetta-tiguan/ — \"/ Molduras / Moldura VW Gol G7 Amarok Jetta Tiguan | Preto Moldura VW Gol G7 Amarok Jetta Tiguan | Preto SKU: 89/A5 A Moldura 7 Polegadas 2D\""
+  },
+  "54344918": {
+   "brand": "Permak",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU 135/B literal em https://www.permak.com.br/produto/terminal-femea-alto-falante-25mm%c2%b2/ — \" / Terminais / Terminal Fêmea Alto Falante 2,5mm² | Dourado Terminal Fêmea Alto Falante 2,5mm² | Dourado SKU: 135/B O terminal fêmea alto fa\""
+  },
+  "55588180": {
+   "brand": "Fiamon",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU 6009 literal em https://www.fiamon.com.br/pt/produto/moldura-10-toyota-corolla-20182019-modelo-com-relogio/779/ — \"MOLDURA 10\" TOYOTA COROLLA 2018/2019 (MODELO COM RELÓGIO) Padrão Origem: Cor: BLACK PIANO FRISO PRATA Código: 6009 Cor: BLACK PIANO FRISO PR\""
+  },
+  "51523448": {
+   "brand": "HURRICANE",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU AF10000248 literal em https://www.hurricane.com.br/aurum — \"gma: PEI ​ DOWNLOADS DESENHO TÉCNICO A6 T FOTO EM ALTA A6 T FOTO EM ALTA A6 T (2) 6x9'' Modelo: A69 Q Código: AF10000248 Potência RMS (par):\""
   }
  }
 }
