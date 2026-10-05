@@ -35,9 +35,8 @@ const LOGO = '/assets/logo-header.png';
 const crypto = require('crypto');
 const CARENCIA_DIAS = 7;            // ausência contínua no feed antes de noindex (tempo do feed, não do relógio)
 const LIMITE_SAUDE = 0.85;          // feed com menos de 85 % dos itens da última rodada saudável = suspeito
-const NOME_HOME = 'Catálogo B2B de acessórios automotivos';
 const H1_HOME = 'MR4 Distribuidora — Catálogo B2B';   // H1 da home = logo do topo (alt); a barra de resultados não ganha largura
-const TITLE_HOME = NOME_HOME + ' | MR4 Distribuidora';
+const TITLE_HOME = 'Distribuidora de acessórios automotivos no atacado | MR4';   // 05/10: intenção 'distribuidora/atacado' sem restringir a Fortaleza (sede ≠ cobertura: todo o Brasil)
 const DESC_HOME = 'Catálogo B2B da MR4 Distribuidora (Fortaleza, CE): acessórios automotivos no atacado para lojistas e instaladores. Atendimento para todo o Brasil.';
 const hash12 = t => crypto.createHash('sha1').update(String(t)).digest('hex').slice(0, 12);
 const normHtml = h => h.replace(/\?v=[A-Za-z0-9._-]+/g, '');

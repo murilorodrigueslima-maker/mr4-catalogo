@@ -50,7 +50,7 @@ test('sitemap: toda URL é canônica de si mesma, indexável e tem arquivo; nenh
 });
 test('home: title, description factual, canonical, H1 único e Open Graph', () => {
   const h = A['index.html'];
-  assert.equal(G.TITLE_HOME, 'Catálogo B2B de acessórios automotivos | MR4 Distribuidora');
+  assert.equal(G.TITLE_HOME, 'Distribuidora de acessórios automotivos no atacado | MR4');
   assert.ok(G.TITLE_HOME.length <= 65);
   assert.match(h, new RegExp('<title>' + G.TITLE_HOME.replace(/[|]/g, '\\|') + '</title>'));
   assert.ok(G.DESC_HOME.length <= 200);
@@ -61,7 +61,8 @@ test('home: title, description factual, canonical, H1 único e Open Graph', () =
   assert.match(h, /property="og:url" content="https:\/\/catalogo\.mr4distribuidora\.com\.br\/"/);
   // o index.html versionado é o gerado, exceto as LISTAS de categorias/marcas: elas mudam a cada correção editorial e o workflow
   // regenera o HTML no disparo seguinte (≤15 min) — comparar essas listas fixaria o teste ao instante da regeneração.
-  const semListas = x => x.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\n?/g, '').replace(/<div( class="lista")? id="(catLista|marcaLista)">[\s\S]*?<\/div>/g, '').replace(/<nav aria-label="(Categorias|Marcas) do catálogo">[\s\S]*?<\/nav>/g, '');   // JSON-LD da home é coberto por seo3/entidade; muda junto com entidade.js e só chega ao publicado após o workflow
+  const semListas = x => x.replace(/<title>[\s\S]*?<\/title>\n?/g, '').replace(/<meta property="og:title"[^>]*>\n?/g, '')   // title/og:title mudam junto com TITLE_HOME e só chegam ao HTML versionado na regeneração do workflow (≤15 min); a igualdade com G.TITLE_HOME é afirmada acima sobre o HTML GERADO
+    .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\n?/g, '').replace(/<div( class="lista")? id="(catLista|marcaLista)">[\s\S]*?<\/div>/g, '').replace(/<nav aria-label="(Categorias|Marcas) do catálogo">[\s\S]*?<\/nav>/g, '');   // JSON-LD da home é coberto por seo3/entidade; muda junto com entidade.js e só chega ao publicado após o workflow
   assert.equal(semListas(ler('index.html')), semListas(h));
 });
 test('home: links estáticos para TODAS as categorias e marcas; endereço institucional preservado', () => {
