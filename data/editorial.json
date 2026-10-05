@@ -1091,6 +1091,24 @@
    "brand": "HURRICANE",
    "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
    "evidencia": "SKU AF10000248 literal em https://www.hurricane.com.br/aurum — \"gma: PEI ​ DOWNLOADS DESENHO TÉCNICO A6 T FOTO EM ALTA A6 T FOTO EM ALTA A6 T (2) 6x9'' Modelo: A69 Q Código: AF10000248 Potência RMS (par):\""
+  },
+  "54344915": {
+   "desc": "Espuma para chicote sem cola da Permak, em poliuretano de poliéster expandido com característica antichama, para proteger e organizar fiações e reduzir ruídos, vibrações e atritos em instalações automotivas.",
+   "descModo": "preencher",
+   "motivo": "Descrição a partir de fonte oficial do fabricante (rascunho 05/10; exige aprovação)",
+   "evidencia": "Fonte oficial: https://www.permak.com.br/produto/espuma-chicote-sem-cola/ | trecho: poliuretano de poliéster expandido | característica antichama"
+  },
+  "74785415": {
+   "desc": "Pilha de lítio KX3 KB2032 (CR2032, 3 V), indicada pelo fabricante para alarmes automotivos, calculadoras e relógios.",
+   "descModo": "preencher",
+   "motivo": "Descrição a partir de fonte oficial do fabricante (rascunho 05/10; exige aprovação)",
+   "evidencia": "Fonte oficial: https://kx3.com.br/produto/bateria-lithium-kx3-kb2032/ | trecho: Pilha Bateria de Líthium CR 2032 | HB2032 – 2032 (3V)"
+  },
+  "76142771": {
+   "desc": "Pilha de lítio KX3 KB2016 (CR2016, 3 V), indicada pelo fabricante para alarmes automotivos, calculadoras e relógios.",
+   "descModo": "preencher",
+   "motivo": "Descrição a partir de fonte oficial do fabricante (rascunho 05/10; exige aprovação)",
+   "evidencia": "Fonte oficial: https://kx3.com.br/produto/bateria-lithium-kx3-kb2016/ | trecho: Pilha Bateria de Líthium CR 2016 | KB2016 – 2016 (3V)"
   }
  }
 }
