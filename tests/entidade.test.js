@@ -91,7 +91,7 @@ test('Organization: mesmo @id em todo o site; NAP/taxID/legalName/PostalAddress 
   assert.equal('hasMap' in o, false); assert.equal(o.location.hasMap, 'https://www.google.com/maps?cid=17633794425759222596');   // link da ficha oficial do Google (identificador do lugar, não coordenadas)
   assert.equal(o.description, 'Distribuidora de acessórios e peças automotivas no atacado, com sede em Fortaleza, Ceará. Catálogo B2B para lojistas e instaladores.');
   assert.equal(o.name, 'MR4 Distribuidora'); assert.equal(o.legalName, 'MR4 COMERCIO DE PECAS E ACESSORIOS AUTOMOTIVOS LTDA');
-  assert.deepEqual(o.sameAs, ['https://www.instagram.com/mr4distribuidora/', 'https://www.facebook.com/p/Mr4distribuidora-100064696208963/', 'https://www.google.com/maps?cid=17633794425759222596']);
+  assert.deepEqual(o.sameAs, ['https://www.instagram.com/mr4distribuidora/', 'https://www.facebook.com/p/Mr4distribuidora-100064696208963/']);   // Google Maps NÃO está em sameAs (fica em location.hasMap)
   assert.deepEqual(o.areaServed, { '@type': 'Country', name: 'Brasil' });
   ['sobre/index.html', 'contato/index.html', 'privacidade/index.html'].forEach(k => assert.deepEqual(tipo(grafo(A[k]), 'Organization'), o, k));   // idêntica: sem entidade duplicada divergente
   // produto/categoria/marca não carregam outra Organization (só referência por @id no seller)
@@ -156,9 +156,9 @@ test('abrangência: Brasil; a limitação antiga CE · PI · RN não existe em n
   assert.ok(A['index.html'].match(/<meta name="description" content="([^"]*)"/)[1].includes('todo o Brasil'));
   [A['index.html'], A['sobre/index.html'], A['contato/index.html'], A['privacidade/index.html']].forEach(h => assert.doesNotMatch(h.replace(/<script[\s\S]*?<\/script>/g, ''), /frete gr[áa]tis|prazo nacional|entrega pr[óo]pria|entregamos|entrega em todo/i));
 });
-test('sameAs: só Instagram, Facebook e ficha do Google oficiais confirmados; nenhuma outra rede; link do Instagram visível em /sobre/', () => {
+test('sameAs: só Instagram e Facebook oficiais confirmados (Google Maps só em location.hasMap); nenhuma outra rede; link do Instagram visível em /sobre/', () => {
   const o = tipo(grafo(A['index.html']), 'Organization');
-  assert.equal(o.sameAs.length, 3); assert.equal(o.sameAs[2], E.gbp); assert.equal(o.sameAs[0], E.instagram); assert.equal(o.sameAs[1], 'https://www.facebook.com/p/Mr4distribuidora-100064696208963/'); assert.match(E.instagram, /^https:\/\/www\.instagram\.com\/mr4distribuidora\/$/);
+  assert.equal(o.sameAs.length, 2); assert.ok(!o.sameAs.some(u => /google\.com\/maps|maps\.google/.test(u))); assert.equal(o.location.hasMap, E.gbp); assert.equal(o.sameAs[0], E.instagram); assert.equal(o.sameAs[1], 'https://www.facebook.com/p/Mr4distribuidora-100064696208963/'); assert.match(E.instagram, /^https:\/\/www\.instagram\.com\/mr4distribuidora\/$/);
   htmls().forEach(k => assert.doesNotMatch(A[k].replace(/"sameAs":\[[^\]]*\]/g, ''), /facebook\.com|tiktok\.com|youtube\.com|linkedin\.com|twitter\.com|x\.com\//i, k));   // fora do sameAs, nenhuma rede aparece
   htmls().forEach(k => { (A[k].match(/"sameAs":\[([^\]]*)\]/g) || []).forEach(m => assert.doesNotMatch(m, /tiktok|youtube|linkedin|twitter|x\.com/i)); });
   assert.ok(links(A['sobre/index.html']).includes(E.instagram));

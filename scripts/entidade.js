@@ -29,7 +29,7 @@ const E = {
   descricao: 'Distribuidora de acessórios e peças automotivas no atacado, com sede em Fortaleza, Ceará. Catálogo B2B para lojistas e instaladores.',   // mesma afirmação já publicada em /sobre/ (confirmada pelo proprietário)
   paginas: { sobre: '/sobre/', contato: '/contato/', privacidade: '/privacidade/' }
 };
-E.sameAs = () => [E.instagram, E.facebook, E.gbp];   // só perfis oficiais confirmados (redes sociais + ficha do Google)
+E.sameAs = () => [E.instagram, E.facebook];   // só perfis sociais oficiais confirmados; a ficha do Google fica em location.hasMap (decisão do proprietário, 05/10)
 E.enderecoLinha = `${E.endereco.rua} — ${E.endereco.cidade}, ${E.endereco.estado}`;
 E.enderecoCurto = `${E.endereco.rua} · ${E.endereco.cidade}, ${E.endereco.uf}`;
 E.horarioTexto = h => `${h.rotulo}: ${h.abre} às ${h.fecha}`;
