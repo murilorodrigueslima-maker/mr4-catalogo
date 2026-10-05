@@ -417,21 +417,25 @@
   /** relacionados: mesma regra de precedência (categoria+marca → categoria → marca), mas dentro de cada grupo pega os PRÓXIMOS itens na ordem do catálogo
    *  (circular), não sempre os 4 primeiros. Efeito: os links de "relacionados" se distribuem por todos os produtos do grupo (cada item recebe ~4 links de
    *  vizinhos) em vez de concentrar tudo nos 4 primeiros — determinístico, mesmo algoritmo no HTML estático e no navegador. */
+  const MAX_MESMA_MARCA = 2;
   function relacionados(itens, item, n) {
     n = n || 4;
     const mesmaCat = e => !item.semGrupo && !e.semGrupo && e.catChave === item.catChave;
     const mesmaMarca = e => !!item.marca && e.marca === item.marca;
     const pos = itens.indexOf(item);
     const out = [], usados = new Set([item]);
-    [e => mesmaCat(e) && mesmaMarca(e), e => mesmaCat(e), e => mesmaMarca(e)].forEach(regra => {
+    // categoria+marca: no máx. 2 vizinhos (MAX_MESMA_MARCA); o resto vem da MESMA categoria (qualquer marca/sem marca) — mesma intenção de compra,
+    // e distribui links também para produtos sem marca ou de marca minoritária, que antes só eram citados pela página da categoria.
+    [[e => mesmaCat(e) && mesmaMarca(e), MAX_MESMA_MARCA], [e => mesmaCat(e), n], [e => mesmaMarca(e), n]].forEach(([regra, lim]) => {
       if (out.length >= n) return;
       const grupo = itens.filter(e => e !== item && regra(e));
       if (!grupo.length) return;
       let ini = grupo.findIndex(e => itens.indexOf(e) > pos);
       if (ini < 0) ini = 0;
-      for (let k = 0; k < grupo.length && out.length < n; k++) {
+      let add = 0;
+      for (let k = 0; k < grupo.length && out.length < n && add < lim; k++) {
         const e = grupo[(ini + k) % grupo.length];
-        if (!usados.has(e)) { usados.add(e); out.push(e); }
+        if (!usados.has(e)) { usados.add(e); out.push(e); add++; }
       }
     });
     return out;

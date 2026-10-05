@@ -23,6 +23,15 @@ test('relacionados: precedência categoria+marca → categoria → marca preserv
   assert.deepEqual(C.relacionados(sg, sg[0]), []);          // sem categoria comercial e sem marca → nada
   assert.equal(C.relacionados(it, it[0], 2).length, 2);
 });
+test('relacionados: a fase categoria+marca é limitada a 2; o resto vem da MESMA categoria na ordem do catálogo — produto sem marca deixa de ficar sem nenhum link recebido', () => {
+  const todos = Array.from({ length: 12 }, (_, i) => mk(i + 1)).concat(mk(13, { brand: '' }));       // 12 da Marca A + 1 sem marca, mesma categoria
+  const it = C.prepararCatalogo(todos);
+  const r = C.relacionados(it, it[0], 4).map(e => e.p.ref);
+  assert.deepEqual(r, ['R2', 'R3', 'R4', 'R5']);                                                    // 2 pela fase categoria+marca, 2 pela fase categoria (ordem do catálogo)
+  const recebidos = it.reduce((n, e) => n + (C.relacionados(it, e, 4).includes(it[12]) ? 1 : 0), 0);
+  assert.ok(recebidos >= 2, 'o produto sem marca recebe links dos vizinhos da categoria: ' + recebidos);   // antes desta regra: 0 (só o próprio sem marca o citava)
+  assert.ok(!r.some(ref => ref === 'R1'));
+});
 test('DADOS REAIS: os links de relacionados se espalham — poucos produtos sem nenhum link recebido, nenhum hub concentrando', () => {
   const F = JSON.parse(fs.readFileSync(path.join(RAIZ, 'data/produtos.json'), 'utf8')).produtos;
   const ED = JSON.parse(fs.readFileSync(path.join(RAIZ, 'data/editorial.json'), 'utf8'));
@@ -30,7 +39,8 @@ test('DADOS REAIS: os links de relacionados se espalham — poucos produtos sem 
   const inn = new Map(it.map(e => [e, 0]));
   it.forEach(e => C.relacionados(it, e, 4).forEach(r => inn.set(r, inn.get(r) + 1)));
   const v = [...inn.values()].sort((a, b) => a - b);
-  assert.ok(v.filter(x => x === 0).length <= it.length * 0.05, 'sem nenhum link: ' + v.filter(x => x === 0).length);
+  assert.ok(v.filter(x => x === 0).length <= it.length * 0.01, 'sem nenhum link: ' + v.filter(x => x === 0).length);   // antes ~14; sem marca/marca minoritária agora também recebem links
+  assert.ok(v.filter(x => x <= 2).length <= it.length * 0.08, 'com ≤2 links: ' + v.filter(x => x <= 2).length);
   assert.ok(v[v.length >> 1] >= 3, 'mediana ' + v[v.length >> 1]);
   assert.ok(v[v.length - 1] <= 16, 'máximo ' + v[v.length - 1]);
 });
