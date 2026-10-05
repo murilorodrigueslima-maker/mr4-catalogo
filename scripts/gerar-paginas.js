@@ -42,6 +42,22 @@ const hash12 = t => crypto.createHash('sha1').update(String(t)).digest('hex').sl
 const normHtml = h => h.replace(/\?v=[A-Za-z0-9._-]+/g, '');
 const esc = Core.esc;
 
+/** Conteúdo RELEVANTE de uma URL para o `lastmod` (≠ HTML inteiro): title, meta description, JSON-LD e <main>, SEM a navegação compartilhada
+ *  (listas de categorias/marcas/montadoras do contexto), SEM relacionados/link de hub e SEM placeholders de grade. Mudança só de menu,
+ *  rodapé, versão de asset ou relacionados NÃO é mudança da página (evita falsa frescura). Preço (JSON-LD), descrição, nome, marca, lista de produtos contam. */
+function conteudoRelevante(html) {
+  const pega = re => (html.match(re) || [''])[0];
+  const cabeca = pega(/<title>[\s\S]*?<\/title>/) + pega(/<meta name="description"[^>]*>/) + (html.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g) || []).join('');
+  const principal = pega(/<main[\s\S]*?<\/main>/) || html;
+  const limpo = principal
+    .replace(/<nav aria-label="(?:Categorias do catálogo|Marcas do catálogo|Molduras por montadora)">[\s\S]*?<\/nav>/g, '')
+    .replace(/<nav class="mais-hub"[\s\S]*?<\/nav>/g, '')
+    .replace(/<div id="relacionados">[\s\S]*?<\/div>/g, '')
+    .replace(/<span class="ri-ph"[\s\S]*?<\/span><\/span>/g, '')
+    .replace(/<div class="skeleton-card skel"><\/div>/g, '');
+  return normHtml(cabeca + limpo).replace(/\s+/g, ' ');
+}
+
 function headSeo(o) {
   const l = [`<title>${esc(o.title)}</title>`, `<meta name="description" content="${esc(o.description)}">`, `<link rel="canonical" href="${esc(o.canonical)}">`];
   if (o.noindex) l.push('<meta name="robots" content="noindex,follow">');
@@ -212,7 +228,7 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
   arquivos['produto/manifest.json'] = JSON.stringify({ versao: 1, produtos: ordenado }, null, 1) + '\n';
   if (!opts) return { arquivos, itens };
 
-  const hoje = dataFeed(opts.atualizado);
+  const hoje = (opts.dataGeracao && /^\d{4}-\d{2}-\d{2}$/.test(opts.dataGeracao)) ? opts.dataGeracao : dataFeed(opts.atualizado);   // `dataGeracao`: injetada só pelo executar() (relógio); planejar() permanece puro
   const tax = Core.taxonomia(itens);
   const vivos = new Set(itens.map(i => i.slugCodigo));
   const estado = { versao: 1, ativos: itens.length, lastmod: {}, ausentes: {}, taxonomias: {} };
@@ -273,10 +289,14 @@ function planejar(produtosBrutos, tpl, manifestoAnterior, opts) {
     .concat(itens.map(i => ({ u: i.url, f: 'produto/' + dirDe(i.url) + '/index.html' })).sort((x, y) => (x.u < y.u ? -1 : 1)));
   const lm0 = est0.lastmod || {};
   const entradas = urls.map(({ u, f }) => {
-    const h = hash12(normHtml(arquivos[f]));
+    const h = hash12(normHtml(arquivos[f])), c = hash12(conteudoRelevante(arquivos[f]));
     const ant = lm0[u];
-    // sem histórico: 1ª geração (estado vazio) → sem data; URL nova numa geração posterior → data do feed (a página é de fato nova)
-    const reg = !ant ? { h, d: Object.keys(lm0).length ? hoje : null } : ant.h === h ? ant : { h, d: hoje };
+    // lastmod = data em que o CONTEÚDO RELEVANTE (c) mudou; build sem mudança relevante mantém a data. 1ª geração (estado vazio) → sem data;
+    // URL nova numa geração posterior → data da geração; entrada antiga sem `c` (migração) adota o hash e MANTÉM a data (sem bump em massa).
+    const reg = !ant ? { h, c, d: Object.keys(lm0).length ? hoje : null }
+      : ant.c === undefined ? { h, c, d: ant.d }
+      : ant.c === c ? { h, c, d: ant.d }
+      : { h, c, d: hoje };
     estado.lastmod[u] = reg;
     return urlXml(ORIGEM + u, reg.d);
   });
@@ -314,7 +334,7 @@ function executar(raiz) {
   vEd.avisos.forEach(a => console.warn('⚠️  ' + a));
   if (vEd.erros.length) throw new Error('EDITORIAL_INVALIDO: geração bloqueada\n  - ' + vEd.erros.join('\n  - '));
   const confiavel = process.env.SYNC_FEED_VALIDADO === '1';                 // o sync já validou completude/estrutura deste feed: queda comercial legítima não é "feed doente"
-  const r = planejar(dados.produtos || [], tpl, manifesto, { shell, confiavel, editorial, estado: lerJson('data/seo-estado.json'), atualizado: dados.atualizado, existente: lerTxt });
+  const r = planejar(dados.produtos || [], tpl, manifesto, { shell, confiavel, editorial, estado: lerJson('data/seo-estado.json'), atualizado: dados.atualizado, dataGeracao: new Date().toISOString().slice(0, 10), existente: lerTxt });
   if (r.saudavel === false) {
     console.warn(`⚠️  Feed suspeito (${r.itens.length} itens; referência ${(r.estado || {}).ativos || '—'}): nada foi regenerado (falha de sync não é remoção de produto).`);
     return { produtos: r.itens.length, escritos: 0, iguais: 0, saudavel: false };
@@ -333,7 +353,7 @@ function executar(raiz) {
   return { produtos: r.itens.length, escritos, iguais, saudavel: true, alteradas };
 }
 
-module.exports = { executar, LD, urlsAlteradas, planejar, textosTaxonomia, textoHome, GENERICAS, renderizarPagina, renderizarRedirecionamento, marcarIndisponivel, paginaHome, paginaTaxonomia, dirDe, ORIGEM, LOGO, CARENCIA_DIAS, LIMITE_SAUDE, TITLE_HOME, DESC_HOME, ROBOTS };
+module.exports = { conteudoRelevante, executar, LD, urlsAlteradas, planejar, textosTaxonomia, textoHome, GENERICAS, renderizarPagina, renderizarRedirecionamento, marcarIndisponivel, paginaHome, paginaTaxonomia, dirDe, ORIGEM, LOGO, CARENCIA_DIAS, LIMITE_SAUDE, TITLE_HOME, DESC_HOME, ROBOTS };
 if (require.main === module) {
   let r;
   try { r = executar(path.join(__dirname, '..')); } catch (e) { console.error('❌ ' + e.message); process.exit(1); }
