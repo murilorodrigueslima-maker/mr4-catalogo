@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 606,
+ "ativos": 604,
  "lastmod": {
   "/": {
    "h": "037cbc431200",
@@ -59,8 +59,8 @@
    "d": "2026-10-03"
   },
   "/categoria/interruptores/": {
-   "h": "59d9e11fcf7e",
-   "d": "2026-10-03"
+   "h": "b648a3e9ee1b",
+   "d": "2026-10-05"
   },
   "/categoria/lampada-de-led/": {
    "h": "98fc7d7b1c6f",
@@ -239,8 +239,8 @@
    "d": "2026-10-03"
   },
   "/marca/tiger-auto/": {
-   "h": "d2ed00fd9d65",
-   "d": "2026-10-03"
+   "h": "276ffcf30b61",
+   "d": "2026-10-05"
   },
   "/marca/tragial/": {
    "h": "359828b67794",
@@ -251,8 +251,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "e4b884b64d85",
-   "d": "2026-10-03"
+   "h": "981767592f9f",
+   "d": "2026-10-05"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -439,16 +439,16 @@
    "d": "2026-10-03"
   },
   "/produto/botao-interruptor-de-vidro-eletrico-fiat-uno-led-ambar--biv-fia-1002/": {
-   "h": "7982a9fbf6d9",
-   "d": "2026-10-03"
+   "h": "87d4e8634385",
+   "d": "2026-10-05"
   },
   "/produto/botao-interruptor-de-vidro-eletrico-fiat-uno-led-ambar-duplo--biv-fia-1006/": {
-   "h": "f6e5036b85f4",
-   "d": "2026-10-03"
+   "h": "cb5135e2b4c6",
+   "d": "2026-10-05"
   },
   "/produto/botao-interruptor-de-vidro-eletrico-fiat-uno-led-verde--biv-fia-1001/": {
-   "h": "c240b9780c14",
-   "d": "2026-10-03"
+   "h": "06085149abe6",
+   "d": "2026-10-05"
   },
   "/produto/botao-interruptor-de-vidro-eletrico-fiet-uno-led-verde-duplo--biv-fia-1005/": {
    "h": "dac870024841",
@@ -459,12 +459,12 @@
    "d": "2026-10-03"
   },
   "/produto/botao-interruptor-vidro-eletrico-fiat-uno-simples-led-verde--biv-fia-1004/": {
-   "h": "2fc859e3988a",
-   "d": "2026-10-03"
+   "h": "d28547e80c5d",
+   "d": "2026-10-05"
   },
   "/produto/botao-retrovisor-corsa-astra-meriva-zafira-vectra-agile-gm--bir-che-2202/": {
-   "h": "c8500c11fd26",
-   "d": "2026-10-03"
+   "h": "484a66b28ccf",
+   "d": "2026-10-05"
   },
   "/produto/botao-retrovisor-eletrico-onix-prisma-spin-cobalt-12-19-novo--bir-che-2201/": {
    "h": "81ca39cced6a",
@@ -819,8 +819,8 @@
    "d": "2026-10-03"
   },
   "/produto/controle-px32-4bt-novo-positron-flex--rpx006/": {
-   "h": "29a9322820de",
-   "d": "2026-10-03"
+   "h": "1ee3de0d66e9",
+   "d": "2026-10-05"
   },
   "/produto/controle-px32-positron-flex--rpx003/": {
    "h": "ed7fefde72aa",
@@ -1131,8 +1131,8 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-bloqueio-logan-sandero-14--1511006/": {
-   "h": "0eb8d43cabc5",
-   "d": "2026-10-03"
+   "h": "e16c8029fe73",
+   "d": "2026-10-05"
   },
   "/produto/interruptor-de-emergencia-renault-logan-sandero--1511010/": {
    "h": "97f6855006fd",
@@ -1156,10 +1156,6 @@
   },
   "/produto/interruptor-de-vidro-duplo-diant-esq-onix-spin-prisma--1504023/": {
    "h": "ff696c729a7e",
-   "d": "2026-10-03"
-  },
-  "/produto/interruptor-de-vidro-duplo-diant-esq-palio-grand-sienaa--1502033/": {
-   "h": "4440dacd6498",
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-duplo-volkswagen-up-14-17-s-led--1501032/": {
@@ -1199,24 +1195,24 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-renault-retrovisor-novo-sandero-logan--bir-ren-6201/": {
-   "h": "94e5a0316ef9",
-   "d": "2026-10-03"
+   "h": "56b5b574fd3a",
+   "d": "2026-10-05"
   },
   "/produto/interruptor-simples-logan-sandero-14--1511007/": {
-   "h": "5363b8411b01",
-   "d": "2026-10-03"
+   "h": "39f133b3b634",
+   "d": "2026-10-05"
   },
   "/produto/interruptor-trava-destrava-logan--1511005/": {
-   "h": "a805345d05d6",
-   "d": "2026-10-03"
+   "h": "ae9d2cc6c329",
+   "d": "2026-10-05"
   },
   "/produto/interruptor-vidro-celta-4-pinos-console-vermelho--1504014/": {
    "h": "944b59af7bca",
    "d": "2026-10-03"
   },
   "/produto/interruptor-vidro-clio-6-pinos--1511002/": {
-   "h": "6bb302b160b9",
-   "d": "2026-10-03"
+   "h": "6e856d93d24c",
+   "d": "2026-10-05"
   },
   "/produto/interruptor-vidro-gol-g3--biv-vol-3010/": {
    "h": "ee22588e40e2",
@@ -1226,17 +1222,13 @@
    "h": "5c758134f9fd",
    "d": "2026-10-03"
   },
-  "/produto/interruptor-vidro-gol-g4-g5-fox-duplo-1-estagio--1501004/": {
-   "h": "0a3fc4042ad5",
-   "d": "2026-10-03"
-  },
   "/produto/interruptor-vidro-logan-antigo-sandero--1511003/": {
-   "h": "224eb3a6f472",
-   "d": "2026-10-03"
+   "h": "ab35728bca32",
+   "d": "2026-10-05"
   },
   "/produto/interruptor-vidro-palio-fire-d-dir-led-ambar--biv-fia-1014/": {
-   "h": "f72ee1f5132f",
-   "d": "2026-10-03"
+   "h": "734ca23d1485",
+   "d": "2026-10-05"
   },
   "/produto/interruptor-vidro-palio-novo-d-dir-simples--1502002/": {
    "h": "9065172050f7",
@@ -2687,7 +2679,10 @@
    "d": "2026-10-03"
   }
  },
- "ausentes": {},
+ "ausentes": {
+  "1501004": "2026-10-05",
+  "1502033": "2026-10-05"
+ },
  "taxonomias": {
   "/categoria/alarme/": {
    "tipo": "categoria",
