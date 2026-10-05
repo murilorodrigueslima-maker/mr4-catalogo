@@ -21,6 +21,11 @@
    "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
    "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: FIAT PALIO WAY 14/18; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
   },
+  "33002139": {
+   "brand": "Fiamon",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU 3196 literal em https://www.fiamon.com.br/pt/produto/moldura-68-e-7-toyota-corolla-20142016/210/ — \"LA 2014/2016 Padrão Modelo Origem: Cor: Black piano Código: 3196 Cor: Black piano Código: 3196 Medidas internas Chicote / ANT: Código: 40135\""
+  },
   "33002151": {
    "desc": "Moldura 2 DIN para Fiat Toro G1 16/21, acabamento Black Piano UV Protection (rótulo do cadastro). Marca Fiamon. Código 4123.",
    "descModo": "preencher",
@@ -176,6 +181,11 @@
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
    "evidencia": "rayx.com.br (\"Distribuidora oficial\"); Equasa/ML/Shopee: \"Mini Ultra Led Small RAYX H4/HB4 6000K 8400 lumens\" | fonte: rayx.com.br; equasa.com.br; Mercado Livre (03/10/2026)"
   },
+  "51523447": {
+   "brand": "HURRICANE",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU AF10000191 literal em https://www.hurricane.com.br/triak — \"ível com 5'' e 6'' Onde comprar 5'' Modelo: Triak 5 Código: AF10000191 Potência RMS (par): 100W Potência Máx. (par): 200W Impedância: 4 ohms\""
+  },
   "52198460": {
    "desc": "Soquete cerâmico para lâmpada 9005/HB3. Marca Tarponn. Código TP-2026.",
    "descModo": "preencher",
@@ -277,6 +287,11 @@
    "descModo": "preencher",
    "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
    "evidencia": "Fatos: tipo: moldura 2 DIN japonês; aplicação: VW POLO, GOLF, FOX G2, ECOSPORT, FIESTA, BORA, PASSAT; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "56169870": {
+   "brand": "HURRICANE",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU AF10000123 literal em https://www.hurricane.com.br/platino — \" QR 5 DESENHO TÉCNICO FOTO EM ALTA QR5 Modelo: QR 6 Código: AF10000123 Potência RMS (par): 160W Potência Máx. (par): 320W Impedância: 4 ohms\""
   },
   "57208040": {
    "title": "FAROL DE MILHA AVULSO GOL G6 13 - LADO DIREITO",
@@ -435,6 +450,16 @@
    "descModo": "preencher",
    "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
    "evidencia": "Fatos: tipo: moldura 2 DIN; aplicação: HONDA CIVIC 01/06; acabamento/cor: PRETA. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+  },
+  "62562928": {
+   "brand": "HURRICANE",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU VA10000078 literal em https://www.hurricane.com.br/kit-pr%C3%A1tico — \" durante 2 Horas ininterruptas. 6'' Modelo: Triak 6 Código: VA10000078 Potência RMS (par): 100W Potência Máx. (par): 200W Impedância: 4 ohms\""
+  },
+  "62562929": {
+   "brand": "HURRICANE",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU AF10000118 literal em https://www.hurricane.com.br/class — \" EM ALTA CM 57 FOTO EM ALTA CM 57 (2) Modelo: CM 69 Código: AF10000118 Potência RMS (par): 180W Potência Máx. (par): 360W Impedância: 4 ohms\""
   },
   "62812853": {
    "brand": "2MIX",
@@ -762,6 +787,11 @@
    "motivo": "Marca provada por fonte externa/oficial.",
    "evidencia": "carfix/PedidoOK: Marca VIPERTRON (código 14003)"
   },
+  "84506279": {
+   "brand": "Bomber",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU 1.17.145 literal em https://www.bomber.com.br/produto/6-bbr-montadora-100-w-rms-4-ohms/ — \" solid #ddd; text-align: left; } Especificação Valor Código 1.17.145 Modelo 6BBRM55-4 Código de barras 7897183028227 Tamanho 6' Potência de \""
+  },
   "84882473": {
    "desc": "Moldura 9 para Hyundai Santa Fe G3 13/18, cor preta. Marca Fiamon. Código 4251.",
    "descModo": "preencher",
@@ -788,20 +818,55 @@
    "motivo": "Categoria genérica (PRODUTOS SEM GRUPO); nome/SKU indicam inequivocamente família já existente.",
    "evidencia": "prefixo PAKT: 8 de 8 irmãos em Travas; nome no padrão \"KIT ... P/TAMPA C/FURO - CACAMBA\" igual a PAKTFDMN008/PAKTGMMN020 (Travas)"
   },
+  "87075181": {
+   "brand": "Bomber",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU 1.16.334 literal em https://www.bomber.com.br/produto/bbx-6-130-w-rms-4-ohms/ — \" solid #ddd; text-align: left; } Especificação Valor Código 1.16.334 Modelo M6BBX65-4 Código de barras 7897183031920 Tamanho 6' Potência (RM\""
+  },
+  "87075183": {
+   "brand": "Bomber",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU 1.20.011 literal em https://www.bomber.com.br/produto/subwoofer-12-outdoor-500-wrms-4-ohms/ — \" solid #ddd; text-align: left; } Especificação Valor Código 1.20.011 Modelo SW12OUT-500-4 Código de barras 7897183021914 Tamanho 12' Potênci\""
+  },
   "87252234": {
    "brand": "KX3",
    "motivo": "Marca KX3 escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
    "evidencia": "Nome ERP: \"SENSOR DE ESTACIONAMENTO KX3 ECO BRANCO\""
+  },
+  "87730957": {
+   "brand": "Bomber",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU 1.04.154 literal em https://www.bomber.com.br/produto/subwoofer-8-upgrade-400-wrms-4-ohms/ — \" solid #ddd; text-align: left; } Especificação Valor Código 1.04.154 Modelo SW8UP400-4 Código de barras 7897183031517 Tamanho 8' Potência (R\""
+  },
+  "87730958": {
+   "brand": "Bomber",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU 1.23.075 literal em https://www.bomber.com.br/produto/pentaxial-6x9-bicho-papao-350-wrms-4-ohms-par/ — \" solid #ddd; text-align: left; } Especificação Valor Código 1.23.075 Modelo P6X9BP-175-4 Código de barras 7897183020146 Tamanho 6X9' Potênci\""
+  },
+  "87916959": {
+   "brand": "Bomber",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU 1.37.002 literal em https://www.bomber.com.br/produto/subwoofer-quadriaxial-6x9-tkl-400-wrms-par/ — \" solid #ddd; text-align: left; } Especificação Valor Código 1.37.002 Modelo SQ6X9TKL-200-4 Código de barras 7897183023475 Tamanho 6X9' Potên\""
   },
   "88233696": {
    "brand": "2MIX",
    "motivo": "Marca provada por fonte externa/oficial.",
    "evidencia": "2mix.com.br: Central Multimídia 2Mix Detroit 7\""
   },
+  "88827424": {
+   "brand": "Bomber",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU 1.16.333 literal em https://www.bomber.com.br/produto/bbx-5-130-w-rms-4-ohms/ — \" solid #ddd; text-align: left; } Especificação Valor Código 1.16.333 Modelo M5BBX65-4 Código de barras 7897183031913 Tamanho 5' Potência (RM\""
+  },
   "89568347": {
    "brand": "KX3",
    "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
    "evidencia": "kx3.com.br e Lojas: \"MP5 KX3 KRC3100 7 polegadas\" (modelo oficial KX3) | fonte: kx3.com.br; lojadosomeacessorios.com.br; Instagram @kx3_acessorios"
+  },
+  "91431254": {
+   "brand": "Permak",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU 31/J literal em https://www.permak.com.br/produto/chicote-canbus-linha-honda-para-android-preto/ — \"2022 Chicote Canbus Linha Honda Para Android 2014/2022 SKU: 31/J Se você está pensando em modernizar o sistema multimídia do seu Honda com u\""
   },
   "95657041": {
    "desc": "Soquete cerâmico para lâmpada H7. Marca LDCAR. Código LDCAR020.",
@@ -852,6 +917,11 @@
    "brand": "KX3",
    "motivo": "Marca KX3 escrita literalmente no nome do produto; marca já existe no catálogo e o campo do ERP está vazio.",
    "evidencia": "Nome ERP: \"FITA ISOLANTE 20M KX3\""
+  },
+  "97261243": {
+   "brand": "Bomber",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
+   "evidencia": "SKU 1.16.337 literal em https://www.bomber.com.br/produto/kit-facil-bbr-240-w-rms-4-ohms/ — \" solid #ddd; text-align: left; } Especificação Valor Código 1.16.337 Modelo KTF240-4 Código de barras 7897183031975 Tamanho 6' / 6X9' Potênc\""
   },
   "97261244": {
    "brand": "Bomber",
