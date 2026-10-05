@@ -6,6 +6,7 @@ const fs = require('fs'), os = require('os'), path = require('path');
 const { spawnSync } = require('child_process');
 const C = require('../js/catalogo-core.js');
 const G = require('../scripts/gerar-paginas.js');
+const GN = require('../scripts/guard-numeros.js');
 const RAIZ = path.join(__dirname, '..');
 const FEED = JSON.parse(fs.readFileSync(path.join(RAIZ, 'data/produtos.json'), 'utf8'));
 const ED = JSON.parse(fs.readFileSync(path.join(RAIZ, 'data/editorial.json'), 'utf8'));
@@ -159,7 +160,7 @@ test('geração: título editorial muda H1/title/slug e o endereço antigo vira 
 test('DADOS REAIS: data/editorial.json é válido contra o feed atual (0 erros); todas as entradas têm motivo e evidência', () => {
   const v = C.validarEditorial(ED, FEED.produtos);
   assert.deepEqual(v.erros, []);
-  Object.entries(ED.produtos).forEach(([id, o]) => { assert.ok(o.motivo && o.evidencia, id); assert.ok(Object.keys(o).every(k => ['brand', 'category', 'title', 'desc', 'descModo', 'motivo', 'evidencia', 'status'].includes(k)), id); });
+  Object.entries(ED.produtos).forEach(([id, o]) => { assert.ok(o.motivo && o.evidencia, id); assert.ok(Object.keys(o).every(k => ['brand', 'category', 'title', 'desc', 'descModo', 'motivo', 'evidencia', 'status', 'fonteNumeros'].includes(k)), id); });
   const cli = spawnSync('node', ['scripts/validar-editorial.js'], { cwd: RAIZ, encoding: 'utf8' });
   assert.equal(cli.status, 0, cli.stdout + cli.stderr);
 });
@@ -247,17 +248,17 @@ test('DADOS REAIS: nenhum produto exibido como "Tiger"; todos os antigos Tiger/T
   assert.equal(ED.aliasesMarca.Tiger, 'Tiger Auto');
   assert.ok(!Object.keys(ED.aliasesMarca).some(k => /vipertron|fitto|joker/i.test(k)));
 });
-test('DADOS REAIS: descrições editoriais só contêm números/códigos presentes no cadastro (nome, marca ou código) — nenhuma medida inventada', () => {
+test('DADOS REAIS: descrições editoriais só contêm números/códigos presentes no cadastro (nome, marca ou código) — ou comprovados por fonte oficial rastreável do SKU (guard-numeros)', () => {
   const feed = FEED.produtos;
   const por = new Map(feed.map(p => [String(p.id), p]));
-  const tok = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/(\d)\.(\d)/g, '$1$2').replace(/(\d),(\d)/g, '$1$2').replace(/([a-z])(\d)/g, '$1 $2').replace(/(\d)([a-z])/g, '$1 $2').split(/[^a-z0-9]+/).filter(Boolean);
+  const marcaDe = new Map(C.prepararCatalogo(feed, ED).map(i => [String(i.p.id), i.marca]));
   let n = 0;
   Object.entries(ED.produtos).forEach(([id, o]) => {
     if (!o.desc) return; n++;
     const p = por.get(id); if (!p) return;   // órfão = aviso do validador
     assert.equal(C.descricaoEditorialProblema(o.desc), '', id);
-    const fonte = new Set(tok([p.name, p.brand, p.ref, ED.aliasesMarca && ED.aliasesMarca[p.brand], o.brand].join(' ')));
-    tok(o.desc).filter(t => /\d/.test(t)).forEach(t => assert.ok(fonte.has(t), `${id}: "${t}" não está no cadastro`));
+    const r = GN.verificarNumeros({ desc: o.desc, erp: p, marca: marcaDe.get(id), extras: [ED.aliasesMarca && ED.aliasesMarca[p.brand], o.brand], fonte: o.fonteNumeros });
+    assert.ok(r.ok, `${id}: ${r.problemas.join(' | ')}`);
     assert.doesNotMatch(o.desc, /fitto|joker/i, id);   // Fitto/Joker bloqueado
   });
   assert.ok(n >= 20, 'piloto: ao menos ~20 descrições');

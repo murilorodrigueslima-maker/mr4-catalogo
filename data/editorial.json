@@ -849,8 +849,19 @@
   },
   "87730957": {
    "brand": "Bomber",
-   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante.",
-   "evidencia": "SKU 1.04.154 literal em https://www.bomber.com.br/produto/subwoofer-8-upgrade-400-wrms-4-ohms/ — \" solid #ddd; text-align: left; } Especificação Valor Código 1.04.154 Modelo SW8UP400-4 Código de barras 7897183031517 Tamanho 8' Potência (R\""
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante. | Descrição: Descrição a partir de fonte oficial do fabricante (rascunho 05/10; exige aprovação)",
+   "evidencia": "SKU 1.04.154 literal em https://www.bomber.com.br/produto/subwoofer-8-upgrade-400-wrms-4-ohms/ — \" solid #ddd; text-align: left; } Especificação Valor Código 1.04.154 Modelo SW8UP400-4 Código de barras 7897183031517 Tamanho 8' Potência (R\" | Descrição: Fonte oficial: https://www.bomber.com.br/produto/subwoofer-8-upgrade-400-wrms-4-ohms/ | trecho: Potência (RMS) 400 W RMS | Diâmetro da bobina 46,3 mm | Material do cone Celulose",
+   "desc": "Subwoofer Bomber Upgrade de 8 polegadas, 400 W RMS e 4 ohms, com bobina de 46,3 mm, cone de celulose, suspensão de espuma e carcaça de aço. Resposta em frequência de 34 Hz a 1,5 kHz (-10 dB) e sensibilidade de 84 dB.",
+   "descModo": "preencher",
+   "fonteNumeros": {
+    "url": "https://www.bomber.com.br/produto/subwoofer-8-upgrade-400-wrms-4-ohms/",
+    "skuTrecho": "Código 1.04.154",
+    "trechos": [
+     "Diâmetro da bobina 46,3 mm",
+     "Resposta em frequência (–10 dB) * ①,② 34 Hz - 1,5 kHz",
+     "Sensibilidade (Banda efetiva) * ①,② 84 dB"
+    ]
+   }
   },
   "87730958": {
    "brand": "Bomber",
@@ -874,8 +885,19 @@
   },
   "89568347": {
    "brand": "KX3",
-   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
-   "evidencia": "kx3.com.br e Lojas: \"MP5 KX3 KRC3100 7 polegadas\" (modelo oficial KX3) | fonte: kx3.com.br; lojadosomeacessorios.com.br; Instagram @kx3_acessorios"
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv). | Descrição: Descrição a partir de fonte oficial do fabricante (rascunho 05/10; exige aprovação)",
+   "evidencia": "kx3.com.br e Lojas: \"MP5 KX3 KRC3100 7 polegadas\" (modelo oficial KX3) | fonte: kx3.com.br; lojadosomeacessorios.com.br; Instagram @kx3_acessorios | Descrição: Fonte oficial: https://kx3.com.br/produto/multimidia-mp5-carplay-android-auto-7%e2%80%b3-krc3100/ | trecho: Entrada para câmera de ré e frontal | 2 usb traseiros com extensão e função carregador",
+   "desc": "Multimídia MP5 KX3 KRC3100 de 7 polegadas com Carplay e Android Auto, entrada para câmera de ré e frontal, 2 USB traseiros com função carregador e FM com 18 memórias. Possui conexão para controle de volante e microfone embutido.",
+   "descModo": "preencher",
+   "fonteNumeros": {
+    "url": "https://kx3.com.br/produto/multimidia-mp5-carplay-android-auto-7%e2%80%b3-krc3100/",
+    "skuTrecho": "Android Auto 7″ – KRC3100",
+    "trechos": [
+     "Multimídia MP5 Carplay & Android Auto 7″ – KRC3100",
+     "2 usb traseiros com extensão e função carregador",
+     "Fm com 18 memórias"
+    ]
+   }
   },
   "91431254": {
    "brand": "Permak",
@@ -1109,6 +1131,63 @@
    "descModo": "preencher",
    "motivo": "Descrição a partir de fonte oficial do fabricante (rascunho 05/10; exige aprovação)",
    "evidencia": "Fonte oficial: https://kx3.com.br/produto/bateria-lithium-kx3-kb2016/ | trecho: Pilha Bateria de Líthium CR 2016 | KB2016 – 2016 (3V)"
+  },
+  "89568348": {
+   "desc": "Multimídia MP5 KX3 KRC3200 de 9 polegadas (1280x800, capacitiva), compatível com Carplay e Android Auto sem fio conforme o fabricante. Entrada para câmera de ré e frontal, 2 USB traseiros com função carregador e FM com 18 memórias.",
+   "descModo": "preencher",
+   "motivo": "Descrição a partir de fonte oficial do fabricante (rascunho 05/10; exige aprovação)",
+   "evidencia": "Fonte oficial: https://kx3.com.br/produto/multimidia-mp5-carplay-android-auto-9-krc3200/ | trecho: Compatível com Carplay e Android Auto sem fio | Tela de 9” de vidro 1280x800p",
+   "fonteNumeros": {
+    "url": "https://kx3.com.br/produto/multimidia-mp5-carplay-android-auto-9-krc3200/",
+    "skuTrecho": "Android Auto 9″ – KRC3200",
+    "trechos": [
+     "Multimídia MP5 Carplay & Android Auto 9″ – KRC3200",
+     "Tela de 9” de vidro 1280x800p",
+     "2 USB traseiros com extensão e função carregador",
+     "FM com 18 memórias"
+    ]
+   }
+  },
+  "96629120": {
+   "desc": "Central multimídia Android KX3 KRC6000 com tela capacitiva de 10 polegadas (1280x800), 4 GB de RAM e 64 GB de memória interna. Versão Android 13.0 segundo o fabricante; possui entrada para câmera de ré, conexão para controle de volante e 2 USB traseiros com função carregador.",
+   "descModo": "preencher",
+   "motivo": "Descrição a partir de fonte oficial do fabricante (rascunho 05/10; exige aprovação)",
+   "evidencia": "Fonte oficial: https://kx3.com.br/produto/central-multimidia-10%e2%80%b3-android-krc6000/ | trecho: Android versão 13.0 | 4 GB de RAM | Tela de 10″ em vidro full hd 1280×800p",
+   "fonteNumeros": {
+    "url": "https://kx3.com.br/produto/central-multimidia-10%e2%80%b3-android-krc6000/",
+    "skuTrecho": "Multimídia 10″ Android – KRC6000",
+    "trechos": [
+     "Android versão 13.0",
+     "Tela de 10″ em vidro full hd 1280×800p",
+     "2 usb traseiros com extensão e função carregador"
+    ]
+   }
+  },
+  "54344940": {
+   "desc": "Fita isolante Permak em PVC, rolo de 10 metros com 2 cm de largura, na cor preta, não condutora de eletricidade, indicada para isolar fios, conexões e componentes elétricos.",
+   "descModo": "preencher",
+   "motivo": "Descrição a partir de fonte oficial do fabricante (rascunho 05/10; exige aprovação)",
+   "evidencia": "Fonte oficial: https://www.permak.com.br/produto/fita-isolante-10m-2/ | trecho: possui 10 metros de comprimento e 2 cm de largura | Disponível na cor preta",
+   "fonteNumeros": {
+    "url": "https://www.permak.com.br/produto/fita-isolante-10m-2/",
+    "skuTrecho": "SKU: 200/P",
+    "trechos": [
+     "possui 10 metros de comprimento e 2 cm de largura"
+    ]
+   }
+  },
+  "73863084": {
+   "desc": "Chicote para CD Pioneer 1350/1450 da Permak, com 16,5 cm, fio de cobre com capa de PVC e conector de nylon, na cor preta. Desenvolvido para uso em aparelhos de CD Pioneer 1350 e 1450.",
+   "descModo": "preencher",
+   "motivo": "Descrição a partir de fonte oficial do fabricante (rascunho 05/10; exige aprovação)",
+   "evidencia": "Fonte oficial: https://www.permak.com.br/produto/chicote-cd-pioneer-1350-1450/ | trecho: utilização em aparelhos de CD Pioneer 1350 e 1450",
+   "fonteNumeros": {
+    "url": "https://www.permak.com.br/produto/chicote-cd-pioneer-1350-1450/",
+    "skuTrecho": "SKU: 35/M",
+    "trechos": [
+     "comprimento de 16,5 cm"
+    ]
+   }
   }
  }
 }

@@ -122,7 +122,7 @@
    * Produto sem override ou produto novo: segue exatamente o ERP. ID órfão: aviso (não bloqueia). Arquivo inválido: bloqueia a geração.
    * Cada item alterado carrega `p.erp` (valores originais do ERP) e `p.editado` (lista de campos) — o dado ERP continua distinguível. */
   const EDITORIAL_CAMPOS = ['brand', 'category', 'title', 'desc'];
-  const EDITORIAL_META = ['descModo', 'motivo', 'evidencia', 'status'];
+  const EDITORIAL_META = ['descModo', 'motivo', 'evidencia', 'status', 'fonteNumeros'];
   const EDITORIAL_PROIBIDOS = ['price', 'preco', 'stock', 'estoque', 'ref', 'sku', 'codigo', 'id', 'img', 'image', 'imagem', 'gtin', 'mpn', 'valores'];
   function descricaoEditorialProblema(d) {
     const t = String(d || '');
