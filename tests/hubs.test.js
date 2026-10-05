@@ -117,3 +117,11 @@ test('página de produto leva ao hub da montadora: só moldura que pertence a um
   });
   assert.ok(dentro.size >= 50);
 });
+test('marcas (dados reais): nenhum rótulo difere só pela caixa, nenhuma URL de marca com sufixo de colisão, e nenhuma URL de marca já publicada some (só redireciona)', () => {
+  const rot = R.tax.marcas.map(m => m.rotulo);
+  assert.equal(new Set(rot.map(x => x.toLowerCase())).size, rot.length, 'rótulos duplicados por caixa: ' + rot.filter((x, i) => rot.findIndex(y => y.toLowerCase() === x.toLowerCase()) !== i));
+  R.tax.marcas.forEach(m => assert.doesNotMatch(m.url, /-[0-9a-f]{4}\/$/, 'colisão de slug ' + m.url));
+  const est = JSON.parse(ler('data/seo-estado.json')).taxonomias || {};
+  const vivas = new Set(R.tax.marcas.map(m => m.url)), reds = Object.keys(ED.redirecionamentos || {});
+  Object.keys(est).filter(u => est[u].tipo === 'marca').forEach(u => assert.ok(vivas.has(u) || reds.includes(u), 'URL de marca publicada sumiu: ' + u));
+});
