@@ -164,8 +164,8 @@ img{max-width:100%}
 /* ── PEDIDO (drawer) e VENDEDOR — comportamento da Fase 2 preservado ── */
 .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;opacity:0;pointer-events:none;transition:opacity .25s}
 .cart-overlay.open{opacity:1;pointer-events:all}
-.cart-sidebar{position:fixed;right:0;top:0;bottom:0;width:420px;max-width:100vw;background:#fff;z-index:301;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;box-shadow:-4px 0 40px rgba(0,0,0,.18)}
-.cart-sidebar.open{transform:translateX(0)}
+.cart-sidebar{position:fixed;right:0;top:0;bottom:0;width:420px;max-width:100vw;background:#fff;z-index:301;transform:translateX(100%);visibility:hidden;transition:transform .25s,visibility 0s linear .25s;display:flex;flex-direction:column;box-shadow:-4px 0 40px rgba(0,0,0,.18)}
+.cart-sidebar.open{transform:translateX(0);visibility:visible;transition:transform .25s}
 .cart-head{background:var(--black);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 .cart-head-title{font-family:var(--f-cond);font-size:1.25rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:1px}
 .cart-head-close{background:none;border:none;color:rgba(255,255,255,.7);font-size:1.4rem;cursor:pointer;min-width:44px;min-height:44px}
