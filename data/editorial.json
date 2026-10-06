@@ -1361,6 +1361,100 @@
    "category": "Chicotes",
    "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Geral\" é categoria genérica/deslocada e \"Chicotes\" já existe com itens do mesmo tipo (06/10).",
    "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "73863085": {
+   "brand": "Permak",
+   "desc": "Chicote para aparelho de CD Pioneer 2250, 2280 ou 4250, com 16,3 cm de comprimento. Fio de cobre, capa de PVC e conector de nylon, na cor preta.",
+   "descModo": "preencher",
+   "motivo": "Descrição própria a partir de fonte oficial do fabricante, só especificação do SKU exato (turno 14, 06/10; exige aprovação)",
+   "evidencia": "Descrição: fonte oficial https://www.permak.com.br/produto/chicote-cd-pioneer-2250-2280-4250/ | especificação: Comprimento do Fio: 16,3 cm ; Material do Fio: Cobre ; Material do Cabo: PVC ; Material do Conector: Nylon ; Cor: Preto",
+   "fonteNumeros": {
+    "url": "https://www.permak.com.br/produto/chicote-cd-pioneer-2250-2280-4250/",
+    "skuTrecho": "SKU: 35/P1",
+    "trechos": [
+     "Comprimento do Fio: 16,3 cm",
+     "Material do Fio: Cobre",
+     "Material do Cabo: PVC",
+     "Material do Conector: Nylon",
+     "Cor: Preto"
+    ]
+   }
+  },
+  "84036119": {
+   "brand": "Bomber",
+   "desc": "Alto-falante Bomber BBR de 6 polegadas, com 50 W RMS por alto-falante e 4 ohms. Cone de IMPP, suspensão de borracha e carcaça de polipropileno. Resposta em frequência de 53 Hz a 20 kHz (-10 dB) e sensibilidade de 89 dB SPL. A potência informada é por alto-falante; o fabricante indica o dobro desse valor para o par.",
+   "descModo": "preencher",
+   "motivo": "Descrição própria a partir de fonte oficial do fabricante, só especificação do SKU exato (turno 14, 06/10; exige aprovação) | Bomber: unidade de venda = PAR (confirmado por Murilo 06/10); potência descrita por alto-falante, sem cifra de par",
+   "evidencia": "Descrição: fonte oficial https://www.bomber.com.br/produto/6-bbr-100-w-rms-4-ohms/ | especificação: Potência (RMS) 50 W RMS (unit) ; Resposta em frequência (–10 dB) * ①,② 53 Hz - 20 kHz ; Sensibilidade (Banda efetiva) * ①,② 89 dB SPL ; Material do cone IMPP ; Material suspenção Borracha ; Material da carcaça Polipropileno",
+   "fonteNumeros": {
+    "url": "https://www.bomber.com.br/produto/6-bbr-100-w-rms-4-ohms/",
+    "skuTrecho": "Código 1.16.288",
+    "trechos": [
+     "Potência (RMS) 50 W RMS (unit)",
+     "Resposta em frequência (–10 dB) * ①,② 53 Hz - 20 kHz",
+     "Sensibilidade (Banda efetiva) * ①,② 89 dB SPL",
+     "Material do cone IMPP",
+     "Material suspenção Borracha",
+     "Material da carcaça Polipropileno"
+    ]
+   }
+  },
+  "84506278": {
+   "brand": "Bomber",
+   "desc": "Alto-falante Bomber BBR TOP de 4 polegadas, com 60 W RMS por alto-falante e 4 ohms. Cone de polipropileno, suspensão de borracha e carcaça de polipropileno. Resposta em frequência de 126 Hz a 20 kHz (-10 dB) e sensibilidade de 86 dB SPL. A potência informada é por alto-falante; o fabricante indica o dobro desse valor para o par.",
+   "descModo": "preencher",
+   "motivo": "Descrição própria a partir de fonte oficial do fabricante, só especificação do SKU exato (turno 14, 06/10; exige aprovação) | Bomber: unidade de venda = PAR (confirmado por Murilo 06/10); potência descrita por alto-falante, sem cifra de par",
+   "evidencia": "Descrição: fonte oficial https://www.bomber.com.br/produto/4-bbr-top-120-w-rms-4-ohms/ | especificação: Potência (RMS) 60 W RMS (unit) ; Resposta em frequência (–10 dB) * ①,② 126 Hz - 20 kHz ; Sensibilidade (Banda efetiva) * ①,② 86 dB SPL ; Material do cone Polipropileno ; Material suspenção Borracha ; Material da carcaça Polipropileno",
+   "fonteNumeros": {
+    "url": "https://www.bomber.com.br/produto/4-bbr-top-120-w-rms-4-ohms/",
+    "skuTrecho": "Código 1.16.286",
+    "trechos": [
+     "Potência (RMS) 60 W RMS (unit)",
+     "Resposta em frequência (–10 dB) * ①,② 126 Hz - 20 kHz",
+     "Sensibilidade (Banda efetiva) * ①,② 86 dB SPL",
+     "Material do cone Polipropileno",
+     "Material suspenção Borracha",
+     "Material da carcaça Polipropileno"
+    ]
+   }
+  },
+  "91991718": {
+   "brand": "Bomber",
+   "desc": "Alto-falante Bomber BBR de 5 polegadas, com 55 W RMS por alto-falante e 4 ohms. Cone de IMPP, suspensão de borracha e carcaça de polipropileno. Resposta em frequência de 71 Hz a 20 kHz (-10 dB) e sensibilidade de 84 dB SPL. A potência informada é por alto-falante; o fabricante indica o dobro desse valor para o par.",
+   "descModo": "preencher",
+   "motivo": "Descrição própria a partir de fonte oficial do fabricante, só especificação do SKU exato (turno 14, 06/10; exige aprovação) | Bomber: unidade de venda = PAR (confirmado por Murilo 06/10); potência descrita por alto-falante, sem cifra de par",
+   "evidencia": "Descrição: fonte oficial https://www.bomber.com.br/produto/bbr-5-110-w-rms-4-ohms/ | especificação: Potência (RMS) 55 W (unit) ; Resposta em frequência (–10 dB) * ①,② 71 Hz ~ 20 kHz ; Sensibilidade (Banda efetiva) * ①,② 84 dB SPL ; Material do cone IMPP ; Material suspenção Borracha ; Material da carcaça Polipropileno",
+   "fonteNumeros": {
+    "url": "https://www.bomber.com.br/produto/bbr-5-110-w-rms-4-ohms/",
+    "skuTrecho": "Código 1.16.335",
+    "trechos": [
+     "Potência (RMS) 55 W (unit)",
+     "Resposta em frequência (–10 dB) * ①,② 71 Hz ~ 20 kHz",
+     "Sensibilidade (Banda efetiva) * ①,② 84 dB SPL",
+     "Material do cone IMPP",
+     "Material suspenção Borracha",
+     "Material da carcaça Polipropileno"
+    ]
+   }
+  },
+  "91991719": {
+   "brand": "Bomber",
+   "desc": "Alto-falante Bomber BBR de 6 polegadas, com 55 W RMS por alto-falante e 4 ohms. Cone de IMPP, suspensão de borracha e carcaça de polipropileno. Resposta em frequência de 63 Hz a 20 kHz (-10 dB) e sensibilidade de 87 dB SPL. A potência informada é por alto-falante; o fabricante indica o dobro desse valor para o par.",
+   "descModo": "preencher",
+   "motivo": "Descrição própria a partir de fonte oficial do fabricante, só especificação do SKU exato (turno 14, 06/10; exige aprovação) | Bomber: unidade de venda = PAR (confirmado por Murilo 06/10); potência descrita por alto-falante, sem cifra de par",
+   "evidencia": "Descrição: fonte oficial https://www.bomber.com.br/produto/6-bbr-110-w-rms-4-ohms/ | especificação: Potência (RMS) 55 W (unit.) ; Resposta em frequência (–10 dB) * ①,② 63 Hz ~ 20 kHz ; Sensibilidade (Banda efetiva) * ①,② 87 dB SPL ; Material do cone IMPP ; Material suspenção Borracha ; Material da carcaça Polipropileno",
+   "fonteNumeros": {
+    "url": "https://www.bomber.com.br/produto/6-bbr-110-w-rms-4-ohms/",
+    "skuTrecho": "Código 1.16.336",
+    "trechos": [
+     "Potência (RMS) 55 W (unit.)",
+     "Resposta em frequência (–10 dB) * ①,② 63 Hz ~ 20 kHz",
+     "Sensibilidade (Banda efetiva) * ①,② 87 dB SPL",
+     "Material do cone IMPP",
+     "Material suspenção Borracha",
+     "Material da carcaça Polipropileno"
+    ]
+   }
   }
  }
 }
