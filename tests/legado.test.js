@@ -72,3 +72,45 @@ test('carência: voltar ao feed zera a contagem; nova ausência recomeça do zer
   assert.doesNotMatch(d13.arquivos[rel()] || d13.todos[rel()], NOINDEX, 'a ausência antiga não conta');
   assert.match(d14.arquivos[rel()] || d14.todos[rel()], NOINDEX);
 });
+
+const urlDe = p => ORIGEM + C.prepararCatalogo([p])[0].url;
+const relDe = p => 'produto/' + C.prepararCatalogo([p])[0].url.replace('/produto/', '') + 'index.html';
+const alteradas = (r, prev) => G.urlsAlteradas(r.arquivos, f => (prev && prev.todos[f]) || null);
+
+test('retorno sob novo nome: a página antiga vira stub (noindex + canonical p/ a nova), sai de ausentes e só a URL nova fica no sitemap', () => {
+  const base = [1, 2, 4, 5, 6, 7].map(i => mk(i)), velho = mk(3), novo = mk(3, { name: 'Produto Renomeado 3' });
+  let r = passo(base.concat(velho), null, 1); r = passo(base, r, 2);                // ausente desde o dia 2 (página "indisponível")
+  assert.match(r.todos[relDe(velho)], /data-estado="indisponivel"/);
+  r = passo(base.concat(novo), r, 4);                                              // volta com outro nome
+  assert.notEqual(relDe(velho), relDe(novo));
+  const stub = r.todos[relDe(velho)];
+  assert.match(stub, /http-equiv="refresh"/); assert.match(stub, /name="robots" content="noindex/);
+  assert.ok(stub.includes('rel="canonical" href="' + urlDe(novo) + '"'), 'canonical do stub = URL nova');
+  assert.ok(!r.estado.ausentes.r3, 'código fora de ausentes');
+  const sm = locs(r.arquivos['sitemap.xml']);
+  assert.ok(sm.includes(urlDe(novo))); assert.ok(!sm.includes(urlDe(velho)));
+  assert.doesNotMatch(r.todos[relDe(novo)], /name="robots"|indisponivel/);
+});
+test('renomeado ENQUANTO ausente: nenhum stub é criado para produto que não está no feed (a página antiga segue como aviso)', () => {
+  const base = [1, 2, 4, 5, 6, 7].map(i => mk(i)), velho = mk(3);
+  let r = passo(base.concat(velho), null, 1); r = passo(base, r, 2);
+  const antes = r.todos[relDe(velho)];
+  r = passo(base, r, 3);
+  assert.match(r.todos[relDe(velho)], /data-estado="indisponivel"/); assert.doesNotMatch(r.todos[relDe(velho)], /http-equiv="refresh"/);
+  assert.equal(r.todos[relDe(velho)], antes);
+});
+test('IndexNow nas viradas de estado: entra na saída do feed, na virada p/ noindex (7 dias) e no retorno; NÃO entra na repetição idempotente nem em sitemap/estado', () => {
+  const todos = [1, 2, 3, 4, 5, 6, 7].map(i => mk(i)), sem3 = todos.filter(p => p.id !== '3'), u3 = urlDe(mk(3));
+  let r = passo(todos, null, 1);
+  let prev = r; r = passo(sem3, prev, 2);
+  assert.ok(alteradas(r, prev).includes(u3), 'saída do feed (aviso) é avisada');
+  prev = r; r = passo(sem3, prev, 5);
+  assert.ok(!alteradas(r, prev).includes(u3), 'dentro da carência, sem mudança: não reenvia');
+  prev = r; r = passo(sem3, prev, 9);
+  assert.ok(alteradas(r, prev).includes(u3), 'virada para noindex é avisada (Bing/Yandex reprocessam)');
+  prev = r; r = passo(sem3, prev, 10);
+  assert.deepEqual(alteradas(r, prev).filter(u => u === u3), [], 'repetição idempotente: nada');
+  prev = r; r = passo(todos, prev, 12);
+  assert.ok(alteradas(r, prev).includes(u3), 'retorno ao feed é avisado');
+  assert.ok(!alteradas(r, prev).some(u => /sitemap|seo-estado|robots|manifest/.test(u)));
+});
