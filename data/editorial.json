@@ -87,23 +87,27 @@
   },
   "46458278": {
    "brand": "Tarponn",
-   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
-   "evidencia": "Site oficial/ML: \"TP-6127 Kit Lâmpada LED SKY 6K H7 40W 4100LM Tarponn\" | fonte: tarponn.com.br; mercadolivre MLBU3520928975"
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv). | Categoria: tipo de produto evidente no nome do ERP; \"Geral\" é categoria genérica/deslocada e \"Lâmpada de led\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Site oficial/ML: \"TP-6127 Kit Lâmpada LED SKY 6K H7 40W 4100LM Tarponn\" | fonte: tarponn.com.br; mercadolivre MLBU3520928975 | Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova.",
+   "category": "Lâmpada de led"
   },
   "46458284": {
    "brand": "Tarponn",
-   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
-   "evidencia": "Site oficial Tarponn: TP-6130 \"Kit Lâmpada LED SKY 6K HB4 PREMIUM\" | fonte: tarponn.com.br/produto"
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv). | Categoria: tipo de produto evidente no nome do ERP; \"Geral\" é categoria genérica/deslocada e \"Lâmpada de led\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Site oficial Tarponn: TP-6130 \"Kit Lâmpada LED SKY 6K HB4 PREMIUM\" | fonte: tarponn.com.br/produto | Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova.",
+   "category": "Lâmpada de led"
   },
   "47303014": {
    "brand": "Tarponn",
-   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
-   "evidencia": "Site oficial Tarponn: TP-6162 \"Kit Lâmpada LED SKY 4K H4 PREMIUM\" | fonte: tarponn.com.br/produto; ML MLBU2754582421"
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv). | Categoria: tipo de produto evidente no nome do ERP; \"Geral\" é categoria genérica/deslocada e \"Lâmpada de led\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Site oficial Tarponn: TP-6162 \"Kit Lâmpada LED SKY 4K H4 PREMIUM\" | fonte: tarponn.com.br/produto; ML MLBU2754582421 | Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova.",
+   "category": "Lâmpada de led"
   },
   "47303016": {
    "brand": "Tarponn",
-   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
-   "evidencia": "Catálogo 2026 Tarponn: TP-6165 = Sky 4K HB3 | fonte: tarponn.com.br/Arquivos/Catalogo (PDF)"
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv). | Categoria: tipo de produto evidente no nome do ERP; \"Geral\" é categoria genérica/deslocada e \"Lâmpada de led\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Catálogo 2026 Tarponn: TP-6165 = Sky 4K HB3 | fonte: tarponn.com.br/Arquivos/Catalogo (PDF) | Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova.",
+   "category": "Lâmpada de led"
   },
   "47504569": {
    "desc": "Lâmpada H7 clear, 12V, 55W. Marca ASX. Código 2312-2.",
@@ -212,8 +216,9 @@
   },
   "54313350": {
    "brand": "Tarponn",
-   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
-   "evidencia": "Site oficial Tarponn: TP-2018 Porta-Fusível Plástico ABS; Mercado Livre \"Marca: Tarponn, Modelo: Porta-fusível 2018\" | fonte: tarponn.com.br/buscaProduto (TP-2015…); mercadolivre MLBU3300218118"
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv). | Categoria: tipo de produto evidente no nome do ERP; \"Soquetes\" é categoria genérica/deslocada e \"Fusíveis\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Site oficial Tarponn: TP-2018 Porta-Fusível Plástico ABS; Mercado Livre \"Marca: Tarponn, Modelo: Porta-fusível 2018\" | fonte: tarponn.com.br/buscaProduto (TP-2015…); mercadolivre MLBU3300218118 | Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova.",
+   "category": "Fusíveis"
   },
   "54313353": {
    "desc": "Soquete BA15D 2 polos plástico. Marca Tarponn. Código TP-2048.",
@@ -346,8 +351,9 @@
   },
   "59323431": {
    "brand": "RPX",
-   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
-   "evidencia": "Anúncios: \"Controle Alarme Positron Px32 Flex RPX\" e \"Controle Positron Px32 4 Botões … RPX\": a RPX vende controle COMPATÍVEL com alarmes Positron | fonte: Mercado Livre (consulta 03/10/2026)"
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv). | Categoria: tipo de produto evidente no nome do ERP; \"Interruptores\" é categoria genérica/deslocada e \"Chave\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Anúncios: \"Controle Alarme Positron Px32 Flex RPX\" e \"Controle Positron Px32 4 Botões … RPX\": a RPX vende controle COMPATÍVEL com alarmes Positron | fonte: Mercado Livre (consulta 03/10/2026) | Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova.",
+   "category": "Chave"
   },
   "59326323": {
    "brand": "RPX",
@@ -356,8 +362,9 @@
   },
   "59422550": {
    "brand": "FKS",
-   "motivo": "Marca provada por fonte externa/oficial.",
-   "evidencia": "fks.com.br: manual \"FK903 ALF\""
+   "motivo": "Marca provada por fonte externa/oficial. | Categoria: tipo de produto evidente no nome do ERP; \"Geral\" é categoria genérica/deslocada e \"Alarme\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "fks.com.br: manual \"FK903 ALF\" | Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova.",
+   "category": "Alarme"
   },
   "59919400": {
    "title": "FAROL DE MILHA AVULSO HILUX PICK-UP 12 15 PICK-UP - LADO DIREITO",
@@ -488,8 +495,9 @@
   "63614238": {
    "desc": "Farol de milha LED universal, 12/24V, 16 LEDs, 6000K, quadrado. Marca Tiger Auto. Código 0802033.",
    "descModo": "preencher",
-   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10).",
-   "evidencia": "Fatos: literal do nome do cadastro: FDM LED UNIVERSAL 12/24V 16 LEDS 6000K QUADRADO. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos."
+   "motivo": "Descrição factual gerada só de nome/marca/código do cadastro (turno 04/10). | Categoria: tipo de produto evidente no nome do ERP; \"Led’s interno/externo\" é categoria genérica/deslocada e \"Farol de milha\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Fatos: literal do nome do cadastro: FDM LED UNIVERSAL 12/24V 16 LEDS 6000K QUADRADO. Fonte: cadastro ERP (nome, marca, código). Sem fatos externos. | Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova.",
+   "category": "Farol de milha"
   },
   "64152101": {
    "desc": "Soquete plástico para lâmpada 9005/HB3. Marca Tarponn. Código TP-2025.",
@@ -617,10 +625,11 @@
   },
   "65342487": {
    "brand": "Knup",
-   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv). | Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
-   "evidencia": "Dezenas de anúncios \"Bateria CR2016 3V KP-BT2016 Knup\" (cartela com 5) | fonte: Mercado Livre, Contato Celular, Zip Cartuchos (03/10/2026) | Fatos do cadastro ERP (nome/marca/código): BATERIA CR2016; CARTELA 5 UN",
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv). | Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10). | Categoria: tipo de produto evidente no nome do ERP; \"Diversos\" é categoria genérica/deslocada e \"Bateria\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Dezenas de anúncios \"Bateria CR2016 3V KP-BT2016 Knup\" (cartela com 5) | fonte: Mercado Livre, Contato Celular, Zip Cartuchos (03/10/2026) | Fatos do cadastro ERP (nome/marca/código): BATERIA CR2016; CARTELA 5 UN | Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova.",
    "desc": "Bateria CR2016, cartela com 5 unidades. Marca Knup. Código KP-BT2016.",
-   "descModo": "preencher"
+   "descModo": "preencher",
+   "category": "Bateria"
   },
   "66036583": {
    "desc": "Moldura 9 para Citroen C3 2023, acabamento Black Piano. Marca Fiamon. Código 5953MD.",
@@ -642,8 +651,9 @@
   },
   "67646378": {
    "brand": "Tarponn",
-   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
-   "evidencia": "Sulcape/Click Auto Parts: \"Marca: TARPONN, TP6168 Kit LED Sky H27 4K\"; catálogo 2026 lista TP-6168 | fonte: sulcape.com.br; clickautoparts.com.br; tarponn.com.br catálogo"
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv). | Categoria: tipo de produto evidente no nome do ERP; \"Geral\" é categoria genérica/deslocada e \"Lâmpada de led\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Sulcape/Click Auto Parts: \"Marca: TARPONN, TP6168 Kit LED Sky H27 4K\"; catálogo 2026 lista TP-6168 | fonte: sulcape.com.br; clickautoparts.com.br; tarponn.com.br catálogo | Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova.",
+   "category": "Lâmpada de led"
   },
   "69989779": {
    "desc": "Moldura 2 DIN chinês e japonês para VW Fox, Spacefox, Spacecross, Crossfox G3, cor preta. Marca Fiamon. Código 2699MD.",
@@ -712,8 +722,9 @@
   },
   "72456040": {
    "brand": "Tarponn",
-   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv).",
-   "evidencia": "Site oficial Tarponn: TP-6131 \"Kit Lâmpada PREMIUM FORCE 4000 H4\" | fonte: tarponn.com.br/categoria; catálogo 2026"
+   "motivo": "Marca provada por fonte externa/oficial (ver marcas-medias-18-v2.csv). | Categoria: tipo de produto evidente no nome do ERP; \"Geral\" é categoria genérica/deslocada e \"Lâmpada de led\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Site oficial Tarponn: TP-6131 \"Kit Lâmpada PREMIUM FORCE 4000 H4\" | fonte: tarponn.com.br/categoria; catálogo 2026 | Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova.",
+   "category": "Lâmpada de led"
   },
   "74226043": {
    "desc": "Soquete plástico para lâmpada H4. Marca Tarponn. Código TP-2033.",
@@ -849,8 +860,8 @@
   },
   "87730957": {
    "brand": "Bomber",
-   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante. | Descrição: Descrição a partir de fonte oficial do fabricante (rascunho 05/10; exige aprovação)",
-   "evidencia": "SKU 1.04.154 literal em https://www.bomber.com.br/produto/subwoofer-8-upgrade-400-wrms-4-ohms/ — \" solid #ddd; text-align: left; } Especificação Valor Código 1.04.154 Modelo SW8UP400-4 Código de barras 7897183031517 Tamanho 8' Potência (R\" | Descrição: Fonte oficial: https://www.bomber.com.br/produto/subwoofer-8-upgrade-400-wrms-4-ohms/ | trecho: Potência (RMS) 400 W RMS | Diâmetro da bobina 46,3 mm | Material do cone Celulose",
+   "motivo": "Marca provada (TIER A, 05/10): código exato na página oficial do fabricante. | Descrição: Descrição a partir de fonte oficial do fabricante (rascunho 05/10; exige aprovação) | Categoria: tipo de produto evidente no nome do ERP; \"Geral\" é categoria genérica/deslocada e \"Alto-Falantes\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "SKU 1.04.154 literal em https://www.bomber.com.br/produto/subwoofer-8-upgrade-400-wrms-4-ohms/ — \" solid #ddd; text-align: left; } Especificação Valor Código 1.04.154 Modelo SW8UP400-4 Código de barras 7897183031517 Tamanho 8' Potência (R\" | Descrição: Fonte oficial: https://www.bomber.com.br/produto/subwoofer-8-upgrade-400-wrms-4-ohms/ | trecho: Potência (RMS) 400 W RMS | Diâmetro da bobina 46,3 mm | Material do cone Celulose | Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova.",
    "desc": "Subwoofer Bomber Upgrade de 8 polegadas, 400 W RMS e 4 ohms, com bobina de 46,3 mm, cone de celulose, suspensão de espuma e carcaça de aço. Resposta em frequência de 34 Hz a 1,5 kHz (-10 dB) e sensibilidade de 84 dB.",
    "descModo": "preencher",
    "fonteNumeros": {
@@ -861,7 +872,8 @@
      "Resposta em frequência (–10 dB) * ①,② 34 Hz - 1,5 kHz",
      "Sensibilidade (Banda efetiva) * ①,② 84 dB"
     ]
-   }
+   },
+   "category": "Alto-Falantes"
   },
   "87730958": {
    "brand": "Bomber",
@@ -1117,8 +1129,9 @@
   "74785415": {
    "desc": "Pilha de lítio KX3 KB2032 (CR2032, 3 V), indicada pelo fabricante para alarmes automotivos, calculadoras e relógios.",
    "descModo": "preencher",
-   "motivo": "Descrição a partir de fonte oficial do fabricante (rascunho 05/10; exige aprovação)",
-   "evidencia": "Fonte oficial: https://kx3.com.br/produto/bateria-lithium-kx3-kb2032/ | trecho: Pilha Bateria de Líthium CR 2032 | HB2032 – 2032 (3V)"
+   "motivo": "Descrição a partir de fonte oficial do fabricante (rascunho 05/10; exige aprovação) | Categoria: tipo de produto evidente no nome do ERP; \"Diversos\" é categoria genérica/deslocada e \"Bateria\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Fonte oficial: https://kx3.com.br/produto/bateria-lithium-kx3-kb2032/ | trecho: Pilha Bateria de Líthium CR 2032 | HB2032 – 2032 (3V) | Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova.",
+   "category": "Bateria"
   },
   "76142771": {
    "desc": "Pilha de lítio KX3 KB2016 (CR2016, 3 V), indicada pelo fabricante para alarmes automotivos, calculadoras e relógios.",
@@ -1273,6 +1286,81 @@
    "brand": "RPX",
    "motivo": "Marca provada por catálogo PDF oficial da RPX (TIER_A, revalidado 06/10 com coordenadas da página 12; identidade: CNPJ do domínio = CNPJ da empresa = endereço do site).",
    "evidencia": "Catálogo oficial https://www.rpxacessorios.com.br/catalogo.pdf, p.12 (LINHA DE ALARMES): \"RPX033 ... Chave Canivete Compatível Fiat Universal\" (códigos em grade acima dos nomes; 1º código = 1º nome)"
+  },
+  "58023475": {
+   "category": "Interruptores",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Diversos\" é categoria genérica/deslocada e \"Interruptores\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "90463232": {
+   "category": "Travas",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Diversos\" é categoria genérica/deslocada e \"Travas\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "90463231": {
+   "category": "Travas",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Diversos\" é categoria genérica/deslocada e \"Travas\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "90463230": {
+   "category": "Travas",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Diversos\" é categoria genérica/deslocada e \"Travas\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "58023572": {
+   "category": "Interruptores",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Diversos\" é categoria genérica/deslocada e \"Interruptores\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "50639276": {
+   "category": "Travas",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Diversos\" é categoria genérica/deslocada e \"Travas\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "50639274": {
+   "category": "Travas",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Diversos\" é categoria genérica/deslocada e \"Travas\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "63374957": {
+   "category": "Lâmpada de led",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Geral\" é categoria genérica/deslocada e \"Lâmpada de led\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "94245228": {
+   "category": "Modulos",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Geral\" é categoria genérica/deslocada e \"Modulos\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "96629116": {
+   "category": "Câmera",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Geral\" é categoria genérica/deslocada e \"Câmera\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "78919276": {
+   "category": "Farol de milha",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Lâmpada de led\" é categoria genérica/deslocada e \"Farol de milha\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "57748545": {
+   "category": "Farol de milha",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Led’s interno/externo\" é categoria genérica/deslocada e \"Farol de milha\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "63614236": {
+   "category": "Farol de milha",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Led’s interno/externo\" é categoria genérica/deslocada e \"Farol de milha\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "64152100": {
+   "category": "Fusíveis",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Soquetes\" é categoria genérica/deslocada e \"Fusíveis\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
+  },
+  "58144061": {
+   "category": "Chicotes",
+   "motivo": "Categoria: tipo de produto evidente no nome do ERP; \"Geral\" é categoria genérica/deslocada e \"Chicotes\" já existe com itens do mesmo tipo (06/10).",
+   "evidencia": "Nome ERP (tipo de produto literal); categoria já existente no catálogo; sem criar categoria nova."
   }
  }
 }
