@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 603,
+ "ativos": 602,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -98,9 +98,9 @@
    "d": "2026-10-03"
   },
   "/categoria/moldura/": {
-   "h": "19eba5276912",
-   "c": "3b929967e871",
-   "d": "2026-10-05"
+   "h": "550ae08caccb",
+   "c": "58d01977ffc1",
+   "d": "2026-10-06"
   },
   "/categoria/moldura/chevrolet/": {
    "h": "b5eb5df215e6",
@@ -108,9 +108,9 @@
    "d": "2026-10-05"
   },
   "/categoria/moldura/fiat/": {
-   "h": "13f2e4cc43a6",
-   "c": "8f8b59bedc12",
-   "d": "2026-10-03"
+   "h": "989a0e6a13c1",
+   "c": "040eb8108b79",
+   "d": "2026-10-06"
   },
   "/categoria/moldura/honda/": {
    "h": "8dfc6eb6cba4",
@@ -278,9 +278,9 @@
    "d": "2026-10-03"
   },
   "/marca/permak/": {
-   "h": "d63824bfaccc",
-   "c": "0f61fc775621",
-   "d": "2026-10-05"
+   "h": "02c4b927f06b",
+   "c": "a7985451bb41",
+   "d": "2026-10-06"
   },
   "/marca/rayx/": {
    "h": "4352b52f8e6c",
@@ -313,8 +313,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "b4139ce952aa",
-   "c": "7f1c23c1b69d",
+   "h": "030fd6f6bcfd",
+   "c": "4fd88cdd6f7f",
    "d": "2026-10-06"
   },
   "/privacidade/": {
@@ -2118,18 +2118,13 @@
    "d": "2026-10-03"
   },
   "/produto/mold-7-palio-attractive-12-17-blk-piano--89-j3b/": {
-   "h": "6ab68a1d9f40",
+   "h": "21f3a4ad0c27",
    "c": "2b28c76ee344",
    "d": "2026-10-05"
   },
   "/produto/mold-adaptadora-1din-p-9-universal--89-g18/": {
-   "h": "6a086ef6e5cc",
+   "h": "6260a93033f5",
    "c": "8a904e72651b",
-   "d": "2026-10-05"
-  },
-  "/produto/mold-fiat-palio-siena-strada-2-ger-czb--89-j28c/": {
-   "h": "bf21067b6bc9",
-   "c": "e45dccf7e93a",
    "d": "2026-10-05"
   },
   "/produto/mold-gm-onix-cobalt-2din-s-pintura--89-m4a/": {
@@ -2143,12 +2138,12 @@
    "d": "2026-10-05"
   },
   "/produto/mold-gol-parati-saveiro-g4-2-din-preta--89-a6/": {
-   "h": "79ace2535130",
+   "h": "24011b5d999a",
    "c": "4f28f407d793",
    "d": "2026-10-03"
   },
   "/produto/mold-gol-voyage-saveiro-g6-2-din-preta--89-a8/": {
-   "h": "ce54a676156a",
+   "h": "fe040522522c",
    "c": "3cf041a89d1d",
    "d": "2026-10-06"
   },
@@ -3346,6 +3341,7 @@
  "ausentes": {
   "1501004": "2026-10-05",
   "1502033": "2026-10-05",
+  "89-j28c": "2026-10-06",
   "ip09-0160-v1": "2026-10-05"
  },
  "taxonomias": {
