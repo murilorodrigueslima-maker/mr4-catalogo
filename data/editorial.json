@@ -1023,12 +1023,6 @@
    "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
    "evidencia": "Fatos do cadastro ERP (nome/marca/código): BOTAO INTERRUPTOR DE VIDRO ELETRICO FIAT UNO LED-VERDE SIMPLES (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
   },
-  "55573213": {
-   "desc": "Botão de farol de milha, Gol/Saveiro/Voyage G7. Código BFM-VOL-3302.",
-   "descModo": "preencher",
-   "motivo": "Descrição factual só com nome/marca/código do ERP (auditada individualmente, 05/10).",
-   "evidencia": "Fatos do cadastro ERP (nome/marca/código): BOTÃO FAROL DE MILHA GOL/ SAVEIRO/ VOYAGE G7 (abreviações DIANT./TRAS./DIR./ESQ./S/ /C/ expandidas; veículo literal do nome)"
-  },
   "48515825": {
    "desc": "Par de lâmpadas automotivas D1R, 5500K. Marca Rayx. Código D1R 55K.",
    "descModo": "preencher",
