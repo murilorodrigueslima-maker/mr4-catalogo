@@ -1188,6 +1188,92 @@
      "comprimento de 16,5 cm"
     ]
    }
+  },
+  "70077831": {
+   "desc": "Antena eletrônica Permak Pertronic 1000, ativa e amplificada, para sinais AM e FM. Mede 24 cm de extensão, tem cabo de 2,7 m e opera em 12 V DC com ganho de 10 dB. Foi pensada para instalação interna, de preferência na parte superior do para-brisa, e tem aplicação universal, na cor preta.",
+   "descModo": "preencher",
+   "motivo": "Descrição a partir de fonte oficial do fabricante (lote 2, preparado 06/10; exige aprovação)",
+   "evidencia": "Fonte oficial: https://www.permak.com.br/produto/antena-eletronica-pertronic-1000/ | trecho: Extensão: 24cm | Comprimento: 2,7m | DCC: 12V | Ganho: 10db (consumo omitido: página diverge mA x mAh)",
+   "fonteNumeros": {
+    "url": "https://www.permak.com.br/produto/antena-eletronica-pertronic-1000/",
+    "skuTrecho": "SKU: 100/H",
+    "trechos": [
+     "Comprimento: 2,7m;",
+     "Extensão: 24cm;",
+     "DCC: 12V;",
+     "Ganho: 10db;"
+    ]
+   }
+  },
+  "73863086": {
+   "desc": "Chicote Permak para facilitar a instalação de mídia player: interliga o chicote original do veículo ao do aparelho. Mede 19,5 cm, com fio de cobre, capa de PVC e conector de nylon, na cor branca. Indicado para Toyota Corolla 2009 a 2011 e Hilux 2012.",
+   "descModo": "preencher",
+   "motivo": "Descrição a partir de fonte oficial do fabricante (lote 2, preparado 06/10; exige aprovação)",
+   "evidencia": "Fonte oficial: https://www.permak.com.br/produto/chicote-cd-original-toyota/ | trecho: Comprimento do Fio: 19,5 cm | Toyota Corolla 2009 – 2011 e Hilux 2012 (copy da página diz \"Canbus\": não usado)",
+   "fonteNumeros": {
+    "url": "https://www.permak.com.br/produto/chicote-cd-original-toyota/",
+    "skuTrecho": "SKU: 35/Y",
+    "trechos": [
+     "Comprimento do Fio: 19,5 cm",
+     "utilização nos Toyota Corolla 2009 – 2011 e Hilux 2012"
+    ]
+   }
+  },
+  "78993810": {
+   "desc": "Câmera de ré KX3 modelo 2x1 com linhas dinâmicas, que acompanham o movimento do veículo durante a manobra, e imagem em cores. Tem ângulo de visão de 170°, resolução de 400 TVL e funciona em veículos de 12 V, ligando-se à entrada RCA do player. Pode ser instalada no formato borboleta, sem furar o para-choque, ou no formato universal, com furação de 16,5 mm.",
+   "descModo": "preencher",
+   "motivo": "Descrição a partir de fonte oficial do fabricante (lote 2, preparado 06/10; exige aprovação)",
+   "evidencia": "Fonte oficial: https://kx3.com.br/produto/camera-de-re-visao-170-kc500/ | trecho: ângulo de 170° e resolução de 400 TVL | voltagem de 12V | broca 16,5mm",
+   "fonteNumeros": {
+    "url": "https://kx3.com.br/produto/camera-de-re-visao-170-kc500/",
+    "skuTrecho": "Código: KC360-KC500",
+    "trechos": [
+     "ângulo de 170° e resolução de 400 TVL",
+     "qualquer veículo que possui a voltagem de 12V",
+     "furação com broca 16,5mm"
+    ]
+   }
+  },
+  "86536493": {
+   "desc": "Kit de trava de caçamba Tragial dedicado à Ford Nova Ranger 2024 em diante, que se instala direto na fechadura, sem adaptações. Utiliza tensão de 12 V e motor de 2 fios; quando a trava elétrica ou o alarme é acionado, a tampa traseira é travada ou destravada.",
+   "descModo": "preencher",
+   "motivo": "Descrição a partir de fonte oficial do fabricante (lote 2, preparado 06/10; exige aprovação)",
+   "evidencia": "Fonte oficial: https://www.tragial.com.br/produtos/trava-de-cacamba-ford-ranger-2024-em-diante/ | trecho: Tensão de trabalho 12 volts | Motor de 2 Fios (omitidos \"P/TAMPA/C/FURO\" e \"PRO 580\": não constam na página)",
+   "fonteNumeros": {
+    "url": "https://www.tragial.com.br/produtos/trava-de-cacamba-ford-ranger-2024-em-diante/",
+    "skuTrecho": "Código: PAKTFDMN013",
+    "trechos": [
+     "Tensão de trabalho 12 volts",
+     "Motor de 2 Fios"
+    ]
+   }
+  },
+  "86536495": {
+   "desc": "Kit de trava de caçamba Tragial dedicado à Chevrolet S10 2012 a 2015, que se instala direto na fechadura, sem cortes. Utiliza tensão de 12 V e motor de 2 fios; quando a trava elétrica ou o alarme é acionado, a tampa traseira é travada ou destravada.",
+   "descModo": "preencher",
+   "motivo": "Descrição a partir de fonte oficial do fabricante (lote 2, preparado 06/10; exige aprovação)",
+   "evidencia": "Fonte oficial: https://www.tragial.com.br/produtos/trava-de-cacamba-chevrolet-s10-2012-a-2015/ | trecho: Tensão de trabalho 12 volts | Motor de 2 Fios",
+   "fonteNumeros": {
+    "url": "https://www.tragial.com.br/produtos/trava-de-cacamba-chevrolet-s10-2012-a-2015/",
+    "skuTrecho": "Código: PAKTGMMN020",
+    "trechos": [
+     "Tensão de trabalho 12 volts",
+     "Motor de 2 Fios"
+    ]
+   }
+  },
+  "95972262": {
+   "desc": "Moldura Permak 2 DIN de 7 polegadas, em plástico ABS na cor preta com acabamento fosco, para Volkswagen Gol, Voyage e Saveiro G6. Possui espaço para os botões de painel e para os difusores de ar, que não estão incluídos, e segue o padrão chinês e japonês.",
+   "descModo": "preencher",
+   "motivo": "Descrição a partir de fonte oficial do fabricante (lote 2, preparado 06/10; exige aprovação)",
+   "evidencia": "Fonte oficial: https://www.permak.com.br/produto/moldura-vw-gol-voyage-saveiro-g6-2012-2016/ | trecho: Tamanho: 7 Polegadas | Com Espaço para Botões de Painel e Difusores de Ar (modelos citados sem anos: título 2012 x lista 2013 divergem)",
+   "fonteNumeros": {
+    "url": "https://www.permak.com.br/produto/moldura-vw-gol-voyage-saveiro-g6-2012-2016/",
+    "skuTrecho": "SKU: 89/A8",
+    "trechos": [
+     "Tamanho: 7 Polegadas"
+    ]
+   }
   }
  }
 }
