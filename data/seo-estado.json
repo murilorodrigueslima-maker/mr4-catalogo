@@ -98,13 +98,13 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "66c63912808c",
-   "c": "d05b8b40bced",
+   "h": "c743708182cb",
+   "c": "551814be9918",
    "d": "2026-10-07"
   },
   "/categoria/moldura/chevrolet/": {
-   "h": "149b96590445",
-   "c": "4006af657d81",
+   "h": "f219be29a9e2",
+   "c": "805916a49315",
    "d": "2026-10-07"
   },
   "/categoria/moldura/fiat/": {
@@ -243,9 +243,9 @@
    "d": "2026-10-03"
   },
   "/marca/joker/": {
-   "h": "e12e4fd5a8fe",
-   "c": "3c71dba965d7",
-   "d": "2026-10-05"
+   "h": "e9b526ddb6ec",
+   "c": "478a341abdb2",
+   "d": "2026-10-07"
   },
   "/marca/knup/": {
    "h": "a6f36c596b3e",
@@ -1357,15 +1357,15 @@
    "c": "4abf2c6cf57e",
    "d": "2026-10-03"
   },
-  "/produto/i-panel-de-09-polegadas-chevrolet-s10-2012-16-cinza--ip09-0049-v1/": {
-   "h": "762074997fa2",
-   "c": "8dad3493037b",
-   "d": "2026-10-03"
+  "/produto/i-panel-de-09-polegadas-chevrolet-s10-2012-16-cinza--md09-0049-v1/": {
+   "h": "0282d1f90665",
+   "c": "bfa8717bdf77",
+   "d": "2026-10-07"
   },
   "/produto/i-panel-de-09-polegadas-chevrolet-s10-trailblazer-2012-16--sm09-0399-v1/": {
-   "h": "c31e70c6b16a",
-   "c": "c7fc679f377c",
-   "d": "2026-10-03"
+   "h": "1b0631f37370",
+   "c": "681ce8e97164",
+   "d": "2026-10-07"
   },
   "/produto/i-panel-de-09-polegadas-fiat-palio-strada-strada-adventure--md09-0017-v3/": {
    "h": "d46aa1b0115f",
@@ -2413,7 +2413,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-honda-civic-2012-14--md09-0058-v1/": {
-   "h": "9cd7a93fcd08",
+   "h": "bfe7e5f6c4ae",
    "c": "bd62eb16cf50",
    "d": "2026-10-03"
   },
@@ -2498,7 +2498,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-vw-polo-virtus-t-cross-17-22-9p-black-piano--ip09-0032-v1/": {
-   "h": "3ceb6d5b9906",
+   "h": "1489331013e1",
    "c": "7187d10263a1",
    "d": "2026-10-03"
   },
@@ -3337,6 +3337,7 @@
   "1501004": "2026-10-05",
   "1502033": "2026-10-05",
   "89-j28c": "2026-10-06",
+  "ip09-0049-v1": "2026-10-07",
   "ip09-0160-v1": "2026-10-05",
   "sm09-0411-v1": "2026-10-07"
  },
