@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 602,
+ "ativos": 601,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -98,19 +98,19 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "550ae08caccb",
-   "c": "58d01977ffc1",
-   "d": "2026-10-06"
+   "h": "66c63912808c",
+   "c": "d05b8b40bced",
+   "d": "2026-10-07"
   },
   "/categoria/moldura/chevrolet/": {
-   "h": "b5eb5df215e6",
-   "c": "7c492ed08d36",
-   "d": "2026-10-05"
+   "h": "149b96590445",
+   "c": "4006af657d81",
+   "d": "2026-10-07"
   },
   "/categoria/moldura/fiat/": {
-   "h": "989a0e6a13c1",
-   "c": "040eb8108b79",
-   "d": "2026-10-06"
+   "h": "e373da1c65e3",
+   "c": "9050af207204",
+   "d": "2026-10-07"
   },
   "/categoria/moldura/honda/": {
    "h": "8dfc6eb6cba4",
@@ -118,19 +118,19 @@
    "d": "2026-10-03"
   },
   "/categoria/moldura/hyundai/": {
-   "h": "83d2f9d9b3a6",
-   "c": "4e6f78c32021",
-   "d": "2026-10-03"
+   "h": "9d58f693cc57",
+   "c": "30a1c964b8ab",
+   "d": "2026-10-07"
   },
   "/categoria/moldura/toyota/": {
-   "h": "61c14f3ab4a9",
-   "c": "759546abaeaf",
-   "d": "2026-10-05"
+   "h": "2284df008dce",
+   "c": "afe2066e5c06",
+   "d": "2026-10-07"
   },
   "/categoria/moldura/volkswagen/": {
-   "h": "00d97869b85b",
-   "c": "9e6b9053e49e",
-   "d": "2026-10-03"
+   "h": "3f6eb344d82e",
+   "c": "56e0da8d5368",
+   "d": "2026-10-07"
   },
   "/categoria/multimidia/": {
    "h": "91c087fff000",
@@ -218,9 +218,9 @@
    "d": "2026-10-03"
   },
   "/marca/fitto-joker/": {
-   "h": "e43ad5ba4b97",
-   "c": "25eea1684f05",
-   "d": "2026-10-03"
+   "h": "519995641e21",
+   "c": "590a3227ff3f",
+   "d": "2026-10-07"
   },
   "/marca/fitto/": {
    "h": "d84315cda541",
@@ -313,9 +313,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "10085fcc1c34",
-   "c": "e748f9306659",
-   "d": "2026-10-06"
+   "h": "7ae9c767df6a",
+   "c": "24aea60b4892",
+   "d": "2026-10-07"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -1363,7 +1363,7 @@
    "d": "2026-10-03"
   },
   "/produto/i-panel-de-09-polegadas-chevrolet-s10-trailblazer-2012-16--sm09-0399-v1/": {
-   "h": "81298860e6fa",
+   "h": "c31e70c6b16a",
    "c": "c7fc679f377c",
    "d": "2026-10-03"
   },
@@ -1383,7 +1383,7 @@
    "d": "2026-10-03"
   },
   "/produto/i-panel-de-09-polegadas-jeep-renegade-2015-22-com-escrita--ip09-0046-v1/": {
-   "h": "5a3005e94951",
+   "h": "b79a9b3f1b89",
    "c": "84d2d30d062b",
    "d": "2026-10-03"
   },
@@ -1400,11 +1400,6 @@
   "/produto/i-panel-de-10-1-polegadas-toyota-corolla-2017-19-black--sm10-0028-v1/": {
    "h": "4942d6ed8043",
    "c": "12eace8ebfc8",
-   "d": "2026-10-03"
-  },
-  "/produto/i-panel-de-9-polegadas-vw-g5-gol-saveiro-voyage-2013-16--sm09-0411-v1/": {
-   "h": "0792241d166d",
-   "c": "c022747796ac",
    "d": "2026-10-03"
   },
   "/produto/interruptor-bloqueio-logan-sandero-14--1511006/": {
@@ -2433,7 +2428,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-toyota-corolla-2008-13--md09-0275-v1/": {
-   "h": "8b2f03797d10",
+   "h": "7d91b2f2d310",
    "c": "f7258c570b25",
    "d": "2026-10-03"
   },
@@ -3342,7 +3337,8 @@
   "1501004": "2026-10-05",
   "1502033": "2026-10-05",
   "89-j28c": "2026-10-06",
-  "ip09-0160-v1": "2026-10-05"
+  "ip09-0160-v1": "2026-10-05",
+  "sm09-0411-v1": "2026-10-07"
  },
  "taxonomias": {
   "/categoria/alarme/": {
