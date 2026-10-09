@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 603,
+ "ativos": 602,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -58,8 +58,8 @@
    "d": "2026-10-06"
   },
   "/categoria/farol-de-milha/": {
-   "h": "183c42651d23",
-   "c": "5105af70086e",
+   "h": "489240b1b55a",
+   "c": "bcdfc1dfafa9",
    "d": "2026-10-09"
   },
   "/categoria/fusiveis/": {
@@ -263,9 +263,9 @@
    "d": "2026-10-08"
   },
   "/marca/ldcar/": {
-   "h": "38655cc6035f",
-   "c": "3bf77e1b6000",
-   "d": "2026-10-08"
+   "h": "187164562d9b",
+   "c": "71a1fb9000ad",
+   "d": "2026-10-09"
   },
   "/marca/look-out/": {
    "h": "0a37fe70b67b",
@@ -313,8 +313,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "165584486a5d",
-   "c": "02ed77951865",
+   "h": "adf907381213",
+   "c": "b1bdb449b613",
    "d": "2026-10-09"
   },
   "/privacidade/": {
@@ -1192,11 +1192,6 @@
    "c": "aaa3098bcf38",
    "d": "2026-10-03"
   },
-  "/produto/farol-projetor-led-auxiliar-toyota--ldcar012/": {
-   "h": "d4adbb38f64b",
-   "c": "8e359af098cd",
-   "d": "2026-10-03"
-  },
   "/produto/fdm-a-agile-14-19-cobalt-sonic-onix-spin-new-prisma-e--0204022e/": {
    "h": "3fe3494ec87f",
    "c": "76da58059a5d",
@@ -1593,12 +1588,12 @@
    "d": "2026-10-03"
   },
   "/produto/kit-farol-de-milha-led-diversos-12v-asx4403--5729-7/": {
-   "h": "cd2745f3aea3",
+   "h": "0875a677c824",
    "c": "8ca9ae915fa1",
    "d": "2026-10-09"
   },
   "/produto/kit-farol-de-milha-led-fiat-12v-asx4402--5730-5/": {
-   "h": "02c456e8b4cc",
+   "h": "1469fc388025",
    "c": "8cf61dfdc6f6",
    "d": "2026-10-03"
   },
@@ -1608,12 +1603,12 @@
    "d": "2026-10-06"
   },
   "/produto/kit-farol-de-milha-led-toyota-12v-asx4401--5731-4/": {
-   "h": "b1bbc0bc1e82",
+   "h": "fe22c96062a9",
    "c": "62d4c2b45162",
    "d": "2026-10-03"
   },
   "/produto/kit-farol-de-milha-led-vw-g5-12v-asx4410--asx4410/": {
-   "h": "fef2c9dc1efa",
+   "h": "24834ee78b89",
    "c": "a3f91e9276d0",
    "d": "2026-10-03"
   },
@@ -2598,9 +2593,9 @@
    "d": "2026-10-09"
   },
   "/produto/multimidia-carplay-9--krc3200/": {
-   "h": "785e1df9f02c",
-   "c": "851bd303317e",
-   "d": "2026-10-05"
+   "h": "3b851f382b4f",
+   "c": "80a37fdede05",
+   "d": "2026-10-09"
   },
   "/produto/multimidia-detroit-android-14-7-proces-quad-core-1-5-ghz--2mdet07/": {
    "h": "bcfa15504331",
@@ -2608,9 +2603,9 @@
    "d": "2026-10-03"
   },
   "/produto/multimidia-kx3-krc6100-android-carplay-tela-10-5-pol-4-64gb--krc6100/": {
-   "h": "f22701687cdd",
-   "c": "f491b319f1b5",
-   "d": "2026-10-03"
+   "h": "d25e6ea8b8f6",
+   "c": "63bb94697851",
+   "d": "2026-10-09"
   },
   "/produto/multivias-5-bbr-55-watts-rms-4-ohms-carcaca-plastica--1-16-335/": {
    "h": "f286b69d7d1a",
@@ -3354,6 +3349,7 @@
   "ip09-0160-v1": "2026-10-05",
   "k2h7": "2026-10-09",
   "kc360-keco9000": "2026-10-08",
+  "ldcar012": "2026-10-09",
   "sm09-0411-v1": "2026-10-07"
  },
  "taxonomias": {
