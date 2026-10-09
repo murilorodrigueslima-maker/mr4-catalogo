@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 598,
+ "ativos": 603,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -58,9 +58,9 @@
    "d": "2026-10-06"
   },
   "/categoria/farol-de-milha/": {
-   "h": "1abf7a750f27",
-   "c": "613024b52124",
-   "d": "2026-10-06"
+   "h": "183c42651d23",
+   "c": "5105af70086e",
+   "d": "2026-10-09"
   },
   "/categoria/fusiveis/": {
    "h": "4347e6480192",
@@ -78,19 +78,19 @@
    "d": "2026-10-06"
   },
   "/categoria/lampada-de-led/": {
-   "h": "0915acbe4ea3",
-   "c": "aa57297515c0",
+   "h": "9797fe88bf79",
+   "c": "03acfd63cb53",
    "d": "2026-10-09"
   },
   "/categoria/lampadas-halogenas/": {
-   "h": "6f706a3643d1",
-   "c": "1a92ee3b35fc",
+   "h": "8a880c840fe5",
+   "c": "0600de5badde",
    "d": "2026-10-09"
   },
   "/categoria/leds-interno-externo/": {
-   "h": "2bd255f5d8e3",
-   "c": "24023cc68d24",
-   "d": "2026-10-08"
+   "h": "735a45ae5ee2",
+   "c": "b78298518faf",
+   "d": "2026-10-09"
   },
   "/categoria/modulos/": {
    "h": "47818076b9ee",
@@ -193,9 +193,9 @@
    "d": "2026-10-03"
   },
   "/marca/asx/": {
-   "h": "9754e90d18fc",
-   "c": "66af5753f893",
-   "d": "2026-10-08"
+   "h": "89799b0c8fe6",
+   "c": "83c59ff0938e",
+   "d": "2026-10-09"
   },
   "/marca/bomber/": {
    "h": "94313da0641e",
@@ -313,8 +313,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "033e016f4fec",
-   "c": "ed89ada9cd34",
+   "h": "165584486a5d",
+   "c": "02ed77951865",
    "d": "2026-10-09"
   },
   "/privacidade/": {
@@ -1153,7 +1153,7 @@
    "d": "2026-10-03"
   },
   "/produto/farol-de-milha-avulso-hb20-hb20s-2016-2017-lado-direito--0205008d/": {
-   "h": "2dfe2c1cea37",
+   "h": "d1ca7c02c1d3",
    "c": "1e08ef8a97c2",
    "d": "2026-10-03"
   },
@@ -1558,12 +1558,12 @@
    "d": "2026-10-03"
   },
   "/produto/kb3-9005-12v-40-000lumens--000634/": {
-   "h": "aeb32a3450f1",
+   "h": "3d6b177475ea",
    "c": "b511fbc1fa32",
    "d": "2026-10-03"
   },
   "/produto/kb3-h11-12v-40-000lumens--000636/": {
-   "h": "04d4720ade06",
+   "h": "90e0995eb222",
    "c": "aad55bb2e442",
    "d": "2026-10-03"
   },
@@ -1573,7 +1573,7 @@
    "d": "2026-10-03"
   },
   "/produto/kb3-h7-12v-40-000lumens--000632/": {
-   "h": "af396e8e03a7",
+   "h": "034d202cd9d8",
    "c": "a15cb16d4f10",
    "d": "2026-10-03"
   },
@@ -1592,8 +1592,13 @@
    "c": "70a6305a15eb",
    "d": "2026-10-03"
   },
+  "/produto/kit-farol-de-milha-led-diversos-12v-asx4403--5729-7/": {
+   "h": "cd2745f3aea3",
+   "c": "8ca9ae915fa1",
+   "d": "2026-10-09"
+  },
   "/produto/kit-farol-de-milha-led-fiat-12v-asx4402--5730-5/": {
-   "h": "5393d277b8a9",
+   "h": "02c456e8b4cc",
    "c": "8cf61dfdc6f6",
    "d": "2026-10-03"
   },
@@ -1603,12 +1608,12 @@
    "d": "2026-10-06"
   },
   "/produto/kit-farol-de-milha-led-toyota-12v-asx4401--5731-4/": {
-   "h": "6418e7809324",
+   "h": "b1bbc0bc1e82",
    "c": "62d4c2b45162",
    "d": "2026-10-03"
   },
   "/produto/kit-farol-de-milha-led-vw-g5-12v-asx4410--asx4410/": {
-   "h": "dac5d486725f",
+   "h": "fef2c9dc1efa",
    "c": "a3f91e9276d0",
    "d": "2026-10-03"
   },
@@ -1792,28 +1797,33 @@
    "c": "88c030306108",
    "d": "2026-10-06"
   },
+  "/produto/lampada-h16-clear-24w-presilha-12v-asx2116--2317-7/": {
+   "h": "e4fec23fac10",
+   "c": "72527e5aef74",
+   "d": "2026-10-09"
+  },
   "/produto/lampada-h27-881-clear-27w-12v-asx2127--2320-3/": {
-   "h": "bb1fd37d3171",
+   "h": "713a940035ef",
    "c": "32b395e85604",
    "d": "2026-10-03"
   },
   "/produto/lampada-h3-clear-12v-55w-asx2103--2307-8/": {
-   "h": "8282480b24de",
+   "h": "d4c1c416a9b9",
    "c": "4054c749c82d",
    "d": "2026-10-03"
   },
   "/produto/lampada-h4-clear-12v-60-55w-asx2104--2310-4/": {
-   "h": "d36f542bf5d6",
+   "h": "f79e856085e3",
    "c": "d8518922a996",
    "d": "2026-10-03"
   },
   "/produto/lampada-h7-clear-12v-55w-asx2107--2312-2/": {
-   "h": "281608832a72",
+   "h": "d4c0e56fb865",
    "c": "a7dbd7ccb827",
    "d": "2026-10-03"
   },
   "/produto/lampada-h8-clear-12v-35w-asx2108--2319-5/": {
-   "h": "37d20ace7085",
+   "h": "067b9119f03b",
    "c": "9bf685828295",
    "d": "2026-10-03"
   },
@@ -1863,12 +1873,12 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-hb3-clear-65w-12v-asx2105--2323-0/": {
-   "h": "eb1e71be6491",
+   "h": "efafd7db0d6e",
    "c": "70f72a4265d7",
    "d": "2026-10-03"
   },
   "/produto/lampada-hb4-clear-55w-12v-asx2106--2322-1/": {
-   "h": "a5512e44efcf",
+   "h": "03a3f0d91b4e",
    "c": "a17c053090ac",
    "d": "2026-10-03"
   },
@@ -1908,9 +1918,14 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-t10-clear-esmagada-w5w-12v-asx2510--2346-5/": {
-   "h": "2208824f387d",
+   "h": "3010b00ebabb",
    "c": "09d5887b38bb",
    "d": "2026-10-03"
+  },
+  "/produto/lampada-t15-clear-w16w-12v-asx2515--2337-5/": {
+   "h": "06409dc874fb",
+   "c": "a9771b1b52a2",
+   "d": "2026-10-09"
   },
   "/produto/lampada-t20-3156-1-polo-12v-27w-base-plastico-asx2523--4064-6/": {
    "h": "e8a69bd3b4ef",
@@ -1978,9 +1993,14 @@
    "d": "2026-10-03"
   },
   "/produto/lanterna-de-placa-6-led-bivolt-asx5201--3973-8/": {
-   "h": "6c175a1b3d0c",
+   "h": "f6347207dca4",
    "c": "89a14e7d9fed",
    "d": "2026-10-03"
+  },
+  "/produto/laterna-carretinha-cristal-standard-12v-asx5313--5711-6/": {
+   "h": "4f0be7977822",
+   "c": "2e65954c094f",
+   "d": "2026-10-09"
   },
   "/produto/led-1-polo-1156-45-smd--mr30/": {
    "h": "e3f4ca5eeebd",
@@ -1993,7 +2013,7 @@
    "d": "2026-10-03"
   },
   "/produto/led-31mm-interno-smd--2077699943404/": {
-   "h": "85d8d6d782b3",
+   "h": "5952037f23e2",
    "c": "3b0a628f5d93",
    "d": "2026-10-03"
   },
@@ -2013,7 +2033,7 @@
    "d": "2026-10-03"
   },
   "/produto/led-mini-cyber-23mm-universal-6w-e-120-lumens-cada-luz--ldcar030/": {
-   "h": "626314f20b77",
+   "h": "e399fc738dd6",
    "c": "4b99e5b71475",
    "d": "2026-10-03"
   },
@@ -2027,8 +2047,13 @@
    "c": "383faf5aab49",
    "d": "2026-10-03"
   },
+  "/produto/luminaria-72-led-12w-bivolt-asx5030--2285-3/": {
+   "h": "3897a2bd3ee2",
+   "c": "2cf4d590df4b",
+   "d": "2026-10-09"
+  },
   "/produto/m7-9005-m7-9005-kit-led-super-canbus-12v-45w-chip-csp--001058/": {
-   "h": "489bc2a85c7e",
+   "h": "974f51b68575",
    "c": "e288652e5645",
    "d": "2026-10-03"
   },
@@ -3278,12 +3303,12 @@
    "d": "2026-10-03"
   },
   "/produto/ultra-led-csp-h7-70w-10-000-lumens-bivolt-asx1007--2104-3/": {
-   "h": "2a81338c711a",
+   "h": "510db97292ab",
    "c": "9f91ce9158b8",
    "d": "2026-10-03"
   },
   "/produto/ultra-led-csp-hb3-hb4-70w-10-000-lumens-bivolt-asx1006--2106-1/": {
-   "h": "b87ca56c36d3",
+   "h": "13d12db44772",
    "c": "89d301cc2d52",
    "d": "2026-10-03"
   },
