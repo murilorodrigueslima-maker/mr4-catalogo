@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 601,
+ "ativos": 605,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -68,14 +68,14 @@
    "d": "2026-10-06"
   },
   "/categoria/geral/": {
-   "h": "2018d2cec342",
-   "c": "aa749e16515b",
-   "d": "2026-10-06"
+   "h": "91bd8e7fc5d3",
+   "c": "826b7d735e83",
+   "d": "2026-10-12"
   },
   "/categoria/interruptores/": {
-   "h": "76adc5cb4e89",
-   "c": "70154fd13f4d",
-   "d": "2026-10-06"
+   "h": "9066981cbd2a",
+   "c": "a7deb3bc73f0",
+   "d": "2026-10-12"
   },
   "/categoria/lampada-de-led/": {
    "h": "9797fe88bf79",
@@ -83,9 +83,9 @@
    "d": "2026-10-09"
   },
   "/categoria/lampadas-halogenas/": {
-   "h": "8a880c840fe5",
-   "c": "0600de5badde",
-   "d": "2026-10-09"
+   "h": "ea96e786e393",
+   "c": "c4da833f8df3",
+   "d": "2026-10-12"
   },
   "/categoria/leds-interno-externo/": {
    "h": "9c55f753c304",
@@ -298,9 +298,9 @@
    "d": "2026-10-06"
   },
   "/marca/tiger-auto/": {
-   "h": "53058cfba940",
-   "c": "98182eaba825",
-   "d": "2026-10-09"
+   "h": "ed613fb28cc3",
+   "c": "f81516c6374a",
+   "d": "2026-10-12"
   },
   "/marca/tragial/": {
    "h": "359828b67794",
@@ -313,9 +313,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "7757c4d1bb38",
-   "c": "85a985360611",
-   "d": "2026-10-10"
+   "h": "049eeabf4fae",
+   "c": "a1c919c96034",
+   "d": "2026-10-12"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -553,17 +553,17 @@
    "d": "2026-10-06"
   },
   "/produto/botao-interruptor-de-vidro-eletrico-fiat-uno-led-ambar--biv-fia-1002/": {
-   "h": "87d4e8634385",
+   "h": "7982a9fbf6d9",
    "c": "c864960538f1",
    "d": "2026-10-05"
   },
   "/produto/botao-interruptor-de-vidro-eletrico-fiat-uno-led-ambar-duplo--biv-fia-1006/": {
-   "h": "cb5135e2b4c6",
+   "h": "f6e5036b85f4",
    "c": "3a89b2ebc6e8",
    "d": "2026-10-05"
   },
   "/produto/botao-interruptor-de-vidro-eletrico-fiat-uno-led-verde--biv-fia-1001/": {
-   "h": "06085149abe6",
+   "h": "c240b9780c14",
    "c": "c42f9b55490f",
    "d": "2026-10-05"
   },
@@ -578,7 +578,7 @@
    "d": "2026-10-03"
   },
   "/produto/botao-interruptor-vidro-eletrico-fiat-uno-simples-led-verde--biv-fia-1004/": {
-   "h": "d28547e80c5d",
+   "h": "2fc859e3988a",
    "c": "9572371b8944",
    "d": "2026-10-05"
   },
@@ -1083,7 +1083,7 @@
    "d": "2026-10-03"
   },
   "/produto/d4-ldcar-30-000-lumens--ld4/": {
-   "h": "b5b84df62648",
+   "h": "7436be408076",
    "c": "89e69a07642d",
    "d": "2026-10-03"
   },
@@ -1093,7 +1093,7 @@
    "d": "2026-10-03"
   },
   "/produto/dju910w-dju910w-tela-led-flexivel-9-2x37-4cm-5v--000948/": {
-   "h": "a05c57d3b8a6",
+   "h": "08be641b8bd6",
    "c": "56af4c5e3296",
    "d": "2026-10-03"
   },
@@ -1398,7 +1398,7 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-bloqueio-logan-sandero-14--1511006/": {
-   "h": "0e8388e2bc82",
+   "h": "892a6770682a",
    "c": "7e4795296c1d",
    "d": "2026-10-05"
   },
@@ -1512,8 +1512,13 @@
    "c": "0ef851e43009",
    "d": "2026-10-03"
   },
+  "/produto/interruptor-vidro-gol-g4-g5-fox-duplo-1-estagio--1501004/": {
+   "h": "4758f64c8fb1",
+   "c": "6158619bebac",
+   "d": "2026-10-12"
+  },
   "/produto/interruptor-vidro-logan-antigo-sandero--1511003/": {
-   "h": "6f9e8c48c459",
+   "h": "7f8fddbbd319",
    "c": "18ccc98f3eec",
    "d": "2026-10-05"
   },
@@ -1773,7 +1778,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-clear-2-polos-p21-5w-12v-caixa-10un--1025004/": {
-   "h": "4522ca683c33",
+   "h": "9130318914a0",
    "c": "acfd62f997ca",
    "d": "2026-10-03"
   },
@@ -1838,7 +1843,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-halogena-h3-12v-55w--1015h3/": {
-   "h": "ba838c276d2b",
+   "h": "d3f02f75c934",
    "c": "1adec9b3bc0e",
    "d": "2026-10-03"
   },
@@ -1846,6 +1851,11 @@
    "h": "bc82e38938c7",
    "c": "32d632286568",
    "d": "2026-10-03"
+  },
+  "/produto/lampada-halogena-h7-12v-55w--1015h7/": {
+   "h": "a724175eb0d4",
+   "c": "ead9bdb80428",
+   "d": "2026-10-12"
   },
   "/produto/lampada-halogena-h8-12v-35w--1015h8/": {
    "h": "acdbceaba751",
@@ -1867,6 +1877,11 @@
    "c": "6cce723ed54a",
    "d": "2026-10-03"
   },
+  "/produto/lampada-halogena-pr21w-1-polo-12v-pacote-c-10-uni--1025007/": {
+   "h": "4487db355c48",
+   "c": "d6c9d5a029f1",
+   "d": "2026-10-12"
+  },
   "/produto/lampada-hb3-clear-65w-12v-asx2105--2323-0/": {
    "h": "efafd7db0d6e",
    "c": "70f72a4265d7",
@@ -1878,7 +1893,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-super-branca-8500k-h1-12v-55w--1011h1/": {
-   "h": "3941139d8e0c",
+   "h": "67e7ca468208",
    "c": "cc52b699eddf",
    "d": "2026-10-03"
   },
@@ -1893,7 +1908,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-super-branca-8500k-h3-12v-55w--1011h3/": {
-   "h": "0569fce41813",
+   "h": "783830b13471",
    "c": "1880ec34a070",
    "d": "2026-10-03"
   },
@@ -1911,6 +1926,11 @@
    "h": "005ef0a53173",
    "c": "5cff15581e25",
    "d": "2026-10-03"
+  },
+  "/produto/lampada-super-branca-8500k-hb4-12v-50w-pacote-c-10-uns--1011hb4/": {
+   "h": "a97be43ec8e9",
+   "c": "9afdef700bb1",
+   "d": "2026-10-12"
   },
   "/produto/lampada-t10-clear-esmagada-w5w-12v-asx2510--2346-5/": {
    "h": "3010b00ebabb",
@@ -3258,7 +3278,7 @@
    "d": "2026-10-03"
   },
   "/produto/trava-antifurto-para-estepe-hilux--mk5001/": {
-   "h": "8bd378270f08",
+   "h": "5308032611de",
    "c": "ecf2fc33ce58",
    "d": "2026-10-03"
   },
@@ -3334,9 +3354,7 @@
   }
  },
  "ausentes": {
-  "1501004": "2026-10-05",
   "1502033": "2026-10-05",
-  "1015h7": "2026-10-09",
   "2347-4": "2026-10-08",
   "89-j28c": "2026-10-06",
   "af10000294": "2026-10-08",
