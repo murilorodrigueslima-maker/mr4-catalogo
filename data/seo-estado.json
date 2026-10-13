@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 606,
+ "ativos": 604,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -38,8 +38,8 @@
    "d": "2026-10-03"
   },
   "/categoria/camera/": {
-   "h": "00486636bfc1",
-   "c": "b0d191f29b47",
+   "h": "6c44b134c32a",
+   "c": "6cafb4f7c447",
    "d": "2026-10-13"
   },
   "/categoria/chave/": {
@@ -98,9 +98,9 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "c743708182cb",
-   "c": "551814be9918",
-   "d": "2026-10-07"
+   "h": "922bfc1efd33",
+   "c": "37d9c266fc2d",
+   "d": "2026-10-13"
   },
   "/categoria/moldura/chevrolet/": {
    "h": "f219be29a9e2",
@@ -128,9 +128,9 @@
    "d": "2026-10-07"
   },
   "/categoria/moldura/volkswagen/": {
-   "h": "3f6eb344d82e",
-   "c": "56e0da8d5368",
-   "d": "2026-10-07"
+   "h": "c66f86d25c61",
+   "c": "dee741c11fba",
+   "d": "2026-10-13"
   },
   "/categoria/multimidia/": {
    "h": "91c087fff000",
@@ -208,9 +208,9 @@
    "d": "2026-10-03"
   },
   "/marca/fiamon/": {
-   "h": "1102987814ab",
-   "c": "fd7afc12705e",
-   "d": "2026-10-05"
+   "h": "ff9c16961276",
+   "c": "b67c667e199f",
+   "d": "2026-10-13"
   },
   "/marca/first-option/": {
    "h": "4e7faeaad532",
@@ -258,8 +258,8 @@
    "d": "2026-10-03"
   },
   "/marca/kx3/": {
-   "h": "23114485288f",
-   "c": "bd553567b308",
+   "h": "5b8475a2864c",
+   "c": "dd3174589785",
    "d": "2026-10-13"
   },
   "/marca/ldcar/": {
@@ -313,8 +313,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "467e0039b596",
-   "c": "575c728826e3",
+   "h": "8de5bc0bcccd",
+   "c": "59b79af93f0c",
    "d": "2026-10-13"
   },
   "/privacidade/": {
@@ -678,13 +678,8 @@
    "d": "2026-10-06"
   },
   "/produto/camera-de-re-2x1-kx3-150-grau-hd--kc360-keco9100/": {
-   "h": "da67c11d36da",
+   "h": "9d7580f8389c",
    "c": "411c1bc28c15",
-   "d": "2026-10-03"
-  },
-  "/produto/camera-de-re-2x1-kx3-180-graus-full-hd--kc360-k5100/": {
-   "h": "5f72b06830a3",
-   "c": "4a5c878818b9",
    "d": "2026-10-03"
   },
   "/produto/camera-de-re-2x1-kx3-dinamicas-170--kc360-kc500/": {
@@ -693,12 +688,12 @@
    "d": "2026-10-06"
   },
   "/produto/camera-de-re-borboleta-embalagem-saco-eco--cmr-be/": {
-   "h": "443f043cb000",
+   "h": "35bd2873fbe5",
    "c": "7a3454b66fa7",
    "d": "2026-10-03"
   },
   "/produto/camera-re-kx3-2x1-remove-guia-inverte-dianteira-130-conect--kc360-keco9000/": {
-   "h": "e221623bff6b",
+   "h": "4717d1c04858",
    "c": "16a91290b697",
    "d": "2026-10-13"
   },
@@ -2203,7 +2198,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-chines-e-japones-honda-hr-v-15-21-black-piano--3203/": {
-   "h": "cdf6a71f0645",
+   "h": "e3e46fc3e5b5",
    "c": "e258f7b83e40",
    "d": "2026-10-03"
   },
@@ -2226,11 +2221,6 @@
    "h": "2d4204981cd7",
    "c": "ed4e4edf3654",
    "d": "2026-10-05"
-  },
-  "/produto/moldura-2-din-chines-e-japones-vw-fox-spacefox-spacecross--2699md/": {
-   "h": "a03607a28230",
-   "c": "d46436dad23d",
-   "d": "2026-10-03"
   },
   "/produto/moldura-2-din-fiat-palio-way-14-18-preta--2959/": {
    "h": "e876d1f11755",
@@ -2258,7 +2248,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-honda-fit-g01-04-08-grafite-md--3152md/": {
-   "h": "20a821da050a",
+   "h": "451d41fade8c",
    "c": "0dc553889883",
    "d": "2026-10-03"
   },
@@ -2343,7 +2333,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-fiat-mobi-preta--4994/": {
-   "h": "e6610790d900",
+   "h": "4a11c2fa48b9",
    "c": "1686d1bb8fca",
    "d": "2026-10-03"
   },
@@ -2383,7 +2373,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-honda-civic-17-21-black-piano-uv-protection--4116/": {
-   "h": "1186bd377ed5",
+   "h": "b5935e1a5a7a",
    "c": "383287cfc670",
    "d": "2026-10-03"
   },
@@ -2883,7 +2873,7 @@
    "d": "2026-10-03"
   },
   "/produto/retrovisor-com-camera-redonda-431rv-c--retro-rd-2024/": {
-   "h": "7064143a02a8",
+   "h": "28898436f542",
    "c": "c79677248c1c",
    "d": "2026-10-03"
   },
@@ -3362,11 +3352,13 @@
   "208": "2026-10-13",
   "1502033": "2026-10-05",
   "2347-4": "2026-10-08",
+  "2699md": "2026-10-13",
   "89-j28c": "2026-10-06",
   "af10000294": "2026-10-08",
   "ip09-0049-v1": "2026-10-07",
   "ip09-0160-v1": "2026-10-05",
   "k2h7": "2026-10-09",
+  "kc360-k5100": "2026-10-13",
   "ldcar012": "2026-10-09",
   "mr-021": "2026-10-10",
   "sm09-0411-v1": "2026-10-07"
