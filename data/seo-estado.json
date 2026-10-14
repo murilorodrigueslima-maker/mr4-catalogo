@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 605,
+ "ativos": 604,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -98,9 +98,9 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "922bfc1efd33",
-   "c": "37d9c266fc2d",
-   "d": "2026-10-13"
+   "h": "7db0db28888a",
+   "c": "8b1e0f77b370",
+   "d": "2026-10-14"
   },
   "/categoria/moldura/chevrolet/": {
    "h": "f219be29a9e2",
@@ -108,9 +108,9 @@
    "d": "2026-10-07"
   },
   "/categoria/moldura/fiat/": {
-   "h": "e373da1c65e3",
-   "c": "9050af207204",
-   "d": "2026-10-07"
+   "h": "fedbd81d61ec",
+   "c": "65d059336528",
+   "d": "2026-10-14"
   },
   "/categoria/moldura/honda/": {
    "h": "8dfc6eb6cba4",
@@ -218,9 +218,9 @@
    "d": "2026-10-03"
   },
   "/marca/fitto-joker/": {
-   "h": "519995641e21",
-   "c": "590a3227ff3f",
-   "d": "2026-10-07"
+   "h": "131126d62bfc",
+   "c": "5bfcd797a991",
+   "d": "2026-10-14"
   },
   "/marca/fitto/": {
    "h": "d84315cda541",
@@ -313,9 +313,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "8de5bc0bcccd",
-   "c": "59b79af93f0c",
-   "d": "2026-10-13"
+   "h": "f65187df2753",
+   "c": "630c481e2d90",
+   "d": "2026-10-14"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -1362,11 +1362,6 @@
    "c": "681ce8e97164",
    "d": "2026-10-07"
   },
-  "/produto/i-panel-de-09-polegadas-fiat-palio-strada-strada-adventure--md09-0017-v3/": {
-   "h": "d46aa1b0115f",
-   "c": "788b843c0f04",
-   "d": "2026-10-03"
-  },
   "/produto/i-panel-de-09-polegadas-fiat-uno-2015-21-preto-fosco--ip09-0175-v1/": {
    "h": "920616176891",
    "c": "20edecc0cedb",
@@ -1393,7 +1388,7 @@
    "d": "2026-10-03"
   },
   "/produto/i-panel-de-10-1-polegadas-toyota-corolla-2017-19-black--sm10-0028-v1/": {
-   "h": "4942d6ed8043",
+   "h": "e060b37b7a36",
    "c": "12eace8ebfc8",
    "d": "2026-10-03"
   },
@@ -2493,17 +2488,17 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-plastica-9-polegadas-compativel-com-honda-civic--md09-0057-v2/": {
-   "h": "7acee3316763",
+   "h": "14bf7af118c3",
    "c": "8fc9e88e926b",
    "d": "2026-10-03"
   },
   "/produto/moldura-plastica-9-polegadas-compativel-com-honda-civic--md09-0303-v1/": {
-   "h": "982fad559ded",
+   "h": "01d69bba7e0b",
    "c": "94bac28dd368",
    "d": "2026-10-03"
   },
   "/produto/moldura-plastica-9-polegadas-compativel-com-hyundai-creta--md09-0026-v1/": {
-   "h": "09bda55b6e5b",
+   "h": "8a531b33dd91",
    "c": "66452b55e5fb",
    "d": "2026-10-03"
   },
@@ -3365,6 +3360,7 @@
   "k2h7": "2026-10-09",
   "kc360-k5100": "2026-10-13",
   "ldcar012": "2026-10-09",
+  "md09-0017-v3": "2026-10-14",
   "mr-021": "2026-10-10",
   "sm09-0411-v1": "2026-10-07"
  },
