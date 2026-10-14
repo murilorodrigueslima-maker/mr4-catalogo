@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 604,
+ "ativos": 605,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -133,9 +133,9 @@
    "d": "2026-10-13"
   },
   "/categoria/multimidia/": {
-   "h": "91c087fff000",
-   "c": "b85194f78f48",
-   "d": "2026-10-03"
+   "h": "09bd0a30e4b6",
+   "c": "71742d5618ac",
+   "d": "2026-10-14"
   },
   "/categoria/palheta/": {
    "h": "9c5e963f2bfa",
@@ -376,6 +376,11 @@
    "h": "72dfbd853cc3",
    "c": "1748cc59ed7e",
    "d": "2026-10-03"
+  },
+  "/produto/adaptador-carplay-e-android-auto-sem-fio-peining-pei-bta06--pei-bta06/": {
+   "h": "9ef4f000fd96",
+   "c": "0b516dbbdfbd",
+   "d": "2026-10-14"
   },
   "/produto/adaptador-de-10-1-para-9-black-piano--6046/": {
    "h": "0bfdd0cd5cf1",
@@ -2578,7 +2583,7 @@
    "d": "2026-10-03"
   },
   "/produto/multimidia-9-75-tesla-qled-1280x720dpi-quad-2-32-2mix--cpaa-32297a/": {
-   "h": "f08cee5d0579",
+   "h": "06b34f8ed114",
    "c": "eeb32e8b8049",
    "d": "2026-10-03"
   },
@@ -2588,7 +2593,7 @@
    "d": "2026-10-03"
   },
   "/produto/multimidia-9p-qled-2mix-quad-2-32--cpaa-32209ax/": {
-   "h": "11c1240955b3",
+   "h": "fce41a7cd635",
    "c": "8dbe6d2b9af9",
    "d": "2026-10-03"
   },
@@ -2608,7 +2613,7 @@
    "d": "2026-10-09"
   },
   "/produto/multimidia-detroit-android-14-7-proces-quad-core-1-5-ghz--2mdet07/": {
-   "h": "bcfa15504331",
+   "h": "cd33a6d45371",
    "c": "7126b72cb122",
    "d": "2026-10-03"
   },
