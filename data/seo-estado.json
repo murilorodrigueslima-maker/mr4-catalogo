@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 603,
+ "ativos": 604,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -143,9 +143,9 @@
    "d": "2026-10-03"
   },
   "/categoria/radio/": {
-   "h": "2747f70104d5",
-   "c": "3c2bd1f40181",
-   "d": "2026-10-03"
+   "h": "6e0459e2f21b",
+   "c": "87fa84b11f23",
+   "d": "2026-10-15"
   },
   "/categoria/sem-categoria/": {
    "h": "865197ea2935",
@@ -376,6 +376,11 @@
    "h": "72dfbd853cc3",
    "c": "1748cc59ed7e",
    "d": "2026-10-03"
+  },
+  "/produto/adaptador-bluetooth-veicular-pei-bta05--pei-bta05/": {
+   "h": "26062f8d7204",
+   "c": "71465520ae11",
+   "d": "2026-10-15"
   },
   "/produto/adaptador-carplay-e-android-auto-sem-fio-peining-pei-bta06--pei-bta06/": {
    "h": "7e0eb0adac77",
@@ -2543,7 +2548,7 @@
    "d": "2026-10-06"
   },
   "/produto/mp3-bt-50w-4-6699-muda-7-cores-c-controle-2-usb--m-6699/": {
-   "h": "7fb4bf016c62",
+   "h": "8bea3bb88651",
    "c": "a996c2365eaf",
    "d": "2026-10-03"
   },
@@ -2863,7 +2868,7 @@
    "d": "2026-10-03"
   },
   "/produto/radio-mp3-kube-4x25-12v--000956/": {
-   "h": "7225a7c4b958",
+   "h": "33f32fb71105",
    "c": "0c0bd6c4fe3f",
    "d": "2026-10-03"
   },
