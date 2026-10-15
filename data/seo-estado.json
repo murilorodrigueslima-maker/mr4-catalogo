@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 604,
+ "ativos": 603,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -73,9 +73,9 @@
    "d": "2026-10-12"
   },
   "/categoria/interruptores/": {
-   "h": "9066981cbd2a",
-   "c": "a7deb3bc73f0",
-   "d": "2026-10-12"
+   "h": "76adc5cb4e89",
+   "c": "70154fd13f4d",
+   "d": "2026-10-15"
   },
   "/categoria/lampada-de-led/": {
    "h": "9797fe88bf79",
@@ -298,9 +298,9 @@
    "d": "2026-10-13"
   },
   "/marca/tiger-auto/": {
-   "h": "ed613fb28cc3",
-   "c": "f81516c6374a",
-   "d": "2026-10-12"
+   "h": "b51d8773f869",
+   "c": "30aa81edce6c",
+   "d": "2026-10-15"
   },
   "/marca/tragial/": {
    "h": "359828b67794",
@@ -313,8 +313,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "6bb27d5dcfcd",
-   "c": "ae84c5e710ab",
+   "h": "7a837450412c",
+   "c": "669df8a470a6",
    "d": "2026-10-15"
   },
   "/privacidade/": {
@@ -563,17 +563,17 @@
    "d": "2026-10-06"
   },
   "/produto/botao-interruptor-de-vidro-eletrico-fiat-uno-led-ambar--biv-fia-1002/": {
-   "h": "7982a9fbf6d9",
+   "h": "87d4e8634385",
    "c": "c864960538f1",
    "d": "2026-10-05"
   },
   "/produto/botao-interruptor-de-vidro-eletrico-fiat-uno-led-ambar-duplo--biv-fia-1006/": {
-   "h": "f6e5036b85f4",
+   "h": "cb5135e2b4c6",
    "c": "3a89b2ebc6e8",
    "d": "2026-10-05"
   },
   "/produto/botao-interruptor-de-vidro-eletrico-fiat-uno-led-verde--biv-fia-1001/": {
-   "h": "c240b9780c14",
+   "h": "06085149abe6",
    "c": "c42f9b55490f",
    "d": "2026-10-05"
   },
@@ -588,7 +588,7 @@
    "d": "2026-10-03"
   },
   "/produto/botao-interruptor-vidro-eletrico-fiat-uno-simples-led-verde--biv-fia-1004/": {
-   "h": "2fc859e3988a",
+   "h": "d28547e80c5d",
    "c": "9572371b8944",
    "d": "2026-10-05"
   },
@@ -1398,7 +1398,7 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-bloqueio-logan-sandero-14--1511006/": {
-   "h": "892a6770682a",
+   "h": "0e8388e2bc82",
    "c": "7e4795296c1d",
    "d": "2026-10-05"
   },
@@ -1512,13 +1512,8 @@
    "c": "0ef851e43009",
    "d": "2026-10-03"
   },
-  "/produto/interruptor-vidro-gol-g4-g5-fox-duplo-1-estagio--1501004/": {
-   "h": "4758f64c8fb1",
-   "c": "6158619bebac",
-   "d": "2026-10-12"
-  },
   "/produto/interruptor-vidro-logan-antigo-sandero--1511003/": {
-   "h": "7f8fddbbd319",
+   "h": "6f9e8c48c459",
    "c": "18ccc98f3eec",
    "d": "2026-10-05"
   },
@@ -3351,6 +3346,7 @@
  "ausentes": {
   "208": "2026-10-13",
   "15200": "2026-10-15",
+  "1501004": "2026-10-15",
   "1502033": "2026-10-05",
   "2347-4": "2026-10-08",
   "2699md": "2026-10-13",
