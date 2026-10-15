@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 604,
+ "ativos": 603,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -33,9 +33,9 @@
    "d": "2026-10-06"
   },
   "/categoria/caixa-de-som/": {
-   "h": "e43947e90926",
-   "c": "af1481a51c00",
-   "d": "2026-10-03"
+   "h": "80639481bb5c",
+   "c": "e665936e7821",
+   "d": "2026-10-15"
   },
   "/categoria/camera/": {
    "h": "6c44b134c32a",
@@ -203,9 +203,9 @@
    "d": "2026-10-03"
   },
   "/marca/exclusive/": {
-   "h": "74b1207957e7",
-   "c": "67e64063828b",
-   "d": "2026-10-03"
+   "h": "a8702b9719b6",
+   "c": "51c0e700b05d",
+   "d": "2026-10-15"
   },
   "/marca/fiamon/": {
    "h": "ff9c16961276",
@@ -313,8 +313,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "4ede8a59c28b",
-   "c": "6c48a90252a6",
+   "h": "4e945661a50c",
+   "c": "48acd12fd04f",
    "d": "2026-10-15"
   },
   "/privacidade/": {
@@ -663,22 +663,17 @@
    "d": "2026-10-03"
   },
   "/produto/caixa-amplificada-exclusive-xc-200-trapezio-8-universal-200w--16300/": {
-   "h": "c368f96c3624",
+   "h": "802d5dd8624c",
    "c": "c9a66e75ab4e",
    "d": "2026-10-03"
   },
-  "/produto/caixa-amplificada-exclusive-xc-300-trapezio-8-universal-300w--15200/": {
-   "h": "db13876612df",
-   "c": "be8ac1cfb984",
-   "d": "2026-10-03"
-  },
   "/produto/caixa-de-som-amplificada-exclusive-subwoofer-xc300-slim-300w--15210/": {
-   "h": "e1119d118c25",
+   "h": "6b1281f0cfb6",
    "c": "bfa9bfbcedde",
    "d": "2026-10-03"
   },
   "/produto/caixa-de-som-subwoofer-8-exclusive-xc200-slim-200w--16200/": {
-   "h": "c86489fdaddd",
+   "h": "923701b770e4",
    "c": "07a9677d51ed",
    "d": "2026-10-03"
   },
@@ -3350,6 +3345,7 @@
  },
  "ausentes": {
   "208": "2026-10-13",
+  "15200": "2026-10-15",
   "1502033": "2026-10-05",
   "2347-4": "2026-10-08",
   "2699md": "2026-10-13",
