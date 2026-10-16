@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 603,
+ "ativos": 602,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -98,9 +98,9 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "6f3b0ba28fd2",
-   "c": "db451120a5a2",
-   "d": "2026-10-15"
+   "h": "24fb3abdfcde",
+   "c": "65b55e4b2039",
+   "d": "2026-10-16"
   },
   "/categoria/moldura/chevrolet/": {
    "h": "f219be29a9e2",
@@ -108,29 +108,29 @@
    "d": "2026-10-07"
   },
   "/categoria/moldura/fiat/": {
-   "h": "fedbd81d61ec",
-   "c": "65d059336528",
-   "d": "2026-10-14"
+   "h": "886090d8ca9c",
+   "c": "2d866d36e0ba",
+   "d": "2026-10-16"
   },
   "/categoria/moldura/honda/": {
-   "h": "8dfc6eb6cba4",
-   "c": "3011b2d09f33",
-   "d": "2026-10-03"
+   "h": "7581bd987246",
+   "c": "9c7f7162a2ab",
+   "d": "2026-10-16"
   },
   "/categoria/moldura/hyundai/": {
-   "h": "9d58f693cc57",
-   "c": "30a1c964b8ab",
-   "d": "2026-10-07"
+   "h": "66cbdaf1688c",
+   "c": "94a4fa101e4c",
+   "d": "2026-10-16"
   },
   "/categoria/moldura/toyota/": {
-   "h": "2284df008dce",
-   "c": "afe2066e5c06",
-   "d": "2026-10-07"
+   "h": "135eb2d4023a",
+   "c": "496939d20000",
+   "d": "2026-10-16"
   },
   "/categoria/moldura/volkswagen/": {
-   "h": "c66f86d25c61",
-   "c": "dee741c11fba",
-   "d": "2026-10-13"
+   "h": "18872034a410",
+   "c": "eb2000c6158b",
+   "d": "2026-10-16"
   },
   "/categoria/multimidia/": {
    "h": "09bd0a30e4b6",
@@ -208,9 +208,9 @@
    "d": "2026-10-15"
   },
   "/marca/fiamon/": {
-   "h": "ff9c16961276",
-   "c": "b67c667e199f",
-   "d": "2026-10-13"
+   "h": "8572f2e447a1",
+   "c": "10b9f51f2791",
+   "d": "2026-10-16"
   },
   "/marca/first-option/": {
    "h": "4e7faeaad532",
@@ -313,9 +313,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "7a837450412c",
-   "c": "669df8a470a6",
-   "d": "2026-10-15"
+   "h": "b74b5b011e44",
+   "c": "02eac0dc5844",
+   "d": "2026-10-16"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -2252,13 +2252,8 @@
    "c": "17abf0439226",
    "d": "2026-10-03"
   },
-  "/produto/moldura-2-din-hyundai-hb20-12-19-preta--2375/": {
-   "h": "d07c58c44b71",
-   "c": "52220fd223f1",
-   "d": "2026-10-03"
-  },
   "/produto/moldura-2-din-japones-e-1-din-toyota-etios-com-gaveta--3112/": {
-   "h": "0e93394acd1e",
+   "h": "a60bd99e68e5",
    "c": "08b737f893d1",
    "d": "2026-10-03"
   },
@@ -2273,12 +2268,12 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-renault-duster-oroch-18-21-sem-radio-preta-md--4035md/": {
-   "h": "a991667827c0",
+   "h": "fc00a1caad32",
    "c": "796898222a6c",
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-toyota-corolla-08-13-grafite--2870/": {
-   "h": "30f723282b41",
+   "h": "b09ba98c4c50",
    "c": "ac69c6849714",
    "d": "2026-10-03"
   },
@@ -2298,7 +2293,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-vw-gol-g5-saveiro-voyage-preta--2372/": {
-   "h": "57944c4c8b6d",
+   "h": "fa798415dbd2",
    "c": "11bd1bf658c2",
    "d": "2026-10-03"
   },
@@ -3345,6 +3340,7 @@
  },
  "ausentes": {
   "208": "2026-10-13",
+  "2375": "2026-10-16",
   "15200": "2026-10-15",
   "1501004": "2026-10-15",
   "1502033": "2026-10-05",
