@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 602,
+ "ativos": 601,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -98,8 +98,8 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "24fb3abdfcde",
-   "c": "65b55e4b2039",
+   "h": "24c2db015f93",
+   "c": "53a87d5abd35",
    "d": "2026-10-16"
   },
   "/categoria/moldura/chevrolet/": {
@@ -128,8 +128,8 @@
    "d": "2026-10-16"
   },
   "/categoria/moldura/volkswagen/": {
-   "h": "18872034a410",
-   "c": "eb2000c6158b",
+   "h": "2925b0b9bd24",
+   "c": "2a7273f80445",
    "d": "2026-10-16"
   },
   "/categoria/multimidia/": {
@@ -1368,12 +1368,12 @@
    "d": "2026-10-07"
   },
   "/produto/i-panel-de-09-polegadas-fiat-uno-2015-21-preto-fosco--ip09-0175-v1/": {
-   "h": "920616176891",
+   "h": "1e1c4a45aeb4",
    "c": "20edecc0cedb",
    "d": "2026-10-03"
   },
   "/produto/i-panel-de-09-polegadas-hyundai-i30-2008-12-a-c-analogico--ip09-0063-v1/": {
-   "h": "2055525c3624",
+   "h": "30bbde6f501a",
    "c": "137ed7232f79",
    "d": "2026-10-03"
   },
@@ -2278,7 +2278,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-toyota-corolla-14-16-black-piano-uv-protection--3196/": {
-   "h": "b6ab090aa7b6",
+   "h": "eed170592416",
    "c": "6ac4e25ec7f5",
    "d": "2026-10-05"
   },
@@ -2418,7 +2418,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-honda-hrv-2015-21-black--md09-0020-v1/": {
-   "h": "23119fbd938b",
+   "h": "2b1dbf59dcfa",
    "c": "709c548d37a9",
    "d": "2026-10-03"
   },
@@ -2490,11 +2490,6 @@
   "/produto/moldura-plastica-9-polegadas-compativel-com-hyundai-creta--md09-0026-v1/": {
    "h": "8a531b33dd91",
    "c": "66452b55e5fb",
-   "d": "2026-10-03"
-  },
-  "/produto/moldura-plastica-9-polegadas-compativel-com-vw-g7-g8-gol--md09-0281-v1/": {
-   "h": "3c3da96aea34",
-   "c": "7651113f1940",
    "d": "2026-10-03"
   },
   "/produto/moldura-vw-polo-virtus-t-cross-17-22-9p-black-piano--ip09-0032-v1/": {
@@ -3354,6 +3349,7 @@
   "k2h7": "2026-10-09",
   "ldcar012": "2026-10-09",
   "md09-0017-v3": "2026-10-14",
+  "md09-0281-v1": "2026-10-16",
   "mr-021": "2026-10-10",
   "sm09-0411-v1": "2026-10-07"
  },
