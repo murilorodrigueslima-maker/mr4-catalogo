@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 601,
+ "ativos": 600,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -98,8 +98,8 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "24c2db015f93",
-   "c": "53a87d5abd35",
+   "h": "7810f79fcbf5",
+   "c": "6f3471f0fe7a",
    "d": "2026-10-16"
   },
   "/categoria/moldura/chevrolet/": {
@@ -118,8 +118,8 @@
    "d": "2026-10-16"
   },
   "/categoria/moldura/hyundai/": {
-   "h": "66cbdaf1688c",
-   "c": "94a4fa101e4c",
+   "h": "4009305f04b6",
+   "c": "9e0385645507",
    "d": "2026-10-16"
   },
   "/categoria/moldura/toyota/": {
@@ -208,8 +208,8 @@
    "d": "2026-10-15"
   },
   "/marca/fiamon/": {
-   "h": "8572f2e447a1",
-   "c": "10b9f51f2791",
+   "h": "34513e63c800",
+   "c": "25b3d98900fa",
    "d": "2026-10-16"
   },
   "/marca/first-option/": {
@@ -313,8 +313,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "b74b5b011e44",
-   "c": "02eac0dc5844",
+   "h": "405ec838c7a2",
+   "c": "b0943ded739e",
    "d": "2026-10-16"
   },
   "/privacidade/": {
@@ -2188,7 +2188,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-chines-e-japones-honda-city-15-21-com-botao--4090/": {
-   "h": "f91973882b7a",
+   "h": "e5ca8de45bd5",
    "c": "667f477a766d",
    "d": "2026-10-03"
   },
@@ -2228,7 +2228,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-gm-s10-16-ar-analogico-preta--4020/": {
-   "h": "50c26ecf5f1d",
+   "h": "31191dadd5f7",
    "c": "6b850058a96b",
    "d": "2026-10-03"
   },
@@ -2308,7 +2308,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-chines-mitsubishi-pajero-sport-g3-2016-black-piano--6002/": {
-   "h": "9d1a0b10138e",
+   "h": "15c72ea00bb6",
    "c": "741f81c31f16",
    "d": "2026-10-03"
   },
@@ -2328,7 +2328,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-fiat-stilo-03-11-preta-md--4244md/": {
-   "h": "d74e62766cc0",
+   "h": "37d2bbdfac06",
    "c": "e64f4f886913",
    "d": "2026-10-03"
   },
@@ -2365,11 +2365,6 @@
   "/produto/moldura-9-honda-civic-17-21-black-piano-uv-protection--4116/": {
    "h": "b5935e1a5a7a",
    "c": "383287cfc670",
-   "d": "2026-10-03"
-  },
-  "/produto/moldura-9-hyundai-hb20-20-21-preta--4199/": {
-   "h": "4a5b67877b2e",
-   "c": "89a5badc1b07",
    "d": "2026-10-03"
   },
   "/produto/moldura-9-hyundai-santa-fe-g3-13-18-preta--4251/": {
@@ -3336,6 +3331,7 @@
  "ausentes": {
   "208": "2026-10-13",
   "2375": "2026-10-16",
+  "4199": "2026-10-16",
   "15200": "2026-10-15",
   "1501004": "2026-10-15",
   "1502033": "2026-10-05",
