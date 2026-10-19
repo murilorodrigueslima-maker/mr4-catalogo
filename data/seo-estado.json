@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 600,
+ "ativos": 599,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -43,9 +43,9 @@
    "d": "2026-10-15"
   },
   "/categoria/chave/": {
-   "h": "81ccd59080fb",
-   "c": "b3882519bd28",
-   "d": "2026-10-06"
+   "h": "dfb42f79634f",
+   "c": "48c7586eeef1",
+   "d": "2026-10-19"
   },
   "/categoria/chicotes/": {
    "h": "75aace6a826c",
@@ -288,9 +288,9 @@
    "d": "2026-10-03"
   },
   "/marca/rpx/": {
-   "h": "126fd00b3b65",
-   "c": "5db26590a421",
-   "d": "2026-10-06"
+   "h": "651e93f02a1c",
+   "c": "8e9b862fec85",
+   "d": "2026-10-19"
   },
   "/marca/tarponn/": {
    "h": "503dcfedd775",
@@ -313,9 +313,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "405ec838c7a2",
-   "c": "b0943ded739e",
-   "d": "2026-10-16"
+   "h": "d84b6a9203ee",
+   "c": "c723d418c089",
+   "d": "2026-10-19"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -738,12 +738,12 @@
    "d": "2026-10-06"
   },
   "/produto/chave-canivete-gm-2bt-positron-flex--rpx009/": {
-   "h": "cda76a7f6fec",
+   "h": "010f84518a31",
    "c": "848f27459114",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-gm-2bt-universal--rpx035/": {
-   "h": "72053c73a36a",
+   "h": "84ba0522c456",
    "c": "63b065a77ef5",
    "d": "2026-10-03"
   },
@@ -753,12 +753,12 @@
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-gm-3bt-universal--rpx036/": {
-   "h": "3cf2c41cec54",
+   "h": "9e072c21402c",
    "c": "014308ad6392",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-gm-nova-positron-flex--rpx032/": {
-   "h": "4d0fdd7c3252",
+   "h": "3e4f3abdc227",
    "c": "140fee320344",
    "d": "2026-10-03"
   },
@@ -1010,11 +1010,6 @@
   "/produto/conectores-t10-2006--tp-2006/": {
    "h": "722cf57299c3",
    "c": "c6f5e0bf055c",
-   "d": "2026-10-03"
-  },
-  "/produto/controle-cabeca-fiat-positron-flex--rpx005/": {
-   "h": "4286d13fb3f0",
-   "c": "ea220f0ba22f",
    "d": "2026-10-03"
   },
   "/produto/controle-fiat-universal--rpx023/": {
@@ -3347,6 +3342,7 @@
   "md09-0017-v3": "2026-10-14",
   "md09-0281-v1": "2026-10-16",
   "mr-021": "2026-10-10",
+  "rpx005": "2026-10-19",
   "sm09-0411-v1": "2026-10-07"
  },
  "taxonomias": {
