@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 614,
+ "ativos": 616,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -38,9 +38,9 @@
    "d": "2026-10-15"
   },
   "/categoria/camera/": {
-   "h": "00486636bfc1",
-   "c": "b0d191f29b47",
-   "d": "2026-10-15"
+   "h": "08f00038c47a",
+   "c": "a6b1dbea3840",
+   "d": "2026-10-20"
   },
   "/categoria/chave/": {
    "h": "9e81ea80226f",
@@ -68,9 +68,9 @@
    "d": "2026-10-06"
   },
   "/categoria/geral/": {
-   "h": "91bd8e7fc5d3",
-   "c": "826b7d735e83",
-   "d": "2026-10-12"
+   "h": "61b1eef13f4f",
+   "c": "43c559a84152",
+   "d": "2026-10-20"
   },
   "/categoria/interruptores/": {
    "h": "76adc5cb4e89",
@@ -78,9 +78,9 @@
    "d": "2026-10-15"
   },
   "/categoria/lampada-de-led/": {
-   "h": "9797fe88bf79",
-   "c": "03acfd63cb53",
-   "d": "2026-10-09"
+   "h": "033d0c177a22",
+   "c": "4e9c0c1af481",
+   "d": "2026-10-20"
   },
   "/categoria/lampadas-halogenas/": {
    "h": "ea96e786e393",
@@ -98,39 +98,39 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "7810f79fcbf5",
-   "c": "6f3471f0fe7a",
-   "d": "2026-10-16"
+   "h": "215f36621bb8",
+   "c": "76850ef2d073",
+   "d": "2026-10-20"
   },
   "/categoria/moldura/chevrolet/": {
-   "h": "f219be29a9e2",
-   "c": "805916a49315",
-   "d": "2026-10-07"
+   "h": "802d2e6b34ae",
+   "c": "288ec7c0d356",
+   "d": "2026-10-20"
   },
   "/categoria/moldura/fiat/": {
-   "h": "886090d8ca9c",
-   "c": "2d866d36e0ba",
-   "d": "2026-10-16"
+   "h": "31f45b717abd",
+   "c": "7a18dcd68b07",
+   "d": "2026-10-20"
   },
   "/categoria/moldura/honda/": {
-   "h": "7581bd987246",
-   "c": "9c7f7162a2ab",
-   "d": "2026-10-16"
+   "h": "028979e9e843",
+   "c": "c0c9a9a1b70d",
+   "d": "2026-10-20"
   },
   "/categoria/moldura/hyundai/": {
-   "h": "4009305f04b6",
-   "c": "9e0385645507",
-   "d": "2026-10-16"
+   "h": "7f6389f1e977",
+   "c": "0f2b3bd42a30",
+   "d": "2026-10-20"
   },
   "/categoria/moldura/toyota/": {
-   "h": "135eb2d4023a",
-   "c": "496939d20000",
-   "d": "2026-10-16"
+   "h": "7abd825443e8",
+   "c": "aedc7ab476ae",
+   "d": "2026-10-20"
   },
   "/categoria/moldura/volkswagen/": {
-   "h": "2925b0b9bd24",
-   "c": "2a7273f80445",
-   "d": "2026-10-16"
+   "h": "72dee1611662",
+   "c": "e580238f5886",
+   "d": "2026-10-20"
   },
   "/categoria/multimidia/": {
    "h": "09bd0a30e4b6",
@@ -208,9 +208,9 @@
    "d": "2026-10-15"
   },
   "/marca/fiamon/": {
-   "h": "34513e63c800",
-   "c": "25b3d98900fa",
-   "d": "2026-10-16"
+   "h": "813364ee4c71",
+   "c": "7080a334d2ac",
+   "d": "2026-10-20"
   },
   "/marca/first-option/": {
    "h": "4e7faeaad532",
@@ -243,9 +243,9 @@
    "d": "2026-10-03"
   },
   "/marca/joker/": {
-   "h": "e9b526ddb6ec",
-   "c": "478a341abdb2",
-   "d": "2026-10-07"
+   "h": "9b388d84637e",
+   "c": "5932ed2302cb",
+   "d": "2026-10-20"
   },
   "/marca/knup/": {
    "h": "a6f36c596b3e",
@@ -258,14 +258,14 @@
    "d": "2026-10-03"
   },
   "/marca/kx3/": {
-   "h": "23114485288f",
-   "c": "bd553567b308",
-   "d": "2026-10-15"
+   "h": "48e20a8b98b9",
+   "c": "22e955743df9",
+   "d": "2026-10-20"
   },
   "/marca/ldcar/": {
-   "h": "431c909c6f09",
-   "c": "09c91f5d43ec",
-   "d": "2026-10-10"
+   "h": "b7f83280291a",
+   "c": "2758245b18aa",
+   "d": "2026-10-20"
   },
   "/marca/look-out/": {
    "h": "0a37fe70b67b",
@@ -313,9 +313,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "d84b6a9203ee",
-   "c": "c723d418c089",
-   "d": "2026-10-19"
+   "h": "31dcc812fe10",
+   "c": "940ebe057f3d",
+   "d": "2026-10-20"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -678,22 +678,22 @@
    "d": "2026-10-03"
   },
   "/produto/cam-re-com-macaneta-e-botao-porta-malas-vw-170-lente-vidr--kcvw01/": {
-   "h": "d8ead348c7ee",
+   "h": "ea0f177e38ca",
    "c": "559b2890c380",
    "d": "2026-10-06"
   },
   "/produto/camera-de-re-2x1-kx3-150-grau-hd--kc360-keco9100/": {
-   "h": "da67c11d36da",
+   "h": "e1a6a1242052",
    "c": "411c1bc28c15",
    "d": "2026-10-03"
   },
   "/produto/camera-de-re-2x1-kx3-180-graus-full-hd--kc360-k5100/": {
-   "h": "5f72b06830a3",
+   "h": "2d38a9c53c3f",
    "c": "4a5c878818b9",
    "d": "2026-10-15"
   },
   "/produto/camera-de-re-2x1-kx3-dinamicas-170--kc360-kc500/": {
-   "h": "ede809f92b7d",
+   "h": "3b92f99cc4dc",
    "c": "6581ef987130",
    "d": "2026-10-06"
   },
@@ -701,11 +701,6 @@
    "h": "443f043cb000",
    "c": "7a3454b66fa7",
    "d": "2026-10-03"
-  },
-  "/produto/camera-re-kx3-2x1-remove-guia-inverte-dianteira-130-conect--kc360-keco9000/": {
-   "h": "e221623bff6b",
-   "c": "16a91290b697",
-   "d": "2026-10-13"
   },
   "/produto/canbus-t10-adaptador--mr-100/": {
    "h": "3b738d15225a",
@@ -1142,6 +1137,11 @@
    "c": "2c2befda5008",
    "d": "2026-10-03"
   },
+  "/produto/d1-ldcar-30-000-lumens--ld1/": {
+   "h": "631a375deae8",
+   "c": "c1fa77857709",
+   "d": "2026-10-20"
+  },
   "/produto/d1r-4300k-par-de-lampada-automotiva-de-le--d1r-43k/": {
    "h": "f20d1a5d6154",
    "c": "3268bf39a353",
@@ -1151,6 +1151,11 @@
    "h": "4de604dab4d3",
    "c": "6602e59e2902",
    "d": "2026-10-03"
+  },
+  "/produto/d2-ldcar-30-000-lumens--ld2/": {
+   "h": "c91c98aa9368",
+   "c": "5b2cebd4b6c0",
+   "d": "2026-10-20"
   },
   "/produto/d2r-4300k-par-de-lampada-automotiva--d2r-43k/": {
    "h": "735dd5144d31",
@@ -1162,10 +1167,20 @@
    "c": "1ffbf6e3f508",
    "d": "2026-10-03"
   },
+  "/produto/d3-ldcar-30-000-lumens--ld3/": {
+   "h": "d6144ebea417",
+   "c": "06300fdea9e4",
+   "d": "2026-10-20"
+  },
   "/produto/d4-ldcar-30-000-lumens--ld4/": {
-   "h": "7436be408076",
+   "h": "62aa81df5472",
    "c": "89e69a07642d",
    "d": "2026-10-03"
+  },
+  "/produto/d5-ldcar-30-000-lumens--ld5/": {
+   "h": "43fd6721e229",
+   "c": "0699eeee8043",
+   "d": "2026-10-20"
   },
   "/produto/dju810w-dju810w-tela-led-flexivel-7x17-3cm-5v--000947/": {
    "h": "46bf9c0fb259",
@@ -1173,7 +1188,7 @@
    "d": "2026-10-03"
   },
   "/produto/dju910w-dju910w-tela-led-flexivel-9-2x37-4cm-5v--000948/": {
-   "h": "08be641b8bd6",
+   "h": "c0afae269de5",
    "c": "56af4c5e3296",
    "d": "2026-10-03"
   },
@@ -1452,13 +1467,8 @@
    "c": "84d2d30d062b",
    "d": "2026-10-03"
   },
-  "/produto/i-panel-de-09-polegadas-mitsubishi-pajero-tr4-2004-15-preto--ip09-0349-v1/": {
-   "h": "ebc81145133d",
-   "c": "47f339e3f441",
-   "d": "2026-10-03"
-  },
   "/produto/i-panel-de-09-polegadas-renault-sandero-2008-11-prata--ip09-0067-v1/": {
-   "h": "07711c7da78c",
+   "h": "cbff95bd3190",
    "c": "5644032c401f",
    "d": "2026-10-03"
   },
@@ -1623,12 +1633,12 @@
    "d": "2026-10-03"
   },
   "/produto/kb3-9005-12v-40-000lumens--000634/": {
-   "h": "3d6b177475ea",
+   "h": "e39d187afd03",
    "c": "b511fbc1fa32",
    "d": "2026-10-03"
   },
   "/produto/kb3-h11-12v-40-000lumens--000636/": {
-   "h": "90e0995eb222",
+   "h": "5ba1fcb4db06",
    "c": "aad55bb2e442",
    "d": "2026-10-03"
   },
@@ -1638,7 +1648,7 @@
    "d": "2026-10-03"
   },
   "/produto/kb3-h7-12v-40-000lumens--000632/": {
-   "h": "034d202cd9d8",
+   "h": "1e965458d375",
    "c": "a15cb16d4f10",
    "d": "2026-10-03"
   },
@@ -1653,7 +1663,7 @@
    "d": "2026-10-03"
   },
   "/produto/kit-facil-bbr-240-watts-rms-4-ohms--1-16-337/": {
-   "h": "87d18f2a2a8f",
+   "h": "049787e21366",
    "c": "70a6305a15eb",
    "d": "2026-10-03"
   },
@@ -2133,7 +2143,7 @@
    "d": "2026-10-09"
   },
   "/produto/m7-9005-m7-9005-kit-led-super-canbus-12v-45w-chip-csp--001058/": {
-   "h": "974f51b68575",
+   "h": "17ca87060ed2",
    "c": "e288652e5645",
    "d": "2026-10-03"
   },
@@ -2238,7 +2248,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-10-1-toyota-corolla-2018-2019-modelo-com-relogio--6009/": {
-   "h": "e6d3cf6dd5c1",
+   "h": "af48a1091e26",
    "c": "fda7f49ca0f6",
    "d": "2026-10-05"
   },
@@ -2248,7 +2258,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-9-hyundai-ix35-2010-19-preto-fosco-ch-joker--ip09-0085-v1/": {
-   "h": "7e476804259b",
+   "h": "a4cc9da84048",
    "c": "8c569e0855c2",
    "d": "2026-10-03"
   },
@@ -2322,8 +2332,13 @@
    "c": "17abf0439226",
    "d": "2026-10-03"
   },
+  "/produto/moldura-2-din-hyundai-hb20-12-19-preta--2375/": {
+   "h": "d07c58c44b71",
+   "c": "52220fd223f1",
+   "d": "2026-10-20"
+  },
   "/produto/moldura-2-din-japones-e-1-din-toyota-etios-com-gaveta--3112/": {
-   "h": "a60bd99e68e5",
+   "h": "0e93394acd1e",
    "c": "08b737f893d1",
    "d": "2026-10-03"
   },
@@ -2333,22 +2348,22 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-japones-vw-polo-golf-fox-g2-ecosport-fiesta--846/": {
-   "h": "e40ae2b3983f",
+   "h": "e9ce781865f1",
    "c": "a8c486e0bb21",
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-renault-duster-oroch-18-21-sem-radio-preta-md--4035md/": {
-   "h": "fc00a1caad32",
+   "h": "a991667827c0",
    "c": "796898222a6c",
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-toyota-corolla-08-13-grafite--2870/": {
-   "h": "b09ba98c4c50",
+   "h": "30f723282b41",
    "c": "ac69c6849714",
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-toyota-corolla-14-16-black-piano-uv-protection--3196/": {
-   "h": "eed170592416",
+   "h": "32f12ef9ae18",
    "c": "6ac4e25ec7f5",
    "d": "2026-10-05"
   },
@@ -2363,13 +2378,8 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-vw-gol-g5-saveiro-voyage-preta--2372/": {
-   "h": "fa798415dbd2",
+   "h": "57944c4c8b6d",
    "c": "11bd1bf658c2",
-   "d": "2026-10-03"
-  },
-  "/produto/moldura-2-din-vw-polo-golf-fox-ecosport-fiesta-bora-passat--4051/": {
-   "h": "ecc4a7ecb315",
-   "c": "08e041b79078",
    "d": "2026-10-03"
   },
   "/produto/moldura-9-chines-com-adaptador-7-chines-e-japones-honda--5676/": {
@@ -2403,7 +2413,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-fiat-toro-2022-black-piano-uv-protection--5870/": {
-   "h": "3c68477fbc35",
+   "h": "5ea94b3e1295",
    "c": "156986b16a4a",
    "d": "2026-10-03"
   },
@@ -2488,7 +2498,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-suzuki-vitara-2016-22--md09-0094-v2/": {
-   "h": "ba86f5d320db",
+   "h": "d64390a5d4c5",
    "c": "8838dbd9924f",
    "d": "2026-10-03"
   },
@@ -2718,7 +2728,7 @@
    "d": "2026-10-03"
   },
   "/produto/p17-super-bright-h27--p17h27/": {
-   "h": "bd0bb5d625ae",
+   "h": "62a857137a6f",
    "c": "f1ddc934f539",
    "d": "2026-10-03"
   },
@@ -2728,7 +2738,7 @@
    "d": "2026-10-03"
   },
   "/produto/p17-super-bright-hb3--p17hb3/": {
-   "h": "e01cc87fb000",
+   "h": "af567186b6b9",
    "c": "71c02563bdc6",
    "d": "2026-10-03"
   },
@@ -2818,7 +2828,7 @@
    "d": "2026-10-03"
   },
   "/produto/par-led-atmosfera-externa-vermelho--tp-4039/": {
-   "h": "0b8bebff80b2",
+   "h": "009b84eef544",
    "c": "1fcbd2ddc012",
    "d": "2026-10-03"
   },
@@ -2988,7 +2998,7 @@
    "d": "2026-10-03"
   },
   "/produto/small-hb4-ray-x-8-4000-lumens--smallhb4/": {
-   "h": "b31ba2d573d6",
+   "h": "96f387fbfa43",
    "c": "10926ccf5561",
    "d": "2026-10-03"
   },
@@ -3318,7 +3328,7 @@
    "d": "2026-10-03"
   },
   "/produto/toyota-hilux-2012-15-sw4-com-uma-moldura-auxiliar-para-a-c--ip09-0161-v1/": {
-   "h": "f59925b6b4b2",
+   "h": "575dba102feb",
    "c": "123faf57e42e",
    "d": "2026-10-03"
   },
@@ -3400,7 +3410,7 @@
  },
  "ausentes": {
   "208": "2026-10-13",
-  "2375": "2026-10-16",
+  "4051": "2026-10-20",
   "4199": "2026-10-16",
   "15200": "2026-10-15",
   "1501004": "2026-10-15",
@@ -3412,7 +3422,9 @@
   "af10000294": "2026-10-08",
   "ip09-0049-v1": "2026-10-07",
   "ip09-0160-v1": "2026-10-05",
+  "ip09-0349-v1": "2026-10-20",
   "k2h7": "2026-10-09",
+  "kc360-keco9000": "2026-10-20",
   "ldcar012": "2026-10-09",
   "md09-0017-v3": "2026-10-14",
   "md09-0281-v1": "2026-10-16",
