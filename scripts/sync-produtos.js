@@ -399,7 +399,7 @@ module.exports = { CONFIG, SyncAbort, executarSync, buscarPagina, coletarPaginas
 if (require.main === module) {
   const log = criarLog(process.env);
   executarSync().then(r => {
-    publicarSaidaActions(process.env, { estado: r.estado, mudou: r.estado === 'MUDOU' ? 'true' : 'false', elegiveis: r.elegiveis });
+    publicarSaidaActions(process.env, { estado: r.estado, mudou: r.estado === 'MUDOU' ? 'true' : 'false', elegiveis: r.elegiveis, sync_concluido: 'true' });   // marcador usado pelo monitor de idade do catálogo
     log(`✅ Sync ${r.estado === 'MUDOU' ? 'atualizou o feed' : 'sem mudança'}: ${r.elegiveis} produtos elegíveis`);
   }).catch(err => {
     const codigo = err instanceof SyncAbort ? err.codigo : 'SYNC_ABORTED_UNEXPECTED';

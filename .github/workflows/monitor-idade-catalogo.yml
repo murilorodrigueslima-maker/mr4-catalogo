@@ -1,0 +1,38 @@
+name: Monitor de idade do catálogo
+
+# Mede o RESULTADO que o cliente vê: última sincronização CONCLUÍDA (marcador do sync), feed público íntegro e site = repositório.
+# UM alerta (Issue) por incidente + comentário de recuperação. O job só fica vermelho se o PRÓPRIO monitor não conseguir consultar o GitHub.
+# O sync-produtos.yml tem um vigia cruzado que abre alerta se ESTE workflow parar.
+on:
+  schedule:
+    - cron: '17 * * * *'      # de hora em hora
+  workflow_dispatch:
+
+concurrency:
+  group: monitor-idade-catalogo
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Avaliar idade e integridade do catálogo
+        timeout-minutes: 5
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          CATALOGO_URL: https://catalogo.mr4distribuidora.com.br
+        run: node scripts/monitor-idade-catalogo.js

@@ -348,7 +348,9 @@ test('workflow: cron e concurrency preservados; timeout global; push seguro; sem
   assert.match(w, /^    timeout-minutes: 15\b/m); assert.match(w, /node scripts\/git-push-seguro\.js/); assert.doesNotMatch(w, /^\s+git push\s*$/m);
   const segredos = new Set([...w.matchAll(/secrets\.([A-Z0-9_]+)/g)].map(m => m[1])); assert.deepEqual([...segredos].sort(), ['GC_ACCESS_TOKEN', 'GC_SECRET_ACCESS_TOKEN']);
   ['repository_dispatch'].forEach(x => assert.equal(w.includes(x), false));
-  assert.deepEqual(fs.readdirSync(path.join(RAIZ, '.github/workflows')), ['sync-produtos.yml']);
+  // monitor de idade do catálogo = ÚNICO workflow adicional permitido (sem secrets)
+  assert.deepEqual(fs.readdirSync(path.join(RAIZ, '.github/workflows')).sort(), ['monitor-idade-catalogo.yml', 'sync-produtos.yml']);
+  assert.doesNotMatch(ler('.github/workflows/monitor-idade-catalogo.yml'), /secrets\./);
 });
 test('logs operacionais úteis e SEM segredos (tokens ficam [REDACTED], inclusive se aparecerem em mensagem de erro)', async () => {
   const f = async () => { throw new Error('falha com TOKEN-ACESSO-SECRETO-123 e access-token: TOKEN-ACESSO-SECRETO-123'); };

@@ -20,6 +20,8 @@ jobs:
     timeout-minutes: 15          # sync normal ≈ 20–30 s; folga para retries, geração, push e IndexNow (antes: padrão de 360 min)
     permissions:
       contents: write
+      actions: read          # vigia cruzado: consulta as execuções do monitor de idade
+      issues: write          # vigia cruzado: UM alerta (Issue) se o monitor estiver ausente
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -56,6 +58,11 @@ jobs:
           git diff --staged --quiet || git commit -m "sync: atualiza produtos.json e páginas [$(date -u '+%d/%m/%Y %H:%M')] UTC"
           node scripts/git-push-seguro.js        # nunca force; se o main mudou durante o run: rebase só com arquivos disjuntos, senão aborta e a próxima execução recupera
 
+      # MARCADOR: só tem conclusão "success" quando o sync CONCLUIU e a publicação (commit/push) deu certo; o monitor de idade do catálogo usa isto para saber a última sincronização REAL.
+      - name: Sincronização concluída (marcador)
+        if: success() && steps.sync.outputs.sync_concluido == 'true'
+        run: echo "sync concluído (estado=${{ steps.sync.outputs.estado }})"
+
       # IndexNow é BEST-EFFORT: roda depois do push seguro, tem timeout/retry curto e o script sempre sai com código 0.
       # Falha aqui NUNCA afeta o sync nem a publicação (continue-on-error + exit 0).
       - name: Notificar IndexNow (best-effort)
@@ -65,3 +72,13 @@ jobs:
           INDEXNOW_URLS_FILE: ${{ runner.temp }}/indexnow-urls.json
           INDEXNOW_AGUARDAR: '1'
         run: node scripts/indexnow.js
+
+      # VIGIA CRUZADO: se o monitor de idade do catálogo estiver ausente (parado/desativado), abre UM alerta (Issue). Nunca falha o sync.
+      - name: Vigia cruzado (monitor de idade presente?)
+        if: always()
+        continue-on-error: true
+        timeout-minutes: 3
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/vigia-cruzado.js
