@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 616,
+ "ativos": 615,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -98,9 +98,9 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "215f36621bb8",
-   "c": "76850ef2d073",
-   "d": "2026-10-20"
+   "h": "c27919eff020",
+   "c": "252397ed5014",
+   "d": "2026-10-21"
   },
   "/categoria/moldura/chevrolet/": {
    "h": "802d2e6b34ae",
@@ -123,9 +123,9 @@
    "d": "2026-10-20"
   },
   "/categoria/moldura/toyota/": {
-   "h": "7abd825443e8",
-   "c": "aedc7ab476ae",
-   "d": "2026-10-20"
+   "h": "8929b73d16fc",
+   "c": "4ac2c173064a",
+   "d": "2026-10-21"
   },
   "/categoria/moldura/volkswagen/": {
    "h": "72dee1611662",
@@ -218,9 +218,9 @@
    "d": "2026-10-03"
   },
   "/marca/fitto-joker/": {
-   "h": "131126d62bfc",
-   "c": "5bfcd797a991",
-   "d": "2026-10-14"
+   "h": "54244ce81de2",
+   "c": "8077036a4919",
+   "d": "2026-10-21"
   },
   "/marca/fitto/": {
    "h": "d84315cda541",
@@ -313,9 +313,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "31dcc812fe10",
-   "c": "940ebe057f3d",
-   "d": "2026-10-20"
+   "h": "eaa6e8ad84bf",
+   "c": "9de9b9cece62",
+   "d": "2026-10-21"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -1472,11 +1472,6 @@
    "c": "5644032c401f",
    "d": "2026-10-03"
   },
-  "/produto/i-panel-de-10-1-polegadas-toyota-corolla-2017-19-black--sm10-0028-v1/": {
-   "h": "e060b37b7a36",
-   "c": "12eace8ebfc8",
-   "d": "2026-10-03"
-  },
   "/produto/interruptor-bloqueio-logan-sandero-14--1511006/": {
    "h": "0e8388e2bc82",
    "c": "7e4795296c1d",
@@ -2243,7 +2238,7 @@
    "d": "2026-10-05"
   },
   "/produto/moldura-10-1-polegadas-compativel-com-toyota-corolla-2014-16--md10-0081-v1/": {
-   "h": "eab518bb7cc5",
+   "h": "e253cf876455",
    "c": "df15e6ef8a6a",
    "d": "2026-10-03"
   },
@@ -2553,17 +2548,17 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-plastica-9-polegadas-compativel-com-honda-civic--md09-0057-v2/": {
-   "h": "14bf7af118c3",
+   "h": "dc5607592f88",
    "c": "8fc9e88e926b",
    "d": "2026-10-03"
   },
   "/produto/moldura-plastica-9-polegadas-compativel-com-honda-civic--md09-0303-v1/": {
-   "h": "01d69bba7e0b",
+   "h": "1bcff766d952",
    "c": "94bac28dd368",
    "d": "2026-10-03"
   },
   "/produto/moldura-plastica-9-polegadas-compativel-com-hyundai-creta--md09-0026-v1/": {
-   "h": "8a531b33dd91",
+   "h": "91bbba9a9440",
    "c": "66452b55e5fb",
    "d": "2026-10-03"
   },
@@ -3430,7 +3425,8 @@
   "md09-0281-v1": "2026-10-16",
   "mr-021": "2026-10-10",
   "rpx005": "2026-10-19",
-  "sm09-0411-v1": "2026-10-07"
+  "sm09-0411-v1": "2026-10-07",
+  "sm10-0028-v1": "2026-10-21"
  },
  "taxonomias": {
   "/categoria/alarme/": {
