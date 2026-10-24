@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 612,
+ "ativos": 611,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -73,9 +73,9 @@
    "d": "2026-10-20"
   },
   "/categoria/interruptores/": {
-   "h": "76adc5cb4e89",
-   "c": "70154fd13f4d",
-   "d": "2026-10-15"
+   "h": "774a814c4acb",
+   "c": "ad49c94008b8",
+   "d": "2026-10-24"
   },
   "/categoria/lampada-de-led/": {
    "h": "033d0c177a22",
@@ -298,9 +298,9 @@
    "d": "2026-10-13"
   },
   "/marca/tiger-auto/": {
-   "h": "b51d8773f869",
-   "c": "30aa81edce6c",
-   "d": "2026-10-15"
+   "h": "017edaa7088d",
+   "c": "1c81db6afe08",
+   "d": "2026-10-24"
   },
   "/marca/tragial/": {
    "h": "359828b67794",
@@ -313,9 +313,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "313afb825363",
-   "c": "d499cc674e43",
-   "d": "2026-10-23"
+   "h": "bb161a2b7504",
+   "c": "b2e55e7ce8c7",
+   "d": "2026-10-24"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -1488,13 +1488,8 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-diant-dir-palio-12-mostrina-cinza--1502020/": {
-   "h": "429b133cf0f8",
+   "h": "abae10ee1845",
    "c": "16b8134fefd8",
-   "d": "2026-10-03"
-  },
-  "/produto/interruptor-de-vidro-diant-dir-palio-grand-siena-idea--1502032/": {
-   "h": "d7343ed08def",
-   "c": "424104d1b80d",
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-diant-esq-nivus-t-cross-polo-virt--1501033/": {
@@ -1503,7 +1498,7 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-duplo-diant-esq-onix-spin-prisma--1504023/": {
-   "h": "79475d3f5fb0",
+   "h": "5f5512d9a7d6",
    "c": "e0c475eb5a6e",
    "d": "2026-10-03"
   },
@@ -1513,7 +1508,7 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-de-vidro-quadruplo-diant-esq-prisma-onix-13--1504021/": {
-   "h": "77dfe0a86284",
+   "h": "5587d60df63b",
    "c": "98493a835108",
    "d": "2026-10-03"
   },
@@ -1548,7 +1543,7 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-do-retrovisor-diant-esq-palio-strada-siena--1502035/": {
-   "h": "d89de67d367c",
+   "h": "0d255bbdd4d8",
    "c": "fe4cac4aaf49",
    "d": "2026-10-03"
   },
@@ -3394,6 +3389,7 @@
   "4199": "2026-10-16",
   "15200": "2026-10-15",
   "1501004": "2026-10-15",
+  "1502032": "2026-10-24",
   "1502033": "2026-10-05",
   "2347-4": "2026-10-08",
   "2699md": "2026-10-13",
