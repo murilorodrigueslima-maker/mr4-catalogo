@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 613,
+ "ativos": 614,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -68,9 +68,9 @@
    "d": "2026-10-06"
   },
   "/categoria/geral/": {
-   "h": "61b1eef13f4f",
-   "c": "43c559a84152",
-   "d": "2026-10-20"
+   "h": "40c3d3125a20",
+   "c": "55aad6889f86",
+   "d": "2026-10-27"
   },
   "/categoria/interruptores/": {
    "h": "774a814c4acb",
@@ -696,6 +696,11 @@
    "h": "443f043cb000",
    "c": "7a3454b66fa7",
    "d": "2026-10-03"
+  },
+  "/produto/camera-veicular-blackbox-pro-dupla-wi-fi-full-hd-1080p--blackbox-pro/": {
+   "h": "c38b9dc33d76",
+   "c": "0532cc68b86b",
+   "d": "2026-10-27"
   },
   "/produto/canbus-t10-adaptador--mr-100/": {
    "h": "32edcd5b5108",
@@ -1938,7 +1943,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-halogena-pr21w-1-polo-12v-pacote-c-10-uni--1025007/": {
-   "h": "4487db355c48",
+   "h": "3b59d633641f",
    "c": "d6c9d5a029f1",
    "d": "2026-10-12"
   },
@@ -1988,7 +1993,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-super-branca-8500k-hb4-12v-50w-pacote-c-10-uns--1011hb4/": {
-   "h": "a97be43ec8e9",
+   "h": "ca5a9f9abd6e",
    "c": "9afdef700bb1",
    "d": "2026-10-12"
   },
@@ -2808,7 +2813,7 @@
    "d": "2026-10-03"
   },
   "/produto/par-led-atmosfera-externa-vermelho--tp-4039/": {
-   "h": "009b84eef544",
+   "h": "6b47ce265f0a",
    "c": "1fcbd2ddc012",
    "d": "2026-10-03"
   },
@@ -2973,7 +2978,7 @@
    "d": "2026-10-03"
   },
   "/produto/small-hb4-ray-x-8-4000-lumens--smallhb4/": {
-   "h": "96f387fbfa43",
+   "h": "038dd1224584",
    "c": "10926ccf5561",
    "d": "2026-10-03"
   },
