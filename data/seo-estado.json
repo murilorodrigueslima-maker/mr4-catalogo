@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 613,
+ "ativos": 614,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -68,8 +68,8 @@
    "d": "2026-10-06"
   },
   "/categoria/geral/": {
-   "h": "40c3d3125a20",
-   "c": "55aad6889f86",
+   "h": "ad8bbb86518a",
+   "c": "007b6e73d903",
    "d": "2026-10-27"
   },
   "/categoria/interruptores/": {
@@ -451,6 +451,11 @@
    "h": "6fb773d5c552",
    "c": "0b4a3f25749a",
    "d": "2026-10-03"
+  },
+  "/produto/alicate-desencapador-universal-h1307-para-cabos-e-fios--h1307/": {
+   "h": "85dbf502451c",
+   "c": "b103d769fe60",
+   "d": "2026-10-27"
   },
   "/produto/android-7-octacore-double-din-2gb-ram-64gb-memoria-kx3--krc4110/": {
    "h": "f9c4b7591f8a",
@@ -1843,7 +1848,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-clear-2-polos-p21-5w-12v-caixa-10un--1025004/": {
-   "h": "9130318914a0",
+   "h": "ea2ad6bfad26",
    "c": "acfd62f997ca",
    "d": "2026-10-03"
   },
@@ -1943,7 +1948,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-halogena-pr21w-1-polo-12v-pacote-c-10-uni--1025007/": {
-   "h": "3b59d633641f",
+   "h": "3fc0555aa58c",
    "c": "d6c9d5a029f1",
    "d": "2026-10-12"
   },
@@ -1993,7 +1998,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-super-branca-8500k-hb4-12v-50w-pacote-c-10-uns--1011hb4/": {
-   "h": "ca5a9f9abd6e",
+   "h": "7670cef2e4de",
    "c": "9afdef700bb1",
    "d": "2026-10-12"
   },
@@ -3318,7 +3323,7 @@
    "d": "2026-10-03"
   },
   "/produto/trava-antifurto-para-estepe-hilux--mk5001/": {
-   "h": "5308032611de",
+   "h": "6872869cf844",
    "c": "ecf2fc33ce58",
    "d": "2026-10-03"
   },
