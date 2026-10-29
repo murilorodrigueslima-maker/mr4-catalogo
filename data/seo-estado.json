@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 612,
+ "ativos": 611,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -98,9 +98,9 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "23374985c347",
-   "c": "8ae7de199928",
-   "d": "2026-10-23"
+   "h": "9eb2d03bcd90",
+   "c": "a98f5ca534ac",
+   "d": "2026-10-29"
   },
   "/categoria/moldura/chevrolet/": {
    "h": "0406e6a70810",
@@ -218,9 +218,9 @@
    "d": "2026-10-03"
   },
   "/marca/fitto-joker/": {
-   "h": "54244ce81de2",
-   "c": "8077036a4919",
-   "d": "2026-10-21"
+   "h": "b15f110dfb0a",
+   "c": "c2830b164d42",
+   "d": "2026-10-29"
   },
   "/marca/fitto/": {
    "h": "d84315cda541",
@@ -313,8 +313,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "dbf19563239a",
-   "c": "91723edfc5a4",
+   "h": "2fe346f9f451",
+   "c": "ed624eeff3aa",
    "d": "2026-10-29"
   },
   "/privacidade/": {
@@ -1467,11 +1467,6 @@
    "c": "137ed7232f79",
    "d": "2026-10-03"
   },
-  "/produto/i-panel-de-09-polegadas-jeep-renegade-2015-22-com-escrita--ip09-0046-v1/": {
-   "h": "b79a9b3f1b89",
-   "c": "84d2d30d062b",
-   "d": "2026-10-03"
-  },
   "/produto/i-panel-de-09-polegadas-renault-sandero-2008-11-prata--ip09-0067-v1/": {
    "h": "cbff95bd3190",
    "c": "5644032c401f",
@@ -2258,7 +2253,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-chines-e-japones-hyundai-i30-09-12-ar-digital--3165/": {
-   "h": "e5cd1db5360b",
+   "h": "b9c5d729d787",
    "c": "87a33b1e2fe6",
    "d": "2026-10-05"
   },
@@ -2273,7 +2268,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-chines-e-japones-volkswagen-up-17-21-black--4019md/": {
-   "h": "2d4204981cd7",
+   "h": "98456196f4c9",
    "c": "ed4e4edf3654",
    "d": "2026-10-05"
   },
@@ -2293,7 +2288,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-gm-spin-18-21-preta--4271/": {
-   "h": "0ea0d4c8b567",
+   "h": "02bd40925ece",
    "c": "a09ba30feca1",
    "d": "2026-10-03"
   },
@@ -2373,7 +2368,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-chines-vw-new-beetle-2006-2010-preta--5899/": {
-   "h": "2d92179c1097",
+   "h": "003da287eaa0",
    "c": "2d5ee686e861",
    "d": "2026-10-05"
   },
@@ -2453,7 +2448,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-fiat-palio-attractive--md09-0415-v1/": {
-   "h": "89e2af4394bc",
+   "h": "c47668249a1c",
    "c": "2d3841dca9eb",
    "d": "2026-10-03"
   },
@@ -2528,7 +2523,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-plastica-9-polegadas-compativel-com-fiat-strada--md09-0102-v1/": {
-   "h": "b98ab971c32b",
+   "h": "1f5085194964",
    "c": "52f8d838378e",
    "d": "2026-10-03"
   },
@@ -3406,6 +3401,7 @@
   "89-m4a": "2026-10-23",
   "af10000123": "2026-10-26",
   "af10000294": "2026-10-08",
+  "ip09-0046-v1": "2026-10-29",
   "ip09-0049-v1": "2026-10-07",
   "ip09-0160-v1": "2026-10-05",
   "ip09-0349-v1": "2026-10-20",
