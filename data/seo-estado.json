@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 613,
+ "ativos": 623,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -48,13 +48,13 @@
    "d": "2026-10-19"
   },
   "/categoria/chicotes/": {
-   "h": "75aace6a826c",
-   "c": "da32a75d2a77",
-   "d": "2026-10-06"
+   "h": "845e12ac50d5",
+   "c": "53befefa4a0e",
+   "d": "2026-10-29"
   },
   "/categoria/diversos/": {
-   "h": "2572ef609be6",
-   "c": "1d5dcf7f45ee",
+   "h": "c31e59febc9c",
+   "c": "627a04f6c388",
    "d": "2026-10-29"
   },
   "/categoria/farol-de-milha/": {
@@ -63,14 +63,14 @@
    "d": "2026-10-29"
   },
   "/categoria/fusiveis/": {
-   "h": "4347e6480192",
-   "c": "19f13be06592",
-   "d": "2026-10-06"
+   "h": "20a3724f6de7",
+   "c": "b517154f2a0d",
+   "d": "2026-10-29"
   },
   "/categoria/geral/": {
-   "h": "ad8bbb86518a",
-   "c": "007b6e73d903",
-   "d": "2026-10-27"
+   "h": "09603ea1574c",
+   "c": "254659758904",
+   "d": "2026-10-29"
   },
   "/categoria/interruptores/": {
    "h": "774a814c4acb",
@@ -78,8 +78,8 @@
    "d": "2026-10-24"
   },
   "/categoria/lampada-de-led/": {
-   "h": "e50cb88946f9",
-   "c": "89b403e6245a",
+   "h": "e86bd41b1866",
+   "c": "b4d0da6eabe8",
    "d": "2026-10-29"
   },
   "/categoria/lampadas-halogenas/": {
@@ -98,39 +98,39 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "b92e4ef467b0",
-   "c": "c812905f73f7",
+   "h": "7895559c5f8f",
+   "c": "8505616c59db",
    "d": "2026-10-29"
   },
   "/categoria/moldura/chevrolet/": {
-   "h": "0406e6a70810",
-   "c": "ad7e137af3aa",
-   "d": "2026-10-23"
+   "h": "0f97e072f9a5",
+   "c": "2f135aea1b29",
+   "d": "2026-10-29"
   },
   "/categoria/moldura/fiat/": {
-   "h": "8aa1c02570c7",
-   "c": "879fa58c8cdf",
-   "d": "2026-10-23"
+   "h": "40bfb931882d",
+   "c": "19b480747bde",
+   "d": "2026-10-29"
   },
   "/categoria/moldura/honda/": {
-   "h": "5b03e9d45cda",
-   "c": "d15e7828f171",
-   "d": "2026-10-23"
+   "h": "028979e9e843",
+   "c": "c0c9a9a1b70d",
+   "d": "2026-10-29"
   },
   "/categoria/moldura/hyundai/": {
-   "h": "f10f7bba0552",
-   "c": "66db35d504c4",
-   "d": "2026-10-23"
+   "h": "7f6389f1e977",
+   "c": "0f2b3bd42a30",
+   "d": "2026-10-29"
   },
   "/categoria/moldura/toyota/": {
-   "h": "2e051416423e",
-   "c": "a758c7a4aa13",
-   "d": "2026-10-23"
+   "h": "8929b73d16fc",
+   "c": "4ac2c173064a",
+   "d": "2026-10-29"
   },
   "/categoria/moldura/volkswagen/": {
-   "h": "1e08a2626561",
-   "c": "95ceda9e0f3b",
-   "d": "2026-10-23"
+   "h": "72dee1611662",
+   "c": "e580238f5886",
+   "d": "2026-10-29"
   },
   "/categoria/multimidia/": {
    "h": "6610c1f726e7",
@@ -163,9 +163,9 @@
    "d": "2026-10-27"
   },
   "/categoria/terminais/": {
-   "h": "5df02f2f8cb0",
-   "c": "b0d067c588a5",
-   "d": "2026-10-05"
+   "h": "0716329d4e8b",
+   "c": "f52cc04a0b3d",
+   "d": "2026-10-29"
   },
   "/categoria/travas/": {
    "h": "f09b12844770",
@@ -278,9 +278,9 @@
    "d": "2026-10-03"
   },
   "/marca/permak/": {
-   "h": "0d1ba6465536",
-   "c": "90f1c4499215",
-   "d": "2026-10-26"
+   "h": "e16537431ef9",
+   "c": "501a1e31c224",
+   "d": "2026-10-29"
   },
   "/marca/rayx/": {
    "h": "4352b52f8e6c",
@@ -313,8 +313,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "e431b695dae4",
-   "c": "6996a15ce773",
+   "h": "25015db1d2c1",
+   "c": "f5f5601cafea",
    "d": "2026-10-29"
   },
   "/privacidade/": {
@@ -453,7 +453,7 @@
    "d": "2026-10-03"
   },
   "/produto/alicate-desencapador-universal-h1307-para-cabos-e-fios--h1307/": {
-   "h": "85dbf502451c",
+   "h": "79aaa1906206",
    "c": "b103d769fe60",
    "d": "2026-10-27"
   },
@@ -637,6 +637,11 @@
    "c": "f3e712c8cf9c",
    "d": "2026-10-03"
   },
+  "/produto/cabo-antena-gm-peugeot-2013--80-b6/": {
+   "h": "20dfe483c2bd",
+   "c": "1d78efd89525",
+   "d": "2026-10-29"
+  },
   "/produto/cabo-conexao-king-diamonds-series-para-hyundai-hb20-2020--kpc-hy-4067w/": {
    "h": "d26d643fcd9a",
    "c": "4a71209d6be5",
@@ -703,7 +708,7 @@
    "d": "2026-10-03"
   },
   "/produto/camera-veicular-blackbox-pro-dupla-wi-fi-full-hd-1080p--blackbox-pro/": {
-   "h": "c38b9dc33d76",
+   "h": "fc42ea6d64b7",
    "c": "0532cc68b86b",
    "d": "2026-10-27"
   },
@@ -968,7 +973,7 @@
    "d": "2026-10-03"
   },
   "/produto/chicote-4-vias-injetado-fio-4-00mm--35-x2/": {
-   "h": "59df3934f0dd",
+   "h": "7e77b998edc7",
    "c": "d1c05e7e970c",
    "d": "2026-10-03"
   },
@@ -1033,12 +1038,12 @@
    "d": "2026-10-06"
   },
   "/produto/chicote-p-cd-pioneer-1350-1450--35-m/": {
-   "h": "3207465819c1",
+   "h": "8dca8fd33921",
    "c": "61f3dba360c7",
    "d": "2026-10-05"
   },
   "/produto/chicote-p-cd-pioneer-2250-2280-4250--35-p1/": {
-   "h": "2867393186c5",
+   "h": "44d35b711e09",
    "c": "74326e85eab4",
    "d": "2026-10-06"
   },
@@ -1063,12 +1068,12 @@
    "d": "2026-10-03"
   },
   "/produto/cinta-abracadeira-10cm-x-2-5mm--44/": {
-   "h": "3ebe549c0bec",
+   "h": "112ee69210d4",
    "c": "11b39f99461b",
    "d": "2026-10-03"
   },
   "/produto/cinta-abracadeira-15cm-x-3-6mm--45/": {
-   "h": "537acce73598",
+   "h": "7a93cc12236f",
    "c": "9e5970ebaee5",
    "d": "2026-10-03"
   },
@@ -1203,7 +1208,7 @@
    "d": "2026-10-03"
   },
   "/produto/espuma-p-chicote-s-cola--134-f/": {
-   "h": "267de33d1085",
+   "h": "f186a25fddb3",
    "c": "91959ef1df64",
    "d": "2026-10-05"
   },
@@ -1338,7 +1343,7 @@
    "d": "2026-10-24"
   },
   "/produto/fita-dupla-face-rolo-0-90-x-90-cm--202-b/": {
-   "h": "a1e4cf588ab1",
+   "h": "6b773d170396",
    "c": "1ba306a16557",
    "d": "2026-10-03"
   },
@@ -1348,9 +1353,19 @@
    "d": "2026-10-03"
   },
   "/produto/fita-isolante-rolo-c-10m-permak--200-p/": {
-   "h": "6ed015e2ed00",
+   "h": "839e50ce0ff6",
    "c": "ab06169b1e54",
    "d": "2026-10-05"
+  },
+  "/produto/fita-isolante-rolo-c-20m-permak--202-p/": {
+   "h": "8a999b810027",
+   "c": "fe1b4bffadf5",
+   "d": "2026-10-29"
+  },
+  "/produto/fita-tecido-25m-x-19mm--208/": {
+   "h": "119d933944a1",
+   "c": "99993aa624df",
+   "d": "2026-10-29"
   },
   "/produto/fk903-alf-02-controle-cr941-com-antifurto-travamento--30800342/": {
    "h": "cc6808797f63",
@@ -1363,17 +1378,17 @@
    "d": "2026-10-03"
   },
   "/produto/fusivel-de-lamina-comum-15a--61-d/": {
-   "h": "be6bbc35f2bf",
+   "h": "a68fb2e2b09a",
    "c": "26fbd314cf75",
    "d": "2026-10-03"
   },
   "/produto/fusivel-de-lamina-comum-20a--61-e/": {
-   "h": "2467b7e17eb2",
+   "h": "0ad3f387bba5",
    "c": "f678134038bf",
    "d": "2026-10-03"
   },
   "/produto/fusivel-de-lamina-comum-40a--61-h/": {
-   "h": "88bae2f1be4c",
+   "h": "4dabbf4cb115",
    "c": "4205675dec12",
    "d": "2026-10-03"
   },
@@ -1387,18 +1402,28 @@
    "c": "4c0af0437f14",
    "d": "2026-10-03"
   },
+  "/produto/fusivel-lamina-mini-10-amp--64-c/": {
+   "h": "f8b62764a6b6",
+   "c": "03d6c47a2f76",
+   "d": "2026-10-29"
+  },
+  "/produto/fusivel-lamina-mini-15-amp--64-d/": {
+   "h": "f379ca3b1e1c",
+   "c": "8b96e5163c81",
+   "d": "2026-10-29"
+  },
   "/produto/fusivel-lamina-mini-20-amp--64-e/": {
    "h": "92800a77e598",
    "c": "22d84c9e351c",
    "d": "2026-10-03"
   },
   "/produto/fusivel-lamina-mini-30-amp--64-g/": {
-   "h": "292ee470e804",
+   "h": "5c9c35b95d71",
    "c": "c36f1c66b5ca",
    "d": "2026-10-03"
   },
   "/produto/fusivel-lamina-mini-5-amp--64-b/": {
-   "h": "ccfb5e1b1f8f",
+   "h": "d5959e4a5d90",
    "c": "824ee7ef4e50",
    "d": "2026-10-03"
   },
@@ -1463,7 +1488,7 @@
    "d": "2026-10-07"
   },
   "/produto/i-panel-de-09-polegadas-fiat-uno-2015-21-preto-fosco--ip09-0175-v1/": {
-   "h": "1e1c4a45aeb4",
+   "h": "4ba30b6012bc",
    "c": "20edecc0cedb",
    "d": "2026-10-03"
   },
@@ -2147,28 +2172,23 @@
    "c": "231e848004f4",
    "d": "2026-10-03"
   },
-  "/produto/m7-h11-m7-h11-kit-led-super-canbus-12v-45w-chip-csp--001053/": {
-   "h": "336285363a78",
-   "c": "dce95f27d05a",
-   "d": "2026-10-03"
-  },
   "/produto/m7-h16-m7-h16-kit-led-super-canbus-12v-45w-chip-csp--001059/": {
-   "h": "e4ab65e74b94",
+   "h": "a9e8859aa929",
    "c": "dfd6876f782d",
    "d": "2026-10-03"
   },
   "/produto/m7-h27-m7-h27-kit-led-super-canbus-12v-45w-chip-csp--001055/": {
-   "h": "c87fc73f752b",
+   "h": "e817c94684de",
    "c": "b80858e6c1a9",
    "d": "2026-10-03"
   },
   "/produto/m7-h3-m7-h3-kit-led-super-canbus-12v-45w-chip-csp--001056/": {
-   "h": "f6f1034509aa",
+   "h": "1ee14d946161",
    "c": "54608fe1f95f",
    "d": "2026-10-03"
   },
   "/produto/m7-h4-m7-h4-kit-led-super-canbus-12v-45w-chip-csp--001051/": {
-   "h": "4a5b39d2b493",
+   "h": "30a40206a481",
    "c": "f5a756c53df5",
    "d": "2026-10-03"
   },
@@ -2198,32 +2218,57 @@
    "d": "2026-10-03"
   },
   "/produto/mold-adaptadora-1din-p-9-universal--89-g18/": {
-   "h": "2d70fb8746dc",
+   "h": "27ae94672b5e",
    "c": "8a904e72651b",
    "d": "2026-10-05"
   },
+  "/produto/mold-duster-sand-logan-oroch-kwid-2din--89-e4/": {
+   "h": "327b5a69571b",
+   "c": "1f050cb35947",
+   "d": "2026-10-29"
+  },
+  "/produto/mold-fiat-strada-21-24-pt-fosco-2din--89-j18/": {
+   "h": "affe7cd4b120",
+   "c": "b2ab2094063a",
+   "d": "2026-10-29"
+  },
+  "/produto/mold-gm-corsa-montana-vectra-2-din-pret--89-m1/": {
+   "h": "ab9865c98e1d",
+   "c": "81b0d093bb35",
+   "d": "2026-10-29"
+  },
   "/produto/mold-gol-g7-amarok-jetta-tiguan-2-din--89-a5/": {
-   "h": "7c6cda953bb7",
+   "h": "13f11eaa38db",
    "c": "8b0f42acccde",
    "d": "2026-10-05"
   },
   "/produto/mold-gol-parati-saveiro-g4-2-din-preta--89-a6/": {
-   "h": "a9572ff5891f",
+   "h": "13547cd67ef2",
    "c": "4f28f407d793",
    "d": "2026-10-03"
   },
   "/produto/mold-gol-voyage-saveiro-g6-2-din-preta--89-a8/": {
-   "h": "280b8604e96a",
+   "h": "8748d6da2c38",
    "c": "3cf041a89d1d",
    "d": "2026-10-06"
   },
+  "/produto/mold-mobi-black-piano-16-19-2-din--89-e6/": {
+   "h": "f22be18c6b4e",
+   "c": "7b8a1d6066b9",
+   "d": "2026-10-29"
+  },
   "/produto/mold-palio-siena-2-din-preta--89-j1/": {
-   "h": "66862393b6bd",
+   "h": "bbcc71c53b94",
    "c": "871c9e6cd394",
    "d": "2026-10-03"
   },
+  "/produto/mold-siena-strada-13-2-din-preta--89-j6/": {
+   "h": "70dcc7388b7b",
+   "c": "66f522e54f21",
+   "d": "2026-10-29"
+  },
   "/produto/mold-toyota-hilux-sw4-2-din--89-z3/": {
-   "h": "4c3bd021bbe6",
+   "h": "068ccacce664",
    "c": "4ee7af09543d",
    "d": "2026-10-05"
   },
@@ -2463,7 +2508,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-ford-ranger-simples-xl--md09-0052-v1/": {
-   "h": "0edc64ea311c",
+   "h": "23e2c8cdccdc",
    "c": "0232004c3474",
    "d": "2026-10-03"
   },
@@ -2473,7 +2518,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-honda-hrv-2015-21-black--md09-0020-v1/": {
-   "h": "2b1dbf59dcfa",
+   "h": "6cb2f08f1501",
    "c": "709c548d37a9",
    "d": "2026-10-03"
   },
@@ -2813,7 +2858,7 @@
    "d": "2026-10-03"
   },
   "/produto/par-led-atmosfera-externa-vermelho--tp-4039/": {
-   "h": "6b47ce265f0a",
+   "h": "057212071d3d",
    "c": "1fcbd2ddc012",
    "d": "2026-10-03"
   },
@@ -2978,7 +3023,7 @@
    "d": "2026-10-03"
   },
   "/produto/small-hb4-ray-x-8-4000-lumens--smallhb4/": {
-   "h": "038dd1224584",
+   "h": "71cb993a9eb6",
    "c": "10926ccf5561",
    "d": "2026-10-03"
   },
@@ -3208,7 +3253,7 @@
    "d": "2026-10-03"
   },
   "/produto/terminal-de-encaixe-macho--136/": {
-   "h": "d30e5920d10c",
+   "h": "e2493ae6418a",
    "c": "cb6646451adb",
    "d": "2026-10-03"
   },
@@ -3228,7 +3273,7 @@
    "d": "2026-10-03"
   },
   "/produto/terminal-macho-espadao--136-a/": {
-   "h": "0370ce6ac9a8",
+   "h": "7b4fbecadab4",
    "c": "3e2d911744f0",
    "d": "2026-10-03"
   },
@@ -3253,7 +3298,7 @@
    "d": "2026-10-03"
   },
   "/produto/terminal-olhal-5-32-pre-iso-1-5-2-5mm--139-b/": {
-   "h": "b18de745b64e",
+   "h": "6a8f52485b74",
    "c": "70706381455b",
    "d": "2026-10-03"
   },
@@ -3261,6 +3306,11 @@
    "h": "bc916e70467e",
    "c": "09f0d6743af4",
    "d": "2026-10-03"
+  },
+  "/produto/terminal-olhal-fechado-1-4-md--138-c/": {
+   "h": "e0d97f14c2d2",
+   "c": "901df163d5b8",
+   "d": "2026-10-29"
   },
   "/produto/terminal-olhal-fechado-1-8-pp--138-b/": {
    "h": "680ac3f49fbd",
@@ -3273,7 +3323,7 @@
    "d": "2026-10-05"
   },
   "/produto/terminal-pino-pre-isolado-1-5-2-5-azul--34-l/": {
-   "h": "70248bc955d1",
+   "h": "5cab180e97a5",
    "c": "e82bc1af5118",
    "d": "2026-10-03"
   },
@@ -3394,13 +3444,13 @@
   }
  },
  "ausentes": {
-  "208": "2026-10-13",
   "4051": "2026-10-20",
   "4199": "2026-10-16",
   "15200": "2026-10-15",
   "1501004": "2026-10-15",
   "1502032": "2026-10-24",
   "1502033": "2026-10-05",
+  "001053": "2026-10-29",
   "100-m": "2026-10-26",
   "2347-4": "2026-10-08",
   "2699md": "2026-10-13",
