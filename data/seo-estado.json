@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 611,
+ "ativos": 613,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -58,9 +58,9 @@
    "d": "2026-10-29"
   },
   "/categoria/farol-de-milha/": {
-   "h": "fc68d9b2ddcd",
-   "c": "a829ec0835b6",
-   "d": "2026-10-21"
+   "h": "111f3ef03da5",
+   "c": "8fde6c5fb4c3",
+   "d": "2026-10-29"
   },
   "/categoria/fusiveis/": {
    "h": "4347e6480192",
@@ -78,8 +78,8 @@
    "d": "2026-10-24"
   },
   "/categoria/lampada-de-led/": {
-   "h": "a55b94f57208",
-   "c": "63ce2d2fee04",
+   "h": "e50cb88946f9",
+   "c": "89b403e6245a",
    "d": "2026-10-29"
   },
   "/categoria/lampadas-halogenas/": {
@@ -98,8 +98,8 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "9eb2d03bcd90",
-   "c": "a98f5ca534ac",
+   "h": "b92e4ef467b0",
+   "c": "c812905f73f7",
    "d": "2026-10-29"
   },
   "/categoria/moldura/chevrolet/": {
@@ -133,9 +133,9 @@
    "d": "2026-10-23"
   },
   "/categoria/multimidia/": {
-   "h": "09bd0a30e4b6",
-   "c": "71742d5618ac",
-   "d": "2026-10-14"
+   "h": "6610c1f726e7",
+   "c": "4a92800ef63b",
+   "d": "2026-10-29"
   },
   "/categoria/palheta/": {
    "h": "9c5e963f2bfa",
@@ -183,9 +183,9 @@
    "d": "2026-10-03"
   },
   "/marca/2mix/": {
-   "h": "a5c778b38ae1",
-   "c": "9a6bc3a616f8",
-   "d": "2026-10-03"
+   "h": "b87b138fa75d",
+   "c": "586ac9c58cdd",
+   "d": "2026-10-29"
   },
   "/marca/alemar/": {
    "h": "4e53d1e05b01",
@@ -208,9 +208,9 @@
    "d": "2026-10-15"
   },
   "/marca/fiamon/": {
-   "h": "813364ee4c71",
-   "c": "7080a334d2ac",
-   "d": "2026-10-20"
+   "h": "61cb8a01b053",
+   "c": "fcc6260c7a37",
+   "d": "2026-10-29"
   },
   "/marca/first-option/": {
    "h": "4e7faeaad532",
@@ -263,9 +263,9 @@
    "d": "2026-10-29"
   },
   "/marca/ldcar/": {
-   "h": "a5e746866267",
-   "c": "78a5efdf49ed",
-   "d": "2026-10-27"
+   "h": "ccb2f25b5fed",
+   "c": "3a5c23f17004",
+   "d": "2026-10-29"
   },
   "/marca/look-out/": {
    "h": "0a37fe70b67b",
@@ -313,8 +313,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "2fe346f9f451",
-   "c": "ed624eeff3aa",
+   "h": "e431b695dae4",
+   "c": "6996a15ce773",
    "d": "2026-10-29"
   },
   "/privacidade/": {
@@ -383,7 +383,7 @@
    "d": "2026-10-27"
   },
   "/produto/adaptador-carplay-e-android-auto-sem-fio-peining-pei-bta06--pei-bta06/": {
-   "h": "7e0eb0adac77",
+   "h": "07ed709291d3",
    "c": "961f6997b5a9",
    "d": "2026-10-14"
   },
@@ -1143,7 +1143,7 @@
    "d": "2026-10-03"
   },
   "/produto/d1-ldcar-30-000-lumens--ld1/": {
-   "h": "c2fa9c7ef2e6",
+   "h": "8562deaab71d",
    "c": "c1fa77857709",
    "d": "2026-10-20"
   },
@@ -1253,7 +1253,7 @@
    "d": "2026-10-03"
   },
   "/produto/farol-de-milha-avulso-hb20-hb20s-2016-2017-lado-direito--0205008d/": {
-   "h": "6a4b3bb7cfd3",
+   "h": "989007c69af3",
    "c": "1e08ef8a97c2",
    "d": "2026-10-03"
   },
@@ -1291,6 +1291,11 @@
    "h": "9e445cb9a373",
    "c": "aaa3098bcf38",
    "d": "2026-10-03"
+  },
+  "/produto/farol-projetor-led-auxiliar-toyota--ldcar012/": {
+   "h": "d4adbb38f64b",
+   "c": "8e359af098cd",
+   "d": "2026-10-29"
   },
   "/produto/fdm-a-agile-14-19-cobalt-sonic-onix-spin-new-prisma-e--0204022e/": {
    "h": "3fe3494ec87f",
@@ -1658,12 +1663,12 @@
    "d": "2026-10-03"
   },
   "/produto/kit-farol-de-milha-led-diversos-12v-asx4403--5729-7/": {
-   "h": "0875a677c824",
+   "h": "cd2745f3aea3",
    "c": "8ca9ae915fa1",
    "d": "2026-10-09"
   },
   "/produto/kit-farol-de-milha-led-fiat-12v-asx4402--5730-5/": {
-   "h": "ad1a59a59113",
+   "h": "04ee0a524ba7",
    "c": "8cf61dfdc6f6",
    "d": "2026-10-03"
   },
@@ -1673,7 +1678,7 @@
    "d": "2026-10-06"
   },
   "/produto/kit-farol-de-milha-led-vw-g5-12v-asx4410--asx4410/": {
-   "h": "d6ff50ba8bec",
+   "h": "3763d8bf1db9",
    "c": "a3f91e9276d0",
    "d": "2026-10-03"
   },
@@ -1713,7 +1718,7 @@
    "d": "2026-10-03"
   },
   "/produto/kit-led-full-mini-r8-chip-csp-2-lamp-12v-30000lm-6500k-h4-2--sc-r8mini-h4-sc/": {
-   "h": "f055df76282a",
+   "h": "f1569febba97",
    "c": "d51706046319",
    "d": "2026-10-03"
   },
@@ -1758,9 +1763,9 @@
    "d": "2026-10-03"
   },
   "/produto/kit-rgb-nano-18x1-premium-ldcar--ldcar010/": {
-   "h": "805a271f5b2f",
-   "c": "20f5b0d81582",
-   "d": "2026-10-03"
+   "h": "10156282d44b",
+   "c": "78d2f1d6c9e4",
+   "d": "2026-10-29"
   },
   "/produto/kit-trava-cacamba-fcr2-nova-ranger-2024-p-tampa-c-furo-po--paktfdmn013/": {
    "h": "db80cb137966",
@@ -2093,12 +2098,17 @@
    "d": "2026-10-03"
   },
   "/produto/led-freio-toyota--mr-300/": {
-   "h": "15fbe897ab78",
+   "h": "be106d895181",
    "c": "a4be140a52ef",
    "d": "2026-10-03"
   },
+  "/produto/led-l1b-para-farol-milha-toyota--mr-108/": {
+   "h": "0bba364a9593",
+   "c": "7a180fbfa932",
+   "d": "2026-10-29"
+  },
   "/produto/led-laser-h4-de-alta-potencia-com-projetor-60w-6500k-12v-24v--1026h4/": {
-   "h": "dce15cbdfbb5",
+   "h": "ec12fb0e5e4a",
    "c": "08d3ecb40bea",
    "d": "2026-10-03"
   },
@@ -2278,7 +2288,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-fiat-toro-g1-16-21-black-piano-uv-protection--4123/": {
-   "h": "b4a602acba32",
+   "h": "535c2713eec1",
    "c": "71681968b216",
    "d": "2026-10-03"
   },
@@ -2393,17 +2403,12 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-fiat-toro-g1-16-21-black-piano-uv-protection--4173/": {
-   "h": "818db24e49b4",
+   "h": "f9d67c510672",
    "c": "5d3cde111424",
    "d": "2026-10-03"
   },
-  "/produto/moldura-9-flutuante-ford-ka-ka-19-21-prata-md--5972md/": {
-   "h": "0027a063e8cf",
-   "c": "2e73b47eeae1",
-   "d": "2026-10-03"
-  },
   "/produto/moldura-9-flutuante-gm-s10-16-ar-analogico-preta--5860/": {
-   "h": "0e1cb2db69f7",
+   "h": "25931f4752e4",
    "c": "b704630407c0",
    "d": "2026-10-03"
   },
@@ -2413,7 +2418,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-flutuante-vw-fox-spacefox-spacecross-crossfox-g3--5862md/": {
-   "h": "5780ea072696",
+   "h": "2678c042e42c",
    "c": "b270c155038f",
    "d": "2026-10-03"
   },
@@ -2608,7 +2613,7 @@
    "d": "2026-10-03"
   },
   "/produto/multimidia-10p-ips-detroit-2mix-2-32-cpaa--2m-det10s/": {
-   "h": "d6165fc48bba",
+   "h": "543b11cfffec",
    "c": "8f49fb703553",
    "d": "2026-10-03"
   },
@@ -2617,8 +2622,13 @@
    "c": "eeb32e8b8049",
    "d": "2026-10-03"
   },
+  "/produto/multimidia-9p-black-mix-caraudio-orange-quad-3-32--bm-4332-9p/": {
+   "h": "31e3e1993a59",
+   "c": "cb0655cca5cb",
+   "d": "2026-10-29"
+  },
   "/produto/multimidia-9p-ips-detroit-2mix-2-32-cpaa--2m-det09s/": {
-   "h": "973388e229c2",
+   "h": "b68068ecd210",
    "c": "92ecfbc2f91a",
    "d": "2026-10-03"
   },
@@ -2963,7 +2973,7 @@
    "d": "2026-10-03"
   },
   "/produto/small-h27-ray-x-8-4000-lumens--smallh27/": {
-   "h": "d9444462b4c6",
+   "h": "e13f9c20a2b8",
    "c": "835199fecb13",
    "d": "2026-10-03"
   },
@@ -3396,6 +3406,7 @@
   "2699md": "2026-10-13",
   "5615-3": "2026-10-29",
   "5731-4": "2026-10-21",
+  "5972md": "2026-10-29",
   "89-j28c": "2026-10-06",
   "89-j3b": "2026-10-15",
   "89-m4a": "2026-10-23",
@@ -3409,7 +3420,6 @@
   "kc360-keco9000": "2026-10-20",
   "kx1075": "2026-10-29",
   "ldcar011": "2026-10-23",
-  "ldcar012": "2026-10-09",
   "md09-0017-v3": "2026-10-14",
   "md09-0281-v1": "2026-10-16",
   "mr-052": "2026-10-26",
