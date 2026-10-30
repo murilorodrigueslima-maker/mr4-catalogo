@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 624,
+ "ativos": 622,
  "lastmod": {
   "/": {
    "h": "0a1521887f72",
@@ -68,9 +68,9 @@
    "d": "2026-10-29"
   },
   "/categoria/geral/": {
-   "h": "09603ea1574c",
-   "c": "254659758904",
-   "d": "2026-10-29"
+   "h": "2c72d55e9ca2",
+   "c": "9370d0dd929b",
+   "d": "2026-10-30"
   },
   "/categoria/interruptores/": {
    "h": "774a814c4acb",
@@ -88,9 +88,9 @@
    "d": "2026-10-12"
   },
   "/categoria/leds-interno-externo/": {
-   "h": "33cb59f3784f",
-   "c": "f9fd707a8bb4",
-   "d": "2026-10-27"
+   "h": "66b0398b6af1",
+   "c": "05afd3b5b300",
+   "d": "2026-10-30"
   },
   "/categoria/modulos/": {
    "h": "47818076b9ee",
@@ -263,9 +263,9 @@
    "d": "2026-10-29"
   },
   "/marca/ldcar/": {
-   "h": "ccb2f25b5fed",
-   "c": "3a5c23f17004",
-   "d": "2026-10-29"
+   "h": "a5837d3cd05a",
+   "c": "57d419d04ff9",
+   "d": "2026-10-30"
   },
   "/marca/look-out/": {
    "h": "0a37fe70b67b",
@@ -313,9 +313,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "44e1e4f24187",
-   "c": "8b4fd237afb3",
-   "d": "2026-10-29"
+   "h": "65d5fb806978",
+   "c": "8277d2bad43c",
+   "d": "2026-10-30"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -453,7 +453,7 @@
    "d": "2026-10-03"
   },
   "/produto/alicate-desencapador-universal-h1307-para-cabos-e-fios--h1307/": {
-   "h": "79aaa1906206",
+   "h": "4c14ed1b169b",
    "c": "b103d769fe60",
    "d": "2026-10-27"
   },
@@ -706,11 +706,6 @@
    "h": "443f043cb000",
    "c": "7a3454b66fa7",
    "d": "2026-10-03"
-  },
-  "/produto/camera-veicular-blackbox-pro-dupla-wi-fi-full-hd-1080p--blackbox-pro/": {
-   "h": "fc42ea6d64b7",
-   "c": "0532cc68b86b",
-   "d": "2026-10-27"
   },
   "/produto/canbus-t10-adaptador--mr-100/": {
    "h": "32edcd5b5108",
@@ -1338,7 +1333,7 @@
    "d": "2026-10-06"
   },
   "/produto/fita-drl-60-cm--mr4-014/": {
-   "h": "a76ea477f797",
+   "h": "0bba1d911cd5",
    "c": "88dd81625b3a",
    "d": "2026-10-24"
   },
@@ -2023,7 +2018,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-super-branca-8500k-hb4-12v-50w-pacote-c-10-uns--1011hb4/": {
-   "h": "7670cef2e4de",
+   "h": "f1715fa2d5af",
    "c": "9afdef700bb1",
    "d": "2026-10-12"
   },
@@ -2103,7 +2098,7 @@
    "d": "2026-10-03"
   },
   "/produto/laterna-carretinha-cristal-standard-12v-asx5313--5711-6/": {
-   "h": "dad893e4a3aa",
+   "h": "cd51a43302b2",
    "c": "2e65954c094f",
    "d": "2026-10-09"
   },
@@ -2118,13 +2113,8 @@
    "d": "2026-10-03"
   },
   "/produto/led-31mm-interno-smd--2077699943404/": {
-   "h": "604e0e489cab",
+   "h": "aaa8c1017dd7",
    "c": "3b0a628f5d93",
-   "d": "2026-10-03"
-  },
-  "/produto/led-drl-seta-universal-ldcar--ldcar01/": {
-   "h": "a6eab0c029c3",
-   "c": "22cdbc52b9d2",
    "d": "2026-10-03"
   },
   "/produto/led-freio-toyota--mr-300/": {
@@ -2143,7 +2133,7 @@
    "d": "2026-10-03"
   },
   "/produto/led-mini-cyber-23mm-universal-6w-e-120-lumens-cada-luz--ldcar030/": {
-   "h": "e7ec2fd4ec12",
+   "h": "6b1b9fa1935d",
    "c": "4b99e5b71475",
    "d": "2026-10-03"
   },
@@ -2863,7 +2853,7 @@
    "d": "2026-10-03"
   },
   "/produto/par-led-atmosfera-externa-vermelho--tp-4039/": {
-   "h": "057212071d3d",
+   "h": "ebbcd84dbe87",
    "c": "1fcbd2ddc012",
    "d": "2026-10-03"
   },
@@ -2903,7 +2893,7 @@
    "d": "2026-10-03"
   },
   "/produto/placa-24-leds-premium--mr-006/": {
-   "h": "ac53400ef47d",
+   "h": "38012af9aaf4",
    "c": "54619c168903",
    "d": "2026-10-24"
   },
@@ -3028,7 +3018,7 @@
    "d": "2026-10-03"
   },
   "/produto/small-hb4-ray-x-8-4000-lumens--smallhb4/": {
-   "h": "71cb993a9eb6",
+   "h": "4ab49c74b56a",
    "c": "10926ccf5561",
    "d": "2026-10-03"
   },
@@ -3467,12 +3457,14 @@
   "89-m4a": "2026-10-23",
   "af10000123": "2026-10-26",
   "af10000294": "2026-10-08",
+  "blackbox-pro": "2026-10-30",
   "ip09-0049-v1": "2026-10-07",
   "ip09-0160-v1": "2026-10-05",
   "ip09-0349-v1": "2026-10-20",
   "k2h7": "2026-10-09",
   "kc360-keco9000": "2026-10-20",
   "kx1075": "2026-10-29",
+  "ldcar01": "2026-10-30",
   "ldcar011": "2026-10-23",
   "md09-0017-v3": "2026-10-14",
   "md09-0281-v1": "2026-10-16",
