@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 615,
+ "ativos": 616,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -78,9 +78,9 @@
    "d": "2026-10-24"
   },
   "/categoria/lampada-de-led/": {
-   "h": "a7709efd1116",
-   "c": "187e768226f3",
-   "d": "2026-10-30"
+   "h": "80d2ae2ec83f",
+   "c": "d41d308c4327",
+   "d": "2026-11-03"
   },
   "/categoria/lampadas-halogenas/": {
    "h": "d7f50f0a3251",
@@ -258,9 +258,9 @@
    "d": "2026-10-29"
   },
   "/marca/ldcar/": {
-   "h": "e6b6fe9e0232",
-   "c": "239073ea3734",
-   "d": "2026-10-30"
+   "h": "20c9f01f94ad",
+   "c": "978532782e00",
+   "d": "2026-11-03"
   },
   "/marca/look-out/": {
    "h": "02d9267d1f7e",
@@ -308,9 +308,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "cd2b1303f374",
-   "c": "c860fb51c9dd",
-   "d": "2026-10-31"
+   "h": "b72a0f8651d7",
+   "c": "1126cef11218",
+   "d": "2026-11-03"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -1733,7 +1733,7 @@
    "d": "2026-10-05"
   },
   "/produto/kit-led-full-mini-y3-2-lamp-12v-22000lm-6500k-h27--sc-y3mini-h27-sc/": {
-   "h": "dfacaf303895",
+   "h": "a2dcf00101f9",
    "c": "3d42013292f7",
    "d": "2026-10-05"
   },
@@ -1748,17 +1748,17 @@
    "d": "2026-10-05"
   },
   "/produto/kit-led-full-mini-y3-2-lamp-12v-22000lm-6500k-h7--sc-y3mini-h7-sc/": {
-   "h": "0c2bea4613cf",
+   "h": "26008015131b",
    "c": "5098962aef29",
    "d": "2026-10-05"
   },
   "/produto/kit-led-full-mini-y3-2-lamp-12v-22000lm-6500k-h8-h11-h16--sc-y3mini-h11-sc/": {
-   "h": "ff4cce70d6cb",
+   "h": "07021e5d119b",
    "c": "fbf7fea85807",
    "d": "2026-10-05"
   },
   "/produto/kit-led-full-mini-y3-2-lamp-12v-22000lm-6500k-hb3--sc-y3mini-hb3-sc/": {
-   "h": "02421e183049",
+   "h": "21a142ebd240",
    "c": "f8b8ec83f3cb",
    "d": "2026-10-05"
   },
@@ -2098,12 +2098,12 @@
    "d": "2026-10-03"
   },
   "/produto/led-freio-toyota--mr-300/": {
-   "h": "be106d895181",
+   "h": "40b84c83c8ea",
    "c": "a4be140a52ef",
    "d": "2026-10-03"
   },
   "/produto/led-l1b-para-farol-milha-toyota--mr-108/": {
-   "h": "0bba364a9593",
+   "h": "64c71f9552d2",
    "c": "7a180fbfa932",
    "d": "2026-10-29"
   },
@@ -2691,6 +2691,11 @@
    "h": "297f62b81661",
    "c": "7f3c1dd10064",
    "d": "2026-10-03"
+  },
+  "/produto/nano-led-h7-8-400-lumens--nanoh7/": {
+   "h": "346802f712c9",
+   "c": "cfc7e7fb595b",
+   "d": "2026-11-03"
   },
   "/produto/nano-led-hb3-8-400-lumens--nanohb3/": {
    "h": "dc71161def15",
