@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 617,
+ "ativos": 616,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -68,9 +68,9 @@
    "d": "2026-10-29"
   },
   "/categoria/geral/": {
-   "h": "fd705c19ba7f",
-   "c": "9370d0dd929b",
-   "d": "2026-10-30"
+   "h": "9b3e9a4212cf",
+   "c": "bce9490ec9dc",
+   "d": "2026-11-03"
   },
   "/categoria/interruptores/": {
    "h": "afb4cac626b0",
@@ -448,7 +448,7 @@
    "d": "2026-10-03"
   },
   "/produto/alicate-desencapador-universal-h1307-para-cabos-e-fios--h1307/": {
-   "h": "4c14ed1b169b",
+   "h": "e82e0ad66f4e",
    "c": "b103d769fe60",
    "d": "2026-10-27"
   },
@@ -1998,7 +1998,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-super-branca-8500k-hb4-12v-50w-pacote-c-10-uns--1011hb4/": {
-   "h": "f1715fa2d5af",
+   "h": "fb529f2cad26",
    "c": "9afdef700bb1",
    "d": "2026-10-12"
   },
@@ -2230,11 +2230,6 @@
   "/produto/mold-mobi-black-piano-16-19-2-din--89-e6/": {
    "h": "05646ea5e07c",
    "c": "7b8a1d6066b9",
-   "d": "2026-10-29"
-  },
-  "/produto/mold-siena-strada-13-2-din-preta--89-j6/": {
-   "h": "70dcc7388b7b",
-   "c": "66f522e54f21",
    "d": "2026-10-29"
   },
   "/produto/mold-toyota-hilux-sw4-2-din--89-z3/": {
@@ -2818,7 +2813,7 @@
    "d": "2026-10-03"
   },
   "/produto/par-led-atmosfera-externa-vermelho--tp-4039/": {
-   "h": "ebbcd84dbe87",
+   "h": "009b84eef544",
    "c": "1fcbd2ddc012",
    "d": "2026-10-03"
   },
@@ -2983,7 +2978,7 @@
    "d": "2026-10-03"
   },
   "/produto/small-hb4-ray-x-8-4000-lumens--smallhb4/": {
-   "h": "4ab49c74b56a",
+   "h": "96f387fbfa43",
    "c": "10926ccf5561",
    "d": "2026-10-03"
   },
@@ -3427,6 +3422,7 @@
   "89-j1": "2026-10-31",
   "89-j28c": "2026-10-06",
   "89-j3b": "2026-10-15",
+  "89-j6": "2026-11-03",
   "89-m4a": "2026-10-23",
   "af10000123": "2026-10-26",
   "af10000294": "2026-10-08",
