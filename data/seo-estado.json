@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 616,
+ "ativos": 615,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -133,9 +133,9 @@
    "d": "2026-10-29"
   },
   "/categoria/multimidia/": {
-   "h": "dfefe4ac1710",
-   "c": "d047e11e7d7d",
-   "d": "2026-10-30"
+   "h": "9f30e42945db",
+   "c": "a21396e983b8",
+   "d": "2026-11-04"
   },
   "/categoria/palheta/": {
    "h": "7a96c81b254e",
@@ -253,9 +253,9 @@
    "d": "2026-10-03"
   },
   "/marca/kx3/": {
-   "h": "5dba4db5c21d",
-   "c": "86e07c62ac4d",
-   "d": "2026-10-29"
+   "h": "ec2a03ae2e64",
+   "c": "ee63a6090922",
+   "d": "2026-11-04"
   },
   "/marca/ldcar/": {
    "h": "472beee832c1",
@@ -308,9 +308,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "0a00ad3d0cf6",
-   "c": "1e457382b394",
-   "d": "2026-11-03"
+   "h": "ce609950037a",
+   "c": "48319c9795ae",
+   "d": "2026-11-04"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -453,17 +453,17 @@
    "d": "2026-10-27"
   },
   "/produto/android-7-octacore-double-din-2gb-ram-64gb-memoria-kx3--krc4110/": {
-   "h": "99f86015bfd1",
+   "h": "47f2cd405114",
    "c": "bba972ec7030",
    "d": "2026-10-03"
   },
   "/produto/android-9-2din-4gb-ram-64gb-memoria-cp-aa-sem-fio--krc5050/": {
-   "h": "3a4dda60abf9",
+   "h": "771bd728cf68",
    "c": "b89e8a6667ea",
    "d": "2026-10-03"
   },
   "/produto/android-9-2gb-ram-64gb-memoria-kx3--krc5010/": {
-   "h": "115dab43096b",
+   "h": "911285fe7150",
    "c": "86fa7a35d48a",
    "d": "2026-10-03"
   },
@@ -2633,18 +2633,13 @@
    "d": "2026-10-29"
   },
   "/produto/multimidia-android-10-kx3-4gb-ram-64gb-memoria-cp-aa-sem-fio--krc6000/": {
-   "h": "53fa2774321a",
+   "h": "f3d6a0d6568f",
    "c": "bfa8bef6e3fb",
    "d": "2026-10-09"
   },
   "/produto/multimidia-carplay-7--krc3100/": {
    "h": "9c378dcf133e",
    "c": "3c305853501f",
-   "d": "2026-10-09"
-  },
-  "/produto/multimidia-carplay-9--krc3200/": {
-   "h": "a69ad76fb430",
-   "c": "80a37fdede05",
    "d": "2026-10-09"
   },
   "/produto/multimidia-detroit-android-14-7-proces-quad-core-1-5-ghz--2mdet07/": {
@@ -3437,6 +3432,7 @@
   "ip09-0349-v1": "2026-10-20",
   "k2h7": "2026-10-09",
   "kc360-keco9000": "2026-10-20",
+  "krc3200": "2026-11-04",
   "kx1075": "2026-10-29",
   "ldcar01": "2026-10-30",
   "ldcar011": "2026-10-23",
