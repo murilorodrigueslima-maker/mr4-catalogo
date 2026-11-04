@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 615,
+ "ativos": 614,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -48,9 +48,9 @@
    "d": "2026-10-19"
   },
   "/categoria/chicotes/": {
-   "h": "657a22c35538",
-   "c": "da37f3d8e58a",
-   "d": "2026-10-31"
+   "h": "8fabfdd837b5",
+   "c": "78dd807c21dd",
+   "d": "2026-11-04"
   },
   "/categoria/diversos/": {
    "h": "ffccf18c5151",
@@ -218,9 +218,9 @@
    "d": "2026-10-03"
   },
   "/marca/fitto-joker/": {
-   "h": "c4f4a916e9a6",
-   "c": "f7e07ffc3db6",
-   "d": "2026-10-31"
+   "h": "942ea54e5db8",
+   "c": "78dd17cb8ac6",
+   "d": "2026-11-04"
   },
   "/marca/fks/": {
    "h": "4275e095a2cf",
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "ce609950037a",
-   "c": "48319c9795ae",
+   "h": "d692c6352645",
+   "c": "8214bc29a420",
    "d": "2026-11-04"
   },
   "/privacidade/": {
@@ -628,7 +628,7 @@
    "d": "2026-10-06"
   },
   "/produto/cabo-adaptador-usb-jeep-renegade-2022-toro-2022--adapt-usb-ren/": {
-   "h": "8583dc6748a0",
+   "h": "f250023c864b",
    "c": "f3e712c8cf9c",
    "d": "2026-10-03"
   },
@@ -998,7 +998,7 @@
    "d": "2026-10-03"
   },
   "/produto/chicote-de-alimentacao-compativel-com-hyundai-kia-unificado--ftca-hyki-0061w/": {
-   "h": "eaafe4dd55ee",
+   "h": "9504a3574135",
    "c": "1b0163847a8b",
    "d": "2026-10-03"
   },
@@ -2812,11 +2812,6 @@
    "c": "1fcbd2ddc012",
    "d": "2026-10-03"
   },
-  "/produto/pc-joker-king-hyundai-creta-2016-20-sem-cable-canbox--kpc-hy-0066w/": {
-   "h": "7e6fc8b8d395",
-   "c": "f5ff5b82c838",
-   "d": "2026-10-03"
-  },
   "/produto/pc-joker-king-jeep-fiat-unificado-padrao-fca-2020-21-para--kpc-jefi-0031c/": {
    "h": "be5ff5f2e7c9",
    "c": "6404a853b26c",
@@ -2863,7 +2858,7 @@
    "d": "2026-10-06"
   },
   "/produto/power-cable-compativel-com-fiat-unificado-strada-palio-c--kpc-fi-0033w/": {
-   "h": "d7eff06245b2",
+   "h": "e83567e1c70e",
    "c": "eefb0f772a49",
    "d": "2026-10-03"
   },
@@ -3432,6 +3427,7 @@
   "ip09-0349-v1": "2026-10-20",
   "k2h7": "2026-10-09",
   "kc360-keco9000": "2026-10-20",
+  "kpc-hy-0066w": "2026-11-04",
   "krc3200": "2026-11-04",
   "kx1075": "2026-10-29",
   "ldcar01": "2026-10-30",
