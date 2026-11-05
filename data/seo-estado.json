@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 614,
+ "ativos": 617,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -58,9 +58,9 @@
    "d": "2026-10-29"
   },
   "/categoria/farol-de-milha/": {
-   "h": "b20f4332a73b",
-   "c": "4b509235139d",
-   "d": "2026-10-31"
+   "h": "9b69a338f923",
+   "c": "312fb3457cfb",
+   "d": "2026-11-05"
   },
   "/categoria/fusiveis/": {
    "h": "27a17678cadc",
@@ -78,9 +78,9 @@
    "d": "2026-10-24"
   },
   "/categoria/lampada-de-led/": {
-   "h": "1bfc2b94c486",
-   "c": "0b0bfb3bc676",
-   "d": "2026-11-03"
+   "h": "9e5fcba88f59",
+   "c": "c8f1ac524a4c",
+   "d": "2026-11-05"
   },
   "/categoria/lampadas-halogenas/": {
    "h": "d7f50f0a3251",
@@ -98,9 +98,9 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "d1198e79d3fb",
-   "c": "d08c86db211c",
-   "d": "2026-10-31"
+   "h": "d732fe4be3f0",
+   "c": "5374a24ee04a",
+   "d": "2026-11-05"
   },
   "/categoria/moldura/chevrolet/": {
    "h": "56d779152258",
@@ -108,9 +108,9 @@
    "d": "2026-10-31"
   },
   "/categoria/moldura/fiat/": {
-   "h": "52dbb953fc4a",
-   "c": "cb6d0a4a8f8f",
-   "d": "2026-10-31"
+   "h": "276b32a2cc0c",
+   "c": "1bde42bb8681",
+   "d": "2026-11-05"
   },
   "/categoria/moldura/honda/": {
    "h": "1f3c87add1b5",
@@ -273,9 +273,9 @@
    "d": "2026-10-30"
   },
   "/marca/permak/": {
-   "h": "297f4f0fad43",
-   "c": "a3c9c7f9ba50",
-   "d": "2026-10-31"
+   "h": "abf40edd748d",
+   "c": "a481e275589c",
+   "d": "2026-11-05"
   },
   "/marca/rayx/": {
    "h": "4867cd2ef116",
@@ -308,9 +308,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "d692c6352645",
-   "c": "8214bc29a420",
-   "d": "2026-11-04"
+   "h": "05b658aea663",
+   "c": "b4c6b2088512",
+   "d": "2026-11-05"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -1207,6 +1207,11 @@
    "c": "b2eefea6bc3a",
    "d": "2026-10-03"
   },
+  "/produto/farol-de-3-polegadas-blindado-12-24v-1100w-6500k-40000l--sgt3/": {
+   "h": "736c4f5befea",
+   "c": "ee8602f5ebd9",
+   "d": "2026-11-05"
+  },
   "/produto/farol-de-milha-14-leds-redondo-10w-universal-6000k-12v-24v--0802032/": {
    "h": "5046ba894970",
    "c": "7a78e1e92b23",
@@ -1243,12 +1248,12 @@
    "d": "2026-10-03"
   },
   "/produto/farol-de-milha-avulso-hb20-hb20s-2016-2017-lado-direito--0205008d/": {
-   "h": "989007c69af3",
+   "h": "b1640293e98d",
    "c": "1e08ef8a97c2",
    "d": "2026-10-03"
   },
   "/produto/farol-de-milha-avulso-hb20-hb20s-2016-2017-lado-esquerdo--0205008e/": {
-   "h": "c3f5cd878551",
+   "h": "d387c8847370",
    "c": "9685625d67b1",
    "d": "2026-10-03"
   },
@@ -1278,7 +1283,7 @@
    "d": "2026-10-03"
   },
   "/produto/farol-de-milha-avulso-universal-lado-esquerdo--02003e/": {
-   "h": "9e445cb9a373",
+   "h": "107dd4023a3f",
    "c": "aaa3098bcf38",
    "d": "2026-10-03"
   },
@@ -2102,6 +2107,11 @@
    "c": "a4be140a52ef",
    "d": "2026-10-03"
   },
+  "/produto/led-h4-projetor-gt10--gt10/": {
+   "h": "6f0c4bcd48db",
+   "c": "292308c66278",
+   "d": "2026-11-05"
+  },
   "/produto/led-l1b-para-farol-milha-toyota--mr-108/": {
    "h": "64c71f9552d2",
    "c": "7a180fbfa932",
@@ -2172,6 +2182,16 @@
    "c": "864c818d7175",
    "d": "2026-10-03"
   },
+  "/produto/m8-pro-max-h11-kit-led-12-24v--m8-pro-max-h11/": {
+   "h": "4d3d2524cb28",
+   "c": "7c0e3bbbacb3",
+   "d": "2026-11-05"
+  },
+  "/produto/m8-pro-max-h7-kit-led-12-24v--m8-pro-max-h7/": {
+   "h": "50cb01dcdac0",
+   "c": "6e2806e8ee60",
+   "d": "2026-11-05"
+  },
   "/produto/modulo-antifurto-fks-corta-corrente-para-carro-universal--30802034/": {
    "h": "2c1eba8ebb1e",
    "c": "744b9d8398f6",
@@ -2198,13 +2218,8 @@
    "d": "2026-10-05"
   },
   "/produto/mold-duster-sand-logan-oroch-kwid-2din--89-e4/": {
-   "h": "327b5a69571b",
+   "h": "6cfd1da7295c",
    "c": "1f050cb35947",
-   "d": "2026-10-29"
-  },
-  "/produto/mold-fiat-strada-21-24-pt-fosco-2din--89-j18/": {
-   "h": "affe7cd4b120",
-   "c": "b2ab2094063a",
    "d": "2026-10-29"
   },
   "/produto/mold-gm-corsa-montana-vectra-2-din-pret--89-m1/": {
@@ -2218,12 +2233,12 @@
    "d": "2026-10-05"
   },
   "/produto/mold-gol-parati-saveiro-g4-2-din-preta--89-a6/": {
-   "h": "13547cd67ef2",
+   "h": "326dda1480a5",
    "c": "4f28f407d793",
    "d": "2026-10-03"
   },
   "/produto/mold-gol-voyage-saveiro-g6-2-din-preta--89-a8/": {
-   "h": "8748d6da2c38",
+   "h": "e71bf9b0ff33",
    "c": "3cf041a89d1d",
    "d": "2026-10-06"
   },
@@ -2473,7 +2488,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-ford-ranger-simples-xl--md09-0052-v1/": {
-   "h": "983daade4100",
+   "h": "12bbfaf68f70",
    "c": "0232004c3474",
    "d": "2026-10-03"
   },
@@ -2703,22 +2718,22 @@
    "d": "2026-11-03"
   },
   "/produto/p17-super-brigh-h7--p17h7/": {
-   "h": "56c0fb5337b5",
+   "h": "86b442bfbc6d",
    "c": "404f859f8c2f",
    "d": "2026-11-03"
   },
   "/produto/p17-super-bright-h27--p17h27/": {
-   "h": "62a857137a6f",
+   "h": "b49f73b5d446",
    "c": "f1ddc934f539",
    "d": "2026-10-03"
   },
   "/produto/p17-super-bright-h4--p17h4/": {
-   "h": "49a246d3bfb1",
+   "h": "f4886c6a1f60",
    "c": "aaa3772643ce",
    "d": "2026-11-03"
   },
   "/produto/p17-super-bright-hb3--p17hb3/": {
-   "h": "af567186b6b9",
+   "h": "4be9cbacbf19",
    "c": "71c02563bdc6",
    "d": "2026-11-03"
   },
@@ -3410,6 +3425,7 @@
   "5731-4": "2026-10-21",
   "5972md": "2026-10-29",
   "89-j1": "2026-10-31",
+  "89-j18": "2026-11-05",
   "89-j28c": "2026-10-06",
   "89-j3b": "2026-10-15",
   "89-j6": "2026-11-03",
