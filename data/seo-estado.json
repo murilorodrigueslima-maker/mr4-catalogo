@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 618,
+ "ativos": 617,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -98,9 +98,9 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "d732fe4be3f0",
-   "c": "5374a24ee04a",
-   "d": "2026-11-05"
+   "h": "87b6b8bc95d9",
+   "c": "720726f4e7ac",
+   "d": "2026-11-09"
   },
   "/categoria/moldura/chevrolet/": {
    "h": "56d779152258",
@@ -1473,7 +1473,7 @@
    "d": "2026-10-07"
   },
   "/produto/i-panel-de-09-polegadas-fiat-uno-2015-21-preto-fosco--ip09-0175-v1/": {
-   "h": "e92bcfb373be",
+   "h": "eb963833ede9",
    "c": "20edecc0cedb",
    "d": "2026-10-03"
   },
@@ -2218,7 +2218,7 @@
    "d": "2026-10-29"
   },
   "/produto/mold-gm-corsa-montana-vectra-2-din-pret--89-m1/": {
-   "h": "ab9865c98e1d",
+   "h": "f70245d329bd",
    "c": "81b0d093bb35",
    "d": "2026-10-29"
   },
@@ -2236,11 +2236,6 @@
    "h": "e71bf9b0ff33",
    "c": "3cf041a89d1d",
    "d": "2026-10-06"
-  },
-  "/produto/mold-mobi-black-piano-16-19-2-din--89-e6/": {
-   "h": "05646ea5e07c",
-   "c": "7b8a1d6066b9",
-   "d": "2026-10-29"
   },
   "/produto/mold-toyota-hilux-sw4-2-din--89-z3/": {
    "h": "2acaa91cdef2",
@@ -2493,7 +2488,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-honda-hrv-2015-21-black--md09-0020-v1/": {
-   "h": "2eb6eaabd594",
+   "h": "ccbfe5aa4861",
    "c": "709c548d37a9",
    "d": "2026-10-03"
   },
@@ -3430,6 +3425,7 @@
   "5615-3": "2026-10-29",
   "5731-4": "2026-10-21",
   "5972md": "2026-10-29",
+  "89-e6": "2026-11-09",
   "89-j1": "2026-10-31",
   "89-j18": "2026-11-05",
   "89-j28c": "2026-10-06",
