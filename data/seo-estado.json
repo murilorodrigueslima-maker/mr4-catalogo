@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 615,
+ "ativos": 614,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -98,9 +98,9 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "87b6b8bc95d9",
-   "c": "720726f4e7ac",
-   "d": "2026-11-09"
+   "h": "0a35f595037d",
+   "c": "254fba125688",
+   "d": "2026-11-10"
   },
   "/categoria/moldura/chevrolet/": {
    "h": "56d779152258",
@@ -118,9 +118,9 @@
    "d": "2026-10-31"
   },
   "/categoria/moldura/hyundai/": {
-   "h": "45c1e4856dee",
-   "c": "8ea69c0a91e0",
-   "d": "2026-10-31"
+   "h": "7e5073473b9f",
+   "c": "297c5ca38842",
+   "d": "2026-11-10"
   },
   "/categoria/moldura/toyota/": {
    "h": "723d084be8fe",
@@ -208,9 +208,9 @@
    "d": "2026-10-15"
   },
   "/marca/fiamon/": {
-   "h": "123cfb72f6f0",
-   "c": "fcc6260c7a37",
-   "d": "2026-10-29"
+   "h": "b81367ca9acf",
+   "c": "a151ca7c65d5",
+   "d": "2026-11-10"
   },
   "/marca/first-option/": {
    "h": "875826a2fe56",
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "5c160e6b397f",
-   "c": "b9ce610fea21",
+   "h": "d61fbe3b8b0f",
+   "c": "b3d12a38a233",
    "d": "2026-11-10"
   },
   "/privacidade/": {
@@ -2322,13 +2322,8 @@
    "c": "17abf0439226",
    "d": "2026-10-03"
   },
-  "/produto/moldura-2-din-hyundai-hb20-12-19-preta--2375/": {
-   "h": "d07c58c44b71",
-   "c": "52220fd223f1",
-   "d": "2026-10-20"
-  },
   "/produto/moldura-2-din-japones-e-1-din-toyota-etios-com-gaveta--3112/": {
-   "h": "0e93394acd1e",
+   "h": "a60bd99e68e5",
    "c": "08b737f893d1",
    "d": "2026-10-03"
   },
@@ -2343,12 +2338,12 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-renault-duster-oroch-18-21-sem-radio-preta-md--4035md/": {
-   "h": "a991667827c0",
+   "h": "fc00a1caad32",
    "c": "796898222a6c",
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-toyota-corolla-08-13-grafite--2870/": {
-   "h": "30f723282b41",
+   "h": "b09ba98c4c50",
    "c": "ac69c6849714",
    "d": "2026-10-03"
   },
@@ -2368,7 +2363,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-vw-gol-g5-saveiro-voyage-preta--2372/": {
-   "h": "57944c4c8b6d",
+   "h": "fa798415dbd2",
    "c": "11bd1bf658c2",
    "d": "2026-10-03"
   },
@@ -3400,6 +3395,7 @@
  },
  "ausentes": {
   "208": "2026-11-10",
+  "2375": "2026-11-10",
   "4051": "2026-10-20",
   "4199": "2026-10-16",
   "15200": "2026-10-15",
