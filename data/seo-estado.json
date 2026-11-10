@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 614,
+ "ativos": 612,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -8,9 +8,9 @@
    "d": "2026-10-05"
   },
   "/categoria/alarme/": {
-   "h": "bd27dfc6e277",
-   "c": "6b097ecad474",
-   "d": "2026-11-09"
+   "h": "4f4aa4e0af36",
+   "c": "946668814209",
+   "d": "2026-11-10"
   },
   "/categoria/alto-falantes/": {
    "h": "f81359a23fa9",
@@ -158,9 +158,9 @@
    "d": "2026-10-03"
   },
   "/categoria/soquetes/": {
-   "h": "8f4c2d608f31",
-   "c": "4de3974846a4",
-   "d": "2026-10-27"
+   "h": "ad8f1ff5030c",
+   "c": "a3a4bb4a85d0",
+   "d": "2026-11-10"
   },
   "/categoria/terminais/": {
    "h": "9330a0db1540",
@@ -223,9 +223,9 @@
    "d": "2026-11-04"
   },
   "/marca/fks/": {
-   "h": "4ad0e855ed49",
-   "c": "b8f656b9976d",
-   "d": "2026-11-09"
+   "h": "0c6126b19c93",
+   "c": "b0b91575fd03",
+   "d": "2026-11-10"
   },
   "/marca/hurricane/": {
    "h": "0f5f7c7b3ce5",
@@ -258,9 +258,9 @@
    "d": "2026-11-09"
   },
   "/marca/ldcar/": {
-   "h": "d112140080df",
-   "c": "80408fb9da71",
-   "d": "2026-11-06"
+   "h": "f1e958255601",
+   "c": "ef769cba19dd",
+   "d": "2026-11-10"
   },
   "/marca/look-out/": {
    "h": "02d9267d1f7e",
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "d61fbe3b8b0f",
-   "c": "b3d12a38a233",
+   "h": "0f4003c061bf",
+   "c": "913111f2715e",
    "d": "2026-11-10"
   },
   "/privacidade/": {
@@ -418,7 +418,7 @@
    "d": "2026-10-03"
   },
   "/produto/alarme-automotivo-fks-fk902-sb902-universal--30800352/": {
-   "h": "eb04f193452c",
+   "h": "74c08e28273a",
    "c": "12ed7d73ccac",
    "d": "2026-10-03"
   },
@@ -430,11 +430,6 @@
   "/produto/alarme-automotivo-universal-com-2x-controle-cr941-cr962-fks--30800383/": {
    "h": "18a8162b9790",
    "c": "f0467f412432",
-   "d": "2026-10-03"
-  },
-  "/produto/alarme-especifico-para-uso-da-chave-original-keyless-a-515--30800338/": {
-   "h": "ba8ea6c6c200",
-   "c": "6b33f7f6e213",
    "d": "2026-10-03"
   },
   "/produto/alarme-fks-fk-903-c3-citroen-c3-2022-2023-2-controles--30800428/": {
@@ -543,7 +538,7 @@
    "d": "2026-10-06"
   },
   "/produto/bloqueador-antifurto-fks-maf112-lc-veiculos-12v-maf-112--30802047/": {
-   "h": "aecfdcee883c",
+   "h": "2c8a77f8584b",
    "c": "efa92e40497a",
    "d": "2026-10-03"
   },
@@ -2178,7 +2173,7 @@
    "d": "2026-11-05"
   },
   "/produto/modulo-antifurto-fks-corta-corrente-para-carro-universal--30802034/": {
-   "h": "2c1eba8ebb1e",
+   "h": "21bd1d7ee103",
    "c": "744b9d8398f6",
    "d": "2026-10-03"
   },
@@ -2953,7 +2948,7 @@
    "d": "2026-10-03"
   },
   "/produto/sensor-ultrassom-universal-fks-sus200-rl02-central-sensor--30803039/": {
-   "h": "2e4c6014c378",
+   "h": "f94d21f21f81",
    "c": "c7bded07a3b7",
    "d": "2026-10-03"
   },
@@ -2978,7 +2973,7 @@
    "d": "2026-10-03"
   },
   "/produto/soquete-9005-hb3-ceramica-ldcar--ldcar023/": {
-   "h": "221b0d5e2501",
+   "h": "c0d95adc356c",
    "c": "f182d1fff838",
    "d": "2026-10-03"
   },
@@ -2993,7 +2988,7 @@
    "d": "2026-10-03"
   },
   "/produto/soquete-9006-hb4-ceramica-ldcar--ldcar024/": {
-   "h": "415de17b98a3",
+   "h": "f1ac131bb42f",
    "c": "3672325227c2",
    "d": "2026-10-03"
   },
@@ -3017,13 +3012,8 @@
    "c": "d9ba5d33e3eb",
    "d": "2026-10-03"
   },
-  "/produto/soquete-h7-ceramica-ldcar--ldcar020/": {
-   "h": "c6406d38b30e",
-   "c": "b05372ed7524",
-   "d": "2026-10-03"
-  },
   "/produto/soquete-h8-h11-ceramico-ldcar--ldcar022/": {
-   "h": "3b741dc3fee5",
+   "h": "318fe7c9c2c2",
    "c": "426ab18709ba",
    "d": "2026-10-03"
   },
@@ -3058,7 +3048,7 @@
    "d": "2026-10-03"
   },
   "/produto/soquetes-h1-h3-ceramico-ldcar--ldcar021/": {
-   "h": "39ea68736817",
+   "h": "c36f24eb7e92",
    "c": "633aaab3867f",
    "d": "2026-10-03"
   },
@@ -3402,6 +3392,7 @@
   "1501004": "2026-10-15",
   "1502032": "2026-10-24",
   "1502033": "2026-10-05",
+  "30800338": "2026-11-10",
   "30800447": "2026-11-09",
   "001051": "2026-11-06",
   "001053": "2026-10-29",
@@ -3438,6 +3429,7 @@
   "kx1075": "2026-10-29",
   "ldcar01": "2026-10-30",
   "ldcar011": "2026-10-23",
+  "ldcar020": "2026-11-10",
   "md09-0017-v3": "2026-10-14",
   "md09-0281-v1": "2026-10-16",
   "mr-052": "2026-10-26",
