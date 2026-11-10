@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 612,
+ "ativos": 613,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -48,9 +48,9 @@
    "d": "2026-10-19"
   },
   "/categoria/chicotes/": {
-   "h": "8fabfdd837b5",
-   "c": "78dd807c21dd",
-   "d": "2026-11-04"
+   "h": "ea61c7e70f11",
+   "c": "73bd20c203e4",
+   "d": "2026-11-10"
   },
   "/categoria/diversos/": {
    "h": "1a5d0b6dd288",
@@ -218,9 +218,9 @@
    "d": "2026-10-03"
   },
   "/marca/fitto-joker/": {
-   "h": "942ea54e5db8",
-   "c": "78dd17cb8ac6",
-   "d": "2026-11-04"
+   "h": "fa38cfa25558",
+   "c": "9587942e921d",
+   "d": "2026-11-10"
   },
   "/marca/fks/": {
    "h": "0c6126b19c93",
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "0f4003c061bf",
-   "c": "913111f2715e",
+   "h": "ecbad7f5cea8",
+   "c": "fa5fd4ea860a",
    "d": "2026-11-10"
   },
   "/privacidade/": {
@@ -613,7 +613,7 @@
    "d": "2026-10-03"
   },
   "/produto/cable-canbox-black-series-jeep-fiat-renegade-2015-22--5689680699000/": {
-   "h": "cefe4fa89746",
+   "h": "12322869630b",
    "c": "2f1ce2f7ab8e",
    "d": "2026-10-06"
   },
@@ -992,13 +992,18 @@
    "c": "1b0163847a8b",
    "d": "2026-10-03"
   },
+  "/produto/chicote-de-alimentacao-compativel-com-toyota-universal-sem--ftca-to-0128w/": {
+   "h": "1541c84dfa4b",
+   "c": "e538adb252b0",
+   "d": "2026-11-10"
+  },
   "/produto/chicote-honda-padrao-civic-g10-18-22-npm-ho-0163c-p-canbox--npm-ho-0163c/": {
    "h": "a5b8e24c23e3",
    "c": "8aef91a4899a",
    "d": "2026-10-03"
   },
   "/produto/chicote-hyundai-kia-unificado-conector-hb20-npm-hyki-0062c--npm-hyki-0062c/": {
-   "h": "a94df64366bd",
+   "h": "b55f51b94eaa",
    "c": "e0595017ebf3",
    "d": "2026-10-03"
   },
@@ -1033,7 +1038,7 @@
    "d": "2026-10-03"
   },
   "/produto/cht-canbus-linha-honda-fit-wr-v-hr-v--31-j/": {
-   "h": "1a09e1e454f3",
+   "h": "9d5de64463aa",
    "c": "aca2a1445565",
    "d": "2026-10-03"
   },
@@ -2808,7 +2813,7 @@
    "d": "2026-10-03"
   },
   "/produto/pc-joker-king-jeep-fiat-unificado-padrao-fca-2020-21-para--kpc-jefi-0031c/": {
-   "h": "be5ff5f2e7c9",
+   "h": "08aeb91e930e",
    "c": "6404a853b26c",
    "d": "2026-10-03"
   },
@@ -2858,7 +2863,7 @@
    "d": "2026-10-03"
   },
   "/produto/power-cables-ace-series-para-gm-unificado-padrao-cruze-2012--apc-gm-0016c/": {
-   "h": "3f3d691fe580",
+   "h": "50863ec4f81e",
    "c": "b954b2afd96e",
    "d": "2026-10-03"
   },
@@ -2873,7 +2878,7 @@
    "d": "2026-10-03"
   },
   "/produto/power-cables-ace-series-para-hyundai-kia-unificado-padrao--kpc-hyki-3061w/": {
-   "h": "9c816180819f",
+   "h": "c9a4793c9438",
    "c": "0971297156d5",
    "d": "2026-10-03"
   },
@@ -3416,7 +3421,6 @@
   "blackbox-pro": "2026-10-30",
   "cpaa-32209ax": "2026-10-30",
   "fdi-mp5": "2026-10-30",
-  "ftca-to-0128w": "2026-10-31",
   "ip09-0046-v1": "2026-10-30",
   "ip09-0049-v1": "2026-10-07",
   "ip09-0063-v1": "2026-10-31",
