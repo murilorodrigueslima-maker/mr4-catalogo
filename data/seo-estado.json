@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 612,
+ "ativos": 613,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -48,9 +48,9 @@
    "d": "2026-10-19"
   },
   "/categoria/chicotes/": {
-   "h": "ea61c7e70f11",
-   "c": "73bd20c203e4",
-   "d": "2026-11-10"
+   "h": "b7d9560b4944",
+   "c": "617bc287d7b5",
+   "d": "2026-11-11"
   },
   "/categoria/diversos/": {
    "h": "1a5d0b6dd288",
@@ -273,9 +273,9 @@
    "d": "2026-10-30"
   },
   "/marca/permak/": {
-   "h": "62510bcac337",
-   "c": "b628dd482fe4",
-   "d": "2026-11-10"
+   "h": "65bd4e638d36",
+   "c": "964cc44888fd",
+   "d": "2026-11-11"
   },
   "/marca/rayx/": {
    "h": "4867cd2ef116",
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "e5ea2f7334b2",
-   "c": "9b0b00cc6f69",
+   "h": "bd882c89fdbb",
+   "c": "2f64098889c3",
    "d": "2026-11-11"
   },
   "/privacidade/": {
@@ -623,9 +623,14 @@
    "d": "2026-10-03"
   },
   "/produto/cabo-antena-gm-peugeot-2013--80-b6/": {
-   "h": "20dfe483c2bd",
+   "h": "8cfc82249965",
    "c": "1d78efd89525",
    "d": "2026-10-29"
+  },
+  "/produto/cabo-antena-toyota-etios-corolla-hilux--80-b9/": {
+   "h": "2293920eca26",
+   "c": "9c40f6cf2c8e",
+   "d": "2026-11-11"
   },
   "/produto/cabo-conexao-king-diamonds-series-para-hyundai-hb20-2020--kpc-hy-4067w/": {
    "h": "d26d643fcd9a",
@@ -953,7 +958,7 @@
    "d": "2026-10-03"
   },
   "/produto/chicote-4-vias-injetado-fio-4-00mm--35-x2/": {
-   "h": "7e77b998edc7",
+   "h": "3869dbc970cd",
    "c": "d1c05e7e970c",
    "d": "2026-10-03"
   },
@@ -1018,12 +1023,12 @@
    "d": "2026-10-06"
   },
   "/produto/chicote-p-cd-pioneer-1350-1450--35-m/": {
-   "h": "8dca8fd33921",
+   "h": "a292088c59cc",
    "c": "61f3dba360c7",
    "d": "2026-10-05"
   },
   "/produto/chicote-p-cd-pioneer-2250-2280-4250--35-p1/": {
-   "h": "44d35b711e09",
+   "h": "238ac06050a6",
    "c": "74326e85eab4",
    "d": "2026-10-06"
   },
