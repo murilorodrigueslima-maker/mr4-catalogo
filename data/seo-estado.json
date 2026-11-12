@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 611,
+ "ativos": 615,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -8,9 +8,9 @@
    "d": "2026-10-05"
   },
   "/categoria/alarme/": {
-   "h": "4f4aa4e0af36",
-   "c": "946668814209",
-   "d": "2026-11-10"
+   "h": "39d7e98eefae",
+   "c": "e5a1ab0f5342",
+   "d": "2026-11-12"
   },
   "/categoria/alto-falantes/": {
    "h": "f81359a23fa9",
@@ -93,9 +93,9 @@
    "d": "2026-10-30"
   },
   "/categoria/modulos/": {
-   "h": "adbf8edcc12d",
-   "c": "984bf74f40ef",
-   "d": "2026-10-06"
+   "h": "fd9d48f1048e",
+   "c": "64805eeba04f",
+   "d": "2026-11-12"
   },
   "/categoria/moldura/": {
    "h": "2070f0c4eee8",
@@ -223,9 +223,9 @@
    "d": "2026-11-10"
   },
   "/marca/fks/": {
-   "h": "0c6126b19c93",
-   "c": "b0b91575fd03",
-   "d": "2026-11-10"
+   "h": "0116cdcb68c0",
+   "c": "f42ef188d9b2",
+   "d": "2026-11-12"
   },
   "/marca/hurricane/": {
    "h": "0f5f7c7b3ce5",
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "1e0aee0f61ca",
-   "c": "bd0a05f13094",
+   "h": "55c641574835",
+   "c": "96b065ccf9c9",
    "d": "2026-11-12"
   },
   "/privacidade/": {
@@ -413,12 +413,12 @@
    "d": "2026-10-03"
   },
   "/produto/alarme-automotivo-fiat-fks-fki505-palio-siena-fiorino-strada--30800284/": {
-   "h": "a4ebc3b8ea57",
+   "h": "798939e8d4f5",
    "c": "2fb1f201fe02",
    "d": "2026-10-03"
   },
   "/produto/alarme-automotivo-fks-fk902-sb902-universal--30800352/": {
-   "h": "74c08e28273a",
+   "h": "319698c418f1",
    "c": "12ed7d73ccac",
    "d": "2026-10-03"
   },
@@ -427,10 +427,25 @@
    "c": "aa4e18b9831a",
    "d": "2026-10-03"
   },
+  "/produto/alarme-automotivo-seguranca-veicular-carro-universal-hyundai--30800446/": {
+   "h": "0fcf794f15a2",
+   "c": "21dcdc3181a8",
+   "d": "2026-11-12"
+  },
   "/produto/alarme-automotivo-universal-com-2x-controle-cr941-cr962-fks--30800383/": {
-   "h": "18a8162b9790",
+   "h": "12262cf9240d",
    "c": "f0467f412432",
    "d": "2026-10-03"
+  },
+  "/produto/alarme-especifico-para-uso-da-chave-original-keyless-a-515--30800338/": {
+   "h": "52432f554857",
+   "c": "6b33f7f6e213",
+   "d": "2026-11-12"
+  },
+  "/produto/alarme-fks-fiat-sobe-vidros-com-sirene-e-auto-lock--30800447/": {
+   "h": "454a45269838",
+   "c": "e2346b0be571",
+   "d": "2026-11-12"
   },
   "/produto/alarme-fks-fk-903-c3-citroen-c3-2022-2023-2-controles--30800428/": {
    "h": "6fb773d5c552",
@@ -483,7 +498,7 @@
    "d": "2026-10-03"
   },
   "/produto/antiesmagamento-2-vidros-fiat-vw-com-botao-resistivo-m-208--30801682/": {
-   "h": "1f08678c5770",
+   "h": "8f55f1956a03",
    "c": "b6b457ecb6da",
    "d": "2026-10-03"
   },
@@ -538,7 +553,7 @@
    "d": "2026-10-06"
   },
   "/produto/bloqueador-antifurto-fks-maf112-lc-veiculos-12v-maf-112--30802047/": {
-   "h": "2c8a77f8584b",
+   "h": "aecfdcee883c",
    "c": "efa92e40497a",
    "d": "2026-10-03"
   },
@@ -1648,12 +1663,12 @@
    "d": "2026-10-30"
   },
   "/produto/kit-alarme-de-carro-automotivo-chevrolet-bloqueador-sirene--30800450/": {
-   "h": "6fddf8279b86",
+   "h": "85ae1e1039a3",
    "c": "283fba929ec0",
    "d": "2026-10-03"
   },
   "/produto/kit-de-vidrosantiesmagamento-2-vidros-substitui-central--30801683/": {
-   "h": "4017614ddd38",
+   "h": "bbbbb9c636c9",
    "c": "06273aabdc29",
    "d": "2026-10-03"
   },
@@ -2178,7 +2193,7 @@
    "d": "2026-11-05"
   },
   "/produto/modulo-antifurto-fks-corta-corrente-para-carro-universal--30802034/": {
-   "h": "21bd1d7ee103",
+   "h": "2c1eba8ebb1e",
    "c": "744b9d8398f6",
    "d": "2026-10-03"
   },
@@ -2187,13 +2202,18 @@
    "c": "e15ed101d838",
    "d": "2026-10-06"
   },
+  "/produto/modulo-de-vidro-dedicado-corolla-gli-xei-altis-xrs-2020-m--30801669/": {
+   "h": "69303258438d",
+   "c": "39902e11bb21",
+   "d": "2026-11-12"
+  },
   "/produto/modulo-de-vidro-dedicado-hilux-srx-sw4-srv-2016-ate-2025-4--30801687/": {
    "h": "b25012d3cac5",
    "c": "e1c92ff502ed",
    "d": "2026-10-03"
   },
   "/produto/modulo-de-vidro-multimarcas-mlv608-plus-fks-antiesmagamento--30801580/": {
-   "h": "1c49f6d8c511",
+   "h": "f536587a2a2b",
    "c": "cd729f06637e",
    "d": "2026-10-03"
   },
@@ -2598,7 +2618,7 @@
    "d": "2026-10-03"
   },
   "/produto/mr200-plus-modulo-reboque-sinaleira-e-freios-unificados-r--30804036/": {
-   "h": "68a2b8c67630",
+   "h": "f27c06db6c24",
    "c": "4b8b6512f3cf",
    "d": "2026-10-03"
   },
@@ -2943,7 +2963,7 @@
    "d": "2026-10-03"
   },
   "/produto/sensor-ultrassom-universal-fks-sus200-rl02-central-sensor--30803039/": {
-   "h": "f94d21f21f81",
+   "h": "2e4c6014c378",
    "c": "c7bded07a3b7",
    "d": "2026-10-03"
   },
@@ -3387,8 +3407,6 @@
   "1501004": "2026-10-15",
   "1502032": "2026-10-24",
   "1502033": "2026-10-05",
-  "30800338": "2026-11-10",
-  "30800447": "2026-11-09",
   "001051": "2026-11-06",
   "001053": "2026-10-29",
   "0201030d": "2026-10-31",
