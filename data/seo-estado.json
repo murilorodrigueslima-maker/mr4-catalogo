@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 612,
+ "ativos": 611,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -98,9 +98,9 @@
    "d": "2026-10-06"
   },
   "/categoria/moldura/": {
-   "h": "0a35f595037d",
-   "c": "254fba125688",
-   "d": "2026-11-10"
+   "h": "2070f0c4eee8",
+   "c": "93503aaaa722",
+   "d": "2026-11-12"
   },
   "/categoria/moldura/chevrolet/": {
    "h": "56d779152258",
@@ -208,9 +208,9 @@
    "d": "2026-10-15"
   },
   "/marca/fiamon/": {
-   "h": "b81367ca9acf",
-   "c": "a151ca7c65d5",
-   "d": "2026-11-10"
+   "h": "7230e320fa4a",
+   "c": "14706d24f164",
+   "d": "2026-11-12"
   },
   "/marca/first-option/": {
    "h": "875826a2fe56",
@@ -308,9 +308,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "e5ea2f7334b2",
-   "c": "9b0b00cc6f69",
-   "d": "2026-11-11"
+   "h": "1e0aee0f61ca",
+   "c": "bd0a05f13094",
+   "d": "2026-11-12"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -2263,7 +2263,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-chines-e-japones-honda-hr-v-15-21-black-piano--3203/": {
-   "h": "e3e46fc3e5b5",
+   "h": "9aa8cf7fc02a",
    "c": "e258f7b83e40",
    "d": "2026-10-03"
   },
@@ -2313,7 +2313,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-honda-fit-g01-04-08-grafite-md--3152md/": {
-   "h": "451d41fade8c",
+   "h": "d0b390a8f524",
    "c": "0dc553889883",
    "d": "2026-10-03"
   },
@@ -2388,7 +2388,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-fiat-mobi-preta--4994/": {
-   "h": "4a11c2fa48b9",
+   "h": "c428c44256b6",
    "c": "1686d1bb8fca",
    "d": "2026-10-03"
   },
@@ -2423,18 +2423,13 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-honda-civic-17-21-black-piano-uv-protection--4116/": {
-   "h": "b5935e1a5a7a",
+   "h": "6bdf86c7fdbb",
    "c": "383287cfc670",
    "d": "2026-10-03"
   },
   "/produto/moldura-9-hyundai-santa-fe-g3-13-18-preta--4251/": {
    "h": "414bf5e375f5",
    "c": "6dc853d3552c",
-   "d": "2026-10-03"
-  },
-  "/produto/moldura-9-nissan-kicks-16-22-preta-com-friso-prata-md--4177md/": {
-   "h": "14b43278ce0e",
-   "c": "5a524aedbe51",
    "d": "2026-10-03"
   },
   "/produto/moldura-9-peugeot-307-2002-2012-prata--6059/": {
@@ -3401,6 +3396,7 @@
   "2347-4": "2026-10-08",
   "2699md": "2026-10-13",
   "2m-det09s": "2026-10-30",
+  "4177md": "2026-11-12",
   "5615-3": "2026-10-29",
   "5731-4": "2026-10-21",
   "5972md": "2026-10-29",
