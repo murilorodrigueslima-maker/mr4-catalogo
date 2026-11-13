@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 613,
+ "ativos": 611,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -48,9 +48,9 @@
    "d": "2026-10-19"
   },
   "/categoria/chicotes/": {
-   "h": "ea61c7e70f11",
-   "c": "73bd20c203e4",
-   "d": "2026-11-11"
+   "h": "8fabfdd837b5",
+   "c": "78dd807c21dd",
+   "d": "2026-11-13"
   },
   "/categoria/diversos/": {
    "h": "be4b97d7d162",
@@ -98,9 +98,9 @@
    "d": "2026-11-12"
   },
   "/categoria/moldura/": {
-   "h": "2070f0c4eee8",
-   "c": "93503aaaa722",
-   "d": "2026-11-12"
+   "h": "2361d920fe69",
+   "c": "8e4b2677badf",
+   "d": "2026-11-13"
   },
   "/categoria/moldura/chevrolet/": {
    "h": "56d779152258",
@@ -218,9 +218,9 @@
    "d": "2026-10-03"
   },
   "/marca/fitto-joker/": {
-   "h": "fa38cfa25558",
-   "c": "9587942e921d",
-   "d": "2026-11-10"
+   "h": "942ea54e5db8",
+   "c": "78dd17cb8ac6",
+   "d": "2026-11-13"
   },
   "/marca/fks/": {
    "h": "0116cdcb68c0",
@@ -273,9 +273,9 @@
    "d": "2026-10-30"
   },
   "/marca/permak/": {
-   "h": "0990724c660d",
-   "c": "e2732901dc37",
-   "d": "2026-11-12"
+   "h": "c1fbed5671a0",
+   "c": "e119d249b0b0",
+   "d": "2026-11-13"
   },
   "/marca/rayx/": {
    "h": "4867cd2ef116",
@@ -308,9 +308,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "9f3b02b99ca2",
-   "c": "64de2f1b0006",
-   "d": "2026-11-12"
+   "h": "c9cfdaa59525",
+   "c": "ff28aaa00384",
+   "d": "2026-11-13"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -628,7 +628,7 @@
    "d": "2026-10-03"
   },
   "/produto/cable-canbox-black-series-jeep-fiat-renegade-2015-22--5689680699000/": {
-   "h": "12322869630b",
+   "h": "cefe4fa89746",
    "c": "2f1ce2f7ab8e",
    "d": "2026-10-06"
   },
@@ -1007,18 +1007,13 @@
    "c": "1b0163847a8b",
    "d": "2026-10-03"
   },
-  "/produto/chicote-de-alimentacao-compativel-com-toyota-universal-sem--ftca-to-0128w/": {
-   "h": "1541c84dfa4b",
-   "c": "e538adb252b0",
-   "d": "2026-11-10"
-  },
   "/produto/chicote-honda-padrao-civic-g10-18-22-npm-ho-0163c-p-canbox--npm-ho-0163c/": {
    "h": "a5b8e24c23e3",
    "c": "8aef91a4899a",
    "d": "2026-10-03"
   },
   "/produto/chicote-hyundai-kia-unificado-conector-hb20-npm-hyki-0062c--npm-hyki-0062c/": {
-   "h": "b55f51b94eaa",
+   "h": "a94df64366bd",
    "c": "e0595017ebf3",
    "d": "2026-10-03"
   },
@@ -1053,7 +1048,7 @@
    "d": "2026-10-03"
   },
   "/produto/cht-canbus-linha-honda-fit-wr-v-hr-v--31-j/": {
-   "h": "9d5de64463aa",
+   "h": "1a09e1e454f3",
    "c": "aca2a1445565",
    "d": "2026-10-03"
   },
@@ -1478,7 +1473,7 @@
    "d": "2026-10-03"
   },
   "/produto/i-panel-de-09-polegadas-renault-sandero-2008-11-prata--ip09-0067-v1/": {
-   "h": "e819b54bec33",
+   "h": "15b51a940901",
    "c": "5644032c401f",
    "d": "2026-10-03"
   },
@@ -2217,18 +2212,13 @@
    "c": "8a904e72651b",
    "d": "2026-10-05"
   },
-  "/produto/mold-duster-sand-logan-oroch-kwid-2din--89-e4/": {
-   "h": "6cfd1da7295c",
-   "c": "1f050cb35947",
-   "d": "2026-10-29"
-  },
   "/produto/mold-gm-corsa-montana-vectra-2-din-pret--89-m1/": {
    "h": "f70245d329bd",
    "c": "81b0d093bb35",
    "d": "2026-10-29"
   },
   "/produto/mold-gol-g7-amarok-jetta-tiguan-2-din--89-a5/": {
-   "h": "cf08fe5da761",
+   "h": "8a4f0cc4ff50",
    "c": "8b0f42acccde",
    "d": "2026-10-05"
   },
@@ -2243,7 +2233,7 @@
    "d": "2026-10-06"
   },
   "/produto/mold-toyota-hilux-sw4-2-din--89-z3/": {
-   "h": "2acaa91cdef2",
+   "h": "c04d3e233f33",
    "c": "4ee7af09543d",
    "d": "2026-10-05"
   },
@@ -2263,7 +2253,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-9-hyundai-ix35-2010-19-preto-fosco-ch-joker--ip09-0085-v1/": {
-   "h": "b6bf5689eb83",
+   "h": "bc4c3cc44d1c",
    "c": "8c569e0855c2",
    "d": "2026-10-03"
   },
@@ -2473,7 +2463,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-ford-ranger-simples-xl--md09-0052-v1/": {
-   "h": "12bbfaf68f70",
+   "h": "d2a1a9fac28b",
    "c": "0232004c3474",
    "d": "2026-10-03"
   },
@@ -2813,7 +2803,7 @@
    "d": "2026-10-03"
   },
   "/produto/pc-joker-king-jeep-fiat-unificado-padrao-fca-2020-21-para--kpc-jefi-0031c/": {
-   "h": "08aeb91e930e",
+   "h": "be5ff5f2e7c9",
    "c": "6404a853b26c",
    "d": "2026-10-03"
   },
@@ -2863,7 +2853,7 @@
    "d": "2026-10-03"
   },
   "/produto/power-cables-ace-series-para-gm-unificado-padrao-cruze-2012--apc-gm-0016c/": {
-   "h": "50863ec4f81e",
+   "h": "3f3d691fe580",
    "c": "b954b2afd96e",
    "d": "2026-10-03"
   },
@@ -2878,7 +2868,7 @@
    "d": "2026-10-03"
   },
   "/produto/power-cables-ace-series-para-hyundai-kia-unificado-padrao--kpc-hyki-3061w/": {
-   "h": "c9a4793c9438",
+   "h": "9c816180819f",
    "c": "0971297156d5",
    "d": "2026-10-03"
   },
@@ -3303,7 +3293,7 @@
    "d": "2026-10-03"
   },
   "/produto/toyota-hilux-2012-15-sw4-com-uma-moldura-auxiliar-para-a-c--ip09-0161-v1/": {
-   "h": "5ea71d0975c2",
+   "h": "a09a260aceb8",
    "c": "123faf57e42e",
    "d": "2026-10-03"
   },
@@ -3410,6 +3400,7 @@
   "5731-4": "2026-10-21",
   "5972md": "2026-10-29",
   "80-b9": "2026-11-11",
+  "89-e4": "2026-11-13",
   "89-e6": "2026-11-09",
   "89-j1": "2026-10-31",
   "89-j18": "2026-11-05",
@@ -3422,6 +3413,7 @@
   "blackbox-pro": "2026-10-30",
   "cpaa-32209ax": "2026-10-30",
   "fdi-mp5": "2026-10-30",
+  "ftca-to-0128w": "2026-11-13",
   "ip09-0046-v1": "2026-10-30",
   "ip09-0049-v1": "2026-10-07",
   "ip09-0063-v1": "2026-10-31",
