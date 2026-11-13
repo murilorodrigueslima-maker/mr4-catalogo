@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 611,
+ "ativos": 610,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -98,8 +98,8 @@
    "d": "2026-11-12"
   },
   "/categoria/moldura/": {
-   "h": "2361d920fe69",
-   "c": "8e4b2677badf",
+   "h": "335471141ace",
+   "c": "8ebedee3fe87",
    "d": "2026-11-13"
   },
   "/categoria/moldura/chevrolet/": {
@@ -108,9 +108,9 @@
    "d": "2026-10-31"
   },
   "/categoria/moldura/fiat/": {
-   "h": "276b32a2cc0c",
-   "c": "1bde42bb8681",
-   "d": "2026-11-05"
+   "h": "41295d12ba90",
+   "c": "7d8d27a1d80a",
+   "d": "2026-11-13"
   },
   "/categoria/moldura/honda/": {
    "h": "1f3c87add1b5",
@@ -218,8 +218,8 @@
    "d": "2026-10-03"
   },
   "/marca/fitto-joker/": {
-   "h": "942ea54e5db8",
-   "c": "78dd17cb8ac6",
+   "h": "42568df0443c",
+   "c": "3353fc54c801",
    "d": "2026-11-13"
   },
   "/marca/fks/": {
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "c9cfdaa59525",
-   "c": "ff28aaa00384",
+   "h": "f5fcc307cda1",
+   "c": "4bc810d84bc5",
    "d": "2026-11-13"
   },
   "/privacidade/": {
@@ -2238,7 +2238,7 @@
    "d": "2026-10-05"
   },
   "/produto/moldura-10-1-polegadas-compativel-com-toyota-corolla-2014-16--md10-0081-v1/": {
-   "h": "e253cf876455",
+   "h": "404d8d33cbb0",
    "c": "df15e6ef8a6a",
    "d": "2026-10-03"
   },
@@ -2522,28 +2522,23 @@
    "c": "824a5705937e",
    "d": "2026-10-03"
   },
-  "/produto/moldura-plastica-9-polegadas-compativel-com-fiat-argo-2017--md09-0040-v2/": {
-   "h": "01ebc73678c9",
-   "c": "06411471ed3f",
-   "d": "2026-10-03"
-  },
   "/produto/moldura-plastica-9-polegadas-compativel-com-fiat-strada--md09-0102-v1/": {
    "h": "1f5085194964",
    "c": "52f8d838378e",
    "d": "2026-10-03"
   },
   "/produto/moldura-plastica-9-polegadas-compativel-com-honda-civic--md09-0057-v2/": {
-   "h": "dc5607592f88",
+   "h": "7c7c0a829e23",
    "c": "8fc9e88e926b",
    "d": "2026-10-03"
   },
   "/produto/moldura-plastica-9-polegadas-compativel-com-honda-civic--md09-0303-v1/": {
-   "h": "1bcff766d952",
+   "h": "144519e71c1a",
    "c": "94bac28dd368",
    "d": "2026-10-03"
   },
   "/produto/moldura-plastica-9-polegadas-compativel-com-hyundai-creta--md09-0026-v1/": {
-   "h": "91bbba9a9440",
+   "h": "80d3651f4c63",
    "c": "66452b55e5fb",
    "d": "2026-10-03"
   },
@@ -3428,6 +3423,7 @@
   "ldcar011": "2026-10-23",
   "ldcar020": "2026-11-10",
   "md09-0017-v3": "2026-10-14",
+  "md09-0040-v2": "2026-11-13",
   "md09-0281-v1": "2026-10-16",
   "mr-052": "2026-10-26",
   "mr-101": "2026-10-27",
