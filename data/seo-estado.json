@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 609,
+ "ativos": 610,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -33,9 +33,9 @@
    "d": "2026-10-06"
   },
   "/categoria/caixa-de-som/": {
-   "h": "66135e7b73e2",
-   "c": "e665936e7821",
-   "d": "2026-10-15"
+   "h": "ebc10f5555cc",
+   "c": "890f58c52d8d",
+   "d": "2026-11-14"
   },
   "/categoria/camera/": {
    "h": "41aaecbde5cb",
@@ -203,9 +203,9 @@
    "d": "2026-10-29"
   },
   "/marca/exclusive/": {
-   "h": "70aa3bab98eb",
-   "c": "51c0e700b05d",
-   "d": "2026-10-15"
+   "h": "f1413c83cb9d",
+   "c": "0c6b3668b600",
+   "d": "2026-11-14"
   },
   "/marca/fiamon/": {
    "h": "d6425d03a2ec",
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "d136e4a0a0ef",
-   "c": "93c7217d833b",
+   "h": "0cc1d782bcf7",
+   "c": "8645290a1c6e",
    "d": "2026-11-14"
   },
   "/privacidade/": {
@@ -667,18 +667,23 @@
    "c": "0ad571e78ab0",
    "d": "2026-10-03"
   },
+  "/produto/caixa-amp-trio-bt500-trio-12-pol-12-110-220v-500w-exclusive--30140/": {
+   "h": "27ec8bfe58c7",
+   "c": "ce82b3ae71e6",
+   "d": "2026-11-14"
+  },
   "/produto/caixa-amplificada-exclusive-xc-200-trapezio-8-universal-200w--16300/": {
-   "h": "802d5dd8624c",
+   "h": "86ae30551882",
    "c": "c9a66e75ab4e",
    "d": "2026-10-03"
   },
   "/produto/caixa-de-som-amplificada-exclusive-subwoofer-xc300-slim-300w--15210/": {
-   "h": "6b1281f0cfb6",
+   "h": "131c85a22468",
    "c": "bfa9bfbcedde",
    "d": "2026-10-03"
   },
   "/produto/caixa-de-som-subwoofer-8-exclusive-xc200-slim-200w--16200/": {
-   "h": "923701b770e4",
+   "h": "ff0ea2ff7ae5",
    "c": "07a9677d51ed",
    "d": "2026-10-03"
   },
