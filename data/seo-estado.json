@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 610,
+ "ativos": 614,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -88,9 +88,9 @@
    "d": "2026-10-12"
   },
   "/categoria/leds-interno-externo/": {
-   "h": "adcb08bc06a1",
-   "c": "227ae7afc3c5",
-   "d": "2026-10-30"
+   "h": "9268db81e807",
+   "c": "7a0dc1e93aa2",
+   "d": "2026-11-16"
   },
   "/categoria/modulos/": {
    "h": "fd9d48f1048e",
@@ -98,9 +98,9 @@
    "d": "2026-11-12"
   },
   "/categoria/moldura/": {
-   "h": "b22030d15179",
-   "c": "704a6e4500f9",
-   "d": "2026-11-14"
+   "h": "ebd9aefebc82",
+   "c": "96ef5cc0af95",
+   "d": "2026-11-16"
   },
   "/categoria/moldura/chevrolet/": {
    "h": "56d779152258",
@@ -158,9 +158,9 @@
    "d": "2026-10-03"
   },
   "/categoria/soquetes/": {
-   "h": "ad8f1ff5030c",
-   "c": "a3a4bb4a85d0",
-   "d": "2026-11-10"
+   "h": "14d5e1c60740",
+   "c": "709eb9dc47ae",
+   "d": "2026-11-16"
   },
   "/categoria/terminais/": {
    "h": "9330a0db1540",
@@ -238,9 +238,9 @@
    "d": "2026-10-03"
   },
   "/marca/joker/": {
-   "h": "97f1fb08c08f",
-   "c": "5932ed2302cb",
-   "d": "2026-10-20"
+   "h": "a9c76d7ce9de",
+   "c": "6e8b5938a472",
+   "d": "2026-11-16"
   },
   "/marca/knup/": {
    "h": "0d3c66e39a00",
@@ -258,9 +258,9 @@
    "d": "2026-11-09"
   },
   "/marca/ldcar/": {
-   "h": "8272a4ad71e9",
-   "c": "5c0b2699bff3",
-   "d": "2026-11-12"
+   "h": "22d25780eb96",
+   "c": "722b145f9d51",
+   "d": "2026-11-16"
   },
   "/marca/look-out/": {
    "h": "02d9267d1f7e",
@@ -308,9 +308,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "0cc1d782bcf7",
-   "c": "8645290a1c6e",
-   "d": "2026-11-14"
+   "h": "ebfe778f36bd",
+   "c": "7407379691cd",
+   "d": "2026-11-16"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -1328,7 +1328,7 @@
    "d": "2026-10-06"
   },
   "/produto/fita-drl-60-cm--mr4-014/": {
-   "h": "0bba1d911cd5",
+   "h": "a76ea477f797",
    "c": "88dd81625b3a",
    "d": "2026-10-24"
   },
@@ -1463,7 +1463,7 @@
    "d": "2026-10-03"
   },
   "/produto/i-panel-de-09-polegadas-chevrolet-s10-2012-16-cinza--md09-0049-v1/": {
-   "h": "0282d1f90665",
+   "h": "1bc153d04294",
    "c": "bfa8717bdf77",
    "d": "2026-10-07"
   },
@@ -1475,11 +1475,6 @@
   "/produto/i-panel-de-09-polegadas-fiat-uno-2015-21-preto-fosco--ip09-0175-v1/": {
    "h": "eb963833ede9",
    "c": "20edecc0cedb",
-   "d": "2026-10-03"
-  },
-  "/produto/i-panel-de-09-polegadas-renault-sandero-2008-11-prata--ip09-0067-v1/": {
-   "h": "15b51a940901",
-   "c": "5644032c401f",
    "d": "2026-10-03"
   },
   "/produto/interruptor-bloqueio-logan-sandero-14--1511006/": {
@@ -1653,7 +1648,7 @@
    "d": "2026-10-03"
   },
   "/produto/kit-2-resistor-canceller-50w-cambus-universal--ld0003/": {
-   "h": "74f89170692c",
+   "h": "93a0b09d3465",
    "c": "bb537b45428a",
    "d": "2026-10-30"
   },
@@ -2083,7 +2078,7 @@
    "d": "2026-10-03"
   },
   "/produto/laterna-carretinha-cristal-standard-12v-asx5313--5711-6/": {
-   "h": "cd51a43302b2",
+   "h": "dad893e4a3aa",
    "c": "2e65954c094f",
    "d": "2026-10-09"
   },
@@ -2101,6 +2096,11 @@
    "h": "308f4e5ca06a",
    "c": "3b0a628f5d93",
    "d": "2026-10-03"
+  },
+  "/produto/led-drl-seta-universal-ldcar--ldcar01/": {
+   "h": "a6eab0c029c3",
+   "c": "22cdbc52b9d2",
+   "d": "2026-11-16"
   },
   "/produto/led-freio-toyota--mr-300/": {
    "h": "be106d895181",
@@ -2123,12 +2123,12 @@
    "d": "2026-10-03"
   },
   "/produto/led-mini-cyber-23mm-universal-6w-e-120-lumens-cada-luz--ldcar030/": {
-   "h": "14aa4e7f4075",
+   "h": "76144a62c45b",
    "c": "4b99e5b71475",
    "d": "2026-10-03"
   },
   "/produto/led-t10-26-smd--mr-005/": {
-   "h": "83ee806b8442",
+   "h": "cfc236d1ff44",
    "c": "c5b6132e876f",
    "d": "2026-10-03"
   },
@@ -2258,7 +2258,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-9-hyundai-ix35-2010-19-preto-fosco-ch-joker--ip09-0085-v1/": {
-   "h": "bc4c3cc44d1c",
+   "h": "231ee9b2a296",
    "c": "8c569e0855c2",
    "d": "2026-10-03"
   },
@@ -2443,7 +2443,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-chevrolet-cobalt-lt-ltz--md09-0111-v1/": {
-   "h": "fec510ef1415",
+   "h": "f1d16d48012e",
    "c": "e5164aae9e91",
    "d": "2026-10-03"
   },
@@ -2478,7 +2478,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-suzuki-vitara-2016-22--md09-0094-v2/": {
-   "h": "d64390a5d4c5",
+   "h": "b66c64251c38",
    "c": "8838dbd9924f",
    "d": "2026-10-03"
   },
@@ -2823,14 +2823,19 @@
    "d": "2026-10-03"
   },
   "/produto/placa-12-leds-premium--mr-050/": {
-   "h": "aa367e38c46a",
+   "h": "939060a2c9b6",
    "c": "d3091e01798e",
    "d": "2026-10-03"
   },
   "/produto/placa-24-leds-premium--mr-006/": {
-   "h": "a282d72b2509",
+   "h": "fe0f0be1089d",
    "c": "54619c168903",
    "d": "2026-10-24"
+  },
+  "/produto/placa-48-leds-premium--mr-052/": {
+   "h": "4dc5ebfa4701",
+   "c": "dafcc23b0b62",
+   "d": "2026-11-16"
   },
   "/produto/porta-fusivel--tp-2018/": {
    "h": "d0a56721b71a",
@@ -2958,12 +2963,12 @@
    "d": "2026-10-03"
   },
   "/produto/soquete-9005-hb3-ceramica-2026--tp-2026/": {
-   "h": "7f09ba0ee03a",
+   "h": "fe11210b2b83",
    "c": "0257967e566c",
    "d": "2026-10-03"
   },
   "/produto/soquete-9005-hb3-ceramica-ldcar--ldcar023/": {
-   "h": "c0d95adc356c",
+   "h": "221b0d5e2501",
    "c": "f182d1fff838",
    "d": "2026-10-03"
   },
@@ -2973,17 +2978,17 @@
    "d": "2026-10-03"
   },
   "/produto/soquete-9006-hb4-ceramica-2028--tp-2028/": {
-   "h": "7bd71cbabbd3",
+   "h": "9a927485acae",
    "c": "45165d02ea48",
    "d": "2026-10-03"
   },
   "/produto/soquete-9006-hb4-ceramica-ldcar--ldcar024/": {
-   "h": "f1ac131bb42f",
+   "h": "415de17b98a3",
    "c": "3672325227c2",
    "d": "2026-10-03"
   },
   "/produto/soquete-9006-hb4-plastico-2027--tp-2027/": {
-   "h": "46784ff24c8d",
+   "h": "3250953d59e6",
    "c": "6b05844c475a",
    "d": "2026-10-03"
   },
@@ -2991,6 +2996,11 @@
    "h": "07198b3f53d0",
    "c": "3571c9a2a2aa",
    "d": "2026-10-13"
+  },
+  "/produto/soquete-h4-ceramica-ldcar--ldcar025/": {
+   "h": "09858ef9bf09",
+   "c": "9d55fda01904",
+   "d": "2026-11-16"
   },
   "/produto/soquete-h4-plastico-2033--tp-2033/": {
    "h": "cd96b60ab22c",
@@ -3002,8 +3012,13 @@
    "c": "d9ba5d33e3eb",
    "d": "2026-10-03"
   },
+  "/produto/soquete-h7-ceramica-ldcar--ldcar020/": {
+   "h": "65e28a7f58cf",
+   "c": "b05372ed7524",
+   "d": "2026-11-16"
+  },
   "/produto/soquete-h8-h11-ceramico-ldcar--ldcar022/": {
-   "h": "318fe7c9c2c2",
+   "h": "3b741dc3fee5",
    "c": "426ab18709ba",
    "d": "2026-10-03"
   },
@@ -3038,7 +3053,7 @@
    "d": "2026-10-03"
   },
   "/produto/soquetes-h1-h3-ceramico-ldcar--ldcar021/": {
-   "h": "c36f24eb7e92",
+   "h": "5ed0f0781956",
    "c": "633aaab3867f",
    "d": "2026-10-03"
   },
@@ -3063,7 +3078,7 @@
    "d": "2026-10-03"
   },
   "/produto/soquetes-t20-1-polo-2010--tp-2010/": {
-   "h": "932275990be0",
+   "h": "49fff87c16ab",
    "c": "24d065e6c451",
    "d": "2026-10-03"
   },
@@ -3093,12 +3108,17 @@
    "d": "2026-10-03"
   },
   "/produto/t10-24-smd-cambus-premium--mr-003/": {
-   "h": "69db9ecf5214",
+   "h": "fb2e3c268533",
    "c": "a36dd9f74b98",
    "d": "2026-10-03"
   },
+  "/produto/t10-26-leds-ambar-sem-cambus--mr-101/": {
+   "h": "0c406a70dabf",
+   "c": "9acd48e05737",
+   "d": "2026-11-16"
+  },
   "/produto/t10-26-leds-sem-cambus--mr-099/": {
-   "h": "25f7259f4955",
+   "h": "5fcae609a426",
    "c": "47fcee92540c",
    "d": "2026-10-03"
   },
@@ -3108,7 +3128,7 @@
    "d": "2026-10-03"
   },
   "/produto/t10-ceramica--ld0002/": {
-   "h": "1661a6555de6",
+   "h": "b4c49515516f",
    "c": "39e6bb95b702",
    "d": "2026-10-03"
   },
@@ -3268,12 +3288,12 @@
    "d": "2026-10-03"
   },
   "/produto/torpedo-31-mm--mr-008/": {
-   "h": "b99cf5b1d5dc",
+   "h": "eab30b438d48",
    "c": "0371c11767ec",
    "d": "2026-10-03"
   },
   "/produto/torpedo-36-mm--mr-010/": {
-   "h": "8c1cf6ba818c",
+   "h": "f11e0da5c530",
    "c": "f1646daae6f3",
    "d": "2026-10-03"
   },
@@ -3413,6 +3433,7 @@
   "ip09-0046-v1": "2026-10-30",
   "ip09-0049-v1": "2026-10-07",
   "ip09-0063-v1": "2026-10-31",
+  "ip09-0067-v1": "2026-11-16",
   "ip09-0160-v1": "2026-10-05",
   "ip09-0349-v1": "2026-10-20",
   "k2h7": "2026-10-09",
@@ -3420,14 +3441,10 @@
   "kpc-hy-0066w": "2026-11-04",
   "krc3200": "2026-11-09",
   "kx1075": "2026-10-29",
-  "ldcar01": "2026-10-30",
   "ldcar011": "2026-10-23",
-  "ldcar020": "2026-11-10",
   "md09-0017-v3": "2026-10-14",
   "md09-0040-v2": "2026-11-13",
   "md09-0281-v1": "2026-10-16",
-  "mr-052": "2026-10-26",
-  "mr-101": "2026-10-27",
   "nanoh7": "2026-11-11",
   "nanohb3": "2026-11-12",
   "rpx005": "2026-10-19",
