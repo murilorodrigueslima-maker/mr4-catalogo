@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 614,
+ "ativos": 619,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -18,9 +18,9 @@
    "d": "2026-10-29"
   },
   "/categoria/antenas/": {
-   "h": "6e21c416822c",
-   "c": "1005e930b17b",
-   "d": "2026-10-26"
+   "h": "d47600a246ee",
+   "c": "44da221b37e2",
+   "d": "2026-11-17"
   },
   "/categoria/barras-de-led/": {
    "h": "403787256bb2",
@@ -68,9 +68,9 @@
    "d": "2026-10-29"
   },
   "/categoria/geral/": {
-   "h": "92de0618c0b0",
-   "c": "09b945aa9802",
-   "d": "2026-11-16"
+   "h": "cb2557466c96",
+   "c": "b4b689616acd",
+   "d": "2026-11-17"
   },
   "/categoria/interruptores/": {
    "h": "afb4cac626b0",
@@ -98,9 +98,9 @@
    "d": "2026-11-12"
   },
   "/categoria/moldura/": {
-   "h": "a867cfe34a97",
-   "c": "56db45d43d23",
-   "d": "2026-11-16"
+   "h": "10d5d5532cd4",
+   "c": "549e5b676fad",
+   "d": "2026-11-17"
   },
   "/categoria/moldura/chevrolet/": {
    "h": "56d779152258",
@@ -108,9 +108,9 @@
    "d": "2026-10-31"
   },
   "/categoria/moldura/fiat/": {
-   "h": "41295d12ba90",
-   "c": "7d8d27a1d80a",
-   "d": "2026-11-13"
+   "h": "dc248350b74c",
+   "c": "da37ea43ef42",
+   "d": "2026-11-17"
   },
   "/categoria/moldura/honda/": {
    "h": "f13fb6a0e95b",
@@ -273,9 +273,9 @@
    "d": "2026-10-30"
   },
   "/marca/permak/": {
-   "h": "c1fbed5671a0",
-   "c": "e119d249b0b0",
-   "d": "2026-11-13"
+   "h": "4c88372c3696",
+   "c": "19fbccb4ac37",
+   "d": "2026-11-17"
   },
   "/marca/rayx/": {
    "h": "4867cd2ef116",
@@ -308,9 +308,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "9c76f34e3cf7",
-   "c": "13be13d34316",
-   "d": "2026-11-16"
+   "h": "fc0f1476168d",
+   "c": "a5b12660f0a4",
+   "d": "2026-11-17"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -473,22 +473,27 @@
    "d": "2026-10-03"
   },
   "/produto/antena-eletronica-pertronic-1000--100-h/": {
-   "h": "139902435e9a",
+   "h": "014c50f8fc4e",
    "c": "262084bd8327",
    "d": "2026-10-06"
   },
   "/produto/antena-tubarao-shark-branca--100-m1/": {
-   "h": "bdbbfaa30b38",
+   "h": "bc432bdf9537",
    "c": "b142ed1a612e",
    "d": "2026-10-03"
   },
   "/produto/antena-tubarao-shark-prata--100-m2/": {
-   "h": "8afc1510ac7c",
+   "h": "a5506d8b2d01",
    "c": "49b583884e38",
    "d": "2026-10-03"
   },
+  "/produto/antena-tubarao-shark-preto--100-m/": {
+   "h": "f4b512dc68fb",
+   "c": "0978b4644563",
+   "d": "2026-11-17"
+  },
   "/produto/antena-tubarao-shark-prime--100-m3/": {
-   "h": "8ce33c47739d",
+   "h": "b792c1226a32",
    "c": "4b73119df33e",
    "d": "2026-10-03"
   },
@@ -1153,7 +1158,7 @@
    "d": "2026-10-03"
   },
   "/produto/d2-ldcar-30-000-lumens--ld2/": {
-   "h": "cfcac621bb43",
+   "h": "3c1a88a2e3b3",
    "c": "5b2cebd4b6c0",
    "d": "2026-10-20"
   },
@@ -1943,7 +1948,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-halogena-pr21w-1-polo-12v-pacote-c-10-uni--1025007/": {
-   "h": "3fc0555aa58c",
+   "h": "c1e5511134ed",
    "c": "d6c9d5a029f1",
    "d": "2026-10-12"
   },
@@ -1993,7 +1998,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-super-branca-8500k-hb4-12v-50w-pacote-c-10-uns--1011hb4/": {
-   "h": "fb529f2cad26",
+   "h": "aed5a629f9a9",
    "c": "9afdef700bb1",
    "d": "2026-10-12"
   },
@@ -2208,9 +2213,24 @@
    "d": "2026-10-03"
   },
   "/produto/mold-adaptadora-1din-p-9-universal--89-g18/": {
-   "h": "27ae94672b5e",
+   "h": "a6e5c5fbb833",
    "c": "8a904e72651b",
    "d": "2026-10-05"
+  },
+  "/produto/mold-duster-sand-logan-oroch-kwid-2din--89-e4/": {
+   "h": "327b5a69571b",
+   "c": "1f050cb35947",
+   "d": "2026-11-17"
+  },
+  "/produto/mold-fiat-palio-siena-strada-2-ger-czb--89-j28c/": {
+   "h": "861f15cac198",
+   "c": "e45dccf7e93a",
+   "d": "2026-11-17"
+  },
+  "/produto/mold-fiat-strada-21-24-pt-fosco-2din--89-j18/": {
+   "h": "29ed7c6be0b2",
+   "c": "b2ab2094063a",
+   "d": "2026-11-17"
   },
   "/produto/mold-gm-corsa-montana-vectra-2-din-pret--89-m1/": {
    "h": "f70245d329bd",
@@ -2218,22 +2238,22 @@
    "d": "2026-10-29"
   },
   "/produto/mold-gol-g7-amarok-jetta-tiguan-2-din--89-a5/": {
-   "h": "8a4f0cc4ff50",
+   "h": "cf08fe5da761",
    "c": "8b0f42acccde",
    "d": "2026-10-05"
   },
   "/produto/mold-gol-parati-saveiro-g4-2-din-preta--89-a6/": {
-   "h": "326dda1480a5",
+   "h": "fb7069103f3e",
    "c": "4f28f407d793",
    "d": "2026-10-03"
   },
   "/produto/mold-gol-voyage-saveiro-g6-2-din-preta--89-a8/": {
-   "h": "e71bf9b0ff33",
+   "h": "ddcfda87bffa",
    "c": "3cf041a89d1d",
    "d": "2026-10-06"
   },
   "/produto/mold-toyota-hilux-sw4-2-din--89-z3/": {
-   "h": "c04d3e233f33",
+   "h": "2acaa91cdef2",
    "c": "4ee7af09543d",
    "d": "2026-10-05"
   },
@@ -2253,7 +2273,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-9-hyundai-ix35-2010-19-preto-fosco-ch-joker--ip09-0085-v1/": {
-   "h": "231ee9b2a296",
+   "h": "6309dc711ba3",
    "c": "8c569e0855c2",
    "d": "2026-10-03"
   },
@@ -2377,6 +2397,11 @@
    "c": "11bd1bf658c2",
    "d": "2026-10-03"
   },
+  "/produto/moldura-7pol-gm-onix-2013-2018-cobalt-2011-2015-preta-sem--2083961711008/": {
+   "h": "eb2f001ea8a2",
+   "c": "30e25820f6f5",
+   "d": "2026-11-17"
+  },
   "/produto/moldura-9-chines-mitsubishi-pajero-sport-g3-2016-black-piano--6002/": {
    "h": "15c72ea00bb6",
    "c": "741f81c31f16",
@@ -2463,7 +2488,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-ford-ranger-simples-xl--md09-0052-v1/": {
-   "h": "d2a1a9fac28b",
+   "h": "983daade4100",
    "c": "0232004c3474",
    "d": "2026-10-03"
   },
@@ -2478,7 +2503,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-suzuki-vitara-2016-22--md09-0094-v2/": {
-   "h": "b66c64251c38",
+   "h": "bf146d581c8e",
    "c": "8838dbd9924f",
    "d": "2026-10-03"
   },
@@ -3308,12 +3333,12 @@
    "d": "2026-10-03"
   },
   "/produto/toyota-hilux-2012-15-sw4-com-uma-moldura-auxiliar-para-a-c--ip09-0161-v1/": {
-   "h": "a09a260aceb8",
+   "h": "5ea71d0975c2",
    "c": "123faf57e42e",
    "d": "2026-10-03"
   },
   "/produto/trava-antifurto-para-estepe-hilux--mk5001/": {
-   "h": "bf03de48d95a",
+   "h": "0d6923c2a202",
    "c": "ecf2fc33ce58",
    "d": "2026-10-03"
   },
@@ -3406,7 +3431,6 @@
   "001051": "2026-11-13",
   "001053": "2026-10-29",
   "0201030d": "2026-10-31",
-  "100-m": "2026-10-26",
   "2347-4": "2026-10-08",
   "2699md": "2026-10-13",
   "2m-det09s": "2026-10-30",
@@ -3416,11 +3440,8 @@
   "5731-4": "2026-10-21",
   "5972md": "2026-10-29",
   "80-b9": "2026-11-11",
-  "89-e4": "2026-11-13",
   "89-e6": "2026-11-09",
   "89-j1": "2026-10-31",
-  "89-j18": "2026-11-05",
-  "89-j28c": "2026-10-06",
   "89-j3b": "2026-10-15",
   "89-j6": "2026-11-03",
   "89-m4a": "2026-10-23",
