@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 613,
+ "ativos": 612,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -68,9 +68,9 @@
    "d": "2026-10-29"
   },
   "/categoria/geral/": {
-   "h": "cb2557466c96",
-   "c": "b4b689616acd",
-   "d": "2026-11-17"
+   "h": "7e675a4d2945",
+   "c": "1e1950c637e9",
+   "d": "2026-11-18"
   },
   "/categoria/interruptores/": {
    "h": "d0d13e0ff0df",
@@ -451,11 +451,6 @@
    "h": "6fb773d5c552",
    "c": "0b4a3f25749a",
    "d": "2026-10-03"
-  },
-  "/produto/alicate-desencapador-universal-h1307-para-cabos-e-fios--h1307/": {
-   "h": "e82e0ad66f4e",
-   "c": "b103d769fe60",
-   "d": "2026-10-27"
   },
   "/produto/android-7-octacore-double-din-2gb-ram-64gb-memoria-kx3--krc4110/": {
    "h": "47f2cd405114",
@@ -1938,7 +1933,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-halogena-pr21w-1-polo-12v-pacote-c-10-uni--1025007/": {
-   "h": "c1e5511134ed",
+   "h": "2c1f9889e403",
    "c": "d6c9d5a029f1",
    "d": "2026-10-12"
   },
@@ -1988,7 +1983,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-super-branca-8500k-hb4-12v-50w-pacote-c-10-uns--1011hb4/": {
-   "h": "aed5a629f9a9",
+   "h": "c425bd74fc27",
    "c": "9afdef700bb1",
    "d": "2026-10-12"
   },
@@ -2378,7 +2373,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-7pol-gm-onix-2013-2018-cobalt-2011-2015-preta-sem--2083961711008/": {
-   "h": "eb2f001ea8a2",
+   "h": "9889d5773005",
    "c": "30e25820f6f5",
    "d": "2026-11-17"
   },
@@ -3308,7 +3303,7 @@
    "d": "2026-10-03"
   },
   "/produto/trava-antifurto-para-estepe-hilux--mk5001/": {
-   "h": "0d6923c2a202",
+   "h": "26ba90ae0219",
    "c": "ecf2fc33ce58",
    "d": "2026-10-03"
   },
@@ -3426,6 +3421,7 @@
   "cpaa-32209ax": "2026-10-30",
   "fdi-mp5": "2026-10-30",
   "ftca-to-0128w": "2026-11-13",
+  "h1307": "2026-11-18",
   "ip09-0046-v1": "2026-10-30",
   "ip09-0049-v1": "2026-10-07",
   "ip09-0063-v1": "2026-10-31",
