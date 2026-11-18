@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 615,
+ "ativos": 613,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -48,9 +48,9 @@
    "d": "2026-10-19"
   },
   "/categoria/chicotes/": {
-   "h": "8fabfdd837b5",
-   "c": "78dd807c21dd",
-   "d": "2026-11-13"
+   "h": "ff990a47f895",
+   "c": "f75c0a20e917",
+   "d": "2026-11-18"
   },
   "/categoria/diversos/": {
    "h": "cd0621be39a7",
@@ -98,8 +98,8 @@
    "d": "2026-11-12"
   },
   "/categoria/moldura/": {
-   "h": "a9b7a93fdd72",
-   "c": "a8c5dc936f01",
+   "h": "512b85d6d0ac",
+   "c": "34a6c778648e",
    "d": "2026-11-18"
   },
   "/categoria/moldura/chevrolet/": {
@@ -218,9 +218,9 @@
    "d": "2026-10-03"
   },
   "/marca/fitto-joker/": {
-   "h": "42568df0443c",
-   "c": "3353fc54c801",
-   "d": "2026-11-13"
+   "h": "df74a4d76e0c",
+   "c": "cd9ffa660567",
+   "d": "2026-11-18"
   },
   "/marca/fks/": {
    "h": "0116cdcb68c0",
@@ -238,8 +238,8 @@
    "d": "2026-10-03"
   },
   "/marca/joker/": {
-   "h": "f52c35a8074b",
-   "c": "c7284f55d138",
+   "h": "a9c76d7ce9de",
+   "c": "6e8b5938a472",
    "d": "2026-11-18"
   },
   "/marca/knup/": {
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "a6ad1b2416ec",
-   "c": "1f0b5096ae47",
+   "h": "b7caa4352a32",
+   "c": "2210bf755cee",
    "d": "2026-11-18"
   },
   "/privacidade/": {
@@ -988,12 +988,12 @@
    "d": "2026-10-03"
   },
   "/produto/chicote-de-alimentacao-compativel-com-gm-onix-2021-sem--ftca-gm-0018c-rz/": {
-   "h": "531e3e70eaf8",
+   "h": "9f1c08bf2d7f",
    "c": "b30492b6531a",
    "d": "2026-10-03"
   },
   "/produto/chicote-de-alimentacao-compativel-com-gm-s10-ar-digital--ftca-gm-0020c-rz/": {
-   "h": "32e3f0b7326e",
+   "h": "4058f7d9f628",
    "c": "1d6ed246f246",
    "d": "2026-10-06"
   },
@@ -1476,11 +1476,6 @@
    "h": "eb963833ede9",
    "c": "20edecc0cedb",
    "d": "2026-10-03"
-  },
-  "/produto/i-panel-de-09-polegadas-mitsubishi-pajero-tr4-2004-15-preto--ip09-0349-v1/": {
-   "h": "d9e68d0ad507",
-   "c": "47f339e3f441",
-   "d": "2026-11-18"
   },
   "/produto/interruptor-bloqueio-logan-sandero-14--1511006/": {
    "h": "8b3399489961",
@@ -2258,7 +2253,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-9-hyundai-ix35-2010-19-preto-fosco-ch-joker--ip09-0085-v1/": {
-   "h": "6e7c72b21a62",
+   "h": "6309dc711ba3",
    "c": "8c569e0855c2",
    "d": "2026-10-03"
   },
@@ -2448,7 +2443,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-chevrolet-cobalt-lt-ltz--md09-0111-v1/": {
-   "h": "3b48f092ce5b",
+   "h": "f1d16d48012e",
    "c": "e5164aae9e91",
    "d": "2026-10-03"
   },
@@ -2483,7 +2478,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-suzuki-vitara-2016-22--md09-0094-v2/": {
-   "h": "86070a16bc0c",
+   "h": "bf146d581c8e",
    "c": "8838dbd9924f",
    "d": "2026-10-03"
   },
@@ -2813,7 +2808,7 @@
    "d": "2026-10-03"
   },
   "/produto/pc-joker-king-unificado-jeep-compass-2011-16-chrysler-300c--kpc-jecy-0024c/": {
-   "h": "2a7bafcf9518",
+   "h": "05ce2f437210",
    "c": "4880ada71d83",
    "d": "2026-10-03"
   },
@@ -2863,14 +2858,9 @@
    "d": "2026-10-03"
   },
   "/produto/power-cables-ace-series-para-gm-unificado-padrao-cruze-2012--ftca-gm-0016c-rz/": {
-   "h": "c3b72b23b361",
+   "h": "a42d35d6f23a",
    "c": "0c8e71b9b9ba",
    "d": "2026-10-06"
-  },
-  "/produto/power-cables-ace-series-para-honda-unificado-padrao-civic--apc-ho-0048c/": {
-   "h": "59fba4c96e98",
-   "c": "8fd8ac1d171d",
-   "d": "2026-10-03"
   },
   "/produto/power-cables-ace-series-para-hyundai-kia-unificado-padrao--kpc-hyki-3061w/": {
    "h": "9c816180819f",
@@ -3313,7 +3303,7 @@
    "d": "2026-10-03"
   },
   "/produto/toyota-hilux-2012-15-sw4-com-uma-moldura-auxiliar-para-a-c--ip09-0161-v1/": {
-   "h": "e779e1c58ab8",
+   "h": "5ea71d0975c2",
    "c": "123faf57e42e",
    "d": "2026-10-03"
   },
@@ -3431,6 +3421,7 @@
   "89-m4a": "2026-10-23",
   "af10000123": "2026-10-26",
   "af10000294": "2026-10-08",
+  "apc-ho-0048c": "2026-11-18",
   "blackbox-pro": "2026-10-30",
   "cpaa-32209ax": "2026-10-30",
   "fdi-mp5": "2026-10-30",
@@ -3440,6 +3431,7 @@
   "ip09-0063-v1": "2026-10-31",
   "ip09-0067-v1": "2026-11-16",
   "ip09-0160-v1": "2026-10-05",
+  "ip09-0349-v1": "2026-11-18",
   "k2h7": "2026-10-09",
   "kc360-keco9000": "2026-10-20",
   "kpc-hy-0066w": "2026-11-04",
