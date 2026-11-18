@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 616,
+ "ativos": 615,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -73,9 +73,9 @@
    "d": "2026-11-17"
   },
   "/categoria/interruptores/": {
-   "h": "afb4cac626b0",
-   "c": "ad49c94008b8",
-   "d": "2026-10-24"
+   "h": "d0d13e0ff0df",
+   "c": "ede06ca5a3b9",
+   "d": "2026-11-18"
   },
   "/categoria/lampada-de-led/": {
    "h": "bbb9322f51b4",
@@ -293,9 +293,9 @@
    "d": "2026-10-27"
   },
   "/marca/tiger-auto/": {
-   "h": "fdba1fdadf6d",
-   "c": "7106c1c5b2a4",
-   "d": "2026-11-16"
+   "h": "895080ce8ea5",
+   "c": "3b894c633846",
+   "d": "2026-11-18"
   },
   "/marca/tragial/": {
    "h": "a4a7b8eb3e39",
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "4b031aa74836",
-   "c": "1c3c984f0a43",
+   "h": "0eb0f9c60d79",
+   "c": "d158c9e25a98",
    "d": "2026-11-18"
   },
   "/privacidade/": {
@@ -583,7 +583,7 @@
    "d": "2026-10-05"
   },
   "/produto/botao-interruptor-de-vidro-eletrico-fiet-uno-led-verde-duplo--biv-fia-1005/": {
-   "h": "dac870024841",
+   "h": "f5e8a0621ca0",
    "c": "86e9a5a09105",
    "d": "2026-10-03"
   },
@@ -1483,7 +1483,7 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-bloqueio-logan-sandero-14--1511006/": {
-   "h": "0e8388e2bc82",
+   "h": "8b3399489961",
    "c": "7e4795296c1d",
    "d": "2026-10-05"
   },
@@ -1568,7 +1568,7 @@
    "d": "2026-10-05"
   },
   "/produto/interruptor-trava-destrava-logan--1511005/": {
-   "h": "f0ff4f4e17d4",
+   "h": "c78f62e20e2e",
    "c": "7cf84c4c3807",
    "d": "2026-10-05"
   },
@@ -1583,7 +1583,7 @@
    "d": "2026-10-05"
   },
   "/produto/interruptor-vidro-gol-g3--biv-vol-3010/": {
-   "h": "ee22588e40e2",
+   "h": "6485672f5e43",
    "c": "d7d7ba3ce811",
    "d": "2026-10-03"
   },
@@ -1591,11 +1591,6 @@
    "h": "5c758134f9fd",
    "c": "0ef851e43009",
    "d": "2026-10-03"
-  },
-  "/produto/interruptor-vidro-logan-antigo-sandero--1511003/": {
-   "h": "6f9e8c48c459",
-   "c": "18ccc98f3eec",
-   "d": "2026-10-05"
   },
   "/produto/interruptor-vidro-palio-fire-d-dir-led-ambar--biv-fia-1014/": {
    "h": "734ca23d1485",
@@ -1618,7 +1613,7 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-vidro-uno-d-dir-2005-led-verde-simples--biv-fia-1018/": {
-   "h": "528e69f1584d",
+   "h": "cc5f094a1ff1",
    "c": "49b8d5251697",
    "d": "2026-10-03"
   },
@@ -3414,6 +3409,7 @@
   "1501004": "2026-10-15",
   "1502032": "2026-10-24",
   "1502033": "2026-10-05",
+  "1511003": "2026-11-18",
   "001051": "2026-11-13",
   "001053": "2026-10-29",
   "0201030d": "2026-10-31",
