@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 612,
+ "ativos": 610,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -43,9 +43,9 @@
    "d": "2026-10-20"
   },
   "/categoria/chave/": {
-   "h": "76c374d597c5",
-   "c": "d29c6fdaff3c",
-   "d": "2026-10-19"
+   "h": "e523fc5c3146",
+   "c": "9b184c004d93",
+   "d": "2026-11-18"
   },
   "/categoria/chicotes/": {
    "h": "ff990a47f895",
@@ -73,8 +73,8 @@
    "d": "2026-11-18"
   },
   "/categoria/interruptores/": {
-   "h": "d0d13e0ff0df",
-   "c": "ede06ca5a3b9",
+   "h": "e6ffed5e825c",
+   "c": "ad9114419695",
    "d": "2026-11-18"
   },
   "/categoria/lampada-de-led/": {
@@ -283,9 +283,9 @@
    "d": "2026-10-03"
   },
   "/marca/rpx/": {
-   "h": "ebef479af596",
-   "c": "8e9b862fec85",
-   "d": "2026-10-19"
+   "h": "a720e35d3f0c",
+   "c": "4b1253a6bebb",
+   "d": "2026-11-18"
   },
   "/marca/tarponn/": {
    "h": "53d1223453c1",
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "b7caa4352a32",
-   "c": "2210bf755cee",
+   "h": "9c3520052dd0",
+   "c": "cf2f5cf10727",
    "d": "2026-11-18"
   },
   "/privacidade/": {
@@ -593,12 +593,12 @@
    "d": "2026-10-05"
   },
   "/produto/botao-retrovisor-corsa-astra-meriva-zafira-vectra-agile-gm--bir-che-2202/": {
-   "h": "484a66b28ccf",
+   "h": "80e7cc549e94",
    "c": "55553101c9fb",
    "d": "2026-10-05"
   },
   "/produto/botao-retrovisor-eletrico-onix-prisma-spin-cobalt-12-19-novo--bir-che-2201/": {
-   "h": "53f7ee05b786",
+   "h": "018d4e420506",
    "c": "9098cb6d3c10",
    "d": "2026-10-03"
   },
@@ -943,22 +943,17 @@
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-volkswagen-2bt-positron-flex--rpx008/": {
-   "h": "34b219314983",
+   "h": "2e085a02fcff",
    "c": "a1475ec941f4",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-volkswagen-2bt-universal--rpx026/": {
-   "h": "2a7cea899188",
+   "h": "9b015adf7417",
    "c": "055f6fc2db2f",
    "d": "2026-10-03"
   },
-  "/produto/chave-canivete-volkswagen-3bt-positron-flex--rpx007/": {
-   "h": "4da8ef1abb75",
-   "c": "1cb624ac36b9",
-   "d": "2026-10-03"
-  },
   "/produto/chave-canivete-volkswagen-3bt-universal--rpx025/": {
-   "h": "aa303bfffb10",
+   "h": "46eeed0e7039",
    "c": "a622590f9f55",
    "d": "2026-10-03"
   },
@@ -1548,7 +1543,7 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-renault-retrovisor-novo-sandero-logan--bir-ren-6201/": {
-   "h": "56b5b574fd3a",
+   "h": "092af6eca903",
    "c": "b826a949d62e",
    "d": "2026-10-05"
   },
@@ -1583,7 +1578,7 @@
    "d": "2026-10-03"
   },
   "/produto/interruptor-vidro-palio-fire-d-dir-led-ambar--biv-fia-1014/": {
-   "h": "734ca23d1485",
+   "h": "63420ae1a69a",
    "c": "29918a45947d",
    "d": "2026-10-05"
   },
@@ -1595,11 +1590,6 @@
   "/produto/interruptor-vidro-palio-novo-d-esq-duplo--1502001/": {
    "h": "b4a87f71b893",
    "c": "b9c9ef17cada",
-   "d": "2026-10-03"
-  },
-  "/produto/interruptor-vidro-palio-young-d-esq-led-verde-duplo--biv-fia-1015/": {
-   "h": "2290b8590008",
-   "c": "e281eea5a71a",
    "d": "2026-10-03"
   },
   "/produto/interruptor-vidro-uno-d-dir-2005-led-verde-simples--biv-fia-1018/": {
@@ -3417,6 +3407,7 @@
   "af10000123": "2026-10-26",
   "af10000294": "2026-10-08",
   "apc-ho-0048c": "2026-11-18",
+  "biv-fia-1015": "2026-11-18",
   "blackbox-pro": "2026-10-30",
   "cpaa-32209ax": "2026-10-30",
   "fdi-mp5": "2026-10-30",
@@ -3441,6 +3432,7 @@
   "nanoh7": "2026-11-11",
   "p17-hb4": "2026-11-17",
   "rpx005": "2026-10-19",
+  "rpx007": "2026-11-18",
   "sm09-0411-v1": "2026-10-07",
   "sm10-0028-v1": "2026-10-21"
  },
