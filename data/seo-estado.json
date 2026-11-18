@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 612,
+ "ativos": 611,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -43,8 +43,8 @@
    "d": "2026-10-20"
   },
   "/categoria/chave/": {
-   "h": "76c374d597c5",
-   "c": "d29c6fdaff3c",
+   "h": "e523fc5c3146",
+   "c": "9b184c004d93",
    "d": "2026-11-18"
   },
   "/categoria/chicotes/": {
@@ -283,8 +283,8 @@
    "d": "2026-10-03"
   },
   "/marca/rpx/": {
-   "h": "ebef479af596",
-   "c": "8e9b862fec85",
+   "h": "a720e35d3f0c",
+   "c": "4b1253a6bebb",
    "d": "2026-11-18"
   },
   "/marca/tarponn/": {
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "b7caa4352a32",
-   "c": "2210bf755cee",
+   "h": "9c3520052dd0",
+   "c": "cf2f5cf10727",
    "d": "2026-11-18"
   },
   "/privacidade/": {
@@ -943,22 +943,17 @@
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-volkswagen-2bt-positron-flex--rpx008/": {
-   "h": "34b219314983",
+   "h": "2e085a02fcff",
    "c": "a1475ec941f4",
    "d": "2026-10-03"
   },
   "/produto/chave-canivete-volkswagen-2bt-universal--rpx026/": {
-   "h": "2a7cea899188",
+   "h": "9b015adf7417",
    "c": "055f6fc2db2f",
    "d": "2026-10-03"
   },
-  "/produto/chave-canivete-volkswagen-3bt-positron-flex--rpx007/": {
-   "h": "4da8ef1abb75",
-   "c": "1cb624ac36b9",
-   "d": "2026-11-18"
-  },
   "/produto/chave-canivete-volkswagen-3bt-universal--rpx025/": {
-   "h": "aa303bfffb10",
+   "h": "46eeed0e7039",
    "c": "a622590f9f55",
    "d": "2026-10-03"
   },
@@ -3441,6 +3436,7 @@
   "nanoh7": "2026-11-11",
   "p17-hb4": "2026-11-17",
   "rpx005": "2026-10-19",
+  "rpx007": "2026-11-18",
   "sm09-0411-v1": "2026-10-07",
   "sm10-0028-v1": "2026-10-21"
  },
