@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 611,
+ "ativos": 610,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -98,34 +98,34 @@
    "d": "2026-11-12"
   },
   "/categoria/moldura/": {
-   "h": "512b85d6d0ac",
-   "c": "34a6c778648e",
-   "d": "2026-11-18"
+   "h": "a42b715124ef",
+   "c": "f9fc8159cfa7",
+   "d": "2026-11-19"
   },
   "/categoria/moldura/chevrolet/": {
-   "h": "56d779152258",
-   "c": "1faa0d5236f4",
-   "d": "2026-10-31"
+   "h": "ebfe3e74cd54",
+   "c": "22cd9ae01601",
+   "d": "2026-11-19"
   },
   "/categoria/moldura/fiat/": {
-   "h": "dc248350b74c",
-   "c": "da37ea43ef42",
-   "d": "2026-11-17"
+   "h": "006cea0e32d6",
+   "c": "893259634e2f",
+   "d": "2026-11-19"
   },
   "/categoria/moldura/honda/": {
-   "h": "e4f3beedd070",
-   "c": "28d0cc9492f1",
-   "d": "2026-11-18"
+   "h": "3ed160ee24b3",
+   "c": "bc16ca05dddf",
+   "d": "2026-11-19"
   },
   "/categoria/moldura/hyundai/": {
-   "h": "45c1e4856dee",
-   "c": "8ea69c0a91e0",
-   "d": "2026-11-16"
+   "h": "7bf28579f803",
+   "c": "98ea7f6a8913",
+   "d": "2026-11-19"
   },
   "/categoria/moldura/toyota/": {
-   "h": "723d084be8fe",
-   "c": "2bce34bcb3d2",
-   "d": "2026-10-31"
+   "h": "25a0fb914860",
+   "c": "da0fc10da004",
+   "d": "2026-11-19"
   },
   "/categoria/moldura/volkswagen/": {
    "h": "72dee1611662",
@@ -2183,7 +2183,7 @@
    "d": "2026-10-03"
   },
   "/produto/mold-adaptadora-1din-p-9-universal--89-g18/": {
-   "h": "a6e5c5fbb833",
+   "h": "91aa950f3d75",
    "c": "8a904e72651b",
    "d": "2026-10-05"
   },
@@ -2193,19 +2193,14 @@
    "d": "2026-11-17"
   },
   "/produto/mold-fiat-palio-siena-strada-2-ger-czb--89-j28c/": {
-   "h": "861f15cac198",
+   "h": "8c6460903fac",
    "c": "e45dccf7e93a",
    "d": "2026-11-17"
   },
   "/produto/mold-fiat-strada-21-24-pt-fosco-2din--89-j18/": {
-   "h": "29ed7c6be0b2",
+   "h": "9123f8f20aac",
    "c": "b2ab2094063a",
    "d": "2026-11-17"
-  },
-  "/produto/mold-gm-corsa-montana-vectra-2-din-pret--89-m1/": {
-   "h": "f70245d329bd",
-   "c": "81b0d093bb35",
-   "d": "2026-10-29"
   },
   "/produto/mold-gol-g7-amarok-jetta-tiguan-2-din--89-a5/": {
    "h": "cf08fe5da761",
@@ -2223,7 +2218,7 @@
    "d": "2026-10-06"
   },
   "/produto/mold-toyota-hilux-sw4-2-din--89-z3/": {
-   "h": "2acaa91cdef2",
+   "h": "b5a499335219",
    "c": "4ee7af09543d",
    "d": "2026-10-05"
   },
@@ -3408,6 +3403,7 @@
   "89-j1": "2026-10-31",
   "89-j3b": "2026-10-15",
   "89-j6": "2026-11-03",
+  "89-m1": "2026-11-19",
   "89-m4a": "2026-10-23",
   "af10000123": "2026-10-26",
   "af10000294": "2026-10-08",
