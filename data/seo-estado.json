@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 609,
+ "ativos": 608,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -133,9 +133,9 @@
    "d": "2026-10-29"
   },
   "/categoria/multimidia/": {
-   "h": "9f30e42945db",
-   "c": "a21396e983b8",
-   "d": "2026-11-09"
+   "h": "0568828ff0ec",
+   "c": "4592e88095de",
+   "d": "2026-11-20"
   },
   "/categoria/palheta/": {
    "h": "7a96c81b254e",
@@ -253,9 +253,9 @@
    "d": "2026-10-03"
   },
   "/marca/kx3/": {
-   "h": "ec2a03ae2e64",
-   "c": "ee63a6090922",
-   "d": "2026-11-09"
+   "h": "15ac59ee39de",
+   "c": "1d0353927450",
+   "d": "2026-11-20"
   },
   "/marca/ldcar/": {
    "h": "7ad1b7da424a",
@@ -308,9 +308,9 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "99f087690c68",
-   "c": "5f978eb87819",
-   "d": "2026-11-19"
+   "h": "4177ebed23ad",
+   "c": "98c6101967b6",
+   "d": "2026-11-20"
   },
   "/privacidade/": {
    "h": "a0a809fd1a4d",
@@ -453,18 +453,13 @@
    "d": "2026-10-03"
   },
   "/produto/android-7-octacore-double-din-2gb-ram-64gb-memoria-kx3--krc4110/": {
-   "h": "47f2cd405114",
+   "h": "a82188dfce5c",
    "c": "bba972ec7030",
    "d": "2026-10-03"
   },
   "/produto/android-9-2din-4gb-ram-64gb-memoria-cp-aa-sem-fio--krc5050/": {
    "h": "771bd728cf68",
    "c": "b89e8a6667ea",
-   "d": "2026-10-03"
-  },
-  "/produto/android-9-2gb-ram-64gb-memoria-kx3--krc5010/": {
-   "h": "911285fe7150",
-   "c": "86fa7a35d48a",
    "d": "2026-10-03"
   },
   "/produto/antena-eletronica-pertronic-1000--100-h/": {
@@ -2603,7 +2598,7 @@
    "d": "2026-10-29"
   },
   "/produto/multimidia-android-10-kx3-4gb-ram-64gb-memoria-cp-aa-sem-fio--krc6000/": {
-   "h": "f3d6a0d6568f",
+   "h": "3a187e710213",
    "c": "bfa8bef6e3fb",
    "d": "2026-10-09"
   },
@@ -2618,7 +2613,7 @@
    "d": "2026-10-03"
   },
   "/produto/multimidia-kx3-krc6100-android-carplay-tela-10-5-pol-4-64gb--krc6100/": {
-   "h": "d25e6ea8b8f6",
+   "h": "82dc7b8916ec",
    "c": "63bb94697851",
    "d": "2026-10-09"
   },
@@ -3418,6 +3413,7 @@
   "kc360-keco9000": "2026-10-20",
   "kpc-hy-0066w": "2026-11-04",
   "krc3200": "2026-11-09",
+  "krc5010": "2026-11-20",
   "kx1075": "2026-10-29",
   "ldcar011": "2026-10-23",
   "md09-0017-v3": "2026-10-14",
