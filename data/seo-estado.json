@@ -38,9 +38,9 @@
    "d": "2026-11-14"
   },
   "/categoria/camera/": {
-   "h": "41aaecbde5cb",
-   "c": "a6b1dbea3840",
-   "d": "2026-10-20"
+   "h": "c8a1b2833646",
+   "c": "b0d191f29b47",
+   "d": "2026-11-20"
   },
   "/categoria/chave/": {
    "h": "e523fc5c3146",
@@ -68,8 +68,8 @@
    "d": "2026-10-29"
   },
   "/categoria/geral/": {
-   "h": "2b0dc1156697",
-   "c": "675103875d66",
+   "h": "42d01c9797b7",
+   "c": "2d771309d3a7",
    "d": "2026-11-20"
   },
   "/categoria/interruptores/": {
@@ -253,8 +253,8 @@
    "d": "2026-10-03"
   },
   "/marca/kx3/": {
-   "h": "ec2a03ae2e64",
-   "c": "ee63a6090922",
+   "h": "a372c2bca9e5",
+   "c": "fb6e7a7351c7",
    "d": "2026-11-20"
   },
   "/marca/ldcar/": {
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "99f087690c68",
-   "c": "5f978eb87819",
+   "h": "1064efb3daf9",
+   "c": "b6d5068d6a26",
    "d": "2026-11-20"
   },
   "/privacidade/": {
@@ -687,33 +687,28 @@
    "c": "07a9677d51ed",
    "d": "2026-10-03"
   },
-  "/produto/cam-re-2x1-kx3-eco-130-remove-guia-inverte-dianteira--kc360-keco9000w/": {
-   "h": "97432713021c",
-   "c": "25d65e35946f",
-   "d": "2026-11-20"
-  },
   "/produto/cam-re-2x1-kx3-full-hd-1080p-180-linhas-dinamicas--kc360-k510w/": {
    "h": "7ce99ff4fc0b",
    "c": "6fd85349aa91",
    "d": "2026-11-20"
   },
   "/produto/cam-re-com-macaneta-e-botao-porta-malas-vw-170-lente-vidr--kcvw01/": {
-   "h": "ea0f177e38ca",
+   "h": "d8ead348c7ee",
    "c": "559b2890c380",
    "d": "2026-10-06"
   },
   "/produto/camera-de-re-2x1-kx3-150-grau-hd--kc360-keco9100/": {
-   "h": "e1a6a1242052",
+   "h": "da67c11d36da",
    "c": "411c1bc28c15",
    "d": "2026-10-03"
   },
   "/produto/camera-de-re-2x1-kx3-180-graus-full-hd--kc360-k5100/": {
-   "h": "2d38a9c53c3f",
+   "h": "5f72b06830a3",
    "c": "4a5c878818b9",
    "d": "2026-10-15"
   },
   "/produto/camera-de-re-2x1-kx3-dinamicas-170--kc360-kc500/": {
-   "h": "3b92f99cc4dc",
+   "h": "ede809f92b7d",
    "c": "6581ef987130",
    "d": "2026-10-06"
   },
@@ -721,6 +716,11 @@
    "h": "443f043cb000",
    "c": "7a3454b66fa7",
    "d": "2026-10-03"
+  },
+  "/produto/camera-re-kx3-2x1-remove-guia-inverte-dianteira-130-conect--kc360-keco9000/": {
+   "h": "e221623bff6b",
+   "c": "16a91290b697",
+   "d": "2026-11-20"
   },
   "/produto/canbus-t10-adaptador--mr-100/": {
    "h": "32edcd5b5108",
@@ -1938,7 +1938,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-halogena-pr21w-1-polo-12v-pacote-c-10-uni--1025007/": {
-   "h": "0b02dad38221",
+   "h": "b44c4b2aecb7",
    "c": "d6c9d5a029f1",
    "d": "2026-10-12"
   },
@@ -1988,7 +1988,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-super-branca-8500k-hb4-12v-50w-pacote-c-10-uns--1011hb4/": {
-   "h": "1892dd72d1c5",
+   "h": "08105daed260",
    "c": "9afdef700bb1",
    "d": "2026-10-12"
   },
@@ -2373,7 +2373,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-7pol-gm-onix-2013-2018-cobalt-2011-2015-preta-sem--2083961711008/": {
-   "h": "c4c35bb6e0a3",
+   "h": "4de6bd7f07c3",
    "c": "30e25820f6f5",
    "d": "2026-11-17"
   },
@@ -3303,7 +3303,7 @@
    "d": "2026-10-03"
   },
   "/produto/trava-antifurto-para-estepe-hilux--mk5001/": {
-   "h": "b561ba43cd63",
+   "h": "26ba90ae0219",
    "c": "ecf2fc33ce58",
    "d": "2026-10-03"
   },
@@ -3430,7 +3430,7 @@
   "ip09-0160-v1": "2026-10-05",
   "ip09-0349-v1": "2026-11-18",
   "k2h7": "2026-10-09",
-  "kc360-keco9000": "2026-10-20",
+  "kc360-keco9000w": "2026-11-20",
   "kpc-hy-0066w": "2026-11-04",
   "krc3200": "2026-11-09",
   "kx1075": "2026-10-29",
