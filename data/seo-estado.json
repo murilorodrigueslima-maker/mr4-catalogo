@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 608,
+ "ativos": 612,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -68,9 +68,9 @@
    "d": "2026-10-29"
   },
   "/categoria/geral/": {
-   "h": "7e675a4d2945",
-   "c": "1e1950c637e9",
-   "d": "2026-11-18"
+   "h": "2b0dc1156697",
+   "c": "675103875d66",
+   "d": "2026-11-20"
   },
   "/categoria/interruptores/": {
    "h": "d0d13e0ff0df",
@@ -133,8 +133,8 @@
    "d": "2026-10-29"
   },
   "/categoria/multimidia/": {
-   "h": "0568828ff0ec",
-   "c": "4592e88095de",
+   "h": "9f30e42945db",
+   "c": "a21396e983b8",
    "d": "2026-11-20"
   },
   "/categoria/palheta/": {
@@ -253,8 +253,8 @@
    "d": "2026-10-03"
   },
   "/marca/kx3/": {
-   "h": "15ac59ee39de",
-   "c": "1d0353927450",
+   "h": "ec2a03ae2e64",
+   "c": "ee63a6090922",
    "d": "2026-11-20"
   },
   "/marca/ldcar/": {
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "4177ebed23ad",
-   "c": "98c6101967b6",
+   "h": "99f087690c68",
+   "c": "5f978eb87819",
    "d": "2026-11-20"
   },
   "/privacidade/": {
@@ -453,7 +453,7 @@
    "d": "2026-10-03"
   },
   "/produto/android-7-octacore-double-din-2gb-ram-64gb-memoria-kx3--krc4110/": {
-   "h": "a82188dfce5c",
+   "h": "47f2cd405114",
    "c": "bba972ec7030",
    "d": "2026-10-03"
   },
@@ -461,6 +461,11 @@
    "h": "771bd728cf68",
    "c": "b89e8a6667ea",
    "d": "2026-10-03"
+  },
+  "/produto/android-9-2gb-ram-64gb-memoria-kx3--krc5010/": {
+   "h": "911285fe7150",
+   "c": "86fa7a35d48a",
+   "d": "2026-11-20"
   },
   "/produto/antena-eletronica-pertronic-1000--100-h/": {
    "h": "014c50f8fc4e",
@@ -681,6 +686,16 @@
    "h": "ff0ea2ff7ae5",
    "c": "07a9677d51ed",
    "d": "2026-10-03"
+  },
+  "/produto/cam-re-2x1-kx3-eco-130-remove-guia-inverte-dianteira--kc360-keco9000w/": {
+   "h": "97432713021c",
+   "c": "25d65e35946f",
+   "d": "2026-11-20"
+  },
+  "/produto/cam-re-2x1-kx3-full-hd-1080p-180-linhas-dinamicas--kc360-k510w/": {
+   "h": "7ce99ff4fc0b",
+   "c": "6fd85349aa91",
+   "d": "2026-11-20"
   },
   "/produto/cam-re-com-macaneta-e-botao-porta-malas-vw-170-lente-vidr--kcvw01/": {
    "h": "ea0f177e38ca",
@@ -1143,7 +1158,7 @@
    "d": "2026-10-03"
   },
   "/produto/d2-ldcar-30-000-lumens--ld2/": {
-   "h": "3c1a88a2e3b3",
+   "h": "11f6154653ab",
    "c": "5b2cebd4b6c0",
    "d": "2026-10-20"
   },
@@ -1158,17 +1173,17 @@
    "d": "2026-10-03"
   },
   "/produto/d3-ldcar-30-000-lumens--ld3/": {
-   "h": "815a8d9bfe7c",
+   "h": "0dc00ed1e531",
    "c": "06300fdea9e4",
    "d": "2026-10-20"
   },
   "/produto/d4-ldcar-30-000-lumens--ld4/": {
-   "h": "12d79b54c841",
+   "h": "3b5247829fb2",
    "c": "89e69a07642d",
    "d": "2026-10-03"
   },
   "/produto/d5-ldcar-30-000-lumens--ld5/": {
-   "h": "43fd6721e229",
+   "h": "d4571d7d829a",
    "c": "0699eeee8043",
    "d": "2026-10-20"
   },
@@ -1923,7 +1938,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-halogena-pr21w-1-polo-12v-pacote-c-10-uni--1025007/": {
-   "h": "2c1f9889e403",
+   "h": "0b02dad38221",
    "c": "d6c9d5a029f1",
    "d": "2026-10-12"
   },
@@ -1973,7 +1988,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-super-branca-8500k-hb4-12v-50w-pacote-c-10-uns--1011hb4/": {
-   "h": "c425bd74fc27",
+   "h": "1892dd72d1c5",
    "c": "9afdef700bb1",
    "d": "2026-10-12"
   },
@@ -2358,7 +2373,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-7pol-gm-onix-2013-2018-cobalt-2011-2015-preta-sem--2083961711008/": {
-   "h": "9889d5773005",
+   "h": "c4c35bb6e0a3",
    "c": "30e25820f6f5",
    "d": "2026-11-17"
   },
@@ -2592,13 +2607,18 @@
    "c": "eeb32e8b8049",
    "d": "2026-10-03"
   },
+  "/produto/multimidia-9-carplay-aa-krc3200s--krc3200s/": {
+   "h": "9792976813ad",
+   "c": "d978daf33f45",
+   "d": "2026-11-20"
+  },
   "/produto/multimidia-9p-black-mix-caraudio-orange-quad-3-32--bm-4332-9p/": {
    "h": "cdbf2ddf75fa",
    "c": "cb0655cca5cb",
    "d": "2026-10-29"
   },
   "/produto/multimidia-android-10-kx3-4gb-ram-64gb-memoria-cp-aa-sem-fio--krc6000/": {
-   "h": "3a187e710213",
+   "h": "f3d6a0d6568f",
    "c": "bfa8bef6e3fb",
    "d": "2026-10-09"
   },
@@ -2613,7 +2633,7 @@
    "d": "2026-10-03"
   },
   "/produto/multimidia-kx3-krc6100-android-carplay-tela-10-5-pol-4-64gb--krc6100/": {
-   "h": "82dc7b8916ec",
+   "h": "d25e6ea8b8f6",
    "c": "63bb94697851",
    "d": "2026-10-09"
   },
@@ -2768,7 +2788,7 @@
    "d": "2026-10-03"
   },
   "/produto/par-led-atmosfera-externa-vermelho--tp-4039/": {
-   "h": "009b84eef544",
+   "h": "9b7b562b571f",
    "c": "1fcbd2ddc012",
    "d": "2026-10-03"
   },
@@ -3283,7 +3303,7 @@
    "d": "2026-10-03"
   },
   "/produto/trava-antifurto-para-estepe-hilux--mk5001/": {
-   "h": "26ba90ae0219",
+   "h": "b561ba43cd63",
    "c": "ecf2fc33ce58",
    "d": "2026-10-03"
   },
@@ -3413,7 +3433,6 @@
   "kc360-keco9000": "2026-10-20",
   "kpc-hy-0066w": "2026-11-04",
   "krc3200": "2026-11-09",
-  "krc5010": "2026-11-20",
   "kx1075": "2026-10-29",
   "ldcar011": "2026-10-23",
   "md09-0017-v3": "2026-10-14",
