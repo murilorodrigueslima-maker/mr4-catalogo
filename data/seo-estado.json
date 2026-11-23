@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 610,
+ "ativos": 608,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -48,9 +48,9 @@
    "d": "2026-11-18"
   },
   "/categoria/chicotes/": {
-   "h": "ff990a47f895",
-   "c": "f75c0a20e917",
-   "d": "2026-11-18"
+   "h": "beb351b3798a",
+   "c": "0bce8063ac14",
+   "d": "2026-11-23"
   },
   "/categoria/diversos/": {
    "h": "cd0621be39a7",
@@ -78,8 +78,8 @@
    "d": "2026-11-18"
   },
   "/categoria/lampada-de-led/": {
-   "h": "fd104391b005",
-   "c": "c9293e30c08a",
+   "h": "1d98bfeb915e",
+   "c": "d8ddfafafc6e",
    "d": "2026-11-23"
   },
   "/categoria/lampadas-halogenas/": {
@@ -98,39 +98,39 @@
    "d": "2026-11-12"
   },
   "/categoria/moldura/": {
-   "h": "a42b715124ef",
-   "c": "f9fc8159cfa7",
-   "d": "2026-11-19"
+   "h": "bde33a0b1f59",
+   "c": "3b607c479785",
+   "d": "2026-11-23"
   },
   "/categoria/moldura/chevrolet/": {
-   "h": "ebfe3e74cd54",
-   "c": "22cd9ae01601",
-   "d": "2026-11-19"
+   "h": "0406e6a70810",
+   "c": "ad7e137af3aa",
+   "d": "2026-11-23"
   },
   "/categoria/moldura/fiat/": {
-   "h": "006cea0e32d6",
-   "c": "893259634e2f",
-   "d": "2026-11-19"
+   "h": "097c2c9598c7",
+   "c": "19ee9b93552b",
+   "d": "2026-11-23"
   },
   "/categoria/moldura/honda/": {
-   "h": "3ed160ee24b3",
-   "c": "bc16ca05dddf",
-   "d": "2026-11-19"
+   "h": "252174ac0e25",
+   "c": "4dc9c796901b",
+   "d": "2026-11-23"
   },
   "/categoria/moldura/hyundai/": {
-   "h": "7bf28579f803",
-   "c": "98ea7f6a8913",
-   "d": "2026-11-19"
+   "h": "45c1e4856dee",
+   "c": "8ea69c0a91e0",
+   "d": "2026-11-23"
   },
   "/categoria/moldura/toyota/": {
-   "h": "25a0fb914860",
-   "c": "da0fc10da004",
-   "d": "2026-11-19"
+   "h": "8929b73d16fc",
+   "c": "4ac2c173064a",
+   "d": "2026-11-23"
   },
   "/categoria/moldura/volkswagen/": {
-   "h": "72dee1611662",
-   "c": "e580238f5886",
-   "d": "2026-10-29"
+   "h": "ddab5d23121b",
+   "c": "02bc84495a4e",
+   "d": "2026-11-23"
   },
   "/categoria/multimidia/": {
    "h": "9f30e42945db",
@@ -238,9 +238,9 @@
    "d": "2026-10-03"
   },
   "/marca/joker/": {
-   "h": "a9c76d7ce9de",
-   "c": "6e8b5938a472",
-   "d": "2026-11-18"
+   "h": "f446aecf43ae",
+   "c": "ec57bd351f67",
+   "d": "2026-11-23"
   },
   "/marca/knup/": {
    "h": "0d3c66e39a00",
@@ -248,9 +248,9 @@
    "d": "2026-10-06"
   },
   "/marca/kobo/": {
-   "h": "e17efbec88f7",
-   "c": "265869a8102a",
-   "d": "2026-10-03"
+   "h": "227d64b7ee8a",
+   "c": "58d44c7f434a",
+   "d": "2026-11-23"
   },
   "/marca/kx3/": {
    "h": "a372c2bca9e5",
@@ -273,9 +273,9 @@
    "d": "2026-10-30"
   },
   "/marca/permak/": {
-   "h": "b136b57b8093",
-   "c": "94061b822a58",
-   "d": "2026-11-18"
+   "h": "e6607b5929c1",
+   "c": "14849b0d5061",
+   "d": "2026-11-23"
   },
   "/marca/rayx/": {
    "h": "4867cd2ef116",
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "2c2635f623d2",
-   "c": "415ca032bc16",
+   "h": "6f06d0d0244f",
+   "c": "00d3e9487505",
    "d": "2026-11-23"
   },
   "/privacidade/": {
@@ -638,7 +638,7 @@
    "d": "2026-10-03"
   },
   "/produto/cabo-antena-gm-peugeot-2013--80-b6/": {
-   "h": "20dfe483c2bd",
+   "h": "7f446d353c38",
    "c": "1d78efd89525",
    "d": "2026-10-29"
   },
@@ -648,7 +648,7 @@
    "d": "2026-10-03"
   },
   "/produto/cabo-de-antena-kia-hyundai--80-b11/": {
-   "h": "3ac55c94f416",
+   "h": "78a79c845a76",
    "c": "4c6bab76c003",
    "d": "2026-10-03"
   },
@@ -1033,7 +1033,7 @@
    "d": "2026-10-03"
   },
   "/produto/chicote-p-cd-original-toyota--35-y/": {
-   "h": "a46c33013dd2",
+   "h": "04f02e86016c",
    "c": "9695a6d2ea25",
    "d": "2026-10-06"
   },
@@ -1043,7 +1043,7 @@
    "d": "2026-10-05"
   },
   "/produto/chicote-p-cd-pioneer-2250-2280-4250--35-p1/": {
-   "h": "44d35b711e09",
+   "h": "af6e808d565c",
    "c": "74326e85eab4",
    "d": "2026-10-06"
   },
@@ -1060,11 +1060,6 @@
   "/produto/cht-canbus-linha-honda-fit-wr-v-hr-v--31-j/": {
    "h": "1a09e1e454f3",
    "c": "aca2a1445565",
-   "d": "2026-10-03"
-  },
-  "/produto/cht-canbus-linha-vw-polo-virtus-nivus-fo--31-q/": {
-   "h": "ad31f0a6b379",
-   "c": "4c8f8c450c77",
    "d": "2026-10-03"
   },
   "/produto/cinta-abracadeira-10cm-x-2-5mm--44/": {
@@ -1438,7 +1433,7 @@
    "d": "2026-10-03"
   },
   "/produto/h4-led-fenix-11-000-lumens--fenixh4/": {
-   "h": "439bd0262edf",
+   "h": "1efcbdb57288",
    "c": "2f9b3cb56e80",
    "d": "2026-10-03"
   },
@@ -1718,7 +1713,7 @@
    "d": "2026-10-03"
   },
   "/produto/kit-led-full-mini-r8-chip-csp-2-lamp-12v-30000lm-6500k-h4-2--sc-r8mini-h4-sc/": {
-   "h": "f1569febba97",
+   "h": "7bebcd2ab2c3",
    "c": "d51706046319",
    "d": "2026-10-03"
   },
@@ -2098,7 +2093,7 @@
    "d": "2026-10-29"
   },
   "/produto/led-laser-h4-de-alta-potencia-com-projetor-60w-6500k-12v-24v--1026h4/": {
-   "h": "8f50529391f4",
+   "h": "86553b627708",
    "c": "08d3ecb40bea",
    "d": "2026-10-03"
   },
@@ -2118,27 +2113,27 @@
    "d": "2026-10-03"
   },
   "/produto/luminaria-72-led-12w-bivolt-asx5030--2285-3/": {
-   "h": "f3e153f135bd",
+   "h": "551c7d01f963",
    "c": "2cf4d590df4b",
    "d": "2026-10-09"
   },
   "/produto/m7-9005-m7-9005-kit-led-super-canbus-12v-45w-chip-csp--001058/": {
-   "h": "17ca87060ed2",
+   "h": "f316eff6d7c3",
    "c": "e288652e5645",
    "d": "2026-10-03"
   },
   "/produto/m7-9006-m7-9006-kit-led-super-canbus-12v-45w-chip-csp--001057/": {
-   "h": "f51aa08763c0",
+   "h": "16b15319f477",
    "c": "0fb41f216da5",
    "d": "2026-10-03"
   },
   "/produto/m7-h1-m7-h1-kit-led-super-canbus-12v-45w-chip-csp--001054/": {
-   "h": "674d629e067b",
+   "h": "f2da0293ceea",
    "c": "231e848004f4",
    "d": "2026-10-03"
   },
   "/produto/m7-h16-m7-h16-kit-led-super-canbus-12v-45w-chip-csp--001059/": {
-   "h": "a9e8859aa929",
+   "h": "f0f2226d0956",
    "c": "dfd6876f782d",
    "d": "2026-10-03"
   },
@@ -2248,7 +2243,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-2-din-9-hyundai-ix35-2010-19-preto-fosco-ch-joker--ip09-0085-v1/": {
-   "h": "6309dc711ba3",
+   "h": "3a880028b0c3",
    "c": "8c569e0855c2",
    "d": "2026-10-03"
   },
@@ -2448,7 +2443,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-fiat-palio-attractive--md09-0415-v1/": {
-   "h": "c47668249a1c",
+   "h": "4cadcbfe5e4c",
    "c": "2d3841dca9eb",
    "d": "2026-10-03"
   },
@@ -2483,7 +2478,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-com-toyota-hilux-2006-15--md09-0162-v1/": {
-   "h": "bbb1a3a6bf6e",
+   "h": "7620a85d8f8e",
    "c": "9df70e9ab79b",
    "d": "2026-10-03"
   },
@@ -2493,7 +2488,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-9-polegadas-compativel-comfiat-palio-g2-2002-14--md09-0396-v1/": {
-   "h": "225088a513dc",
+   "h": "55aed3313388",
    "c": "ef6fd71ea65d",
    "d": "2026-10-03"
   },
@@ -2518,7 +2513,7 @@
    "d": "2026-10-03"
   },
   "/produto/moldura-plastica-9-polegadas-compativel-com-fiat-strada--md09-0102-v1/": {
-   "h": "1f5085194964",
+   "h": "348b24ca9838",
    "c": "52f8d838378e",
    "d": "2026-10-03"
   },
@@ -2535,11 +2530,6 @@
   "/produto/moldura-plastica-9-polegadas-compativel-com-hyundai-creta--md09-0026-v1/": {
    "h": "80d3651f4c63",
    "c": "66452b55e5fb",
-   "d": "2026-10-03"
-  },
-  "/produto/moldura-vw-polo-virtus-t-cross-17-22-9p-black-piano--ip09-0032-v1/": {
-   "h": "1489331013e1",
-   "c": "7187d10263a1",
    "d": "2026-10-03"
   },
   "/produto/motor-fechadura-eletrica-onix-2-prisma-fo2-original--mot-onix-2/": {
@@ -2678,17 +2668,17 @@
    "d": "2026-10-03"
   },
   "/produto/p17-super-brigh-h1--p17h1/": {
-   "h": "405729bcf34d",
+   "h": "80f7fa467edf",
    "c": "434bc3675ccf",
    "d": "2026-11-03"
   },
   "/produto/p17-super-brigh-h7--p17h7/": {
-   "h": "4c2d8348f921",
+   "h": "b01c982cf3b7",
    "c": "404f859f8c2f",
    "d": "2026-11-03"
   },
   "/produto/p17-super-bright-h4--p17h4/": {
-   "h": "dd7e7783490a",
+   "h": "d4a52deb1b19",
    "c": "aaa3772643ce",
    "d": "2026-11-03"
   },
@@ -3288,7 +3278,7 @@
    "d": "2026-10-03"
   },
   "/produto/toyota-hilux-2012-15-sw4-com-uma-moldura-auxiliar-para-a-c--ip09-0161-v1/": {
-   "h": "5ea71d0975c2",
+   "h": "3bffacab2edd",
    "c": "123faf57e42e",
    "d": "2026-10-03"
   },
@@ -3393,6 +3383,7 @@
   "2347-4": "2026-10-08",
   "2699md": "2026-10-13",
   "2m-det09s": "2026-10-30",
+  "31-q": "2026-11-23",
   "4177md": "2026-11-12",
   "46-a": "2026-11-12",
   "5615-3": "2026-10-29",
@@ -3413,6 +3404,7 @@
   "fdi-mp5": "2026-10-30",
   "ftca-to-0128w": "2026-11-13",
   "h1307": "2026-11-18",
+  "ip09-0032-v1": "2026-11-23",
   "ip09-0046-v1": "2026-10-30",
   "ip09-0049-v1": "2026-10-07",
   "ip09-0063-v1": "2026-10-31",
