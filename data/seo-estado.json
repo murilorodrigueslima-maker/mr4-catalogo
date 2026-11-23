@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 608,
+ "ativos": 607,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -58,9 +58,9 @@
    "d": "2026-11-18"
   },
   "/categoria/farol-de-milha/": {
-   "h": "9b69a338f923",
-   "c": "312fb3457cfb",
-   "d": "2026-11-05"
+   "h": "011909aa6ac8",
+   "c": "347a337ab4a0",
+   "d": "2026-11-23"
   },
   "/categoria/fusiveis/": {
    "h": "27a17678cadc",
@@ -78,8 +78,8 @@
    "d": "2026-11-18"
   },
   "/categoria/lampada-de-led/": {
-   "h": "1d98bfeb915e",
-   "c": "d8ddfafafc6e",
+   "h": "ba34b44bf0f6",
+   "c": "77709c36c884",
    "d": "2026-11-23"
   },
   "/categoria/lampadas-halogenas/": {
@@ -258,8 +258,8 @@
    "d": "2026-11-20"
   },
   "/marca/ldcar/": {
-   "h": "c434b8c7ad84",
-   "c": "81c671e0a9cc",
+   "h": "7dd2036b6302",
+   "c": "f4947011c1e0",
    "d": "2026-11-23"
   },
   "/marca/look-out/": {
@@ -308,8 +308,8 @@
    "d": "2026-10-03"
   },
   "/marcas/": {
-   "h": "6f06d0d0244f",
-   "c": "00d3e9487505",
+   "h": "668271ef7b63",
+   "c": "0c81f19e673f",
    "d": "2026-11-23"
   },
   "/privacidade/": {
@@ -1213,7 +1213,7 @@
    "d": "2026-10-03"
   },
   "/produto/farol-de-3-polegadas-blindado-12-24v-1100w-6500k-40000l--sgt3/": {
-   "h": "736c4f5befea",
+   "h": "eef230967c03",
    "c": "ee8602f5ebd9",
    "d": "2026-11-05"
   },
@@ -1291,11 +1291,6 @@
    "h": "107dd4023a3f",
    "c": "aaa3098bcf38",
    "d": "2026-10-03"
-  },
-  "/produto/farol-projetor-led-auxiliar-toyota--ldcar012/": {
-   "h": "d4adbb38f64b",
-   "c": "8e359af098cd",
-   "d": "2026-10-29"
   },
   "/produto/fdm-a-agile-14-19-cobalt-sonic-onix-spin-new-prisma-e--0204022e/": {
    "h": "3fe3494ec87f",
@@ -1433,7 +1428,7 @@
    "d": "2026-10-03"
   },
   "/produto/h4-led-fenix-11-000-lumens--fenixh4/": {
-   "h": "1efcbdb57288",
+   "h": "749925d4019e",
    "c": "2f9b3cb56e80",
    "d": "2026-10-03"
   },
@@ -1658,12 +1653,12 @@
    "d": "2026-10-03"
   },
   "/produto/kit-farol-de-milha-led-diversos-12v-asx4403--5729-7/": {
-   "h": "cd2745f3aea3",
+   "h": "0875a677c824",
    "c": "8ca9ae915fa1",
    "d": "2026-10-09"
   },
   "/produto/kit-farol-de-milha-led-fiat-12v-asx4402--5730-5/": {
-   "h": "04ee0a524ba7",
+   "h": "ad1a59a59113",
    "c": "8cf61dfdc6f6",
    "d": "2026-10-03"
   },
@@ -1673,7 +1668,7 @@
    "d": "2026-10-06"
   },
   "/produto/kit-farol-de-milha-led-vw-g5-12v-asx4410--asx4410/": {
-   "h": "3763d8bf1db9",
+   "h": "d6ff50ba8bec",
    "c": "a3f91e9276d0",
    "d": "2026-10-03"
   },
@@ -1713,7 +1708,7 @@
    "d": "2026-10-03"
   },
   "/produto/kit-led-full-mini-r8-chip-csp-2-lamp-12v-30000lm-6500k-h4-2--sc-r8mini-h4-sc/": {
-   "h": "7bebcd2ab2c3",
+   "h": "f1569febba97",
    "c": "d51706046319",
    "d": "2026-10-03"
   },
@@ -2118,22 +2113,22 @@
    "d": "2026-10-09"
   },
   "/produto/m7-9005-m7-9005-kit-led-super-canbus-12v-45w-chip-csp--001058/": {
-   "h": "f316eff6d7c3",
+   "h": "301b1ea1284a",
    "c": "e288652e5645",
    "d": "2026-10-03"
   },
   "/produto/m7-9006-m7-9006-kit-led-super-canbus-12v-45w-chip-csp--001057/": {
-   "h": "16b15319f477",
+   "h": "34856869dfab",
    "c": "0fb41f216da5",
    "d": "2026-10-03"
   },
   "/produto/m7-h1-m7-h1-kit-led-super-canbus-12v-45w-chip-csp--001054/": {
-   "h": "f2da0293ceea",
+   "h": "5ded04b94f66",
    "c": "231e848004f4",
    "d": "2026-10-03"
   },
   "/produto/m7-h16-m7-h16-kit-led-super-canbus-12v-45w-chip-csp--001059/": {
-   "h": "f0f2226d0956",
+   "h": "5363412bc4aa",
    "c": "dfd6876f782d",
    "d": "2026-10-03"
   },
@@ -2668,17 +2663,17 @@
    "d": "2026-10-03"
   },
   "/produto/p17-super-brigh-h1--p17h1/": {
-   "h": "80f7fa467edf",
+   "h": "83648524918b",
    "c": "434bc3675ccf",
    "d": "2026-11-03"
   },
   "/produto/p17-super-brigh-h7--p17h7/": {
-   "h": "b01c982cf3b7",
+   "h": "dfa0e3328d03",
    "c": "404f859f8c2f",
    "d": "2026-11-03"
   },
   "/produto/p17-super-bright-h4--p17h4/": {
-   "h": "d4a52deb1b19",
+   "h": "e3fd29b96234",
    "c": "aaa3772643ce",
    "d": "2026-11-03"
   },
@@ -3417,6 +3412,7 @@
   "krc3200": "2026-11-09",
   "kx1075": "2026-10-29",
   "ldcar011": "2026-10-23",
+  "ldcar012": "2026-11-23",
   "md09-0017-v3": "2026-10-14",
   "md09-0040-v2": "2026-11-13",
   "md09-0281-v1": "2026-10-16",
