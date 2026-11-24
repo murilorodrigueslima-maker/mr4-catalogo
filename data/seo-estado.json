@@ -1,6 +1,6 @@
 {
  "versao": 1,
- "ativos": 607,
+ "ativos": 606,
  "lastmod": {
   "/": {
    "h": "56e6f564db1b",
@@ -68,9 +68,9 @@
    "d": "2026-10-29"
   },
   "/categoria/geral/": {
-   "h": "42d01c9797b7",
-   "c": "2d771309d3a7",
-   "d": "2026-11-20"
+   "h": "e0a064d4c857",
+   "c": "faf18fcb75a9",
+   "d": "2026-11-24"
   },
   "/categoria/interruptores/": {
    "h": "d0d13e0ff0df",
@@ -78,9 +78,9 @@
    "d": "2026-11-18"
   },
   "/categoria/lampada-de-led/": {
-   "h": "ba34b44bf0f6",
-   "c": "77709c36c884",
-   "d": "2026-11-23"
+   "h": "fd104391b005",
+   "c": "c9293e30c08a",
+   "d": "2026-11-24"
   },
   "/categoria/lampadas-halogenas/": {
    "h": "c92c9c34fd3f",
@@ -248,9 +248,9 @@
    "d": "2026-10-06"
   },
   "/marca/kobo/": {
-   "h": "227d64b7ee8a",
-   "c": "58d44c7f434a",
-   "d": "2026-11-23"
+   "h": "e17efbec88f7",
+   "c": "265869a8102a",
+   "d": "2026-11-24"
   },
   "/marca/kx3/": {
    "h": "a372c2bca9e5",
@@ -1428,7 +1428,7 @@
    "d": "2026-10-03"
   },
   "/produto/h4-led-fenix-11-000-lumens--fenixh4/": {
-   "h": "749925d4019e",
+   "h": "439bd0262edf",
    "c": "2f9b3cb56e80",
    "d": "2026-10-03"
   },
@@ -1928,7 +1928,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-halogena-pr21w-1-polo-12v-pacote-c-10-uni--1025007/": {
-   "h": "b44c4b2aecb7",
+   "h": "50ff5489b595",
    "c": "d6c9d5a029f1",
    "d": "2026-10-12"
   },
@@ -1978,7 +1978,7 @@
    "d": "2026-10-03"
   },
   "/produto/lampada-super-branca-8500k-hb4-12v-50w-pacote-c-10-uns--1011hb4/": {
-   "h": "08105daed260",
+   "h": "0c1ab577253e",
    "c": "9afdef700bb1",
    "d": "2026-10-12"
   },
@@ -2088,7 +2088,7 @@
    "d": "2026-10-29"
   },
   "/produto/led-laser-h4-de-alta-potencia-com-projetor-60w-6500k-12v-24v--1026h4/": {
-   "h": "86553b627708",
+   "h": "8f50529391f4",
    "c": "08d3ecb40bea",
    "d": "2026-10-03"
   },
@@ -2108,27 +2108,27 @@
    "d": "2026-10-03"
   },
   "/produto/luminaria-72-led-12w-bivolt-asx5030--2285-3/": {
-   "h": "551c7d01f963",
+   "h": "f3e153f135bd",
    "c": "2cf4d590df4b",
    "d": "2026-10-09"
   },
   "/produto/m7-9005-m7-9005-kit-led-super-canbus-12v-45w-chip-csp--001058/": {
-   "h": "301b1ea1284a",
+   "h": "17ca87060ed2",
    "c": "e288652e5645",
    "d": "2026-10-03"
   },
   "/produto/m7-9006-m7-9006-kit-led-super-canbus-12v-45w-chip-csp--001057/": {
-   "h": "34856869dfab",
+   "h": "f51aa08763c0",
    "c": "0fb41f216da5",
    "d": "2026-10-03"
   },
   "/produto/m7-h1-m7-h1-kit-led-super-canbus-12v-45w-chip-csp--001054/": {
-   "h": "5ded04b94f66",
+   "h": "674d629e067b",
    "c": "231e848004f4",
    "d": "2026-10-03"
   },
   "/produto/m7-h16-m7-h16-kit-led-super-canbus-12v-45w-chip-csp--001059/": {
-   "h": "5363412bc4aa",
+   "h": "a9e8859aa929",
    "c": "dfd6876f782d",
    "d": "2026-10-03"
   },
@@ -2362,11 +2362,6 @@
    "c": "11bd1bf658c2",
    "d": "2026-10-03"
   },
-  "/produto/moldura-7pol-gm-onix-2013-2018-cobalt-2011-2015-preta-sem--2083961711008/": {
-   "h": "4de6bd7f07c3",
-   "c": "30e25820f6f5",
-   "d": "2026-11-17"
-  },
   "/produto/moldura-9-chines-mitsubishi-pajero-sport-g3-2016-black-piano--6002/": {
    "h": "15c72ea00bb6",
    "c": "741f81c31f16",
@@ -2593,7 +2588,7 @@
    "d": "2026-10-03"
   },
   "/produto/multimidia-9-carplay-aa-krc3200s--krc3200s/": {
-   "h": "c103cecac7dd",
+   "h": "080b510ca6aa",
    "c": "da431f1c3aa0",
    "d": "2026-11-20"
   },
@@ -2663,17 +2658,17 @@
    "d": "2026-10-03"
   },
   "/produto/p17-super-brigh-h1--p17h1/": {
-   "h": "83648524918b",
+   "h": "405729bcf34d",
    "c": "434bc3675ccf",
    "d": "2026-11-03"
   },
   "/produto/p17-super-brigh-h7--p17h7/": {
-   "h": "dfa0e3328d03",
+   "h": "4c2d8348f921",
    "c": "404f859f8c2f",
    "d": "2026-11-03"
   },
   "/produto/p17-super-bright-h4--p17h4/": {
-   "h": "e3fd29b96234",
+   "h": "dd7e7783490a",
    "c": "aaa3772643ce",
    "d": "2026-11-03"
   },
@@ -3278,7 +3273,7 @@
    "d": "2026-10-03"
   },
   "/produto/trava-antifurto-para-estepe-hilux--mk5001/": {
-   "h": "26ba90ae0219",
+   "h": "47c52394a27f",
    "c": "ecf2fc33ce58",
    "d": "2026-10-03"
   },
@@ -3374,6 +3369,7 @@
   "001053": "2026-10-29",
   "0201030d": "2026-10-31",
   "202-p": "2026-11-18",
+  "2083961711008": "2026-11-24",
   "2337-5": "2026-11-18",
   "2347-4": "2026-10-08",
   "2699md": "2026-10-13",
